@@ -600,8 +600,13 @@
     </div>
 
     <h3>マルチステップ攻撃の評価</h3>
-    <p class="body"><strong class="plain">The Last Ones</strong> — メモの「32ステップの企業ネットワークシミュレーション」。AIエージェントの攻撃能力を多段階環境で測るベンチマーク。メモの「一般的なセキュリティ機能が欠如した環境なので、スコアだけ見て過度に不安になるのは違う」という注記は冷静で正しい視点。</p>
-    <p class="body"><strong class="plain">Mythos</strong> — メモに「調べてみるか」とあったやつ。文脈的にマルチステップ攻撃評価関連の環境/ベンチマーク名と思われるが、公開情報での特定が難しかった。<b style="color:var(--ink)">勉強会の資料か講師に直接確認するのが早そう。</b></p>
+    <p class="body"><strong class="plain">Claude Mythos Preview</strong> — メモの「調べてみるか」のMythosの正体はこれ。<strong>Anthropic製のフロンティアモデル</strong>(2026年4月7日発表)で、サイバーセキュリティタスクに異常に長けているとされる。「公開するにはリスクが高すぎる」として一般提供せず、テック大手に限定アクセスを与える <code>Project Glasswing</code> という枠組みでテストされている。プレフィックスは「Claude」だった。</p>
+    <p class="body"><strong class="plain">The Last Ones (TLO)</strong> — メモの「32ステップの企業ネットワークシミュレーション」。UK AI Security Institute(AISI)が構築した、初期偵察からネットワーク完全乗っ取りまでをカバーする評価環境で、人間なら約20時間かかる想定。このMythosの評価で使われたベンチマークで、<strong>MythosはTLOを最初から最後まで解いた初のモデル</strong>(10回中3回成功 / 平均32ステップ中22ステップ完了)。</p>
+
+    <div class="note">
+      <span class="nl">⚠ AISIの冷静な見立て</span>
+      面白いのは独立評価機関(AISI)の整理で、<b style="color:var(--ink)">単発タスク(CTF等)では他のフロンティアモデルとほぼ横並び。差が出たのは何十手も連鎖させるTLOだけ</b>だった。つまり「個々の技は皆できる、最後までやり切れるかが分かれ目」という話。メモの「一般的なセキュリティ機能が欠如した環境なのでスコアだけ見て不安になるのは違う」も裏取り済みで、AISI自身が<b style="color:var(--ink)">「弱いシステムは攻略できるが、よく防御されたシステムを破れることを示すものではない」</b>と明言している。講師の整理は正確だった。
+    </div>
   </section>
 
   <!-- DEFENSE -->
@@ -675,7 +680,7 @@
       <span class="blink" style="margin-top:8px"></span>
     </div>
     <p class="disclaimer">
-      ※ AnthropicのAI攻撃事例(GTG-1002 / Claude Code経由)については、技術的証拠の不足を指摘する懐疑論が存在する。本資料は勉強会メモの用語整理を目的としたもので、各主張は一次資料(Anthropicレポート、USENIX論文、Cloudflare/Yamato Security公式ドキュメント等)を当たって裏付けることを推奨。「Mythos」は公開情報での特定ができなかったため、講師/資料での確認が必要。
+      ※ AnthropicのAI攻撃事例(GTG-1002 / Claude Code経由)については、技術的証拠の不足を指摘する懐疑論が存在する。本資料は勉強会メモの用語整理を目的としたもので、各主張は一次資料(Anthropicレポート、USENIX論文、Cloudflare/Yamato Security公式ドキュメント、AISI評価等)を当たって裏付けることを推奨。
     </p>
   </footer>
 
