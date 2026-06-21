@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLアンチパターン 勉強会メモ｜データベース設計の落とし穴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e0f;
+    --bg-raised: #0f1517;
+    --bg-card: #121a1c;
+    --ink: #d8e0dd;
+    --ink-dim: #8a9692;
+    --ink-faint: #5a6663;
+    --line: #1e2a2c;
+    --line-bright: #2c3d40;
+    --acc: #34e3a6;        /* 隼グリーン */
+    --acc-dim: #1f8a66;
+    --vermilion: #ff5c47;  /* 朱雀レッド */
+    --amber: #ffb347;
+    --cyan: #4fd6e8;
+    --glow: rgba(52, 227, 166, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    line-height: 1.85;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, var(--glow), transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 3px);
+  }
+
+  ::selection { background: var(--acc); color: var(--bg); }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 88px 0 60px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--acc);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .kicker::before {
+    content: "";
+    width: 30px; height: 1px;
+    background: var(--acc);
+  }
+  .blink {
+    width: 8px; height: 14px;
+    background: var(--acc);
+    display: inline-block;
+    animation: blink 1.1s steps(2) infinite;
+    box-shadow: 0 0 8px var(--acc);
+  }
+  @keyframes blink { 0%,50% { opacity: 1; } 50.1%,100% { opacity: 0; } }
+
+  h1.title {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    margin-bottom: 22px;
+  }
+  h1.title .em { color: var(--acc); }
+  h1.title .v { color: var(--vermilion); }
+
+  .sub {
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    max-width: 620px;
+    line-height: 1.9;
+  }
+  .meta-row {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+  }
+  .tag {
+    border: 1px solid var(--line-bright);
+    padding: 6px 13px;
+    border-radius: 2px;
+    color: var(--ink-dim);
+    letter-spacing: 0.08em;
+    transition: all .25s;
+  }
+  .tag:hover { border-color: var(--acc); color: var(--acc); }
+
+  /* ---------- TOC ---------- */
+  nav.toc {
+    margin: 48px 0;
+    border: 1px solid var(--line);
+    background: var(--bg-raised);
+    border-radius: 4px;
+    padding: 26px 30px;
+  }
+  nav.toc .toc-h {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  nav.toc ol { list-style: none; counter-reset: toc; }
+  nav.toc li { counter-increment: toc; margin: 3px 0; }
+  nav.toc a {
+    color: var(--ink-dim);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 7px 8px;
+    border-radius: 3px;
+    transition: all .2s;
+    font-size: 0.96rem;
+  }
+  nav.toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--acc-dim);
+    flex-shrink: 0;
+  }
+  nav.toc a:hover { background: var(--bg-card); color: var(--acc); padding-left: 14px; }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 58px 0; border-bottom: 1px solid var(--line); }
+
+  .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    color: var(--acc);
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    line-height: 1.4;
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+  .sec-lead {
+    color: var(--ink-dim);
+    font-size: 0.96rem;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed var(--line-bright);
+  }
+
+  h3 {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 700;
+    font-size: 1.28rem;
+    margin: 38px 0 14px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  h3::before {
+    content: "";
+    width: 4px; height: 22px;
+    background: var(--acc);
+    border-radius: 1px;
+    box-shadow: 0 0 10px var(--glow);
+  }
+  h3.v::before { background: var(--vermilion); box-shadow: 0 0 10px rgba(255,92,71,.3); }
+
+  p { margin-bottom: 16px; }
+  p.body { color: var(--ink); }
+
+  strong { color: var(--acc); font-weight: 700; }
+  strong.v { color: var(--vermilion); }
+  strong.plain { color: var(--ink); }
+
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.86em; color: var(--cyan); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82em;
+    background: #0b1416;
+    border: 1px solid var(--line-bright);
+    padding: 2px 7px;
+    border-radius: 3px;
+    color: var(--amber);
+  }
+
+  /* ---------- CARDS / CALLOUTS ---------- */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--acc);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin: 24px 0;
+  }
+  .card.v { border-left-color: var(--vermilion); }
+  .card.amber { border-left-color: var(--amber); }
+  .card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .note {
+    border: 1px solid var(--amber);
+    background: rgba(255,179,71,0.05);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 0.92rem;
+  }
+  .note .nl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--amber);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .you {
+    border: 1px solid var(--acc-dim);
+    background: linear-gradient(135deg, rgba(52,227,166,0.07), transparent);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 0.95rem;
+  }
+  .you .nl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--acc);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ---------- LIST ---------- */
+  ul.list {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  ul.list li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    color: var(--ink-dim);
+    line-height: 1.75;
+  }
+  ul.list li::before {
+    content: "▸";
+    position: absolute;
+    left: 8px;
+    color: var(--acc);
+    font-weight: 700;
+  }
+
+  /* ---------- TABLE ---------- */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 26px 0;
+    font-size: 0.92rem;
+  }
+  table.data thead {
+    background: var(--bg-raised);
+    border-bottom: 2px solid var(--line-bright);
+  }
+  table.data th {
+    padding: 14px 16px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    color: var(--acc);
+    text-transform: uppercase;
+  }
+  table.data td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-dim);
+  }
+  table.data tbody tr:hover {
+    background: var(--bg-card);
+  }
+  table.data td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* ---------- FLOW ---------- */
+  .flow {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin: 22px 0;
+    color: var(--ink-dim);
+  }
+  .flow .node {
+    background: var(--bg-card);
+    border: 1px solid var(--line-bright);
+    padding: 8px 14px; border-radius: 3px;
+  }
+  .flow .node.hl { border-color: var(--acc); color: var(--acc); }
+  .flow .arr { color: var(--acc-dim); }
+
+  /* ---------- SUMMARY ---------- */
+  .sumcard {
+    background: var(--bg-raised);
+    border: 1px solid var(--line-bright);
+    border-radius: 6px;
+    padding: 28px 30px;
+    margin: 22px 0;
+  }
+  .sumcard h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sumcard.a h4 { color: var(--vermilion); }
+  .sumcard.b h4 { color: var(--cyan); }
+  .sumcard.c h4 { color: var(--acc); }
+  .sumcard p { font-size: 0.94rem; color: var(--ink-dim); margin: 0; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 56px 0 80px;
+    text-align: center;
+  }
+  footer .sig {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+  footer .sig b { color: var(--acc); }
+
+  .disclaimer {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    border-top: 1px dashed var(--line-bright);
+    padding-top: 20px;
+    margin-top: 40px;
+    line-height: 1.8;
+  }
+
+  a.ref { color: var(--cyan); text-decoration: none; border-bottom: 1px dotted var(--cyan); }
+  a.ref:hover { color: var(--acc); }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    body { font-size: 15px; }
+    table.data { font-size: 0.84rem; }
+    table.data th, table.data td { padding: 10px 12px; }
+  }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Study Notes · Database Design <span class="blink"></span></div>
+    <h1 class="title">SQLアンチパターン<br>勉強会メモ<br><span class="em">データベース設計</span>の<span class="v">落とし穴</span>。</h1>
+    <p class="sub">よくやりがちなデータベース設計の失敗パターンとその対処法を整理したサマリー。<br>履歴管理、JOIN、INDEX、ソート、制約、バックアップまで、実務で遭遇する11のアンチパターン。</p>
+    <div class="meta-row">
+      <span class="tag">SQL ANTIPATTERNS</span>
+      <span class="tag">DATABASE DESIGN</span>
+      <span class="tag">INDEX / JOIN / NORMALIZATION</span>
+      <span class="tag">BACKUP & RECOVERY</span>
+      <span class="tag">BEST PRACTICES</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc reveal">
+    <div class="toc-h">// Index</div>
+    <ol>
+      <li><a href="#ch01">アンチパターンについて</a></li>
+      <li><a href="#ch02">失われた事実</a></li>
+      <li><a href="#ch03">やりすぎたJOIN</a></li>
+      <li><a href="#ch04">効かないINDEX</a></li>
+      <li><a href="#ch05">フラグの闇</a></li>
+      <li><a href="#ch06">ソートの依存</a></li>
+      <li><a href="#ch07">隠された状態</a></li>
+      <li><a href="#ch08">JSON型の甘い罠</a></li>
+      <li><a href="#ch09">強すぎる制約</a></li>
+      <li><a href="#ch10">転んだ後のバックアップ</a></li>
+      <li><a href="#ch11">見られないエラーログ</a></li>
+    </ol>
+  </nav>
+
+  <!-- CH01 -->
+  <section id="ch01" class="reveal">
+    <div class="sec-num">// 01 — FUNDAMENTALS</div>
+    <h2>アンチパターンについて</h2>
+    <p class="sec-lead">すべての問題は命名とわかりづらい設計から始まる。</p>
+    <p class="body">データベース設計における「アンチパターン」とは、<strong class="plain">一見解決策に見えるが、実際には後で問題を引き起こす設計パターン</strong>のこと。特にRDBMSでは、初期の設計判断が後々まで影響を及ぼすため、よくある失敗パターンを知っておくことが重要。</p>
+    <div class="card">
+      <span class="card-label">なぜアンチパターンを学ぶのか</span>
+      <p class="body" style="margin:0">命名の曖昧さ、正規化の過不足、制約の不適切さ──これらは初期段階では気づきにくいが、システムが成長するにつれてパフォーマンス問題、保守性の低下、データ整合性の崩壊として表面化する。アンチパターンを知ることで、設計時に「これは後で問題になる」と気づけるようになる。</p>
+    </div>
+  </section>
+
+  <!-- CH02 -->
+  <section id="ch02" class="reveal">
+    <div class="sec-num">// 02 — HISTORY</div>
+    <h2>失われた事実</h2>
+    <p class="sec-lead">履歴を保存していないことで、必要な計算や分析ができなくなる問題。</p>
+    <p class="body">多くのシステムでは「現在の状態」だけを保存し、「どう変化したか」を記録していない。しかし、ビジネス要件が変わり「過去の推移を知りたい」となったとき、履歴がないと遡って計算することができない。</p>
+
+    <h3>よくあるケース</h3>
+    <ul class="list">
+      <li>ユーザーのステータス変更履歴がなく、「いつプレミアム会員になったか」が分からない</li>
+      <li>在庫数の更新履歴がなく、「なぜこの数になったか」が追跡できない</li>
+      <li>価格変更の履歴がなく、「過去のある時点での売上」が再計算できない</li>
+    </ul>
+
+    <h3>解決策とトレードオフ</h3>
+    <p class="body">基本的には<strong>履歴テーブルを作る</strong>だけで解決する。しかし、すべてのテーブルに履歴を持たせるとストレージコストとクエリの複雑さが増す。</p>
+
+    <div class="note">
+      <span class="nl">⚠ 設計時の判断基準</span>
+      「履歴がないと後で困るか？」を設計段階で考慮する。全部履歴化するのではなく、ビジネスロジック上「過去の状態を知る必要があるか」を見極める。監査要件、分析要件、コンプライアンスなどの観点で判断すること。
+    </div>
+  </section>
+
+  <!-- CH03 -->
+  <section id="ch03" class="reveal">
+    <div class="sec-num">// 03 — JOIN</div>
+    <h2>やりすぎたJOIN</h2>
+    <p class="sec-lead">JOINはRDBMSにとって負荷の高い処理。安易な多段JOINはパフォーマンス悪化の元凶になる。</p>
+
+    <h3>JOINが重い理由</h3>
+    <p class="body">JOINは複数のテーブルを組み合わせる際に、内部で<strong class="plain">ネステッドループ、ハッシュ結合、ソートマージ</strong>といった処理を行う。テーブルサイズが大きくなるほど、また結合するテーブル数が増えるほど、計算量は指数関数的に増加する。</p>
+
+    <h3>対処法</h3>
+    <ul class="list">
+      <li><strong class="plain">JOINは必要最小限に</strong> — 本当に必要なテーブルだけを結合する</li>
+      <li><strong class="plain">INDEXを有効活用</strong> — JOIN条件となるカラムに適切なINDEXを貼る</li>
+      <li><strong class="plain">JOINするテーブルを小さくする</strong> — WHERE句でまず絞り込んでからJOINする</li>
+      <li><strong class="plain">複雑なクエリはVIEWにする</strong> — 保守性向上と、場合によってはマテリアライズドビューで高速化</li>
+    </ul>
+
+    <div class="card v">
+      <span class="card-label">設計時の工夫</span>
+      <p class="body" style="margin:0">頻繁にJOINされるデータは、あえて非正規化して埋め込む選択肢もある。正規化は美しいが、パフォーマンスとのトレードオフを常に意識すること。特に参照頻度が高く更新頻度が低いマスタデータなどは、非正規化の恩恵が大きい。</p>
+    </div>
+  </section>
+
+  <!-- CH04 -->
+  <section id="ch04" class="reveal">
+    <div class="sec-num">// 04 — INDEX</div>
+    <h2>効かないINDEX</h2>
+    <p class="sec-lead">INDEXを貼ったのにクエリが遅い──よくある「INDEXが効かない」パターンを知る。</p>
+
+    <h3>B-Tree INDEX の基本</h3>
+    <p class="body">RDBMSで最も一般的なINDEXは<strong class="plain">B-Tree</strong>構造。検索・挿入・削除がすべて <code>O(log n)</code> で処理できる優れた構造だが、すべてのケースで効くわけではない。</p>
+
+    <h3>INDEXが使われない典型的なケース</h3>
+    <ul class="list">
+      <li><strong class="plain">検索結果が多すぎる</strong> — 全体の20〜30%以上ヒットする場合、フルスキャンの方が速いと判断されることがある</li>
+      <li><strong class="plain">条件にその列を使っていない</strong> — WHERE句に登場しない列のINDEXは使われない</li>
+      <li><strong class="plain">カーディナリティが低い</strong> — true/falseのような値の種類が少ない列ではINDEXの効果が薄い</li>
+      <li><strong class="plain">あいまい検索</strong> — <code>LIKE '%keyword%'</code> のような前方一致でない検索はINDEXが効かない</li>
+      <li><strong class="plain">統計情報と実データの乖離</strong> — ANALYZE/VACUUM不足でオプティマイザが誤判断する</li>
+    </ul>
+
+    <div class="you">
+      <span class="nl">▶ 実務での確認</span>
+      <code>EXPLAIN</code> / <code>EXPLAIN ANALYZE</code> を使って実行計画を確認する習慣をつける。「INDEXを貼ったから速い」と思い込まず、実際に使われているかを必ず検証すること。PostgreSQLなら <code>pg_stat_statements</code>、MySQLなら <code>slow_query_log</code> でボトルネックを特定できる。
+    </div>
+  </section>
+
+  <!-- CH05 -->
+  <section id="ch05" class="reveal">
+    <div class="sec-num">// 05 — FLAGS</div>
+    <h2>フラグの闇</h2>
+    <p class="sec-lead">ステータスフラグの安易な使用は、クエリの複雑化、制約の喪失、パフォーマンス低下を招く。</p>
+
+    <h3>フラグがもたらす問題</h3>
+    <ul class="list">
+      <li><strong class="plain">クエリが複雑になる</strong> — WHERE句に複数のフラグ条件が並び、可読性が著しく低下</li>
+      <li><strong class="plain">UNIQUE制約が使えない</strong> — 「削除されていないレコードの中で一意」といった制約が表現できない</li>
+      <li><strong class="plain">カーディナリティが低くなる</strong> — true/false の2値ではINDEXが効きにくい</li>
+      <li><strong class="plain">フラグの組み合わせ爆発</strong> — is_deleted, is_active, is_verified... と増えるほど、状態の組み合わせが把握できなくなる</li>
+    </ul>
+
+    <h3>解決策</h3>
+    <p class="body">根本的な解決策は、<strong>異なる状態のレコードを1つのテーブルに混在させない</strong>こと。つまり<strong class="plain">テーブルごと分ける</strong>か、<strong class="plain">VIEWで分ける</strong>。</p>
+
+    <div class="card v">
+      <span class="card-label">deleted_at も実質フラグである</span>
+      <p class="body" style="margin:0">「is_deleted の代わりに deleted_at を使う」という対処もよく見るが、これは単なる言い換えに過ぎない。<code>WHERE deleted_at IS NULL</code> と <code>WHERE is_deleted = false</code> は本質的に同じで、削除済みと未削除が同じテーブルに混在する問題は解決していない。カーディナリティ、UNIQUE制約、クエリ複雑化といった問題もそのまま残る。</p>
+    </div>
+
+    <h3>正しいアプローチ</h3>
+    <ul class="list">
+      <li><strong class="plain">物理削除 + 履歴テーブル</strong> — 削除されたレコードは deleted_users テーブルに移動。メインテーブルは常に「有効なレコードだけ」が入っている状態を保つ</li>
+      <li><strong class="plain">VIEWで論理分離</strong> — 物理的には1テーブルでも、active_users VIEW / deleted_users VIEW を作り、アプリケーションからは常にVIEW経由でアクセス。元テーブルへの直接アクセスは禁止</li>
+      <li><strong class="plain">そもそもフラグを持たない設計</strong> — 「削除」ではなく「契約終了日 (contract_end_date)」のような業務的事実を記録し、<code>WHERE contract_end_date IS NULL OR contract_end_date > CURRENT_DATE</code> で有効なレコードを取得</li>
+    </ul>
+
+    <div class="flow">
+      <span class="node">users テーブル (全レコード混在)</span>
+      <span class="arr">──▶</span>
+      <span class="node hl">users + deleted_users に分離</span>
+      <span class="arr">or</span>
+      <span class="node hl">VIEWで論理分離</span>
+    </div>
+
+    <p class="body">ポイントは、<strong class="plain">「状態」ではなく「事実」を保存する</strong>こと。is_deleted や deleted_at は「削除された状態」を表すフラグだが、contract_end_date は「契約終了という事実」を表す。後者の方がビジネス的意味が明確で、クエリもシンプルになる。</p>
+  </section>
+
+  <!-- CH06 -->
+  <section id="ch06" class="reveal">
+    <div class="sec-num">// 06 — ORDER BY</div>
+    <h2>ソートの依存</h2>
+    <p class="sec-lead">RDBMSの根底は集合論。順序の概念はないため、ソートは実は苦手な領域。</p>
+
+    <h3>SQLの評価順序を理解する</h3>
+    <p class="body">SQLは書かれた順番とは異なる順序で評価される。この理解がないと、なぜINDEXが効かないのか、なぜソートが遅いのかが見えてこない。</p>
+
+    <div class="card">
+      <span class="card-label">エグゼキュータによる評価順序</span>
+      <div class="flow" style="flex-direction:column;align-items:flex-start;gap:6px;margin:12px 0">
+        <span class="node">1. FROM — テーブル指定</span>
+        <span class="node">2. ON — 結合条件</span>
+        <span class="node">3. JOIN — テーブル結合</span>
+        <span class="node">4. WHERE — 絞り込み</span>
+        <span class="node">5. GROUP BY — 集約</span>
+        <span class="node">6. HAVING — 集約後フィルタ</span>
+        <span class="node">7. SELECT — 列選択</span>
+        <span class="node">8. DISTINCT — 重複排除</span>
+        <span class="node hl">9. ORDER BY — ソート</span>
+        <span class="node hl">10. LIMIT — 件数制限</span>
+      </div>
+    </div>
+
+    <h3>ソートを速くする戦略</h3>
+    <p class="body"><strong class="plain">WHERE句でまず絞り込む</strong> — ORDER BYの前にWHERE句で評価されるため、対象レコードを減らせばソートコストが下がる。WHERE句に対応するINDEXを貼ることが第一優先。</p>
+    <p class="body"><strong class="plain">ORDER BY句狙いのINDEX</strong> — B-Tree INDEXは内部でソート済みの状態で格納されているため、ORDER BYで指定するカラムにINDEXがあれば、ソート処理そのものがスキップされる。</p>
+
+    <div class="note">
+      <span class="nl">⚠ ページング最適化</span>
+      <code>OFFSET 10000 LIMIT 10</code> のような深いページングは、内部で10000件スキップする処理が走るため遅い。代わりに <code>WHERE id > {前ページ最後のid} ORDER BY id LIMIT 10</code> のようなカーソルベースページングを使うと劇的に速くなる。
+    </div>
+
+    <div class="you">
+      <span class="nl">▶ ある日突然遅くなる</span>
+      データ量が増えたり統計情報が古くなると、ある日突然同じクエリが遅くなることがある。定期的に実行計画を確認し、想定通りのINDEXが使われているか監視すること。
+    </div>
+  </section>
+
+  <!-- CH07 -->
+  <section id="ch07" class="reveal">
+    <div class="sec-num">// 07 — EAV</div>
+    <h2>隠された状態</h2>
+    <p class="sec-lead">カラム名に用途を詰め込む設計は、アプリケーション側に複雑なロジックを押し付ける。</p>
+
+    <h3>EAV (Entity Attribute Value) の罠</h3>
+    <p class="body"><strong class="plain">EAV</strong>とは、エンティティ・属性・値の3つのカラムで任意の属性を表現する設計パターン。一見柔軟に見えるが、RDBMSの強みをすべて捨てることになる。</p>
+
+    <div class="card v">
+      <span class="card-label">EAVの問題点</span>
+      <ul class="list" style="margin:12px 0 0">
+        <li>Value列の型が定まらない（すべてTEXT型にせざるを得ない）</li>
+        <li>CHECK制約、NOT NULL制約、外部キー制約が使えない</li>
+        <li>集計・検索のたびに複雑なJOINやCASE文が必要になる</li>
+        <li>パフォーマンスが著しく悪化する</li>
+      </ul>
+    </div>
+
+    <p class="body">同様に、<code>status_1</code>, <code>status_2</code>, <code>flag_type_a</code> のようなカラム名も避けるべき。カラム名以上に用途を含めると、「このカラムが何を意味するか」をアプリケーションコードでハードコードすることになり、データベースが自己文書化されない。</p>
+
+    <h3>正しい設計</h3>
+    <p class="body">属性が可変なら、素直に<strong>列を追加する</strong>か、本当に必要ならJSON型（後述の制約あり）を使う。属性が固定されているなら、専用のカラムとして定義し、適切な型と制約を設定する。</p>
+  </section>
+
+  <!-- CH08 -->
+  <section id="ch08" class="reveal">
+    <div class="sec-num">// 08 — JSON</div>
+    <h2>JSON型の甘い罠</h2>
+    <p class="sec-lead">JSON型は便利だが、安易に使うとスキーマレスの混沌を招く。</p>
+
+    <h3>よくある失敗例</h3>
+    <p class="body"><strong class="plain">Web APIのレスポンスをそのまま詰める</strong> — バージョン変更でAPIのレスポンス構造が変わると、同じカラム内に異なる構造のJSONが混在する。過去のレコードがパースできなくなったり、検索条件が書けなくなる。</p>
+
+    <h3>JSON型を使わない方がいい判断基準</h3>
+    <ul class="list">
+      <li><strong class="plain">正規化できるなら使わない</strong> — 構造化できるデータは素直にテーブルとカラムに分割する</li>
+      <li><strong class="plain">頻繁に更新するなら使わない</strong> — JSON内の一部だけ更新する操作は非効率で、競合も起きやすい</li>
+      <li><strong class="plain">検索条件として固定できるなら使わない</strong> — JSON内の特定キーで頻繁に検索するなら、それは独立したカラムにすべき</li>
+    </ul>
+
+    <div class="note">
+      <span class="nl">⚠ JSON型が適切なケース</span>
+      完全に任意のメタデータ、ログのペイロード、監査証跡など、構造が予測不可能で検索・更新の頻度が低いものならJSON型が適している。ただしその場合でも、スキーマバージョンを含めるなど、将来の自分を助ける工夫をすること。
+    </div>
+  </section>
+
+  <!-- CH09 -->
+  <section id="ch09" class="reveal">
+    <div class="sec-num">// 09 — CONSTRAINTS</div>
+    <h2>強すぎる制約</h2>
+    <p class="sec-lead">早すぎる最適化、強すぎる制約は、時として開発者に牙を剥く。</p>
+
+    <h3>制約が裏目に出る例</h3>
+    <ul class="list">
+      <li><strong class="plain">独自のカラム型定義</strong> — 厳密すぎるカスタムドメイン型により、テストデータのINSERTができない</li>
+      <li><strong class="plain">updated_at >= now() のCHECK制約</strong> — 過去のバックアップをリストアするとき、未来の日付扱いになり制約違反で失敗する</li>
+      <li><strong class="plain">ビジネスルールの制約化</strong> — 「未成年は購入不可」のようなルールをCHECK制約にすると、法改正で地獄を見る</li>
+    </ul>
+
+    <h3>制約の4段階</h3>
+    <table class="data">
+      <thead>
+        <tr><th>レベル</th><th>説明</th><th>例</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>制約なし</td><td>型の値域のみ</td><td>TEXT型に何でも入る</td></tr>
+        <tr><td>弱い制約</td><td>データ構造を守る最低限</td><td>NOT NULL, UNIQUE, 外部キー</td></tr>
+        <tr><td>強い制約</td><td>RDBMS機能で適切に防御</td><td>CHECK制約, EXCLUDE制約</td></tr>
+        <tr><td>強すぎる制約</td><td>ビジネスルール・仕様レベル</td><td>年齢制限, 営業時間制約</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card amber">
+      <span class="card-label">適切なバランス</span>
+      <p class="body" style="margin:0">「強い制約」までは推奨。データ整合性を守るための構造的制約は積極的に使うべき。しかし、ビジネスルールや運用都合の制約はアプリケーション層で担保し、データベースには持ち込まない。特にリストア・マイグレーション時の柔軟性を損なう制約は避けること。</p>
+    </div>
+  </section>
+
+  <!-- CH10 -->
+  <section id="ch10" class="reveal">
+    <div class="sec-num">// 10 — BACKUP & RECOVERY</div>
+    <h2>転んだ後のバックアップ</h2>
+    <p class="sec-lead">バックアップは取るだけでは意味がない。リストアできて初めて価値がある。</p>
+
+    <h3>バックアップの3つの手法</h3>
+
+    <div class="card">
+      <span class="card-label">論理バックアップ</span>
+      <p class="body" style="margin-bottom:12px">SQLやCSV形式でデータをエクスポート。<code>mysqldump</code>, <code>pg_dump</code> などのコマンドで取得。可搬性が高く、別バージョンのDBにもリストアできる。ただしサイズが大きいとダンプ・リストアに時間がかかる。</p>
+    </div>
+
+    <div class="card">
+      <span class="card-label">物理バックアップ</span>
+      <p class="body" style="margin-bottom:12px">データベースの物理ファイル（データディレクトリ）をまるごとコピー。<code>cp</code>, <code>rsync</code> や専用ツールを使用。高速だが、同じバージョン・同じアーキテクチャでないとリストアできない。停止が必要なケースもある。</p>
+    </div>
+
+    <div class="card">
+      <span class="card-label">PITR (Point-In-Time Recovery)</span>
+      <p class="body" style="margin-bottom:12px">特定の日時の状態にデータをリストアできる手法。ベースバックアップ + トランザクションログ（MySQLならバイナリログ、PostgreSQLならWALアーカイブ）で実現。秒単位での復旧が可能だが、運用が複雑。</p>
+    </div>
+
+    <h3>バックアップ設計の3つの指標</h3>
+    <ul class="list">
+      <li><strong class="plain">RPO (Recovery Point Objective)</strong> — どの時点まで遡って復旧するか（データロスの許容範囲）</li>
+      <li><strong class="plain">RTO (Recovery Time Objective)</strong> — どれくらいの時間で復旧できるか（ダウンタイムの許容範囲）</li>
+      <li><strong class="plain">RLO (Recovery Level Objective)</strong> — どこまで復旧するか（復旧レベル：全体か一部か）</li>
+    </ul>
+
+    <h3>稼働率とバックアップ設計</h3>
+    <table class="data">
+      <thead>
+        <tr><th>稼働率</th><th>年間停止時間</th><th>求められる対策</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>90%</td><td>36.5日</td><td>バックアップとリストアで十分</td></tr>
+        <tr><td>99%</td><td>3.65日</td><td>予備マシン、リストア所要時間の把握</td></tr>
+        <tr><td>99.9%</td><td>8.7時間</td><td>24/365サポート、法定停電対応</td></tr>
+        <tr><td>99.99%</td><td>52分</td><td>コールドスタンバイ必須</td></tr>
+        <tr><td>99.999%</td><td>5分</td><td>遅延レプリケーション等の専用システム</td></tr>
+        <tr><td>99.9999%</td><td>32秒</td><td>無停止サーバ、コスト極大</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <span class="nl">⚠ 運用の鉄則</span>
+      <ul class="list" style="margin:12px 0 0">
+        <li><b style="color:var(--ink)">バックアップが正しく取れているか毎回確認</b> — 失敗を見逃さない仕組みを作る</li>
+        <li><b style="color:var(--ink)">定期的にリストアを実行</b> — 「バックアップがあるから安心」は幻想。実際に戻せて初めて安心</li>
+        <li><b style="color:var(--ink)">手順書を整備</b> — 緊急時にパニックしないよう、具体的なユースケース別の手順を用意</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CH11 -->
+  <section id="ch11" class="reveal" style="border-bottom:none">
+    <div class="sec-num">// 11 — MONITORING</div>
+    <h2>見られないエラーログ</h2>
+    <p class="sec-lead">エラーは出ているのに、誰も気づかない。通知が届かない。それでは監視していないのと同じ。</p>
+
+    <h3>監視の本質</h3>
+    <p class="body">ログを吐いているだけでは意味がない。<strong class="plain">重要な通知を、知るべきすべての人に、すばやく・正しく・漏れなく届ける</strong>ことが監視の目的。</p>
+
+    <ul class="list">
+      <li><strong class="plain">誰に届けるか</strong> — オンコール、開発チーム、SRE、それぞれ必要な情報が違う</li>
+      <li><strong class="plain">どう届けるか</strong> — Slack、PagerDuty、メール、SMSなど、緊急度に応じた手段</li>
+      <li><strong class="plain">何を届けるか</strong> — ノイズが多すぎるとアラート疲れで無視される。重要度の判別が肝</li>
+    </ul>
+
+    <div class="you">
+      <span class="nl">▶ ログの棚卸し</span>
+      定期的に「どんなログが出ているか」を確認する習慣をつける。想定外のエラーが毎日吐かれているのに誰も気づいていない、というのはよくある話。ログの種類・頻度・内容を定期レビューし、重要なものには必ずアラートを設定すること。
+    </div>
+
+    <div class="card v">
+      <span class="card-label">アラート設計の原則</span>
+      <ul class="list" style="margin:12px 0 0">
+        <li>アクション可能なアラートだけを送る（「知ってどうする？」がないものは送らない）</li>
+        <li>誤検知を最小化する（オオカミ少年になると誰も見なくなる）</li>
+        <li>アラートには必ずコンテキストを含める（「エラーが出た」だけでなく「どこで何が」まで）</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sig">
+      $ generated_from <b>「SQLアンチパターン」勉強会メモ</b><br>
+      // database design · performance · reliability<br>
+      <span class="blink" style="margin-top:8px"></span>
+    </div>
+    <p class="disclaimer">
+      ※ 本資料は勉強会メモを整理・加筆したもの。実際のデータベース設計では、要件・規模・チーム状況により最適解が異なるため、アンチパターンとして挙げられている手法が適切な場合もある。トレードオフを理解した上で判断すること。
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
