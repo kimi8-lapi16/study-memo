@@ -67,6 +67,16 @@ header.hero {
   background: var(--acc);
 }
 
+.kicker a {
+  color: var(--acc);
+  text-decoration: none;
+  transition: opacity .2s;
+}
+
+.kicker a:hover {
+  opacity: 0.7;
+}
+
 .blink {
   width: 8px; height: 14px;
   background: var(--acc);
