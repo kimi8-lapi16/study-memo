@@ -1,0 +1,17 @@
+{
+  "name": "study-memo",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "new": "node scripts/new-note.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.0",
+    "@astrojs/rss": "^4.0.0",
+    "astro": "^7.0.0"
+  }
+}

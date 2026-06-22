@@ -1,0 +1,9 @@
+---
+// フロー図のノード（common.css の .flow .node）
+// hl=true で強調（緑枠）
+interface Props {
+  hl?: boolean;
+}
+const { hl = false } = Astro.props;
+---
+<span class={hl ? 'node hl' : 'node'}><slot /></span>

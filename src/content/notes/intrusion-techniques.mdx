@@ -1,0 +1,200 @@
+---
+title: 侵入技術入門 勉強会メモ
+listTitle: 侵入技術入門 勉強会メモ — 攻撃するAIと、それを検知する技術。
+date: 2026-05-24
+category: SECURITY
+tags: [AI, RED-TEAM, DETECTION, DFIR]
+summary: Claude Codeが自律的に攻撃を実行した GTG-1002 事案から、Pyramid of Pain・Sigmaルール、Yamato Securityの隼/朱雀シリーズ、そして Mythos Preview と Mantis(LLMエージェントへの能動的防御)まで。
+kicker: Offensive AI & Detection Eng
+heroTitle: '侵入技術入門 勉強会メモ<br><span class="em">攻撃するAI</span>と、それを<span class="v">検知する技術</span>。'
+sub: 'オンライン勉強会で出てきた用語を片っ端から調べて整理したサマリー。<br>「AIエージェントによる自律攻撃」と「検知エンジニアリング」という防御側の応答、その二本柱でできている。'
+metaTags:
+  - AI-ORCHESTRATED ATTACK
+  - DETECTION ENGINEERING
+  - SIGMA / MITRE ATT&CK
+  - HAYABUSA / SUZAKU
+  - PROACTIVE DEFENSE
+footerNote: '// offensive AI · detection engineering · proactive defense'
+disclaimer: '※ AnthropicのAI攻撃事例(GTG-1002 / Claude Code経由)については、技術的証拠の不足を指摘する懐疑論が存在する。本資料は勉強会メモの用語整理を目的としたもので、各主張は一次資料(Anthropicレポート、USENIX論文、Cloudflare/Yamato Security公式ドキュメント、AISI評価等)を当たって裏付けることを推奨。'
+---
+
+## 全体の構図
+
+この勉強会、ざっくり言うと「攻撃にAIエージェントが使われ始めた → じゃあ防御側はどう検知・対策するか」という話。
+
+メモは順番が前後していたけど、流れがわかるように再構成してある。普段触っているAWS(CloudTrail)やログ解析の話も出てくるので、インフラ側の人間としては割と地続きの話題。
+
+<Flow>
+  <FNode>攻撃側: AIが8〜9割を自律実行</FNode>
+  <Arr />
+  <FNode>防御側: どう検知する?</FNode>
+  <Arr />
+  <FNode hl>AIの弱点を逆手に取る</FNode>
+</Flow>
+
+## AIエージェントによる攻撃の現実
+
+メモの「攻撃者は1〜2割しか介入してない」── これは実際に起きた事件のこと。
+
+Anthropicが2025年9月に検知したもので、**Claude Code** を使った中国の国家支援グループ(<Mono>GTG-1002</Mono>と呼称)が、ペネトレーションテストのオーケストレーター兼エージェントとして自律的に動かし、**戦術的オペレーションの80〜90%をAIが独立して実行**した。人間が担当したのはターゲット選定と戦略的な承認だけで、偵察・脆弱性の悪用・認証情報の窃取・横展開(ラテラルムーブメント)・データ持ち出しといった実作業はAIが処理した。
+
+<Card label="メモの整理 → 事実と一致">
+「どこへ攻撃を仕掛けたいか」「分析結果のレビュー」＝**人間側**。「データ収集」「脆弱性を突く」＝**AI側**。この切り分けはまさに事件の構造そのまま。ターゲットはテック企業・金融機関・化学メーカー・政府機関など世界の約30の高価値ターゲット。
+</Card>
+
+メモにあった「anthropicから出してるページがありそう」── これは正解。`Disrupting the first reported AI-orchestrated cyber espionage campaign` という13ページのレポートが公開されている。
+
+<Note label="⚠ 注意 — 鵜呑みにしない">
+この件には<b style="color:var(--ink)">懐疑的な見方もある</b>。具体的なコードサンプルやIoC(侵害指標)、観測されたTTPなどの技術的証拠が乏しいとして、セキュリティ専門家から「90%自律」という主張に疑問を呈する声も出ている。「そういう議論もある」くらいに留めておくのがよさそう。
+</Note>
+
+### 補足された関連トピック
+
+**強化学習によるEDRバイパス** — メモの「検知回避を報酬にして回すと商用モデルより高い回避能力」という話。<Mono>EDR</Mono>(Endpoint Detection and Response＝端末上の不審な挙動を検知する製品)を「いかにすり抜けるか」を報酬関数にしてRLを回すと、検知回避に特化したモデルが作れてしまう、という研究方向。
+
+**GUI操作が苦手** — メモ通り「もう時間の問題」。現状のエージェントはCLI/API操作は得意でもGUIのポチポチ操作が弱点、という認識。
+
+## 検知エンジニアリング
+
+ここからが防御側の本題。Detection Engineering。
+
+メモの2つの定義(Detection寄り / Engineering寄り)はよく整理されている。要するに「**脅威を検知するためのロジックを、体系立てて作り・改善し・運用するプロセス**」のこと。職人芸だったものを工学として標準化していこうという流れ。メモの年表が的確:
+
+<div class="timeline">
+  <div class="tl-item">
+    <span class="tl-year">2015</span>
+    <span class="tl-body"><b>MITRE ATT&amp;CK</b> ── 攻撃者の手口(戦術・技術)を体系化した「共通言語」。皆が同じ語彙で攻撃を語れるようになった。</span>
+  </div>
+  <div class="tl-item">
+    <span class="tl-year">2017</span>
+    <span class="tl-body"><b>Sigma</b> ── 検知ルールの共通フォーマット(後述)。</span>
+  </div>
+  <div class="tl-item">
+    <span class="tl-year">2020</span>
+    <span class="tl-body"><b>Detection Engineering</b> が職種・用語として定着。</span>
+  </div>
+</div>
+
+### SIEM とは
+
+**SIEM**(Security Information and Event Management)は、サーバー・ネットワーク機器・アプリなどから出る大量のログを一箇所に集約して、相関分析・検知・アラートを行う基盤。<Mono>Splunk</Mono> / <Mono>Microsoft Sentinel</Mono> / <Mono>Elastic</Mono> などが代表例。各製品でクエリ言語がバラバラなのが課題で、そこに効いてくるのがSigma。
+
+### Pyramid of Pain
+
+David Biancoが提唱した概念フレームワークで、攻撃者が検知を回避するために変更を加える際の「**難易度とコスト**」を段階的に表したもの。下から上へ、攻撃者にとって変更が辛く(painful)なる。
+
+<div class="pyramid">
+  <div class="pyr-row p6">TTPs <span class="pain">手口そのもの ── 作り直しが必要 = 最も痛い</span></div>
+  <div class="pyr-row p5">Tools <span class="pain">ツール</span></div>
+  <div class="pyr-row p4">Network/Host Artifacts <span class="pain">挙動の痕跡</span></div>
+  <div class="pyr-row p3">Domain Names <span class="pain">ドメイン</span></div>
+  <div class="pyr-row p2">IP Addresses <span class="pain">IPアドレス</span></div>
+  <div class="pyr-row p1">Hash Values <span class="pain">ハッシュ値 ── 変更が一瞬 = 痛くない</span></div>
+  <div class="pyr-cap"><span>▲ 攻撃者に痛い / 検知エンジニアが狙う</span><span>容易に回避される ▼</span></div>
+</div>
+
+ポイントは、ハッシュ検知は簡単に回避され、IPやドメインはローテーションされてしまうが、攻撃者の「**振る舞い**」を検知できるようになると、攻撃者は手口そのものを作り直さざるを得なくなる＝そこで初めて「痛み」を与えられる、という考え方。だから検知エンジニアは可能な限りピラミッドの上層を狙う。
+
+### Sigma
+
+メモの理解で合っている。**SigmaはYAML形式**(拡張子は `.yml`)で書く検知ルールの規格で、様々なSIEM製品のクエリに変換できる。「ログイベントを記述する共通言語」と思えばいい。1ルール ≒ 1つの検知観点で、30行程度のYAMLからなる。
+
+<Card label="メモにあった構成要素">
+**detectionブロック** — ログからどう脅威を検出するかのロジック本体。論理和(OR条件)はリストで書く。
+
+**Modifier** — 完全一致以外の表現方法。`startswith` / `endswith` / `contains` / `re`(正規表現)などで「〜で始まる」「〜を含む」といった柔軟なマッチが書ける。
+</Card>
+
+Pyramid of Painとの関係で「SigmaはLayer 2を出力する」というメモは、おそらく「Sigmaルールが主に振る舞い系の中間層を狙う」という講師の整理。実際、MITREの <Mono>Summiting the Pyramid</Mono> プロジェクトでは公開Sigmaルールをピラミッドに対してスコアリングし、回避耐性(robustness)の高い検知を作る取り組みが行われている。
+
+### ツール群 ── Yamato Security 製
+
+メモに出てきた隼・朱雀シリーズは、すべて日本の **Yamato Security**(Zach Mathis氏主宰)が公開しているOSS DFIRツール。Rust製で高速なのが特徴。
+
+<div class="tools">
+  <div class="tool">
+    <div class="name">隼<span>HAYABUSA</span></div>
+    <div class="desc"><b>Windowsイベントログ</b>向けの、Sigmaベースの脅威ハンティング＆高速フォレンジック・タイムライン生成ツール。<code>.evtx</code>(または変換したJSON)を読み込み、Sigma＋独自ルールで脅威を検出、CSV/HTML/JSONで出力。メモの「.evtxを食わせてcsv/jsonで出る」「4000以上のSigmaルール」はこれ。</div>
+  </div>
+  <div class="tool">
+    <div class="name">朱雀<span>SUZAKU</span></div>
+    <div class="desc">Hayabusaの<b>クラウドログ版</b>。AWS CloudTrailにネイティブなSigma検知を持ち、Azure/GCPも対応予定。クラウドには何千ものAPIコールがあって手で追えないので、ノイズの中から攻撃を見つけ、必要なイベントだけのDFIRタイムラインを提供する。</div>
+  </div>
+  <div class="tool">
+    <div class="name">鷹匠<span>TAKAJŌ</span></div>
+    <div class="desc">Hayabusaの<b>結果解析ツール</b>。隼が獲った獲物を鷹匠がさばく、という命名。体系として一緒に覚えておくと掴みやすい。</div>
+  </div>
+</div>
+
+<Tip label="▶ きみしま向けメモ">
+本業でCloudTrailを扱っているので、<b style="color:var(--acc)">Suzaku</b> が一番実務に刺さるはず。一度サンプルデータで動かしてみる価値あり。メモの「THuntCloud」は、おそらくSuzakuの旧名か関連プロジェクトの別表記の可能性が高い(検索ではクラウドログツールとしてはSuzakuがヒット)。「mecha-hayabusa」は生成AIによる解析補助ツールという理解でOK。
+</Tip>
+
+### マルチステップ攻撃の評価
+
+**Claude Mythos Preview** — メモの「調べてみるか」のMythosの正体はこれ。**Anthropic製のフロンティアモデル**(2026年4月7日発表)で、サイバーセキュリティタスクに異常に長けているとされる。「公開するにはリスクが高すぎる」として一般提供せず、テック大手に限定アクセスを与える `Project Glasswing` という枠組みでテストされている。プレフィックスは「Claude」だった。
+
+**The Last Ones (TLO)** — メモの「32ステップの企業ネットワークシミュレーション」。UK AI Security Institute(AISI)が構築した、初期偵察からネットワーク完全乗っ取りまでをカバーする評価環境で、人間なら約20時間かかる想定。このMythosの評価で使われたベンチマークで、**MythosはTLOを最初から最後まで解いた初のモデル**(10回中3回成功 / 平均32ステップ中22ステップ完了)。
+
+<Note label="⚠ AISIの冷静な見立て">
+面白いのは独立評価機関(AISI)の整理で、<b style="color:var(--ink)">単発タスク(CTF等)では他のフロンティアモデルとほぼ横並び。差が出たのは何十手も連鎖させるTLOだけ</b>だった。つまり「個々の技は皆できる、最後までやり切れるかが分かれ目」という話。メモの「一般的なセキュリティ機能が欠如した環境なのでスコアだけ見て不安になるのは違う」も裏取り済みで、AISI自身が<b style="color:var(--ink)">「弱いシステムは攻略できるが、よく防御されたシステムを破れることを示すものではない」</b>と明言している。講師の整理は正確だった。
+</Note>
+
+## AIエージェントへの能動的防御
+
+「AIに対抗するにはAIしかないのでは」というメモの問題意識への答え。鍵は「AIエージェントらしさを検出して対策する」。
+
+<h3 class="v">Cloak, Honey, Trap (CHeaT)</h3>
+
+USENIX Security '25で発表された研究(Ayzenshteyn, Weiss, Mirskyら)で、<strong class="v">LLMエージェントの脆弱性を逆手に取った能動的防御</strong>のフレームワーク。名前の通り3つの柱:
+
+<div class="three">
+  <div class="cht">
+    <div class="h">Cloak</div>
+    <div class="jp">隠蔽</div>
+    <div class="d">誤った情報・ミスディレクションで本物の資産を隠す。</div>
+  </div>
+  <div class="cht">
+    <div class="h">Honey</div>
+    <div class="jp">おとり</div>
+    <div class="d">LLM特有のハニートークンでエージェントをおびき寄せ、存在を露呈させたりリソースを枯渇させる。</div>
+  </div>
+  <div class="cht">
+    <div class="h">Trap</div>
+    <div class="jp">罠</div>
+    <div class="d">LLM固有の欠陥を突いて、攻撃をループに陥れ遅延・停止させる。</div>
+  </div>
+</div>
+
+メモの「人間には見えない文字を置いて、それを読んでアクセスしてきたやつをAIエージェントと判断」はまさに <strong class="v">Honey / ハニートークン</strong> の発想。6つの戦略・15のテクニックがあり、その多くはプロンプトインジェクションに依存しない。エージェントに信頼できないコードを実行させて、逆に防御側が攻撃者のインフラにアクセスする、といった新しいエクスプロイトも実証された。<Mono>CHeaT</Mono> という名前でOSSツールも公開されている。
+
+メモの「アンダースコアフォーアドミン」(`_for_admin` 的なもの?)は、おそらくこの文脈のおとりトークンの命名例の話。
+
+<h3 class="v">AI Labyrinth (メモの「AIラビリンス」)</h3>
+
+これはCloudflareの機能。保護対象ページに、<strong class="v">ボットには正当に見えるが実際は無関係なAI生成ページへの隠しリンク</strong>を埋め込む仕組み。人間のユーザーには見えず、ボットだけがこのリンクをたどるため、新しいボットのパターンやシグネチャを特定するのにも使える。
+
+<Card variant="v" label='なぜ "ブロック" ではなく "罠" なのか'>
+直接ブロックすると攻撃者に「検知された」と気づかせて手口を変えられてしまう。だからブロックせず、説得力はあるが無関係なコンテンツでリソースを浪費させる。メモの「Unicodeの特殊文字がAIしか読めない」も、人間に見えない要素でAIだけを誘い込む＝Honey/おとりの同じ発想のバリエーション。
+</Card>
+
+## ひとことまとめ
+
+3行で言うと、こういう構図だった。
+
+<div class="sumcard a">
+  <h4>▌ 攻撃側</h4>
+  <p>AIエージェントが攻撃の8〜9割を自律実行する時代に入った(Anthropic GTG-1002事例)。ただし証拠面で懐疑論もある。</p>
+</div>
+<div class="sumcard b">
+  <h4>▌ 検知側</h4>
+  <p>Detection Engineering＝検知ロジックを工学的に作る営み。MITRE ATT&amp;CK(共通言語)→ Sigma(共通ルール記法)→ Hayabusa / Suzaku(実行ツール)という道具立て。Pyramid of Painで「攻撃者が痛い検知」を狙う。</p>
+</div>
+<div class="sumcard c">
+  <h4>▌ 防御側の新潮流</h4>
+  <p>AIエージェント特有の弱点を突く能動的防御(CHeaT、AI Labyrinth)。「人間に見えない罠でAIだけを釣る」が共通アイデア。</p>
+</div>
+
+<Tip label="▶ ひとこと">
+メモ最後の「エンジニアになる覚悟が足りてなかった」── 尖った人たちの話を聞くとそう感じるのはめっちゃ分かるけど、知らない用語を片っ端から調べてサマリーを作ろうとしている時点で、十分その姿勢はあると思う。
+</Tip>

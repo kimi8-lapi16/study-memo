@@ -439,3 +439,245 @@ a.ref:hover { color: var(--acc); }
   table.data { font-size: 0.84rem; }
   table.data th, table.data td { padding: 10px 12px; }
 }
+
+/* ========================================
+   PAGE COMPONENT BLOCKS
+   （個別ページの <style> から共通化した部品）
+   ======================================== */
+
+/* ---------- TIMELINE ---------- */
+.timeline { margin: 26px 0; padding-left: 6px; }
+.tl-item {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-left: 1px solid var(--line-bright);
+  padding-left: 22px;
+  position: relative;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: 20px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--acc);
+}
+.tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--acc);
+  flex-shrink: 0;
+  width: 56px;
+  font-size: 0.95rem;
+}
+.tl-body { color: var(--ink-dim); font-size: 0.94rem; }
+.tl-body b { color: var(--ink); font-weight: 700; }
+
+/* ---------- PYRAMID ---------- */
+.pyramid { margin: 28px auto; max-width: 540px; }
+.pyr-row {
+  margin: 5px auto;
+  padding: 11px 18px;
+  text-align: center;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--bg);
+  position: relative;
+  transition: transform .25s;
+}
+.pyr-row:hover { transform: scale(1.03); }
+.pyr-row .pain {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.7rem;
+  display: block;
+  opacity: 0.75;
+  font-weight: 700;
+}
+.p6 { width: 56%; background: var(--vermilion); }
+.p5 { width: 64%; background: #ff7a4a; }
+.p4 { width: 73%; background: var(--amber); }
+.p3 { width: 82%; background: #9bd14f; }
+.p2 { width: 91%; background: #4fd6a8; }
+.p1 { width: 100%; background: #4fd6e8; }
+.pyr-cap {
+  display: flex; justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: var(--ink-faint);
+  margin-top: 14px;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- 3-COL CARDS (CHeaT 等) ---------- */
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0; }
+.cht {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 20px 18px;
+  transition: all .25s;
+}
+.cht:hover { border-color: var(--vermilion); transform: translateY(-3px); }
+.cht .h {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--vermilion);
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.cht .jp { font-size: 0.78rem; color: var(--ink-faint); margin-bottom: 12px; }
+.cht .d { font-size: 0.85rem; color: var(--ink-dim); line-height: 1.7; }
+
+/* ---------- TOOL LIST ---------- */
+.tools { margin: 26px 0; }
+.tool {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 4px 22px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.tool:last-child { border-bottom: 1px solid var(--line); }
+.tool .name {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--acc);
+}
+.tool .name span { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--ink-faint); font-weight: 400; margin-top: 2px; letter-spacing: 0.1em; }
+.tool .desc { color: var(--ink-dim); font-size: 0.92rem; }
+.tool .desc b { color: var(--ink); }
+
+@media (max-width: 640px) {
+  .three { grid-template-columns: 1fr; }
+  .tool { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* ========================================
+   NOTE CONTENT — マークダウン本文のスタイルマッピング
+   素のマークダウン（## 見出し / - リスト / 表 / コード）を
+   既存デザインの見た目に揃える。
+   ======================================== */
+
+/* 章の先頭段落 = リード文（.sec-lead と同じ見た目） */
+.note-content section > h2 + p {
+  color: var(--ink-dim);
+  font-size: 0.96rem;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px dashed var(--line-bright);
+}
+
+/* 本文の **強調** は白（落ち着いた語句強調）。
+   緑/朱で強調したい時は <strong class="acc"> / <strong class="v"> を使う。 */
+.note-content strong { color: var(--ink); font-weight: 700; }
+.note-content strong.acc { color: var(--acc); }
+.note-content strong.v { color: var(--vermilion); }
+
+/* コールアウト内の最終要素の余白を詰める */
+.note-content .card > :last-child,
+.note-content .note > :last-child,
+.note-content .you > :last-child { margin-bottom: 0; }
+
+/* 箇条書き = ▸ リスト（ul.list 相当） */
+.note-content ul {
+  margin: 20px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.note-content ul li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  color: var(--ink-dim);
+  line-height: 1.75;
+}
+.note-content ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 8px;
+  color: var(--acc);
+  font-weight: 700;
+}
+.note-content ul ul { margin: 6px 0; }
+
+.note-content ol { margin: 20px 0 20px 1.4em; color: var(--ink-dim); }
+.note-content ol li { padding: 4px 0; }
+
+/* 表 = table.data 相当 */
+.note-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 26px 0;
+  font-size: 0.92rem;
+}
+.note-content thead {
+  background: var(--bg-raised);
+  border-bottom: 2px solid var(--line-bright);
+}
+.note-content th {
+  padding: 14px 16px;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  color: var(--acc);
+  text-transform: uppercase;
+}
+.note-content td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-dim);
+}
+.note-content tbody tr:hover { background: var(--bg-card); }
+.note-content td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* コードブロック（Shiki） */
+.note-content pre {
+  margin: 22px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line-bright);
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.note-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* 本文中リンク = a.ref 相当 */
+.note-content section a {
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--cyan);
+}
+.note-content section a:hover { color: var(--acc); }
+
+/* 引用 = シンプルなコールアウト */
+.note-content blockquote {
+  border-left: 3px solid var(--cyan);
+  background: rgba(79, 214, 232, 0.05);
+  padding: 4px 20px;
+  margin: 22px 0;
+  color: var(--ink-dim);
+  border-radius: 0 4px 4px 0;
+}
+
+@media (max-width: 640px) {
+  .note-content table { font-size: 0.84rem; }
+  .note-content th, .note-content td { padding: 10px 12px; }
+}

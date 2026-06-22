@@ -1,0 +1,167 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, formatDate } from '../lib/utils';
+
+const notes = await getCollection('notes', ({ data }) => !data.draft);
+notes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<BaseLayout
+  title="study-memo｜勉強会メモ アーカイブ"
+  description="勉強会で学んだことを書き溜めておく場所。"
+>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker"><span class="blink"></span> STUDY · MEMO · ARCHIVE</div>
+      <h1 class="title">勉強会で学んだことの、<span class="em">置き場所</span>。</h1>
+      <p class="sub">参加した勉強会・読んだ論文・触ってみた技術。雑多に書き溜めて、あとでパッと見返せるように。</p>
+      <div class="meta-row">
+        <span class="tag">ASTRO · MD/MDX</span>
+        <span class="tag">HOSTED · GH-PAGES</span>
+        <span class="tag">CI · GITHUB-ACTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="list-h">entries</div>
+
+      {notes.length === 0 ? (
+        <p class="empty">// まだ記事がありません</p>
+      ) : (
+        <ul class="entries">
+          {notes.map((note) => (
+            <li>
+              <a class="entry" href={withBase(`notes/${note.id}/`)}>
+                <div class="e-meta">
+                  <span>{formatDate(note.data.date)}</span>
+                  <span>{note.data.category}</span>
+                </div>
+                <div class="e-title">{note.data.listTitle ?? note.data.title}</div>
+                <div class="e-summary">{note.data.summary}</div>
+                {note.data.tags.length > 0 && (
+                  <div class="e-tags">
+                    {note.data.tags.map((t) => <span class="e-tag">{t}</span>)}
+                  </div>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="https://github.com/kimi8-lapi16/study-memo">github.com/kimi8-lapi16/study-memo</a>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style is:global>
+  /* ---------- INDEX PAGE SPECIFIC STYLES ---------- */
+  body { min-height: 100vh; }
+  header.hero { padding: 88px 0 50px; }
+
+  main { padding: 56px 0 120px; }
+
+  .list-h {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .list-h::after {
+    content: "";
+    flex: 1; height: 1px;
+    background: var(--line);
+  }
+
+  ul.entries { list-style: none; }
+
+  .entry {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--acc);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    transition: all .25s;
+  }
+  .entry:hover {
+    border-color: var(--line-bright);
+    border-left-color: var(--acc);
+    transform: translateX(4px);
+    box-shadow: 0 4px 24px rgba(52, 227, 166, 0.08);
+  }
+  .entry .e-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--acc-dim);
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .entry .e-title {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 1.34rem;
+    line-height: 1.45;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .entry:hover .e-title { color: var(--acc); }
+  .entry .e-summary {
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .entry .e-tags {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .entry .e-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    border: 1px solid var(--line-bright);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+
+  .empty {
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    padding: 60px 0;
+  }
+
+  /* ---------- INDEX FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 0 60px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    text-align: left;
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+  footer a:hover { color: var(--acc); }
+</style>
