@@ -1,0 +1,72 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/utils';
+
+// MDX 本文から名前で使えるコンポーネント群
+import Card from '../../components/Card.astro';
+import Note from '../../components/Note.astro';
+import Tip from '../../components/Tip.astro';
+import Flow from '../../components/Flow.astro';
+import FNode from '../../components/FNode.astro';
+import Arr from '../../components/Arr.astro';
+import Mono from '../../components/Mono.astro';
+
+const components = { Card, Note, Tip, Flow, FNode, Arr, Mono };
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', ({ data }) => !data.draft);
+  return notes.map((note) => ({ params: { id: note.id }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { data } = note;
+const { Content, headings } = await render(note);
+const chapters = headings.filter((h) => h.depth === 2);
+---
+<BaseLayout title={`${data.title}｜study-memo`} description={data.summary}>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">
+        <a href={withBase('')}>Study Notes</a>{data.kicker ? ` · ${data.kicker}` : ''} <span class="blink"></span>
+      </div>
+      {data.heroTitle ? (
+        <h1 class="title" set:html={data.heroTitle} />
+      ) : (
+        <h1 class="title">{data.title}</h1>
+      )}
+      {data.sub && <p class="sub" set:html={data.sub} />}
+      {data.metaTags.length > 0 && (
+        <div class="meta-row">
+          {data.metaTags.map((t) => <span class="tag">{t}</span>)}
+        </div>
+      )}
+    </div>
+  </header>
+
+  <div class="wrap">
+    {chapters.length > 0 && (
+      <nav class="toc reveal">
+        <div class="toc-h">// Index</div>
+        <ol>
+          {chapters.map((h) => (
+            <li><a href={`#${h.slug}`}>{h.text}</a></li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    <div class="note-content">
+      <Content components={components} />
+    </div>
+
+    <footer>
+      <div class="sig">
+        $ generated_from <b>{data.title}</b><br />
+        {data.footerNote && <Fragment>{data.footerNote}<br /></Fragment>}
+        <span class="blink" style="margin-top:8px"></span>
+      </div>
+      {data.disclaimer && <p class="disclaimer" set:html={data.disclaimer} />}
+    </footer>
+  </div>
+</BaseLayout>

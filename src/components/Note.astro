@@ -1,0 +1,11 @@
+---
+// 注意喚起コールアウト（common.css の .note / 橙）
+interface Props {
+  label?: string;
+}
+const { label = '⚠ NOTE' } = Astro.props;
+---
+<div class="note">
+  <span class="nl">{label}</span>
+  <slot />
+</div>

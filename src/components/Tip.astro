@@ -1,0 +1,11 @@
+---
+// 補足／実務メモのコールアウト（common.css の .you / 緑）
+interface Props {
+  label?: string;
+}
+const { label = '▶ MEMO' } = Astro.props;
+---
+<div class="you">
+  <span class="nl">{label}</span>
+  <slot />
+</div>
