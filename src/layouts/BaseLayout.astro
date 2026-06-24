@@ -38,9 +38,17 @@ const { title, description } = Astro.props;
             }
           });
         },
-        { threshold: 0.08 }
+        { threshold: 0.08, rootMargin: '50px' }
       );
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      // 初期表示時に画面内にある要素は即座に表示
+      document.querySelectorAll('.reveal').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('in');
+        } else {
+          io.observe(el);
+        }
+      });
     </script>
   </body>
 </html>
