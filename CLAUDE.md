@@ -38,3 +38,9 @@ npm run new -- <slug> "タイトル"   # 記事の雛形を作成
 
 `master` への push で `.github/workflows/deploy.yml` が `npm ci && npm run build` し、
 `dist/` を GitHub Pages へ。base path は `astro.config.mjs` の `base: '/study-memo'`。
+
+## 自動生成記事について
+
+`src/content/notes/news-YYYY-MM-DD.mdx`（`category: NEWS`）は、毎朝7:00(JST)に
+スケジュール実行されるClaude Codeセッションが自動収集・生成し、masterへ直接pushしている
+ITニュースダイジェスト。生成ルールは `docs/daily-news-digest.md` を参照。
