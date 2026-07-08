@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 concurrency:
   group: daily-news-digest
@@ -21,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: master
-          token: ${{ secrets.NEWS_BOT_PAT }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -34,24 +34,35 @@ jobs:
           git config user.name "news-bot"
           git config user.email "news-bot@users.noreply.github.com"
 
-      - name: Generate and publish today's news digest
+      - name: Generate today's news digest and open a PR
         uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ github.token }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
             リポジトリ kimi8-lapi16/study-memo はすでにmasterブランチでcheckout済み。
             `docs/daily-news-digest.md` を読み、その仕様に**厳密に**従って、今日分の
             ITニュースダイジェスト記事（`src/content/notes/news-YYYY-MM-DD.mdx`）を
-            1本作成し、`npm run build` でビルド確認した上で、masterブランチへ直接
-            git commit & push すること（PRは作らない）。日付はJST（UTC+9）基準で、
-            今日の日付を使うこと。
+            作成すること。日付はJST（UTC+9）基準で今日の日付を使う。
 
-            価値のあるニュースが見つからない場合は記事を作成せず、pushもせずに終了して
-            よい。`npm run build` が失敗する場合は原因を修正し、それでも解決しなければ
-            pushせずに終了する。
+            このリポジトリはmasterへの直接pushができない（PR必須のルールセットが
+            設定されている）ため、以下の手順で進めること:
 
-            最後に、作成した記事のタイトルと採用件数、pushしたコミットハッシュ
-            （記事を作らなかった場合はその旨とスキップ理由）を報告すること。
+            1. `git checkout -b news/YYYY-MM-DD` で専用ブランチを作る
+            2. 記事ファイルを作成する
+            3. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
+            4. 変更をコミットし、`git push -u origin news/YYYY-MM-DD` でブランチをpushする
+            5. `gh pr create --base master --head news/YYYY-MM-DD --title "news: ITニュース
+               ダイジェスト YYYY-MM-DD" --body "..."` でPRを作成する。本文にはその日採用した
+               ニュースのタイトルと出典URLを箇条書きで入れる
+
+            価値のあるニュースが1件も見つからない場合は、ブランチもPRも作らずに終了してよい。
+            `npm run build` が失敗する場合は原因を修正し、それでも解決しなければブランチを
+            pushせず・PRも作らずに終了する（サイトを壊さないことより優先されるものはない）。
+
+            最後に、作成したPRのURLと採用ニュース件数（記事を作らなかった場合はその旨と
+            スキップ理由）を報告すること。
           claude_args: |
             --max-turns 60
             --model claude-sonnet-5
