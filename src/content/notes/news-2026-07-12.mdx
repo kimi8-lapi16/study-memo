@@ -1,0 +1,78 @@
+---
+title: ITニュースダイジェスト 2026-07-12
+listTitle: ITニュースダイジェスト 2026-07-12 — Apple対OpenAI提訴、KDDI不正アクセス、Multigres v0.1ほか。
+date: 2026-07-12
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ, 訴訟]
+summary: AppleがOpenAIを商業秘密侵害で提訴、KDDI系ISPで大規模不正アクセス、ShareFile/Giteaの重大脆弱性、PostgreSQL分散基盤Multigres v0.1、国産基盤モデルの政府試用開始など7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-12</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+  - LITIGATION
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## AppleがOpenAIを商業秘密侵害で提訴
+
+Appleは現地時間7月10日、元従業員2人とOpenAI・傘下のio Productsを、営業秘密の不正取得を主張してカリフォルニア州北部地区連邦地裁に提訴した。
+
+訴訟・トラブル案件。訴状によれば、元従業員がApple社内のネットワークストレージに不正アクセスし、CAD設計図や機密ファイル、セキュリティ研修資料などを持ち出したとされる。OpenAIがAppleの幹部400名以上を採用してきたことにも言及しており、人材引き抜きと情報漏えいの両面が争点になりそうだ。OpenAI側はコメントを出していない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/11/news038.html), [Bloomberg Law](https://news.bloomberglaw.com/litigation/apple-sues-openai-for-trade-secret-theft-in-blockbuster-case)
+
+## KDDI系ISPで不正アクセス、1200万件超のメールアドレスが流出
+
+KDDIが提供するBIGLOBE・@niftyなどのISPルーターシステムに不正アクセスがあり、約1223万件のメールアドレスと約762万件のパスワードが流出した可能性があると発表した。
+
+セキュリティインシデント案件。攻撃者は過去のソフトウェア脆弱性を悪用して侵入したとみられる。不正アクセスの発見は6月17日で、KDDIは全サーバーの遮断とソフトウェア更新を実施済み。au・UQ mobile・au one netは別システムのため影響なしとしている。
+
+出典: [ITmedia Mobile](https://www.itmedia.co.jp/mobile/articles/2607/06/news111.html)
+
+## Progress、ShareFileの「信頼できる脅威」でサーバー即時シャットダウンを要請
+
+Progress Softwareは、ファイル共有製品ShareFileのオンプレミス版で使われるStorage Zone Controllerに対する「信頼できる外部からの脅威」を確認したとして、顧客に対しサーバーの手動シャットダウンを異例の形で要請した。
+
+セキュリティインシデント案件。現時点で不正アクセスやデータ侵害の兆候はないとしつつ、クラウド側でのアクセス制限では不十分と判断しての予防的措置。2023年のMOVEit Transfer悪用事件との類似が指摘されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/progress-urges-sharefile-customers-to-shut-down-servers-over-credible-threat/)
+
+## Gitea公式Dockerイメージの認証バイパス脆弱性が悪用される
+
+Gitea公式Dockerイメージにおける認証バイパスの重大な脆弱性（<Mono>CVE-2026-20896</Mono>）が、公開から13日後には実際に悪用され始めていたことが分かった。
+
+セキュリティインシデント案件。デフォルト設定では逆プロキシ認証ヘッダーの信頼元IPが<Mono>REVERSE_PROXY_TRUSTED_PROXIES=*</Mono>となっており、任意の送信元からのヘッダーを信頼してしまうため、認証なしで管理者を含む任意ユーザーになりすませる状態だった。公開されている約6,200件のGiteaインスタンスのうち何件が脆弱かは不明。
+
+<Note label="⚠ 対策">
+Gitea開発チームは修正版1.26.3/1.26.4をリリース済み。アップグレードが難しい場合は、信頼するプロキシのIPをワイルドカードではなく個別指定に変更することが推奨されている。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-auth-bypass-in-gitea-docker-image/)
+
+## Supabase、PostgreSQL水平分散基盤「Multigres v0.1」を公開
+
+Supabaseは、複数のPostgreSQLをクラスタ化して水平スケーリングと高可用性を実現するOSS「Multigres」のv0.1(アルファ版)を公開した。MySQL向け分散ソリューション「Vitess」に相当する機能をPostgreSQLで実現することを目指すプロジェクト。
+
+新技術紹介案件。PostgreSQLのレプリケーション機構を活用しつつ独自のコンセンサスモデルでデータ一貫性を維持し、稼働中のレプリカ追加・削除、コネクションプーリング、自動フェイルオーバー、完全・増分バックアップなどに対応する。最小3ノード構成から利用可能。ただし現行のv0.1ではシャーディング機能自体は未実装で、今後のリリースでの実装が予定されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/postgresqldbmultigres_v01.html)
+
+## Bun開発者、53万行のZigコードをClaudeでRustへ移植
+
+JavaScriptランタイム「Bun」の開発者Jarred Sumner氏は、約53万5000行に及ぶZig言語のコードベースを、Claudeを使って11日間でRustへ移植したことを明らかにした。次バージョンBun 1.4(Canary)からこのRust版に切り替わる。
+
+新技術紹介案件。実装を担当するエージェントに対し2つ以上のレビューエージェントを配置する「敵対的レビュー」体制で、複数のサブエージェントを並列稼働させて11日間走らせ続けたという。ピーク時にはコード生成量が1分間に約1300行に達し、総計6,778コミット、コストは約16万5000ドル。結果としてメモリリークの根絶、バイナリサイズ20%削減、パフォーマンス2〜5%向上を達成したとしている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/javascriptbunclaude_fable_511zigrustclaude.html)
+
+## デジタル庁、政府生成AI「源内」で国産基盤モデル3種の試用開始
+
+デジタル庁は、政府職員約18万人が利用する生成AI環境「ガバメントAI 源内」において、NTTデータ「tsuzumi 2」・富士通「Takane 32B」・Preferred Networks「PLaMo 2.0 Prime」という国産基盤モデル3種を、国内クラウド「さくらのクラウド」上で稼働させる試用の取り組みを発表した。
+
+新技術紹介案件。8月までに実験環境を構築し、9〜11月にかけて複数回の実験を実施、A/Bテストで有用性・信頼性・経済性を検証する。国産AI技術の育成と、海外クラウド・海外モデルに依存しない政府調達モデルの確立を目指す。
+
+出典: [デジタル庁](https://www.digital.go.jp/news/7eef939d-1c58-4229-b210-7b5adc9af590)
