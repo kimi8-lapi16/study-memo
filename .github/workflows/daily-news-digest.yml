@@ -2,7 +2,9 @@ name: Daily IT News Digest
 
 on:
   schedule:
-    - cron: '0 22 * * *' # 07:00 JST
+    # 06:47 JST。毎時0分はGitHub Actionsの最混雑スロットで、高負荷時は
+    # スケジュール実行自体がスキップされることがあるため0分を避けている
+    - cron: '47 21 * * *'
   workflow_dispatch:
 
 permissions:
@@ -35,7 +37,20 @@ jobs:
           git config user.name "news-bot"
           git config user.email "news-bot@users.noreply.github.com"
 
+      - name: Skip if today's digest already exists
+        id: guard
+        run: |
+          TODAY=$(TZ=Asia/Tokyo date +%F)
+          if git ls-remote --exit-code --heads origin "news/${TODAY}" > /dev/null 2>&1 \
+             || [ -f "src/content/notes/news-${TODAY}.mdx" ]; then
+            echo "今日分（news/${TODAY}）は既に存在するためスキップします"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate today's news digest and open a PR
+        if: steps.guard.outputs.skip != 'true'
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ github.token }}
@@ -56,8 +71,8 @@ jobs:
             3. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
             4. 変更をコミットし、`git push -u origin news/YYYY-MM-DD` でブランチをpushする
             5. `gh pr create --base master --head news/YYYY-MM-DD --title "news: ITニュース
-               ダイジェスト YYYY-MM-DD" --body "..."` でPRを作成する。本文にはその日採用した
-               ニュースのタイトルと出典URLを箇条書きで入れる
+               ダイジェスト YYYY-MM-DD" --reviewer kimi8-lapi16 --body "..."` でPRを作成する。
+               本文にはその日採用したニュースのタイトルと出典URLを箇条書きで入れる
 
             価値のあるニュースが1件も見つからない場合は、ブランチもPRも作らずに終了してよい。
             `npm run build` が失敗する場合は原因を修正し、それでも解決しなければブランチを
