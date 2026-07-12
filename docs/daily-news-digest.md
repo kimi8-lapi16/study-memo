@@ -10,6 +10,16 @@ Claude Code Actionを起動し、この仕様に従って `src/content/notes/new
 masterへのPRを自動作成」までを行い、**PRのマージはリポジトリオーナーが手動で行う**
 （読む→問題なければマージ、というレビュー運用）。
 
+## セットアップ（初回のみ）
+
+このワークフローはClaude Pro/MaxサブスクリプションのOAuthトークンで動く（従量課金の
+APIキーは使わない）。
+
+1. Claude Codeがインストールされた端末で `claude setup-token` を実行し、トークンを発行する。
+2. GitHubリポジトリの Settings → Secrets and variables → Actions → New repository secret で
+   `CLAUDE_CODE_OAUTH_TOKEN` という名前でそのトークンを登録する。
+3. トークンが失効した場合は `claude setup-token` を再実行し、Secretの値を更新する。
+
 ## 対象ジャンル
 
 以下4ジャンルのニュースのみを対象にする。国内・海外どちらの話題も対象。
