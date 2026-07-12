@@ -71,8 +71,8 @@ jobs:
             3. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
             4. 変更をコミットし、`git push -u origin news/YYYY-MM-DD` でブランチをpushする
             5. `gh pr create --base master --head news/YYYY-MM-DD --title "news: ITニュース
-               ダイジェスト YYYY-MM-DD" --body "..."` でPRを作成する。本文にはその日採用した
-               ニュースのタイトルと出典URLを箇条書きで入れる
+               ダイジェスト YYYY-MM-DD" --reviewer kimi8-lapi16 --body "..."` でPRを作成する。
+               本文にはその日採用したニュースのタイトルと出典URLを箇条書きで入れる
 
             価値のあるニュースが1件も見つからない場合は、ブランチもPRも作らずに終了してよい。
             `npm run build` が失敗する場合は原因を修正し、それでも解決しなければブランチを
