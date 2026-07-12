@@ -1,0 +1,45 @@
+---
+title: ITニュースダイジェスト 2026-07-13
+listTitle: ITニュースダイジェスト 2026-07-13 — arXiv論文の大量情報漏洩、Androidマルウェア「RedHook」、AnthropicのAI可視化ツールほか。
+date: 2026-07-13
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI]
+summary: プレプリントサイトarXivの論文270万件の88%で意図しない機密情報が露出、Wireless ADBを悪用するAndroidマルウェア「RedHook」の新版、AnthropicがAIの内部処理を可視化する「Jレンズ」を公開の3件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-13</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## プレプリントサイト「arXiv」、論文の9割近くで非公開情報が露出
+
+1991年〜2016年に投稿された論文270万件のうち約88%で、ソースファイルにGPS座標やユーザー名・パスワード、APIトークン、メールアドレスなど意図しない機密情報が残存していたことが分かった。
+
+セキュリティインシデント案件。原因はLaTeX形式のソースファイルで、PDFには表示されないコメントや隠しテキストとして著者の作業メモや認証情報がそのまま残っていたこと。長年気づかれずに公開され続けてきた点が問題視されている。研究者らは不要な情報を検出・除去する新ツール「ALC-NG」を開発し、対策を呼びかけている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/13/news021.html)
+
+## Androidマルウェア「RedHook」、Wireless ADB悪用でPC接続なしに端末を乗っ取り
+
+Android向けの遠隔操作型マルウェア「RedHook」の新版が、ワイヤレスデバッグ機能(Wireless ADB)を悪用し、PCへの物理接続なしにシェルレベルのアクセス権限を奪取する手口を使い始めた。
+
+セキュリティインシデント案件。ユーザーを騙してアクセシビリティ権限を付与させ、開発者オプションとワイヤレスデバッグを自動的に有効化。画面に表示されるペアリングコードを盗み取ってADBサービスに接続したうえ、正規のAndroidユーティリティ「Shizuku」を悪用してUID 2000権限を獲得し、保護された設定の変更やアプリの無断インストール・削除を可能にする。53種のコマンドに対応し、画面ストリーミング、端末ロック解除、連絡先・SMSの窃取なども行える。root化されていない端末でも被害に遭う点が特徴。
+
+<Note label="⚠ 対策">
+Google Playストア以外からのアプリインストールを避け、権限要求は内容をよく確認したうえで許可すること。Play Protectが有効になっているかも確認が推奨されている。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/)
+
+## Anthropic、AIの内部処理を可視化するデモ「Jレンズ」を公開
+
+Anthropicは、AIモデルが回答を生成する際に内部でどのニューラルパターンが活性化しているかを可視化できるデモアプリ「Jレンズ」を公開した。
+
+新技術紹介案件。AIが出力を生成する過程で、他の内部処理と比べて特別な役割を果たす少数のニューラルパターンの集合が存在することが判明し、これを「J空間」と名付けた。Jレンズはこの領域で活性化したフレーズをリアルタイムに表示する仕組みで、たとえば「スマートフォンの選び方」と質問すると「smartphone」「iPhone」「affordable」といったフレーズの活性化が確認できる。解釈可能性研究プラットフォーム「Neuronpedia」上でQwen3.6など複数のモデルに対して試せる。J空間は設計段階で組み込まれたものではなく学習過程で自然に生じたもので、AIの思考や感情の証拠ではない点に注意が必要だとしている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260712-ai-j-space-jacobian-lens/)
