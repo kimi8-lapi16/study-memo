@@ -1,0 +1,69 @@
+name: Daily IT News Digest
+
+on:
+  schedule:
+    - cron: '0 22 * * *' # 07:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: daily-news-digest
+  cancel-in-progress: false
+
+jobs:
+  generate-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Configure git identity
+        run: |
+          git config user.name "news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+
+      - name: Generate today's news digest and open a PR
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            リポジトリ kimi8-lapi16/study-memo はすでにmasterブランチでcheckout済み。
+            `docs/daily-news-digest.md` を読み、その仕様に**厳密に**従って、今日分の
+            ITニュースダイジェスト記事（`src/content/notes/news-YYYY-MM-DD.mdx`）を
+            作成すること。日付はJST（UTC+9）基準で今日の日付を使う。
+
+            このリポジトリはmasterへの直接pushができない（PR必須のルールセットが
+            設定されている）ため、以下の手順で進めること:
+
+            1. `git checkout -b news/YYYY-MM-DD` で専用ブランチを作る
+            2. 記事ファイルを作成する
+            3. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
+            4. 変更をコミットし、`git push -u origin news/YYYY-MM-DD` でブランチをpushする
+            5. `gh pr create --base master --head news/YYYY-MM-DD --title "news: ITニュース
+               ダイジェスト YYYY-MM-DD" --body "..."` でPRを作成する。本文にはその日採用した
+               ニュースのタイトルと出典URLを箇条書きで入れる
+
+            価値のあるニュースが1件も見つからない場合は、ブランチもPRも作らずに終了してよい。
+            `npm run build` が失敗する場合は原因を修正し、それでも解決しなければブランチを
+            pushせず・PRも作らずに終了する（サイトを壊さないことより優先されるものはない）。
+
+            最後に、作成したPRのURLと採用ニュース件数（記事を作らなかった場合はその旨と
+            スキップ理由）を報告すること。
+          claude_args: |
+            --max-turns 60
+            --model claude-sonnet-5
+            --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
