@@ -37,10 +37,17 @@ jobs:
           git config user.name "news-bot"
           git config user.email "news-bot@users.noreply.github.com"
 
+      # ランナーはUTCで動くため、朝のJSTはUTCではまだ前日。日付の解釈をAIに
+      # 任せると「前日=今日」と誤認して既存記事を理由にスキップするため、
+      # JSTの日付をここで確定させてプロンプトに埋め込む
+      - name: Compute today's date in JST
+        id: date
+        run: echo "today=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_OUTPUT"
+
       - name: Skip if today's digest already exists
         id: guard
         run: |
-          TODAY=$(TZ=Asia/Tokyo date +%F)
+          TODAY="${{ steps.date.outputs.today }}"
           if git ls-remote --exit-code --heads origin "news/${TODAY}" > /dev/null 2>&1 \
              || [ -f "src/content/notes/news-${TODAY}.mdx" ]; then
             echo "今日分（news/${TODAY}）は既に存在するためスキップします"
@@ -60,18 +67,28 @@ jobs:
           prompt: |
             リポジトリ kimi8-lapi16/study-memo はすでにmasterブランチでcheckout済み。
             `docs/daily-news-digest.md` を読み、その仕様に**厳密に**従って、今日分の
-            ITニュースダイジェスト記事（`src/content/notes/news-YYYY-MM-DD.mdx`）を
-            作成すること。日付はJST（UTC+9）基準で今日の日付を使う。
+            ITニュースダイジェスト記事を作成すること。
+
+            **今日の日付（JST）は ${{ steps.date.outputs.today }} である。**
+            実行環境のシステム時計はUTCなので `date` コマンドの出力とはズレるが、
+            必ずこの日付を使うこと。作成するファイルは
+            `src/content/notes/news-${{ steps.date.outputs.today }}.mdx`、
+            ブランチは `news/${{ steps.date.outputs.today }}`。
+            リポジトリ内にそれより過去の日付の `news-*.mdx` が存在しても、それは
+            過去分の公開済み記事であり今日分とは無関係。既存記事を理由に今日分の
+            作成をスキップしてはならない（重複チェックは「同じ出来事を再度取り上げ
+            ない」ためのものであり、記事作成自体の要否判断ではない）。
 
             このリポジトリはmasterへの直接pushができない（PR必須のルールセットが
             設定されている）ため、以下の手順で進めること:
 
-            1. `git checkout -b news/YYYY-MM-DD` で専用ブランチを作る
+            1. `git checkout -b news/${{ steps.date.outputs.today }}` で専用ブランチを作る
             2. 記事ファイルを作成する
             3. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
-            4. 変更をコミットし、`git push -u origin news/YYYY-MM-DD` でブランチをpushする
-            5. `gh pr create --base master --head news/YYYY-MM-DD --title "news: ITニュース
-               ダイジェスト YYYY-MM-DD" --reviewer kimi8-lapi16 --body "..."` でPRを作成する。
+            4. 変更をコミットし、`git push -u origin news/${{ steps.date.outputs.today }}` でpushする
+            5. `gh pr create --base master --head news/${{ steps.date.outputs.today }}
+               --title "news: ITニュースダイジェスト ${{ steps.date.outputs.today }}"
+               --reviewer kimi8-lapi16 --body "..."` でPRを作成する。
                本文にはその日採用したニュースのタイトルと出典URLを箇条書きで入れる
 
             価値のあるニュースが1件も見つからない場合は、ブランチもPRも作らずに終了してよい。
