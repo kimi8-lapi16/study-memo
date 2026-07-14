@@ -1,0 +1,74 @@
+---
+title: ITニュースダイジェスト 2026-07-14
+listTitle: ITニュースダイジェスト 2026-07-14 — 日本交通のサイバー攻撃、npmサプライチェーン攻撃、EU・UKの対ロ制裁ほか。
+date: 2026-07-14
+category: NEWS
+tags: [NEWS, IT, セキュリティ, 法改正, AI]
+summary: 日本交通がサイバー攻撃でシステム停止、オーミケンシがVPN侵入で有価証券報告書提出が遅延、npmパッケージ「jscrambler」の乗っ取り、CISAがJoomla拡張機能の悪用を警告、EU・UKがロシアGRU関係者へ初の共同制裁、Google Cloud RunのAIコード実行サンドボックスの6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-14</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - REGULATION
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## 日本交通、サイバー攻撃で予約・配車システムが停止
+
+国内最大手のタクシー事業者・日本交通は7月12日未明から13日にかけて、外部からの不正アクセス（マルウェア感染）により社内システムが被害を受け、緊急の切断対応を行ったと発表した。
+
+セキュリティインシデント案件。従業員約1万8228人が利用する社内システムのほか、電話配車・Web予約・ハイヤー予約などの顧客向けサービスにも影響が出ており、妊婦向けの陣痛タクシーサービスなども一部利用できない状態が続く。情報漏えいの有無は調査中で、現時点でランサムウェア集団による犯行声明は出ていない。同社は配車アプリ「GO」や駅前乗り場の利用を呼びかけるとともに、不審なメールやリンクへの注意を呼びかけている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/japans-largest-taxi-operator-shuts-systems-after-cyberattack/)
+
+## オーミケンシ、VPN侵入で基幹システム停止し有価証券報告書の提出が遅延
+
+繊維大手のオーミケンシは、VPN経由の不正アクセスを受けて基幹システムの稼働を停止せざるを得なくなり、法定期限内の有価証券報告書提出ができなくなったことを明らかにした。
+
+訴訟・トラブル案件（システム障害の紛争化）。侵入の具体的な時期や発覚の経緯は詳らかにされていないが、基幹業務システムの停止という事業継続に直結する被害により、金融商品取引法上の開示義務にまで影響が及んだ点が注目される。
+
+出典: [日経クロステック](https://xtech.nikkei.com/atcl/nxt/column/18/00598/010900372/)
+
+## npmパッケージ「jscrambler」が乗っ取られ、インフォスティーラーが仕込まれる
+
+コード難読化ツールを提供するJscrambler社のnpmパッケージが、公開用アカウントの認証情報窃取を通じて乗っ取られ、情報窃取型マルウェアを仕込んだ悪性バージョン（8.14・8.16・8.17・8.20）が7月13日に公開された。
+
+セキュリティインシデント案件。悪性版は約2時間で非推奨化されるまでに1,479回ダウンロードされた。`preinstall`フックで実行されるマルウェアは、Git/SSH認証情報や環境変数、CI/CDトークンに加え、AWS・Azure・GCPなどクラウド資格情報、暗号資産ウォレットの復元フレーズ、Slack・Discordの認証情報まで幅広く狙う。
+
+<Note label="⚠ 対策">
+該当バージョンを導入した環境ではJscrambler社が推奨する通り、シークレット類のローテーションと安全なバックアップからの復旧が必要。修正版は8.22で公開済み。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-backdoor-jscrambler-npm-package-with-infostealer-malware/)
+
+## CISA、Joomla拡張機能「iCagenda」「Balbooa Forms」の悪用中脆弱性を警告
+
+米CISAは、Joomla向け拡張機能「iCagenda」（<Mono>CVE-2026-48939</Mono>）と「Balbooa Forms」（<Mono>CVE-2026-56291</Mono>）に存在する任意ファイルアップロードの脆弱性が、実際に悪用されていると警告した。
+
+セキュリティインシデント案件。いずれもファイル添付・アップロード機能の制限を回避してPHPファイルなどを設置でき、サイトの完全な乗っ取りにつながるリモートコード実行が可能。CISAは連邦機関に3日以内の対応を義務付けており、両拡張機能の利用サイトは早急な確認が必要。
+
+<Note label="⚠ 対策">
+iCagendaはv4.0.8/v3.9.15、Balbooa Formsはv2.4.1で修正済み。速やかなアップデートが推奨される。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-warns-of-actively-exploited-rce-flaws-in-joomla-extensions/)
+
+## EU・UK、ロシアGRU関係者らへ初の共同サイバー制裁
+
+EUと英国は、ロシア軍参謀本部情報総局（GRU）傘下でハッカー集団「Turla」などを統括するFSB第16センター関係者を含む個人・団体に対し、両者初となる共同のサイバー制裁を発動した。EUは個人9名・団体4、英国は個人・団体24を制裁対象に指定した。
+
+法改正・規制動向案件。制裁対象には欧州9カ国の政府機関や重要インフラを2010年以降狙ってきたTurlaグループの関係者のほか、ハッカーの勧誘を行ったとされるIMPULS社関係者、英国内で2,100人以上の被害者を出したLumma Stealerマルウェアの関与者、反ウクライナ言説を発信したとされるRybar LLCのスタッフも含まれる。EUと英国の対ロシア・サイバー制裁での連携強化を象徴する動きとなった。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/eu-and-uk-hit-russia-with-first-joint-cyber-sanctions-package/)
+
+## Google Cloud、生成AIのコードを安全に実行する「Cloud Runサンドボックス」を公開プレビュー
+
+Googleは、生成AIが作ったコードなど信頼できないコードを瞬時に隔離して安全に実行できる新サービス「Cloud Runサンドボックス」の一般公開プレビューを開始した。
+
+新技術紹介案件。サンドボックスは環境変数やGoogle Cloudのメタデータサーバーへのアクセスを遮断し、外向き通信もデフォルトで禁止（明示的な許可がある場合のみ通信可能）。コンテナのファイルシステムは読み取り専用として見え、変更内容は一時的なメモリ上のオーバーレイに書き込まれ実行終了時に破棄される。AIエージェントがコード生成やヘッドレスブラウザ操作、ファイル操作などを、リソース枯渇や無限ループ、不正な通信、誤ったデータ削除の心配なく行えるようにする狙いで、Agent Development Kit(ADK)やComputeSDKの次期バージョンとの統合も予定されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/google_cloudaicloud_run.html)
