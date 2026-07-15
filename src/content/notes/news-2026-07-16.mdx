@@ -1,0 +1,98 @@
+---
+title: ITニュースダイジェスト 2026-07-16
+listTitle: ITニュースダイジェスト 2026-07-16 — SharePoint継続悪用、npmサプライチェーン攻撃、Google Cloud障害、ハサビス氏のAI標準化機関提唱ほか。
+date: 2026-07-16
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, クラウド, 開発ツール]
+summary: CISAがSharePointの継続的な悪用を受け追加ハードニングを要求、npm公式パッケージ4種に認証情報窃取マルウェアが混入、Google Cloud VMware Engineで3リージョン10時間超の障害、Google DeepMindのハサビスCEOが米国主導のAI標準化機関設立を提唱、VoidZeroが統合ツール「Vite+」ベータ公開、ガートナーが小規模開発チーム化を予測、米司法省がロシア系弾丸プルーフホスティング運営者3人を起訴の7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-16</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - CLOUD
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## CISA、SharePointの悪用継続を受け追加ハードニングを要求 露出1万台中800台超が未パッチ
+
+米CISAは7月14日、オンプレミス版SharePoint Serverの複数の脆弱性が引き続き悪用されているとして、管理者に追加のハードニング対応を求める注意喚起を発表した。
+
+セキュリティインシデント・脆弱性案件。対象はSubscription Editionを含む全サポート対象バージョンで、実際に悪用が確認されているのは認証不備の<Mono>CVE-2026-56164</Mono>、リモートコード実行の<Mono>CVE-2026-45659</Mono>、なりすましの<Mono>CVE-2026-32201</Mono>の3件（いずれもCISAのKEVカタログに登録済み、56164は7月14日追加）。7月の月例更新（既報）で修正版は提供済みだが、Shadowserverの調査ではインターネットに露出したSharePointサーバー約1万台のうち800台以上が今なお未パッチという。CISAは連邦政府機関に対し7月17日までのパッチ適用またはシステム停止を義務付けている。
+
+<Note label="⚠ 対応">
+インターネットに露出したオンプレミスSharePointを運用している場合は、優先度を上げて3件のCVEの適用状況を確認したい。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-patch-actively-exploited-sharepoint-flaws/)
+
+## npm公式パッケージ「AsyncAPI」4種が乗っ取られ、認証情報窃取マルウェアが混入
+
+週間220万件超のダウンロードを持つnpm公式パッケージ「AsyncAPI Generator」など4種に、GitHub Actionsワークフローの設定不備を突かれて認証情報窃取マルウェアが仕込まれた。
+
+セキュリティインシデント案件。攻撃者はメンテナーの認証情報を盗む代わりに、ワークフロー設定の不備を悪用してプレースホルダーのGit IDでコミットを送り込み、各リポジトリの正規リリースワークフローにそのまま公開させる手口を使った。このため悪性パッケージにも正規のSLSA来歴証明が付与されてしまった。悪性バージョンが公開されていたのは7月14日7時10分から11時18分（UTC）までの約4時間で、対象は<Mono>@asyncapi/generator</Mono>など4パッケージ。開発チームはバージョン固定・ロックファイルの再生成・悪性ペイロードの削除・認証情報のローテーションを呼びかけている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/-asyncapi-npm-packages-infected-with-credential-stealing-malware/)
+
+## Google Cloud VMware Engineでゾーン間通信障害、豪州・独3リージョンで10時間超影響
+
+Google Cloud VMware Engine(GCVE)のストレッチクラスタ機能で、ネットワーク設定変更に起因するゾーン間通信障害が発生し、シドニー・メルボルン・フランクフルトの3リージョンで10時間以上にわたり影響が出た。
+
+クラウド・大規模障害案件。障害は7月14日午前10時（太平洋時間）ごろに始まり、同日21時46分ごろに収束。原因はネットワーク設定変更によるゾーン間のBGPセッション不安定化と、可用性確保用の「witness appliance」への接続断で、仮想マシン自体は稼働を続けていたものの多くのケースでアクセスできない状態になった。Googleは設定を直前の正常な状態にロールバックして復旧し、影響を受けた顧客には健全な側のクラスタへのVM移行を推奨した。
+
+出典: [Google Cloud Service Health](https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF)
+
+## Google DeepMindのハサビスCEO、米国主導の「フロンティアAI標準化機関」設立を提唱
+
+Google DeepMindのデミス・ハサビスCEOは7月14日（米国時間）公開のエッセイで、最前線AIモデルを評価・認定する米国主導の新たな標準化機関の設立を提唱した。
+
+AI・LLM動向案件。米金融業界の自主規制機関FINRAを参考に、業界資金で運営しつつ独立した技術専門家やオープンソース代表を含む理事会を持つ組織を想定する。フロンティア級モデルはサイバー・生物兵器・「欺瞞」関連能力などの安全性評価を経て認定を受ける仕組みで、対応する開発組織は「フロンティアラボ」と位置づけられる。ハサビス氏はAGIが「数年以内」に実現し得るとしたうえで、技術進歩のペースが理解を上回っている現状に危機感を示した。
+
+出典: [ITmedia AI＋](https://www.itmedia.co.jp/aiplus/article/2607/15/2000000192/)
+
+## VoidZero、統合開発ツールチェーン「Vite+」のベータ版を公開
+
+Viteの開発元VoidZeroは、ローカル開発サーバー・バンドラ・リンター・フォーマッター・テストランナーなどを1本のCLIに統合した開発ツールチェーン「Vite+」のベータ版を公開した。
+
+開発ツール・言語・OSS動向案件。ベータ版では実行コマンド<Mono>vp run</Mono>がViteのメタデータを自動追跡してキャッシュ効率を高めたほか、マイグレーションツール<Mono>vp migrate</Mono>がAIエージェント対応を含め拡張された。チーム向けにはOrganization Templateやプロキシ対応などのエンタープライズ機能も追加されている。VoidZeroは2026年6月にCloudflareによる買収が発表されており、今回はその後初の大型アップデートとなる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/vite.html)
+
+## ガートナー、「2029年までに組織の60%が2〜3人の小規模開発チームへ」と予測
+
+調査会社ガートナーは、AIが日常的なエンジニアリング業務を代替することで、2029年までに組織の60%が現在の4〜5人規模から2〜3人規模へとソフトウェア開発チームを縮小・再編すると予測した。
+
+業界動向案件。同社のプリンシパルアナリストAliyah Camacho氏は、この変化を「人間とAIの能力・強みを最大限活かすためのチーム再編」と表現する一方、ジュニア人材の採用・育成は継続すべきだとも指摘する。採用を絞りすぎれば知識移転が阻害され、将来的な人材獲得競争が激化しかねないと警告している。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/202960.html)
+
+## 米司法省、ロシア系「弾丸プルーフホスティング」運営者3人を起訴 被害総額6200万ドル超
+
+米司法省は、マルウェア配布やC2、フィッシング詐欺などサイバー犯罪グループにインフラを提供してきた「弾丸プルーフホスティング」サービスMedia Land/ML Cloudの運営者3人を起訴したと発表した。
+
+セキュリティインシデント案件。起訴されたのはオーナーのアレクサンドル・ボロソビク（通名Yalishanda）ら3人。同サービスはLockBit・BlackSuit・Playなど複数のランサムウェア集団に技術・インフラ支援を提供し、世界中の被害者に6200万ドル超の損害を与えたとされる。米国務省は情報提供者向けに最大1000万ドルの報奨金プログラムを実施中で、同月にはEU・英国も対ロシアの共同サイバー制裁を発表するなど（既報）、ロシア系サイバー犯罪インフラへの国際的な圧力が強まっている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/us-charges-alleged-russian-bulletproof-hosting-service-operators/)
+
+## 今日のTips: PostgreSQLの SELECT ... FOR UPDATE SKIP LOCKED でジョブキューを実装する
+
+複数のワーカーが同じテーブルから未処理タスクを取り出す「ジョブキュー」的な処理では、素朴な<Mono>SELECT ... FOR UPDATE</Mono>だと他のワーカーがロック中の行に当たったときに待機が発生し、競合の原因になる。
+
+PostgreSQL 9.5で追加された<Mono>SKIP LOCKED</Mono>オプションを使うと、即座にロックを取得できない行を結果からスキップできるため、複数ワーカーが同じキューテーブルに同時アクセスしてもロック待ちが発生しない。
+
+```sql
+SELECT * FROM job_queue
+WHERE status = 'pending'
+ORDER BY created_at
+LIMIT 1
+FOR UPDATE SKIP LOCKED;
+```
+
+<Tip label="▶ 使いどころに注意">
+公式ドキュメントは「ロックされた行をスキップするため一貫性のないデータビューになり汎用の処理には向かないが、キューのようなテーブルへの複数コンシューマーアクセスにおけるロック競合の回避には使える」と明記している。集計処理など一貫性が必要な場面では使わないこと。
+</Tip>
+
+参考: [PostgreSQL: Documentation: SELECT](https://www.postgresql.org/docs/current/sql-select.html)
