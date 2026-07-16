@@ -1,0 +1,113 @@
+---
+title: ITニュースダイジェスト 2026-07-17
+listTitle: ITニュースダイジェスト 2026-07-17 — AWS CloudFront障害、Oracle EBS悪用、Gemini Spark日本上陸、Micron広島1.5兆円投資ほか。
+date: 2026-07-17
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, クラウド, 開発ツール]
+summary: AWS CloudFrontの障害でPayPay・note・ニコニコ生放送等に影響、CISAがOracle E-Business Suiteの悪用継続を受け緊急パッチを義務化、新型ランサムウェア「Spirals」が侵入から24時間未満で暗号化を完了、GoogleのAIエージェント「Gemini Spark」が日本上陸、Thinking Machinesがオープンウェイト基盤モデル「Inkling」を公開、OpenAIがCodex向けキーパッド「Codex Micro」を発売、Micronが広島に1.5兆円投じ最先端HBM工場建設、Discourseが無料プラン「Free」を一般提供開始の8件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-17</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - CLOUD
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## AWS CloudFrontで世界規模の障害、PayPay・note・ニコニコ生放送などに影響
+
+米国時間7月16日午後5時40分ごろ（日本時間）、AWSのCDNサービス「CloudFront」で障害が発生し、PayPay・note・ニコニコ生放送・はてなブログなど国内の複数サービスで接続しづらい状態が続いた。
+
+クラウド・大規模障害案件。原因はCloudFrontの「VPC Origins」機能に関するもので、この機能を経由するオリジンでエラー率が上昇し504 Gateway Timeoutなどが多発した。標準的なS3オリジンなど他の構成には影響がなかったという。AWSは同日午後9時20分ごろに復旧を発表した。マイナポータルのログイン障害も同時間帯に発生しており、関連が指摘されている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/16/news096.html)
+
+## CISA、Oracle E-Business Suiteの悪用継続受け連邦機関に土曜までのパッチ適用を義務化
+
+米CISAは、Oracle E-Business Suite(EBS)のPaymentsモジュールにある未認証リモートコード実行の脆弱性<Mono>CVE-2026-46817</Mono>が実際に悪用されているとして、連邦機関に7月18日（土）までのパッチ適用を義務付けた。
+
+セキュリティインシデント・脆弱性案件。脅威インテリジェンス企業Defusedによれば悪用は6月29日には始まっており、CISAは7月15日に既知悪用脆弱性(KEV)カタログへ追加した。世界に露出したOracle EBSインスタンスは1,000台超で、半数以上が米国に所在する。Oracleは5月時点で修正パッチを提供済み。
+
+<Note label="⚠ 対応">
+インターネットに露出したOracle EBSを運用している場合、優先度を上げてパッチ適用状況を確認したい。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-oracle-flaw-by-saturday/)
+
+## 新型ランサムウェア「Spirals」、侵入から暗号化完了まで24時間未満
+
+セキュリティ企業Symantecの脅威分析チームは、南アジアのIT関連企業を標的にした新型ランサムウェア集団「Spirals」が、初期侵入からデータ窃取・暗号化までを24時間未満で完了させた事例を報告した。
+
+セキュリティインシデント案件。攻撃者は公開されたIISサーバーの脆弱性を突いてASP.NET製Webシェルを設置し、UACのバイパス・SAMレジストリやLSASSからの認証情報窃取・Windows Defenderの無効化を経て、Veeam・VMware・SQL Server・Oracle・PostgreSQLなど23種のバックアップ/DB/仮想化サービスを停止。最後にPsExecでSYSTEM権限からRust製ランサムウェアを展開し、6日以内の情報公開を予告する脅迫文を残した。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/new-spirals-ransomware-encrypts-victim-network-in-under-24-hours/)
+
+## Google「Gemini Spark」が日本上陸、24時間稼働の“パーソナルAIエージェント”
+
+Googleは7月16日、クラウド上で常時稼働するAIエージェント「Gemini Spark」の日本語提供を開始した。端末の電源を切っていてもGoogle Cloud上の仮想マシンでタスクを継続実行できるのが特徴。
+
+AI・LLM動向案件。Gmail・カレンダー・ドキュメントや外部サービスとの連携に対応し、カスタムMCP(Model Context Protocol)による直接連携も可能。メール送信など重要な操作の前にはユーザーへ確認を求める仕組みを備える。まずはGoogle AI Ultra登録者（月額1万4,500円〜）向けのベータ提供で、将来的にはPro登録者（月額2,900円）にも展開予定としている。
+
+出典: [ITmedia AI＋](https://www.itmedia.co.jp/aiplus/article/2607/16/2000000200/)
+
+## Thinking Machines、オープンウェイト基盤モデル「Inkling」を公開
+
+元OpenAI CTOのミラ・ムラティ氏が率いるThinking Machines Labは7月15日、テキスト・画像・音声・動画を扱うマルチモーダルなオープンウェイト基盤モデル「Inkling」を初公開した。
+
+AI・LLM動向案件。MoE(Mixture-of-Experts)構成で総パラメータ975億、有効パラメータ410億（軽量版Inkling-Smallは総2,760億・有効120億）、コンテキスト長は最大100万トークン。推論時の「思考量」を利用者が調整できる点を特徴とし、Apache 2.0ライセンスでHugging Face上に重みを公開した。ファインチューニング基盤「Tinker」も導入割引付きで提供し、TogetherAI・Fireworksとの提携でホスティングにも対応する。
+
+出典: [ITmedia AI＋](https://www.itmedia.co.jp/aiplus/article/2607/16/2000000197/)
+
+## OpenAI、Codex向けキーパッド「Codex Micro」を約3.7万円で発売
+
+OpenAIはキーボードメーカーWork Louderと共同で、コーディングエージェント「Codex」操作用の専用キーパッド「Codex Micro」を発売した。価格は約3万7,000円（約230ドル）。
+
+新技術紹介案件。6個のプログラム可能キーにLEDを搭載し、Codexエージェントの状態をキーの色で表示できるほか、色分け・スレッド操作などの機能を自由に割り当て可能。交換用のキーキャップ32個も付属する。OpenAIとApple間の訴訟（既報）ではOpenAIの独自ハードウェア開発が争点の一つになっているが、記事はCodex Microについて両社間の相互保護契約の対象範囲とは別の取り組みだとしている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/16/news055.html)
+
+## Micron、広島に1.5兆円を投じ最先端HBM工場を建設 経産省が最大5,360億円支援
+
+半導体メーカーMicron Technologyは、広島県東広島市の工場でAIサーバー向け最先端HBM(広帯域メモリ)・DRAMを生産する新棟建設に1兆5,000億円を投資すると発表した。経済産業省は最大5,360億円の補助を行う。
+
+業界動向案件。生産開始は2028年ごろを予定。同社CEOはAIサーバー向けメモリの需要を「かつてない規模」と表現している。MicronはエルピーダメモリのMicron傘下入り以降、日本国内への累計投資額は約3兆円に達するという。
+
+出典: [日経クロステック](https://xtech.nikkei.com/atcl/nxt/column/18/00001/11875/)
+
+## Discourse、無料プラン「Free」の一般提供を開始
+
+コミュニティプラットフォーム「Discourse」は7月14日、無料の公式ホスティングプラン「Free」を、2月10日開始のベータから一般提供へ移行したと発表した。
+
+開発ツール・言語・OSS動向案件。メンバー数無制限・チャット利用可・スタッフ枠2名・専用サブドメイン(<Mono>yourname.discourse.group</Mono>)を無料で提供し、スレッド型ディスカッションや全文検索、メール連携なども利用できる。ただし月間50万ページビュー・メール2万通・ストレージ5GB・AIクレジット1日10万・カテゴリ10個までといった利用上限がある。有料プラン(Pro/Business/Enterprise)への移行はサイトの作り直しなしで行えるとしている。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/07/discourse-free-plan)
+
+## 今日のTips: NestJS の Swagger CLIプラグインで、DTOのデコレータ記述を大幅に省略できる
+
+NestJSで<Mono>@nestjs/swagger</Mono>を使ってOpenAPIドキュメントを生成する際、素朴に書くとDTOの全プロパティに<Mono>@ApiProperty()</Mono>を手作業で付け続けることになり、フィールドが増えるほど記述量がかさむ。
+
+公式ドキュメントによると、<Mono>nest-cli.json</Mono>にSwagger CLIプラグインを設定しておくと、ビルド時にコンパイラがDTOの型情報を解析し、デコレータを自動生成してくれる。
+
+```json
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": { "introspectComments": true }
+      }
+    ]
+  }
+}
+```
+
+具体的には、<Mono>@ApiHideProperty()</Mono>が付いていない限り全プロパティに<Mono>@ApiProperty</Mono>相当の情報を自動付与し、<Mono>name?: string</Mono>のような疑問符から<Mono>required: false</Mono>を、TypeScriptの型から<Mono>type</Mono>や<Mono>enum</Mono>を、代入されたデフォルト値から<Mono>default</Mono>を、それぞれ推論する。<Mono>classValidatorShim</Mono>を有効にすればclass-validatorのデコレータからバリデーションルールも読み取る。
+
+<Tip label="▶ 補足">
+<Mono>introspectComments</Mono>を有効にすると、プロパティ上のJSDocコメントを説明文やサンプル値としてスキーマに反映できる。手書きの<Mono>@ApiProperty</Mono>デコレータをさらに減らせる。
+</Tip>
+
+参考: [NestJS Documentation: CLI Plugin (OpenAPI)](https://docs.nestjs.com/openapi/cli-plugin)
