@@ -12,7 +12,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeSections],
     shikiConfig: {
-      theme: 'night-owl',
+      theme: 'github-light',
     },
   },
 });

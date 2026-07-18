@@ -45,26 +45,26 @@
 | `heroTitle` | | ヒーロー見出し。`<br>`や`<span class="em/v">`でHTML装飾可 |
 | `sub` | | ヒーローのサブ文（HTML可） |
 | `metaTags` | | ヒーロー下のタグ群 |
-| `footerNote` | | フッターの一行（例: `// database design ...`） |
+| `footerNote` | | フッターの一行（例: `database design · performance`） |
 | `disclaimer` | | フッターの注意書き（HTML可） |
 | `draft` | | `true` でビルド対象外 |
 
 ## 本文の書き方
 
-- **章** = `## 見出し`。目次(TOC)と `// 01` 採番は自動。章の**先頭段落がリード文**になる。
+- **章** = `## 見出し`。目次(TOC)と `01` 採番は自動。章の**先頭段落がリード文**になる。
 - **小見出し** = `### 見出し`
-- 箇条書き `-` → ▸ リスト / 表 → デザイン済みテーブル / ` ```lang ` → シンタックスハイライト
-- `**太字**` は白。緑/朱で強調は `<strong class="acc">` / `<strong class="v">`
+- 箇条書き `-` → デザイン済みリスト / 表 → デザイン済みテーブル / ` ```lang ` → シンタックスハイライト
+- `**太字**` は黒。青/赤で強調は `<strong class="acc">` / `<strong class="v">`
 
 ### コンポーネント（import 不要、そのまま使える）
 
 | 記法 | 見た目 |
 | --- | --- |
-| `<Card label="...">…</Card>` | カード。`variant="v"`(朱)/`"amber"`(橙) |
+| `<Card label="...">…</Card>` | カード。`variant="v"`(赤)/`"amber"`(橙) |
 | `<Note label="⚠ …">…</Note>` | 注意（橙）コールアウト |
-| `<Tip label="▶ …">…</Tip>` | 補足（緑）コールアウト |
+| `<Tip label="▶ …">…</Tip>` | 補足（青）コールアウト |
 | `<Flow><FNode>…</FNode><Arr/><FNode hl>…</FNode></Flow>` | 横並びフロー |
-| `<Mono>…</Mono>` | 等幅・シアンの強調 |
+| `<Mono>…</Mono>` | 等幅フォントの強調 |
 
 凝った図（timeline / pyramid / 3カラム / tools / sumcard 等）は、`common.css` の
 クラスを使った**生HTMLをMDXに直接書ける**（既存記事 `intrusion-techniques.mdx` 参照）。

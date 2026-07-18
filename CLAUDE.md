@@ -16,7 +16,7 @@ npm run new -- <slug> "タイトル"   # 記事の雛形を作成
 
 1. `npm run new -- <slug> "タイトル"` → `src/content/notes/<slug>.mdx`
 2. front-matter と本文（マークダウン）を書く
-3. 章は `## 見出し`（目次と `// 01` 採番は自動 / 先頭段落がリード文）
+3. 章は `## 見出し`（目次と `01` 採番は自動 / 先頭段落がリード文）
 4. コールアウトは `<Card>` `<Note>` `<Tip>` `<Flow>`、技術語は `<Mono>`
 5. 凝った図は `common.css` のクラスで生HTMLを直接書ける
 
@@ -26,12 +26,12 @@ npm run new -- <slug> "タイトル"   # 記事の雛形を作成
 
 - `src/content/notes/*.mdx` … 記事（単一ソース）。スキーマは `src/content.config.ts`
 - `src/layouts/BaseLayout.astro` … 共通の `<head>` とrevealスクリプト
-- `src/pages/index.astro` … トップの一覧（全記事から自動生成）
+- `src/pages/index.astro` … トップの一覧（勉強メモ／ニュースのタブ切替。全記事から自動生成）
 - `src/pages/notes/[id].astro` … 記事ページ（ヒーロー＋TOC＋本文＋フッター）
 - `src/pages/rss.xml.js` … RSS
 - `src/components/*.astro` … MDXで使う部品（Card / Note / Tip / Flow / FNode / Arr / Mono）
 - `src/plugins/rehype-sections.mjs` … `##` を `<section>` 化し `// NN` を採番
-- `src/styles/common.css` … デザインシステム（`base: /study-memo`）
+- `src/styles/common.css` … デザインシステム（白黒基調＋最小限のアクセント色）
 - `original-memo/` … 生メモの下書き（ビルド対象外）
 
 ## デプロイ
