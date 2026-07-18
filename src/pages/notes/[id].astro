@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { withBase } from '../../lib/utils';
+import { withBase, formatDate } from '../../lib/utils';
 
 // MDX 本文から名前で使えるコンポーネント群
 import Card from '../../components/Card.astro';
@@ -23,13 +23,14 @@ const { note } = Astro.props;
 const { data } = note;
 const { Content, headings } = await render(note);
 const chapters = headings.filter((h) => h.depth === 2);
+const footerNote = data.footerNote?.replace(/^\/\/\s*/, '');
 ---
 <BaseLayout title={`${data.title}｜study-memo`} description={data.summary}>
   <header class="hero">
     <div class="wrap">
-      <div class="kicker">
-        <a href={withBase('')}>Study Notes</a>{data.kicker ? ` · ${data.kicker}` : ''} <span class="blink"></span>
-      </div>
+      <p class="kicker">
+        <a href={withBase('')}>study-memo</a>{data.kicker ? ` / ${data.kicker}` : ''}
+      </p>
       {data.heroTitle ? (
         <h1 class="title" set:html={data.heroTitle} />
       ) : (
@@ -46,8 +47,8 @@ const chapters = headings.filter((h) => h.depth === 2);
 
   <div class="wrap">
     {chapters.length > 0 && (
-      <nav class="toc reveal">
-        <div class="toc-h">// Index</div>
+      <nav class="toc">
+        <div class="toc-h">目次</div>
         <ol>
           {chapters.map((h) => (
             <li><a href={`#${h.slug}`}>{h.text}</a></li>
@@ -62,11 +63,23 @@ const chapters = headings.filter((h) => h.depth === 2);
 
     <footer>
       <div class="sig">
-        $ generated_from <b>{data.title}</b><br />
-        {data.footerNote && <Fragment>{data.footerNote}<br /></Fragment>}
-        <span class="blink" style="margin-top:8px"></span>
+        {formatDate(data.date)} · {data.category}
+        {footerNote && <Fragment> · {footerNote}</Fragment>}
       </div>
       {data.disclaimer && <p class="disclaimer" set:html={data.disclaimer} />}
+      <p class="back"><a href={withBase('')}>← 一覧へ戻る</a></p>
     </footer>
   </div>
 </BaseLayout>
+
+<style is:global>
+  footer .back {
+    margin-top: 32px;
+    font-size: 0.88rem;
+  }
+  footer .back a {
+    color: var(--ink-dim);
+    text-decoration: none;
+  }
+  footer .back a:hover { color: var(--acc); }
+</style>

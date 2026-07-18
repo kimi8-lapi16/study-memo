@@ -53,7 +53,7 @@ sub: 'ヒーローのサブ文。<br>2行くらいで概要を。'
 metaTags:
   - TAG ONE
   - TAG TWO
-footerNote: '// topic · keywords'
+footerNote: 'topic · keywords'
 disclaimer: '※ 注意書きがあればここに（任意）。'
 ---
 
@@ -63,13 +63,13 @@ disclaimer: '※ 注意書きがあればここに（任意）。'
 
 本文は素のマークダウンでOK。**強調** / \`inline code\` / 箇条書き / 表が使える。
 
-- 箇条書きは ▸ 付きで表示される
-- **太字** は白、緑にしたいときは <strong class="acc">これ</strong>
+- 箇条書きはデザイン済みリストで表示される
+- **太字** は黒、青にしたいときは <strong class="acc">これ</strong>
 
 ### 小見出し
 
 <Card label="ラベル">
-カードのコールアウト。variant="v"（朱）/ "amber"（橙）も指定できる。
+カードのコールアウト。variant="v"（赤）/ "amber"（橙）も指定できる。
 </Card>
 
 <Note label="⚠ 注意">
@@ -88,7 +88,7 @@ disclaimer: '※ 注意書きがあればここに（任意）。'
 
 ## 次の章
 
-\`##\` を足すと章が増え、目次（TOC）と \`// 02\` の採番は自動。
+\`##\` を足すと章が増え、目次（TOC）と \`02\` の採番は自動。
 `;
 
 await mkdir(dir, { recursive: true });
