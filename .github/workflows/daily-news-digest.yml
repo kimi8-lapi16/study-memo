@@ -14,7 +14,7 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
+  actions: write # push後に deploy.yml を workflow_dispatch で起動するため
   id-token: write
 
 concurrency:
@@ -49,23 +49,22 @@ jobs:
         id: date
         run: echo "today=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_OUTPUT"
 
+      # 記事はmasterへ直接pushされるため、リトライ実行時はcheckout済みの
+      # masterに今日分のファイルが既に存在するかだけを見ればよい
       - name: Skip if today's digest already exists
         id: guard
         run: |
           TODAY="${{ steps.date.outputs.today }}"
-          if git ls-remote --exit-code --heads origin "news/${TODAY}" > /dev/null 2>&1 \
-             || [ -f "src/content/notes/news-${TODAY}.mdx" ]; then
-            echo "今日分（news/${TODAY}）は既に存在するためスキップします"
+          if [ -f "src/content/notes/news-${TODAY}.mdx" ]; then
+            echo "今日分（news-${TODAY}.mdx）は既にmasterに存在するためスキップします"
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Generate today's news digest and open a PR
+      - name: Generate today's news digest and push to master
         if: steps.guard.outputs.skip != 'true'
         uses: anthropics/claude-code-action@v1
-        env:
-          GH_TOKEN: ${{ github.token }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
@@ -77,32 +76,45 @@ jobs:
             **今日の日付（JST）は ${{ steps.date.outputs.today }} である。**
             実行環境のシステム時計はUTCなので `date` コマンドの出力とはズレるが、
             必ずこの日付を使うこと。作成するファイルは
-            `src/content/notes/news-${{ steps.date.outputs.today }}.mdx`、
-            ブランチは `news/${{ steps.date.outputs.today }}`。
+            `src/content/notes/news-${{ steps.date.outputs.today }}.mdx`。
             リポジトリ内にそれより過去の日付の `news-*.mdx` が存在しても、それは
             過去分の公開済み記事であり今日分とは無関係。既存記事を理由に今日分の
             作成をスキップしてはならない（重複チェックは「同じ出来事を再度取り上げ
             ない」ためのものであり、記事作成自体の要否判断ではない）。
 
-            このリポジトリはmasterへの直接pushができない（PR必須のルールセットが
-            設定されている）ため、以下の手順で進めること:
+            ブランチもPRも作らず、**masterへ直接pushする**。手順:
 
-            1. `git checkout -b news/${{ steps.date.outputs.today }}` で専用ブランチを作る
-            2. 記事ファイルを作成する
-            3. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
-            4. 変更をコミットし、`git push -u origin news/${{ steps.date.outputs.today }}` でpushする
-            5. `gh pr create --base master --head news/${{ steps.date.outputs.today }}
-               --title "news: ITニュースダイジェスト ${{ steps.date.outputs.today }}"
-               --reviewer kimi8-lapi16 --body "..."` でPRを作成する。
-               本文にはその日採用したニュースのタイトルと出典URLを箇条書きで入れる
+            1. masterブランチのまま記事ファイルを作成する
+            2. `npm ci`（未インストールなら）→ `npm run build` でビルドが通ることを確認する
+            3. 記事ファイルのみを `git add` してコミットし、`git push origin master` でpushする。
+               non-fast-forwardで拒否されたら `git pull --rebase origin master` してから再pushする
+            4. GitHub Pagesへのデプロイはこのワークフローの後続ステップが自動で起動するため、
+               何もしなくてよい
 
-            価値のあるニュースが1件も見つからない場合は、ブランチもPRも作らずに終了してよい。
-            `npm run build` が失敗する場合は原因を修正し、それでも解決しなければブランチを
-            pushせず・PRも作らずに終了する（サイトを壊さないことより優先されるものはない）。
+            価値のあるニュースが1件も見つからない場合は、コミットもpushもせずに終了してよい。
+            `npm run build` が失敗する場合は原因を修正し、それでも解決しなければコミット・push
+            をせずに終了する（masterとサイトを壊さないことより優先されるものはない）。
 
-            最後に、作成したPRのURLと採用ニュース件数（記事を作らなかった場合はその旨と
+            最後に、pushしたコミットのSHAと採用ニュース件数（記事を作らなかった場合はその旨と
             スキップ理由）を報告すること。
           claude_args: |
             --max-turns 60
             --model claude-sonnet-5
             --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
+
+      # GITHUB_TOKENによるpushはpushトリガーのワークフローを起動しない（Actionsの
+      # 再帰実行防止仕様）ため、記事がmasterに入ったことを確認したうえで
+      # deploy.yml を workflow_dispatch で明示的に起動する
+      - name: Trigger Pages deploy if today's digest was pushed
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TODAY="${{ steps.date.outputs.today }}"
+          git fetch origin master
+          if git cat-file -e "origin/master:src/content/notes/news-${TODAY}.mdx" 2>/dev/null; then
+            echo "今日分の記事を確認。デプロイを起動します"
+            gh workflow run deploy.yml --ref master -R "${{ github.repository }}"
+          else
+            echo "今日分の記事はmasterに存在しないため、デプロイは起動しません"
+          fi
