@@ -1,0 +1,62 @@
+---
+title: ITニュースダイジェスト 2026-07-20
+listTitle: ITニュースダイジェスト 2026-07-20 — Blender操作AIエージェント、FIFA×LenovoのAI協業、OSSファイル共有ツールZipline、ロシア政府機関を狙うHelloNetほか。
+date: 2026-07-20
+category: NEWS
+tags: [NEWS, IT, AI, OSS, セキュリティ]
+summary: MCP経由でBlenderを直接操作するAIエージェントの活用法、FIFAとLenovoがワールドカップ向けAI分析ツール「FIFA AI Pro」で協業、セルフホスト可能なOSSファイル共有ツール「Zipline」、ロシア政府機関を狙うマルウェアキャンペーン「HelloNet」の4件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-20</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - OSS
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## AIエージェントがBlenderを直接操作、3D制作のハードルが下がる新手法
+
+AnthropicのClaude Fable 5やOpenAIのGPT-5.6 Solを使い、3D制作ツール「Blender」を日本語の指示だけで直接操作する手法が紹介されている。
+
+新技術紹介案件。AIエージェントと外部ソフトを連携させるプロトコル「MCP（Model Context Protocol）」を使うことで、Blenderの複雑な操作を学ばなくてもLLMへの指示だけでモデリングを進められる。Blender開発者は4月に公式のMCP Connectorを公開済み。紹介されているワークフローでは、まず画像生成AIで完成イメージを作り、その後MCP経由でBlenderを段階的に操作してモデルを仕上げる。プリビズ動画制作やAI動画制作の土台としての活用が見込まれている。
+
+出典: [ASCII.jp](https://ascii.jp/elem/000/004/420/4420739/)
+
+## FIFAとLenovo、W杯向けAI分析ツール「FIFA AI Pro」で協業 鍵は"サッカー語彙"の定義
+
+FIFAとLenovoは、国際大会の運営効率化と試合分析を支援するAIツール「FIFA AI Pro」を共同開発し、出場全チームに提供している。
+
+AI・LLM動向案件。開発で最大の課題になったのは「サッカーとテクノロジーの間の言葉の壁」だったという。「クロス」「パス」「シュート」といったサッカー用語をAIが扱えるよう厳密に定義する作業に加え、FIFAとLenovoという組織間の言語の壁もあり、Lenovo側は技術の実装詳細ではなく「何が実現できるか」を伝える"橋渡し役"の人材を配置して対応した。
+
+出典: [ASCII.jp](https://ascii.jp/elem/000/004/420/4420702/)
+
+## セルフホスト型ファイル共有ツール「Zipline」、ブラウザ・ShareX・iOSショートカットから即時アップロード
+
+ブラウザやShareX、iOSのショートカットなどから即座にファイルをアップロードして共有できるOSSツール「Zipline」が紹介されている。
+
+開発ツール・OSS動向案件。無料でセルフホスト可能なオープンソースプロジェクトで、Dockerで手軽に構築できる。ScreenshotツールのFlameshotやShareXと連携させれば、キャプチャから共有URL取得までを自動化できる。ストレージ容量をユーザーごとに設定できるマルチユーザー対応や、OAuth2・OpenID・二要素認証・パスキーなどのセキュリティ機能も備える。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260719-zipline/)
+
+## ロシア政府機関を狙う「HelloNet」、VPNソフト「ViPNet」のアップデート機構を悪用
+
+ロシア製のセキュリティ／VPNソフトウェアスイート「ViPNet」のアップデート機構を悪用し、ロシアの政府機関やエネルギー・運輸・教育・物流分野の組織を狙うキャンペーン「HelloNet」が確認された。
+
+セキュリティインシデント・脆弱性案件。Kasperskyの調査によれば、少なくとも5月から活動しており、攻撃者は正規の実行ファイル<Mono>itcsrvup64.exe</Mono>によるDLLサイドローディングを利用し、悪意あるDLL（<Mono>wtsapi32.dll</Mono>／HelloInjector）をViPNet Update Systemのディレクトリに配置する手口を使う。ツールセットにはプロキシ／ローダーの「HelloProxy」、バックドアの「HelloExecutor」、ログ削除の「HelloCleaner」、Rust製のファイル操作・コマンド実行ツール「HelloBackdoor」が含まれる。攻撃主体は中国語話者のAPTグループの可能性があるとされるが、Kasperskyは低い確度の推定としており、ViPNetのアップデート基盤自体が侵害されたかどうかは確認されていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-abuse-vipnet-software-to-target-russian-govt-agencies/)
+
+## 今日のTips: Node.jsは.tsファイルを直接実行できるが、あくまで型情報の"除去"であって"変換"ではない
+
+Node.jsはv22.6.0で実験的に、TypeScriptファイルを追加ビルドなしで直接実行できる「type stripping」機能を搭載した。v23.6.0／v22.18.0からはデフォルトで有効になっている。
+
+公式ドキュメントによれば、この機能は型注釈などのTypeScript構文を実行時にホワイトスペースへ置き換えて取り除く仕組みであり、型チェックは行わない。重要なのは、あくまで型情報の「除去」であって「変換」ではない点だ。そのため<Mono>enum</Mono>宣言やコンストラクタのパラメータプロパティ（<Mono>constructor(private name: string) {'{}'}</Mono>のような書き方）、ランタイムコードを含む<Mono>namespace</Mono>など、JavaScriptへの変換が必要な構文は非対応で、実行すると<Mono>ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX</Mono>エラーになる。また<Mono>tsconfig.json</Mono>のpathsやtargetといった設定も読み込まれない。
+
+<Tip label="▶ 補足">
+フルスペックのTypeScript機能（デコレータ・複雑な変換など）が必要な場合は、<Mono>tsx</Mono>などのサードパーティ製ローダーを使うのが公式にも推奨されている。
+</Tip>
+
+参考: [Node.js Docs: Modules: TypeScript](https://nodejs.org/docs/latest/api/typescript.html)
