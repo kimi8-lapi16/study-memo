@@ -2,9 +2,9 @@
  * rehype-sections
  *
  * Markdown の `## 見出し` を境界にして、その見出し以降の内容を
- * `<section class="reveal">` でグルーピングし、`.sec-num`（// 01, // 02 ...）を
+ * `<section>` でグルーピングし、`.sec-num`（01, 02 ...）を
  * 自動採番して差し込む。これにより、執筆者は素のマークダウンで章を書くだけで、
- * 既存の手書きHTMLと同じ章立て・装飾・revealアニメーションが得られる。
+ * 共通デザインと同じ章立て・装飾が得られる。
  *
  * - h2 の id（Astro がスラッグから自動付与）はそのまま残すので、目次のアンカーは機能する。
  * - h2 より前にある要素（導入文など）はラップせずにそのまま残す。
@@ -25,12 +25,12 @@ export default function rehypeSections() {
           type: 'element',
           tagName: 'div',
           properties: { className: ['sec-num'] },
-          children: [{ type: 'text', value: `// ${num}` }],
+          children: [{ type: 'text', value: num }],
         };
         current = {
           type: 'element',
           tagName: 'section',
-          properties: { className: ['reveal'] },
+          properties: {},
           children: [secNum, node],
         };
         out.push(current);
