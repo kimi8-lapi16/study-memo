@@ -7,11 +7,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "new": "node scripts/new-note.mjs"
+    "new": "node scripts/new-note.mjs",
+    "format": "prettier --write \"original-memo/**/*.md\"",
+    "format:check": "prettier --check \"original-memo/**/*.md\""
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
     "@astrojs/rss": "^4.0.0",
     "astro": "^7.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.5"
   }
 }

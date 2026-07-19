@@ -20,7 +20,7 @@ npm run new -- <slug> "タイトル"   # 記事の雛形を作成
 4. コールアウトは `<Card>` `<Note>` `<Tip>` `<Flow>`、技術語は `<Mono>`
 5. 凝った図は `common.css` のクラスで生HTMLを直接書ける
 
-詳細は `.claude/skills/md-to-html.md` を参照。
+生メモ（`original-memo/*.md`）からの変換は `/memo-to-mdx` スキル（`.claude/skills/memo-to-mdx/SKILL.md`）を使う。
 
 ## 構成
 
