@@ -1,0 +1,95 @@
+---
+title: ITニュースダイジェスト 2026-07-21
+listTitle: ITニュースダイジェスト 2026-07-21 — Claude Code向け企業ゲートウェイ、Rust移植版Bunの本番投入、Azure×AMDのAI基盤拡充、Hugging Faceの自律型AIエージェント侵害ほか。
+date: 2026-07-21
+category: NEWS
+tags: [NEWS, IT, AI, クラウド, 開発ツール, セキュリティ]
+summary: AnthropicのClaude Code向け企業管理基盤「Claude apps gateway」、Rust移植版BunのClaude Code内部での本番投入判明、Azure×AMDのAI/HPC基盤拡充、Hugging Faceの自律型AIエージェントによる侵害とServiceNow・M365カレンダー悪用マルウェアの計3件のセキュリティ動向。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-21</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - CLOUD
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropic、Claude Code向け企業管理基盤「Claude apps gateway」を発表
+
+Anthropicは、Claude CodeをAWSやGoogle Cloud上で組織一括運用するための管理基盤「Claude apps gateway」を発表した。
+
+AI・LLM動向案件。OIDC対応のIDプロバイダと連携したシングルサインオン、ロールベースアクセス制御によるルール管理、利用状況を把握するテレメトリ機能を備える。組織・グループ・ユーザー単位で日次・週次・月次の費用上限を設定できるほか、推論リクエストのルーティングとフェイルオーバーにも対応する。セルフホスト型で提供され、バックエンドとしてAnthropic API・Amazon Bedrock・Google Cloud・Microsoft Foundryなど複数のAIモデルプロバイダを切り替えられる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/claude_codeclaude_apps_gateway_for_awsgoogle_cloud.html)
+
+## Rust移植版Bunが早くもClaude Codeアプリ内で本番投入されていたと判明
+
+JavaScriptランタイム「Bun」のRust移植版が、7月17日にリリースされたClaude Code v2.1.181に本番組み込みされていることが分かった。
+
+開発ツール・言語・OSS動向案件（続報）。7月12日に本欄で紹介した、Bun開発者Jarred Sumner氏がClaude Fable 5を使い53万行超のZigコードをわずか11日間でRustへ移植した件の後日談。Python Software Foundation理事のSimon Willison氏が、Claude Codeの内部に"Bun v1.4.0 (macOS arm64)"というRust版を示す文字列や、拡張子".rs"のRustソース参照が含まれていることを指摘し、Sumner氏も暗黙にこれを認めた形。AIエージェントによる大規模言語移植が実運用に耐えている一例として注目されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/rustbunclaude_code.html)
+
+## Microsoft、AzureにAMDの「Helios」AI基盤と次世代EPYCを導入
+
+Microsoftは、AMDの最新AI/HPCプラットフォーム「Helios」と次世代EPYCデータセンター向けCPUをAzureに導入すると発表した。
+
+クラウド・大規模障害案件。データ処理向けの「HDv2」、電子設計自動化(EDA)向けの「HXv2」、AI推論向けの「ND MI455X v7」という3種の新VMシリーズを提供する。HDv2は第6世代AMD EPYCの物理コアを約500基搭載し、4TBのRAMと32TBのローカルNVMeストレージ、400Gbの Azure Boostネットワーキングを備え、増大するAIワークロード需要への対応を狙う。
+
+出典: [Microsoft公式ブログ](https://blogs.microsoft.com/blog/2026/07/20/microsoft-expands-azure-ai-and-hpc-infrastructure-with-amd/)
+
+## Hugging Face、自律型AIエージェントによる侵害を公表 対応には米製フロンティアモデルではなくGLM 5.2を採用
+
+Hugging Faceは、自社インフラの一部が自律型AIエージェントによって侵害されたセキュリティインシデントを公表した。
+
+セキュリティインシデント・脆弱性案件。侵害は7月11日の週末に発生し、7月16日に公式ブログで開示された。攻撃者はデータセット処理パイプラインのリモートコード実行の脆弱性とテンプレートインジェクションを悪用してワーカー上でコードを実行し、その後は自律型AIエージェントが数千のサンドボックス環境を横断しながら複数の内部クラスターへ横展開したという。一部の内部データセットへの不正アクセスと認証情報の流出が確認された一方、公開中のモデル・データセット・Spacesの改ざんやソフトウェアサプライチェーンへの影響はないとしている。対応では、米大手AI企業のフロンティアモデルAPIを使おうとしたところ安全ガードレールによって攻撃コマンドやペイロードの分析が拒否されたため、自社インフラ上で動く中国製オープンウェイトモデル「GLM 5.2」に切り替え、17,000件超のログを数時間で解析した。
+
+<Note label="⚠ 教訓">
+Hugging Faceは、インシデント対応時にガードレールで分析自体をブロックされないよう、平時から自社運用できる高性能モデルを検証・準備しておくことの重要性を指摘している。
+</Note>
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/20/news010.html)、[Hugging Face公式ブログ](https://huggingface.co/blog/security-incident-july-2026)
+
+## ServiceNow AI Platformの重大脆弱性、公開PoCとは別経路での悪用が拡大
+
+ServiceNow AI Platformの未認証リモートコード実行の脆弱性「CVE-2026-6875」（CVSS 9.5）が、公開されているPoC(概念実証)とは異なる手口で実際に悪用され始めている。
+
+セキュリティインシデント・脆弱性案件。脆弱性はサンドボックスエスケープにより認証なしでコード実行を許してしまうもので、4月に報告を受けたServiceNowはホスト型インスタンス向けに翌日パッチを配信、7月13日には自社運用インスタンス向けの更新も公開していた。脅威情報企業Defusedによると、悪用は7月19日の金曜日に初めて観測され、攻撃者は公開エンドポイント<Mono>/assessment_thanks.do</Mono>を突く点は既知PoCと同じだが、サンドボックスエスケープ自体は別の経路を通っており、公開PoCへの対策だけでは防げない可能性がある。未適用のインスタンスは早急なパッチ適用が必要。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-servicenow-code-execution-flaw-now-exploited-in-attacks/)
+
+## Microsoft 365カレンダーをC2に悪用する新型マルウェア「HollowGraph」、イスラエルの組織を標的に
+
+侵害したMicrosoft 365メールボックスのカレンダー機能を、コマンド＆コントロール(C2)チャネルとして悪用する新型マルウェア「HollowGraph」が確認された。
+
+セキュリティインシデント・脆弱性案件。セキュリティ企業Group-IBの調査によれば、設定ファイルを"logAzure.txt"という通常のログファイルに見せかけて偽装し、RSAとAES-256-GCMを組み合わせた暗号化でMicrosoft Graph経由の通信を保護、さらにDNSトンネリングで認証情報を更新する仕組みを持つ。少なくとも12台のシステムへの感染が確認され、うち3台では6月3日から7月9日にかけて攻撃者との通信が観測された。標的はイスラエルの組織に集中しており、Group-IBは技術的な類似性からイラン関連の脅威主体「Lyceum」との関連を指摘しているが、確度の高い断定はしていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/new-hollowgraph-malware-uses-microsoft-graph-for-stealthy-c2-comms/)
+
+## 今日のTips: TypeScriptの satisfies 演算子で「型チェック」と「型推論の維持」を両立する
+
+TypeScriptでオブジェクトリテラルを書く際、型注釈を付けるとtypoなどの誤りは検出できるが、プロパティの型が注釈で指定した広い型（例: `string | RGB`）に丸められてしまい、個々のプロパティ本来の具体的な型情報が失われるというジレンマがある。
+
+TypeScript 4.9で導入された<Mono>satisfies</Mono>演算子は、式が指定した型に適合するかを検証しつつ、変数自体の型は元の具体的な推論結果のまま保持する。
+
+```typescript
+type Colors = "red" | "green" | "blue";
+type RGB = [number, number, number];
+
+const palette = {
+  red: [255, 0, 0],
+  green: "#00ff00",
+  blue: [0, 0, 255],
+} satisfies Record<Colors, string | RGB>;
+
+palette.green.toUpperCase(); // string型のまま推論されるのでOK
+```
+
+<Tip label="▶ 補足">
+上のコードで<Mono>green</Mono>を<Mono>bleu</Mono>のように書き間違えると、<Mono>Record&lt;Colors, ...&gt;</Mono>を満たさずコンパイルエラーになる。型注釈で丸めていた従来の書き方と違い、typo検出と型推論維持を両方とも実現できる点が<Mono>satisfies</Mono>の利点。
+</Tip>
+
+参考: [TypeScript: Documentation - TypeScript 4.9](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html)
