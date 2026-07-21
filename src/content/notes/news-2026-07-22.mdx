@@ -1,0 +1,90 @@
+---
+title: ITニュースダイジェスト 2026-07-22
+listTitle: ITニュースダイジェスト 2026-07-22 — Google「Gemini 3.6 Flash」など3モデル公開、アンソロピック著作権訴訟15億ドル和解が最終承認、EU AI法の透明性義務ガイドライン公表、WordPress未認証RCE連鎖の悪用拡大ほか。
+date: 2026-07-22
+category: NEWS
+tags: [NEWS, IT, AI, 法改正, 訴訟, セキュリティ]
+summary: Googleが「Gemini 3.6 Flash」など3モデルを公開、アンソロピックの著作権訴訟15億ドル和解が最終承認、EU AI法の透明性義務ガイドラインを公表、WordPressの未認証RCE連鎖の脆弱性が悪用拡大、Windows「LegacyHive」ゼロデイに無償の非公式パッチ、AIインフラを狙うランサムウェア「ENCFORGE」の計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-22</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - LEGAL
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google、「Gemini 3.6 Flash」など軽量モデル3種を公開
+
+Googleは、汎用の主力モデル「Gemini 3.6 Flash」と低コスト版「3.5 Flash-Lite」、セキュリティ特化版「3.5 Flash Cyber」の3モデルを公開した。
+
+AI・LLM動向案件。3.6 Flashは前身の3.5 Flashに比べ出力トークン使用量を17%削減しつつ、ソフトウェア開発ベンチマークDeepSWEで49%（3.5比37%）、MLE Benchで63.9%（同49.7%）を記録するなど、コーディングやエージェント的なタスクで性能を伸ばした。価格は入力100万トークンあたり1.50ドル、出力同7.50ドルと3.5 Flashより低価格化されている。3.5 Flash-Liteは秒間350出力トークンという速度と入力0.30ドル／出力2.50ドルという低価格が特徴の最廉価モデル。3.5 Flash Cyberは脆弱性の発見・修正に特化したモデルで、Googleのエージェント「CodeMender」と組み合わせ、当面は政府機関や信頼できるパートナー向けの限定パイロットとして提供される。3.6 FlashとFlash-Liteは同日からGemini APIやGoogle AI Studio等で利用可能になった。Googleは次世代モデル「Gemini 4」に向けた大規模な事前学習にも着手したという。
+
+出典: [Google公式ブログ](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/)
+
+## アンソロピック著作権訴訟、15億ドル（約2400億円）の和解が最終承認
+
+Anthropicが作家らから著作権侵害で訴えられていた集団訴訟について、米連邦地裁が15億ドル（約2400億円）の和解を最終承認した。
+
+訴訟・トラブル案件。訴訟は2024年、作家グループがClaudeの学習に自著の海賊版を無断使用されたとして提訴したもの。担当判事は2025年6月、Claudeの学習への著作物利用自体は「フェアユース」に当たると判断した一方、AI学習に使うとは限らない700万冊超の海賊版書籍を「中央ライブラリ」に保存していた行為は著作権侵害に当たると認定していた。今回の和解は対象となる約50万件の著作物につき1件あたり3,000ドルを著者・出版社に支払う内容で、米国の著作権訴訟における和解額としては過去最大とみられる。対象者の91％超が受け取りを既に申請済みという。一部の作家・出版社は和解から離脱し、Anthropicへの個別提訴を続けている。
+
+出典: [ITmedia AI＋](https://www.itmedia.co.jp/aiplus/article/2607/21/2000000210/)
+
+## EU、AI法の透明性義務に関するガイドラインを公表
+
+欧州委員会は7月20日、AI法第50条が定める透明性義務の実施指針となるガイドラインを公表した。
+
+法改正・規制動向案件（EU）。第50条の透明性義務は2026年8月2日から適用が始まる規定で、AIシステムのプロバイダーには利用者がAIと対話していることの通知やAI生成・改変コンテンツへの機械可読な標識付与を、デプロイヤーにはディープフェイクや公共の利益に関わるAI生成文章、感情認識・生体分類システムに接している旨の通知を義務付ける。ガイドラインは適用開始のわずか2週間前という公表タイミングで、対象事業者がどの主体にどの義務が及ぶかを解釈するための実務指針を示すもの。違反時には最大1,500万ユーロまたは全世界年間売上高の3%のいずれか高い方の制裁金が科され得る。日本のIT事業者もEU域内向けにAIシステムを提供・運用している場合は対象になり得るため、8月の適用開始に向けた対応状況の確認が必要になる。
+
+出典: [European Commission](https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems)
+
+## WordPress、未認証でコード実行可能な脆弱性の悪用が拡大
+
+WordPress本体に存在していた、ログインなしでリモートコード実行が可能な緊急の脆弱性について、悪用が広がっているとして即時更新が呼びかけられている。
+
+セキュリティインシデント・脆弱性案件。脆弱性はREST APIのバッチエンドポイントを悪用した認証不要のリモートコード実行（CVE-2026-63030、深刻度Critical）と、SQLインジェクション（CVE-2026-60137、深刻度High）の2件で、組み合わせると認証なしにサイトを乗っ取れる。セキュリティ企業Searchlight Cyberの研究者が発見・報告し、7月17日（米国時間）にリリースされた「WordPress 7.0.2」で修正済み。研究者側は攻撃ツールも併せて公開しており、実際の悪用が懸念される状況という。未更新のサイトは早急な適用が必要で、更新までの間はREST API認証の強化やWAFでの該当パスのブロックといった暫定対応が推奨される。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/21/news084.html)
+
+## Windows「LegacyHive」ゼロデイ、無償の非公式パッチが登場
+
+Windows User Profile Serviceに存在する権限昇格のゼロデイ脆弱性「LegacyHive」について、有志が無償の非公式パッチを公開した。
+
+セキュリティインシデント・脆弱性案件。研究者「Nightmare Eclipse」が7月のMicrosoft月例パッチと同日に、実証コードとともに詳細を公開したもの（CVE番号は未採番）。非管理者ユーザーが他ユーザーのレジストリハイブを完全アクセス権限でマウントできてしまい、保存済みの認証情報を抜き取ったり、管理者の次回ログイン時に実行されるコードを仕込んだりできる。Windows 10 バージョン2004以降とWindows Server 2019以降が影響を受ける。Microsoftはまだ正式な修正プログラムを出していないため、ACROS Securityが自社の0patchサービスを通じて無償のマイクロパッチを配布しており、再起動なしで適用できる。
+
+<Note label="⚠ 注意">
+0patchは正規のセキュリティベンダーによる暫定対応だが、公式パッチが出るまでのつなぎである点には留意したい。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/windows-legacyhive-zero-day-flaw-gets-free-unofficial-patches/)
+
+## AIインフラを狙うランサムウェア「ENCFORGE」、自律型エージェントが全工程を自動実行
+
+ランサムウェア集団JadePufferが、AI・機械学習インフラを標的にした新型ランサムウェア「ENCFORGE」を投入した攻撃が確認された。
+
+セキュリティインシデント・脆弱性案件。攻撃はLangflowの未認証コード実行の脆弱性（CVE-2025-3248）を突いてコンテナに侵入し、公開されていたDockerソケット経由でホストのroot権限を奪取する手口。侵入後は自律型AIエージェントが偵察から展開までを自動で進め、最初のペイロード取得に失敗した際も5分間で6本のPythonスクリプトを書き換えながら侵入経路を確立したという。Go言語製のENCFORGEはAES-256とRSA-2048を組み合わせて暗号化し、モデルチェックポイントやPyTorch/TensorFlowのモデルファイル、FAISSのベクトルインデックス、学習用データセットなど約180種の拡張子を標的にする。セキュリティ企業Sysdigの試算では、被害額はモデル1件あたり7万5,000～50万ドルに上る可能性があるという。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-attacks-now-target-ai-model-data-with-ransomware/)
+
+## 今日のTips: PostgreSQLで大きなテーブルに外部キー制約を追加するなら NOT VALID + VALIDATE CONSTRAINT
+
+稼働中の大きなテーブルに `ALTER TABLE ... ADD CONSTRAINT` で外部キー制約を追加すると、既存行の検証のためにテーブル全体をスキャンする必要があり、その間ずっと他の更新がロックアウトされてしまう。
+
+PostgreSQLでは、まず `NOT VALID` を付けて制約を追加すると、テーブルスキャンをせずに即座にコミットできる。この時点でも新規の挿入・更新には制約が効くため、あとから改めて既存行を検証すればよい。
+
+```sql
+ALTER TABLE distributors
+  ADD CONSTRAINT distfk FOREIGN KEY (address)
+  REFERENCES addresses (address) NOT VALID;
+
+ALTER TABLE distributors VALIDATE CONSTRAINT distfk;
+```
+
+<Tip label="▶ 補足">
+検証専用の <Mono>VALIDATE CONSTRAINT</Mono> は、他の更新を締め出す必要がないため <Mono>SHARE UPDATE EXCLUSIVE</Mono> という軽いロックしか取得しない。制約追加を1コマンドで済ませず2段階に分けるだけで、大きなテーブルでもサービスを止めずに外部キー制約を追加できる。
+</Tip>
+
+参考: [PostgreSQL: Documentation: ALTER TABLE](https://www.postgresql.org/docs/current/sql-altertable.html)
