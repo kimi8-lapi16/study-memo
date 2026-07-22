@@ -1,0 +1,85 @@
+---
+title: ITニュースダイジェスト 2026-07-23
+listTitle: ITニュースダイジェスト 2026-07-23 — MicrosoftとMistralが提携拡大、Jack Dorsey氏のBlockがOSSチーム協働ツール「Buzz」公開、SharePoint未認証RCEの新脆弱性が悪用拡大、フィッシング基盤「Kratos」を国際摘発、ニチレイ攻撃でRansomHouseが犯行声明ほか。
+date: 2026-07-23
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ]
+summary: MicrosoftとMistralがエンタープライズ向けAI提携を拡大、Jack Dorsey氏率いるBlockがオープンソースのチーム協働ツール「Buzz」を公開、SharePointの新たな未認証RCE脆弱性の悪用が拡大、独米当局がフィッシング基盤「Kratos」を摘発、ニチレイへの攻撃でRansomHouseが犯行声明を出した件の計5件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-23</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Microsoft、Mistral AIとの戦略的提携をさらに拡大
+
+MicrosoftとフランスのAIスタートアップMistral AIは7月21日、規制産業向けにフロンティアAIを提供するための戦略的提携拡大を発表した。
+
+AI・LLM動向案件。Mistralの最新モデル「Medium 3.5」と文書解析モデル「OCR 4」がMicrosoft FoundryおよびCopilot Studioで利用可能になったほか、MicrosoftはMistralの欧州向けGPUインフラ拡張に数十億ドル規模の投資を行うとしている（具体的な金額は非公表）。対象は金融・製造・医療など、データの管理・運用に強い統制を必要とする規制産業の企業で、クラウド接続環境から完全に閉域化した環境まで、複数の展開形態でAIを利用できるようにする狙いがある。
+
+出典: [Microsoft公式ブログ](https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/)
+
+## Jack Dorsey氏率いるBlock、人とAIエージェントが同じ場で働くOSSチャット「Buzz」を公開
+
+決済企業Blockを率いるJack Dorsey氏は7月21日、人間とAIエージェントが同じワークスペースで協働するグループチャットプラットフォーム「Buzz」を公開した。
+
+新技術紹介案件。BuzzはSlackやGitHubに対抗する位置づけで、チャンネル・スレッド・音声通話・コードリポジトリ・自動化ワークフローを1つのアプリに統合し、AIエージェントを命令専用のボットではなく対等なメンバーとしてチームに招待できる点が特徴。分散型プロトコルNostr上で動作し、人・エージェントそれぞれに暗号鍵による識別子と権限が割り当てられる「モデル非依存・分散型・自己主権的」な設計を掲げる。macOS・Windows・Linux向けデスクトップアプリを無料公開し、コードはApache 2.0ライセンスでGitHub上に公開されている。
+
+出典: [TechCrunch](https://techcrunch.com/2026/07/21/jack-dorsey-is-taking-on-slack-with-buzz-a-group-chat-platform-for-teams-and-their-ai-agents/)
+
+## SharePointの新たな未認証RCE脆弱性、公開PoC直後から悪用が拡大
+
+Microsoft SharePoint（オンプレミス版）の未認証リモートコード実行の脆弱性について、実証コード公開直後から実際の悪用が急拡大していることが分かった。
+
+セキュリティインシデント・脆弱性案件。脆弱性はCVE-2026-50522（深刻度Critical）で、逆シリアル化の不備により認証なしにリモートコード実行が可能。7月20日に実証コードが公開されると数時間以内に攻撃者が悪用を開始し、セキュリティ企業watchTowrのハニーポットでも侵害の成功例が検出された。攻撃者は侵入後にSharePointの「マシンキー」を窃取しており、これを使えば正規ユーザーになりすます認証トークンを偽造できるため、パッチを適用しただけでは不十分で、露出していた資産の認証情報のローテーションが別途必要になる。
+
+<Note label="⚠ 注意">
+7月のセキュリティ更新プログラムで修正済みだが、悪用がパッチ適用前提を崩す形で進んでいるため、パッチ適用に加えて資格情報の再発行が推奨される。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-sharepoint-rce-flaw-exploited-to-steal-machine-keys/)
+
+## 独米当局、月1.5万件超のフィッシング基盤「Kratos」を摘発
+
+ドイツ・フランクフルト地検（ZIT）と連邦刑事庁（BKA）が米当局と連携し、フィッシングキット提供サービス「Kratos」の基盤インフラを摘発した。
+
+セキュリティインシデント・脆弱性案件。Kratosは約1,800件の犯罪者顧客を抱え、月間約1万5,000件のフィッシングキャンペーンを実行、35カ国で被害が確認されていた「世界で最も広く使われたフィッシングサービスの一つ」とされる。当局はサーバー200台以上を無力化し、開発者・管理者とみられる人物をインドネシアで現地警察が逮捕した。同サービスは2024年までの間に30万ユーロ超を売上・サブスクリプション収入として得ていたとみられる。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/police-dismantle-kratos-phishing-platform-arrest-developer/)
+
+## ニチレイへの攻撃、ランサム集団「RansomHouse」が犯行声明
+
+7月13日に不正アクセスによるシステム障害を公表していたニチレイについて、ランサムウェア集団「RansomHouse」がダークウェブのリークサイトで犯行声明を出していたことが7月22日までに判明した。
+
+セキュリティインシデント・脆弱性案件（続報）。リークサイトには攻撃実行日として7月13日、ステータスとして「暗号化済み」「証拠あり」が記載されており、データを暗号化し証拠となる情報を持ち出したと主張、経営陣に連絡するよう促すメッセージも掲載されている。RansomHouseは2025年10月のアスクルへの攻撃でも犯行声明を出したグループ。ニチレイは声明を把握しているとしつつ攻撃の詳細は差し控えるとコメントしており、個人情報流出の有無を含め調査が続いている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/22/news064.html)
+
+## 今日のTips: NestJSのグローバルパイプは登録方法次第でDIが効かなくなる
+
+`app.useGlobalPipes()` でグローバルパイプを登録すると、そのバインディングはどのモジュールの文脈にも属さない状態で行われるため、パイプの中でサービスなどの依存関係をDIで注入できない。
+
+DIを効かせたい場合は、`APP_PIPE` トークンを使ってモジュールの `providers` としてグローバルパイプを登録すればよい。この方法ならどのモジュールで定義してもグローバル扱いになり、通常のプロバイダと同様にコンストラクタインジェクションが使える。
+
+```ts
+import { Module } from '@nestjs/common';
+import { APP_PIPE } from '@nestjs/core';
+
+@Module({
+  providers: [
+    { provide: APP_PIPE, useClass: ValidationPipe },
+  ],
+})
+export class AppModule {}
+```
+
+<Tip label="▶ 補足">
+ハイブリッドアプリでは <Mono>useGlobalPipes()</Mono> はゲートウェイやマイクロサービスにパイプを適用しない、という制約もあわせて覚えておきたい。
+</Tip>
+
+参考: [NestJS Documentation: Pipes](https://docs.nestjs.com/pipes)
