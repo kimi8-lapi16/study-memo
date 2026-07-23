@@ -1,0 +1,99 @@
+---
+title: ITニュースダイジェスト 2026-07-24
+listTitle: ITニュースダイジェスト 2026-07-24 — OpenAIが企業向けAIエージェント基盤「Presence」とジョージア州の巨大データセンターを発表、ホワイトハウスがMoonshot AIによるAnthropicモデルの蒸留疑惑を非難、Google対SerpApi訴訟でGoogleが敗訴、DRAM価格操作でSamsung・SK hynix・Micronが提訴されるほか。
+date: 2026-07-24
+category: NEWS
+tags: [NEWS, IT, AI, 訴訟, セキュリティ, 業界動向]
+summary: OpenAIが企業向けAIエージェント基盤「Presence」とジョージア州の3.2GWデータセンター計画を発表、ホワイトハウス高官がMoonshot AIによるAnthropicモデルの不正蒸留疑惑を非難、検索結果の著作権を巡るGoogle対SerpApi訴訟でGoogleが敗訴、メモリ価格8倍高騰を巡りSamsung・SK hynix・Micronが価格操作で提訴、SmartConsoleとLinuxカーネルXFSの重大脆弱性が公表された計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-24</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## OpenAI、企業向けAIエージェント基盤「Presence」を発表
+
+OpenAIは7月22日、企業が音声・チャットのAIエージェントを構築・運用できる新プラットフォーム「Presence」を発表した。
+
+AI・LLM動向案件。モデルへの生API提供にとどまらず、企業の業務ポリシーやガードレール、テスト、エスカレーションの仕組みまで組み合わせて「本番運用に耐えるエージェント」を管理できるマネージドサービスへ軸足を移した点が特徴。現時点ではセルフサービス提供ではなく、OpenAIのフォワード・デプロイド・エンジニアや一部SIが導入を主導する限定提供。OpenAI自身の英語圏電話サポート窓口にも導入されており、導入から数週間で人手対応と同等以上の品質基準を満たし、着信の約75%を自律的に解決しているという。カスタマーサポートのほか銀行・通信・保険業界での早期検証も進んでいる。
+
+出典: [OpenAI](https://openai.com/index/introducing-openai-presence/)
+
+## OpenAI、ジョージア州に3.2GWの自社データセンター「Project Camellia」計画を発表
+
+OpenAIは7月22日、米ジョージア州エフィンガム郡に自社で設計・建設する初のデータセンターキャンパス「Project Camellia」の計画を公表した。
+
+クラウド・大規模障害案件（インフラ投資）。サバンナ近郊の産業団地内に約101エーカーの4棟を建設し、Georgia Powerとの25年契約で2028年から段階的に稼働を開始、2032年までに最大3.2GWの電力供給を受ける計画。投資規模は当初20億ドル超、フル稼働時には300億ドルを超えるとされる。冷却は閉ループ方式の水利用でコミュニティの水資源への影響を抑えるとし、地域向けに8000万ドルの還元策と学生向けCodexクレジット7100万ドルの提供、地元住民の電気料金への転嫁はしないことも表明している。
+
+出典: [OpenAI](https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/)
+
+## ホワイトハウス高官、中国Moonshot AIがAnthropicのモデルを不正蒸留と非難
+
+ホワイトハウス科学技術政策局のマイケル・クラッシオス局長は7月22日、中国のMoonshot AIがAnthropicの「Fable」モデルを不正に蒸留し、7月16日発表の新モデル「Kimi K3」の開発に利用したとの見方を示した。
+
+業界動向案件。クラッシオス氏は、Moonshot側が大規模な蒸留を行うための内部基盤を構築し、検出を避けるため複数のアクセス経路を素早く切り替えていた可能性があると指摘。加えて、輸出規制対象となりうるNvidia GB300搭載サーバーを別経路で入手した疑いにも言及した。Anthropicは以前から、Moonshotが不正なアカウントを通じて340万件超のClaudeとのやり取りを生成し、推論・コーディング・ツール利用などの能力を抽出したと主張している。Moonshotからの回答は記事執筆時点で得られておらず、米議会でも調査が進んでいるという。
+
+出典: [CyberScoop](https://cyberscoop.com/white-house-accuses-moonshot-ai-anthropic-model-distillation/)
+
+## Google対SerpApi訴訟、「検索結果は著作物ではない」とGoogleが敗訴
+
+検索結果をスクレイピングして再販するSerpApiをGoogleがDMCA違反で提訴していた裁判で、米カリフォルニア北部地区連邦地裁が7月23日までにGoogle敗訴の判断を示した。
+
+訴訟・トラブル案件。イヴォン・ゴンザレス・ロジャース判事は、URLやスニペット、インデックスデータといった集約された検索結果は一般に公開された事実であり著作権法で保護される著作物には当たらないと判断。DMCA第1201条に基づくアクセス制御回避の主張についても、Googleが原著作権者から保護のための認可を得ていなかったとして退けた（Googleには21日以内の訴状修正・再提出の機会が与えられている）。SerpApiのCEOは「オープンなインターネットに支えられているすべての人の勝利」とコメントしている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260723-google-loses-lawsuit-against-serpapi/)
+
+## メモリ価格8倍高騰、Samsung・SK hynix・Micronが価格操作で提訴される
+
+従来型DRAMの契約価格が2024年第3四半期から2026年第1四半期にかけて約8倍に高騰したことを受け、消費者14人とPC関連事業者3社が6月25日、Samsung・SK hynix・Micronの3社をカリフォルニア北部地区連邦地裁に提訴していたことが7月23日までに分かった。
+
+訴訟・トラブル案件。原告側は、2022年後半以降の足並みを揃えた減産、HBM向けへの生産シフトによる従来型DRAM供給の絞り込み、2025年のDDR4終了発表の同時期化、2026年初頭の取引先審査強化の同時実施などを挙げ、3社が協調して供給を制限し価格をつり上げたと主張している。Micronは「訴状の内容には同意できず、適用法令を守りながら公正に競争している」とコメントしており、3社とも違法性を否定して法廷で争う方針。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260723-dram-price-fixing-lawsuit/)
+
+## Check Point SmartConsoleに認証バイパスの重大脆弱性、悪用を確認
+
+Check Pointは、Security Management ServerのSmartConsoleログイン処理に関する認証バイパスの脆弱性（CVE-2026-16232、CVSS 9.1）が実際に悪用されていると7月23日までに公表した。
+
+セキュリティインシデント・脆弱性案件。未認証の攻撃者がアプリケーショントークンを取得することで管理者権限を伴う認証を偽装でき、管理サーバーへの侵入後はセキュリティ設定・ポリシーを改変できてしまう。悪用が確認されているのは管理インターフェースをIP制限なしにインターネットへ露出させた一部の構成に限られるという。CISAは同脆弱性を既知の悪用済み脆弱性（KEV）カタログに追加し、米連邦機関に7月25日までの対応を指示した。
+
+<Note label="⚠ 注意">
+パッチ適用に加え、管理アクセスを信頼できるIPアドレス・サブネットに制限し、SmartConsoleのログで「Authentication method: application token」を検索して侵害の有無を確認することが推奨されている。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/)
+
+## Linuxカーネルの10年物レースコンディション「RefluXFS」、root権限奪取が可能に
+
+Qualysは7月22日、XFSファイルシステムのreflink（コピーオンライト）処理に起因するLinuxカーネルのレースコンディション脆弱性「RefluXFS」（CVE-2026-64600）を公表した。
+
+セキュリティインシデント・脆弱性案件。共有ブロックへの書き込み中に発生する競合状態を突くことで、通常権限のローカルユーザーが保護されたファイルを上書きし、SELinuxをEnforcingモードで運用している環境も含めてroot権限を奪取できる。原因となるコードは2017年公開のLinux 4.11から存在しており、XFSを標準ルートファイルシステムとするRHELやOracle Linux、Amazon Linux、Fedora Serverなど、世界で1,640万台超のシステムに影響する可能性があるとQualysは推定している。修正は7月16日にLinux本流へマージ済みで、各ディストリビューションがバックポートを進めている。
+
+出典: [Qualys](https://blog.qualys.com/vulnerabilities-threat-research/2026/07/22/refluxfs-a-linux-kernel-local-privilege-escalation-to-root-in-xfs-cve-2026-64600), [BleepingComputer](https://www.bleepingcomputer.com/news/linux/new-refluxfs-linux-flaw-lets-attackers-gain-root-privileges/)
+
+## 今日のTips: Prismaの対話型トランザクションはデフォルト5秒でタイムアウトする
+
+Prismaの`$transaction`をコールバック形式（インタラクティブトランザクション）で使う場合、トランザクション内の処理がデフォルトの`timeout`（5000ms）を超えると自動的にロールバックされてエラーになる。トランザクション取得待ちの上限を示す`maxWait`（デフォルト2000ms）とは別の設定値なので混同しないよう注意したい。
+
+外部APIへのリクエストのような時間のかかる処理をうっかりトランザクション内に含めてしまうと、本番負荷時にこのタイムアウトへ引っかかりやすい。必要なら第2引数でオプションを指定して調整できる。
+
+```ts
+await prisma.$transaction(
+  async (tx) => {
+    await tx.order.create({ data: orderData });
+    await tx.inventory.update({ where: { id }, data: { qty: { decrement: 1 } } });
+  },
+  { maxWait: 2000, timeout: 5000 } // ミリ秒単位
+);
+```
+
+<Tip label="▶ 補足">
+公式ドキュメントも「トランザクションは短く保つこと。長時間実行されるトランザクションはパフォーマンス低下やデッドロックの原因になる」と明記しており、外部I/Oはトランザクションの外に出すのが基本方針となる。
+</Tip>
+
+参考: [Prisma Documentation: Transactions](https://www.prisma.io/docs/orm/prisma-client/queries/transactions)
