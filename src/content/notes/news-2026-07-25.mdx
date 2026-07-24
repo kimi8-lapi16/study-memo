@@ -1,0 +1,109 @@
+---
+title: ITニュースダイジェスト 2026-07-25
+listTitle: ITニュースダイジェスト 2026-07-25 — Anthropicが新モデル「Claude Opus 5」を発表、MicrosoftがAI戦略でOpenAI依存を低減、総務省が情プラ法初の是正勧告、Azureで5時間の大規模障害、SonicWall・Zimbraの脆弱性悪用が発覚するほか。
+date: 2026-07-25
+category: NEWS
+tags: [NEWS, IT, AI, クラウド, 法改正, セキュリティ, 業界動向]
+summary: Anthropicが低コスト版新モデル「Claude Opus 5」を発表、MicrosoftがGitHub Copilot等で自社AI「MAIシリーズ」への切替を進めOpenAI依存を低減、総務省が情プラ法に基づき初の是正勧告をGoogle・X等5社に実施、AzureのWest USリージョンで5時間の大規模障害、SonicWall SMA1000とZimbraの脆弱性悪用が発覚した計8件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-25</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropic、新モデル「Claude Opus 5」を発表 コストは前世代比半減
+
+Anthropicは新モデル「Claude Opus 5」を発表した。最上位モデル「Claude Fable 5」に近い性能を、より低いコストで提供する。
+
+AI・LLM動向案件。ソフトウェア開発系ベンチマークではFable 5との差を0.5ポイント以内に抑えつつ、タスクあたりのコストを前世代Opus 4.8と同等の価格帯まで半減させたとしている。API価格は入力100万トークンあたり5ドル、出力25ドルで、日常的なコーディング用途で最上位モデル並みの品質をより安く使いたいというニーズに応える位置づけ。
+
+出典: [ASCII.jp](https://ascii.jp/elem/000/004/422/4422202/), [GIGAZINE](https://gigazine.net/news/20260725-claude-opus-5/)
+
+## Microsoft、自社AI「MAIシリーズ」への切替を本格化 OpenAI依存を低減
+
+Microsoftは軽量AIモデル「MAI-Code-1-Flash」をGitHub Copilotに、画像生成AI「MAI-Image-2.5-Pro」をBing Image CreatorやPowerPointに導入し、OpenAI依存を減らしつつある。
+
+AI・LLM動向案件（主要企業のAI戦略）。VS Code上でのコード採用率は競合モデルより約10%高く、画像生成ではコストを最大84%削減できるとする。一方でOpenAI・Anthropicのモデルは「フロンティア能力が必要な用途」向けに併用を継続する方針で、自社モデルへの全面移行ではなく用途別の使い分けを進めている。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2607/24/2000000219/), [GIGAZINE](https://gigazine.net/news/20260724-microsoft-mai-image-2-5-pro/)
+
+## .NET MAUI、iOS/Android向けランタイムをMonoからCoreCLRへ全面移行
+
+Microsoftは.NET 11 Preview 6を公開し、.NET MAUIのランタイムをiOS・Android・Mac Catalystで従来のMonoからCoreCLRへ移行したと発表した。
+
+開発ツール・言語・OSS動向案件。.NET MAUIはこれまでWindows・MacがCoreCLR、iOS・Android・Mac CatalystがMonoという二重構成だったが、今回全プラットフォームでCoreCLRに統一された。移行によりiOS・Mac Catalystの実行速度が向上し、Androidでは起動時間・アプリサイズの変動は10%以下に収まるという。この結果、.NET内でMonoを使うのはBlazor WebAssemblyのみとなり、次期Unity 7でもMonoからCoreCLRへ移行することが合わせて発表されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/net_mauiiosandoridmonocoreclrnet_11_preview_6.html)
+
+## Azure West USリージョンで5時間の大規模接続障害、保守作業のバグが原因
+
+Microsoftは、Azure West USリージョンで発生した大規模接続障害について暫定ポストインシデントレビュー（PIR）を公開した。
+
+クラウド・大規模障害案件。障害は2026年7月23日14:44〜19:41 UTC（日本時間23日23:44〜24日4:41）に発生し、App Service・Cosmos DB・AKS・VPN Gateway・ExpressRoute・Sentinel・Power BI Embeddedなど多数のサービスに影響が及んだ。原因はルーチンの保守作業中、メンテナンスリクエストを変換するシステムのバグにより、想定より多くのネットワーク機器が隔離対象と誤認識され、データセンターとWAN間のIPルートが意図せず削除されたこと。17:45 UTCにロールバックを開始し、18:26 UTCにネットワーク復旧、19:41 UTCに全サービス復旧を確認したという。
+
+出典: [Azure Status History](https://azure.status.microsoft/en-us/status/history/)
+
+## 総務省、情プラ法に基づき初の是正勧告 Google・X・Meta等5社に
+
+総務省は、情報流通プラットフォーム対処法（情プラ法）が定める年次公表義務を怠ったとして、Google・X・Meta・「爆サイ.com」運営元の湘南西武ホーム・ニコニコ運営のドワンゴの5社に是正勧告を行った。
+
+法改正・規制動向案件（行政処分）。同法第28条は、大規模プラットフォーム事業者に対し誹謗中傷等の削除申出の受付件数・削除件数・通知状況などを年1回公表するよう義務付けている。総務省が2025年度分の公表資料を精査した結果、5社とも項目の全部または一部が欠落していたことが判明した。2025年4月の同法施行後、初めての勧告となる。対象5社は8月31日までに修正資料の再公表が必要で、GoogleとXの2社はさらに10月30日までに再発防止に向けた対応計画の進捗報告も求められている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/24/news086.html)
+
+## PayPayとセブン&アイ、顧客ID統合へ最終調整と報道
+
+ソフトバンク傘下のPayPayとセブン&アイ・ホールディングスが、会員ID「7iD」と「PayPayID」の統合に向け最終調整に入ったと複数メディアが報じた。
+
+業界動向案件。7iDはセブン-イレブンなど国内約2万2000店舗の購買データを、PayPayIDは約7400万人分の決済データをそれぞれ保有しており、統合が実現すれば国内最大級の顧客ID基盤になるとされる。あわせてソフトバンク・PayPay・三井住友カードからセブン&アイへの数千億円規模の出資協議も進んでいるという。なお本件は関係者取材による報道段階であり、両社による正式発表ではない点に留意したい。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/23/news104.html)
+
+## ロシア系ハッカー集団、Zimbraのゼロクリック脆弱性を悪用しメール窃取
+
+ロシア国家系ハッカー集団「Laundry Bear（Void Blizzard）」が、Zimbra Collaboration SuiteのXSS脆弱性（CVE-2025-66376）を悪用し、メールを開くだけで発動するゼロクリック攻撃で認証情報を窃取していることが分かった。
+
+セキュリティインシデント・脆弱性案件。標的は防衛産業基盤・政府機関・教育・エネルギー・法執行機関のほかNATO加盟国やウクライナにも及ぶ。過去90日分のメールやアプリパスコードを窃取して多要素認証を回避し、「Flowerbed」という独自の収集フレームワークでDNS・HTTPS経由でデータを持ち出す。偽Zimbraログインページによるフィッシングも併用しているという。
+
+<Note label="⚠ 注意">
+Zimbra Collaboration Suiteを利用している組織は、該当脆弱性の修正パッチ適用状況を確認し、ゼロクリックで発動する性質上メール受信のみで侵害が始まりうる点に注意したい。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-zimbra-zero-click-flaw-for-email-theft/)
+
+## SonicWall SMA1000にゼロデイ脆弱性、独自マルウェアで侵害拡大
+
+SonicWallのSMA1000シリーズ（6210/7210/8200v）に存在するSSRF脆弱性（CVE-2026-15409）とコマンドインジェクション脆弱性（CVE-2026-15410）が、パッチ公表前の6月22日からゼロデイとして悪用されていたことが分かった。
+
+セキュリティインシデント・脆弱性案件。攻撃者「UTA0533」は独自マルウェア「KNUCKLEBALL」のほか、Java製バックドア「Sou5」（リバースプロキシ）、Webシェル「ORANGETAIL」、権限昇格ツール「ROOTRUN」を展開していたことが確認されている。SonicWallはバージョン12.4.3-03453・12.5.0-02835でパッチを提供済みで、対象製品を利用する組織には速やかな適用が推奨される。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/sonicwall-sma1000-flaws-exploited-as-zero-days-to-push-custom-malware/)
+
+## 今日のTips: Reactのmemoは新しいオブジェクト・関数をpropsに渡すと効果を失う
+
+`memo`でラップしたコンポーネントは、propsが前回と同じ場合だけ再レンダリングをスキップする。しかし親コンポーネントがレンダリングのたびに新しいオブジェクト・配列・関数をインラインで生成してpropsに渡していると、参照が毎回変わるため`memo`の効果は失われる。公式ドキュメントも「たった1つの“常に新しい”値だけで、コンポーネント全体のメモ化を壊すのに十分」と明記している。
+
+対処法は、対象の値を`useMemo`（オブジェクト・配列）や`useCallback`（関数）でキャッシュし、依存配列が変わらない限り同じ参照を再利用させることだ。
+
+```tsx
+function Page() {
+  const [name, setName] = useState('Taylor');
+  const person = useMemo(() => ({ name }), [name]);
+  return <Profile person={person} />; // person の参照が安定する
+}
+
+const Profile = memo(function Profile({ person }) {
+  // ...
+});
+```
+
+<Tip label="▶ 補足">
+関数を渡す場合は、コンポーネント外で定義して不変にするか、`useCallback`で定義をキャッシュする。それ以外の場面で`memo`を使っても大きな害はないが、効果が出るのはpropsの参照が安定している場合に限られる。
+</Tip>
+
+参考: [React Documentation: memo](https://react.dev/reference/react/memo)
