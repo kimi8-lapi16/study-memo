@@ -1,0 +1,76 @@
+---
+title: ITニュースダイジェスト 2026-07-26
+listTitle: ITニュースダイジェスト 2026-07-26 — NVIDIA・Microsoftらのオープンウェイト声明にAnthropicは不参加、Next.jsが9件の脆弱性を修正するセキュリティリリース、ランサム集団ClopがPTC Windchill/FlexPLMを悪用、AIエージェント「Hermes」悪用のタイ財務省攻撃が発覚。
+date: 2026-07-26
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ]
+summary: NVIDIA・Microsoftら35社がAIの「オープンウェイト」規制に反対する共同声明を発表しAnthropicは不参加、Next.jsがSSRF・DoSなど9件の脆弱性を修正するセキュリティリリースを公開、ランサム集団ClopがPTC Windchill/FlexPLMのゼロデイを悪用し組織を恐喝、自律型AIエージェント「Hermes」悪用によるタイ財務省への攻撃が発覚した計4件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-26</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## NVIDIA・Microsoftら35社、AIの「オープンウェイト」規制に反対する共同声明 Anthropicは不参加
+
+NVIDIA・Microsoft・Meta等の米国企業約35社が、AIの重み（モデルパラメータ）を公開する「オープンウェイトモデル」への拙速な規制に反対する共同声明「Open Weights and American AI Leadership」を発表した。
+
+AI・LLM動向案件（主要企業のAI戦略）。声明は7月24日に約20〜25社で公開され、Cisco・Cohere・DoorDash・GitHub・OpenAIなどが加わり7月25日時点で35社に拡大した。オープンウェイトモデルは誰でもダウンロード・検証・改変・自前のハードウェアで実行できる点が米国のAI分野での競争力・安全保障・経済的優位性の維持に不可欠だと主張し、1980年代以降のOSSの成功になぞらえている。NVIDIAのジェンスン・フアンCEOは自身初のX投稿として声明を発信し1100万回超の閲覧を集めたほか、Microsoftのサティア・ナデラCEOやMetaのマーク・ザッカーバーグCEOも賛同を表明した。一方、安全性を重視し非公開モデルを軸に据えてきたAnthropicは声明に加わっておらず、米主要AI企業の中で最も目立つ不参加企業になっている。声明は、Washington（米政権）が中国製オープンウェイトモデルへの規制強化を検討する動きが強まる中で公表された。
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2127828.html), [ITmedia NEWS](https://www.itmedia.co.jp/news/articles/2607/26/news014.html)
+
+## Next.js、SSRFやDoSにつながる脆弱性9件を修正するセキュリティリリースを公開
+
+Next.js開発元のVercelは、SSRFやサービス拒否（DoS）につながる脆弱性9件（高深刻度4件・中深刻度5件）を修正する「2026年7月セキュリティリリース」を公開した。
+
+開発ツール・言語・OSS動向案件。前週に予告した「事前告知型の月次セキュリティリリース」プログラムの第1弾で、Active LTSの v16.2.11・Maintenance LTSの v15.5.21で修正済み。高深刻度の脆弱性は、Server Actionを持つApp Routerアプリへの細工したリクエストでCPUを消費させるDoS（CVE-2026-64641）、Turbopackかつ単一ロケール構成でミドルウェア/プロキシの認証チェックを回避できる脆弱性（CVE-2026-64642）、`rewrites()`/`redirects()`のホスト名がリクエスト由来の入力から構築される場合にSSRF・オープンリダイレクトを引き起こせる脆弱性（CVE-2026-64645）、カスタムサーバー上のServer ActionでSSRFを誘発できる脆弱性（CVE-2026-64649）の4件。App Router・Server Actions・画像最適化APIを使うアプリは早急な更新が推奨される。
+
+出典: [Next.js Blog](https://nextjs.org/blog/july-2026-security-release), [CodeZine](https://codezine.jp/news/detail/29102)
+
+## ランサム集団Clop、PTC Windchill/FlexPLMのゼロデイ悪用で組織を恐喝
+
+ランサムウェア集団Clopが、PTCのPLM（製品ライフサイクル管理）製品「Windchill」「FlexPLM」に存在する未認証リモートコード実行の脆弱性（CVE-2026-12569、CVSSスコア9.3）を悪用し、データを窃取したうえで従業員へ直接恐喝メールを送るキャンペーンを展開していることが分かった。
+
+セキュリティインシデント・脆弱性案件（ランサムウェア被害）。PTCは6月17日からパッチ提供を開始し、6月26日には脅威の高まりを顧客に警告、CISAも悪用中の脆弱性カタログに追加し連邦機関に3日以内のパッチ適用を義務付けていた。ClopはJSP製Webシェルを設置してコマンド実行・データ窃取を行い、侵害済みのメールアカウントを使って数百人規模の従業員へ恐喝メールを送付したという。対象はPTC製品を使う航空宇宙・防衛・自動車・重機・小売・医療機器など幅広い業種（PTCの顧客数は世界で3万社超）。米国務省は攻撃と外国政府の関与を結び付ける情報に1000万ドルの報奨金を提示している。
+
+<Note label="⚠ 注意">
+Windchill・FlexPLMを外部公開している組織は、CVE-2026-12569のパッチ適用状況を至急確認したい。ClopはMOVEit Transferの悪用で過去2770超の組織を侵害した実績があり、同様の大規模被害に発展する懸念がある。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/)
+
+## 自律型AIエージェント「Hermes」の悪用が発覚、タイ財務省への攻撃を自動化
+
+セキュリティ企業Hunt.ioは、攻撃者がオープンソースの自律型AIエージェント「Hermes」を承認プロンプトなしの「YOLOモード」で稼働させ、タイ財務省とみられる組織への侵害後の作業を自動化していたことを公表した。
+
+セキュリティインシデント・脆弱性案件（AIエージェント悪用という新しい手口）。香港でホストされた3つのWebディレクトリが7月9〜13日に外部公開状態のまま露出しているのが発見され、研究者は7月15日にThaiCERTとタイの国家サイバーセキュリティ機関へ通報、7月24日に詳細を公表した。露出していたファイルは585点・約470MBに上り、Hermesのログからは、侵害後にサービスの列挙・SUID/SGIDバイナリの探索・コンテナ調査・ファイルシステム横断といった定型作業を人手を介さず自動実行していたことが確認された。財務省事務次官部門の人事記録などが含まれるHadoop・Apache Ambari・GlassFishの管理画面が対象になっていたほか、これまで報告のないGo製インプラント「Hades」も新たに見つかっている。データの外部流出が確認されたわけではなく、財務省側も侵害の事実を認めていない点には留意したい。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/)
+
+## 今日のTips: Node.jsは、catchし忘れたPromiseの拒否を既定でプロセスクラッシュとして扱う
+
+`.catch()`も`try/catch`も付けずに拒否（reject）されたPromiseを放置すると、Node.jsは既定でそれを「未処理の例外」として扱い、プロセスごと終了させる。公式ドキュメントも「`unhandledRejection`イベントが発行されても処理されなければ、未捕捉の例外として扱われる」と明記している。
+
+```js
+// これは何もログを出さないまま、プロセスをクラッシュさせる
+Promise.reject(new Error('boom'));
+```
+
+対処はシンプルで、Promiseチェーンの末尾に`.catch()`を付けるか、`async`関数内なら`try/catch`で囲えばよい。
+
+```js
+Promise.reject(new Error('boom')).catch((err) => {
+  console.error('拾った:', err.message); // ここでハンドリングできる
+});
+```
+
+<Tip label="▶ 補足">
+`process.on('unhandledRejection', ...)`でグローバルに拾うこともできるが、これはあくまでログ出力や後始末のための最終防衛線。個々のPromiseでの捕捉漏れを覆い隠す目的で使うと、本来気付くべきバグを見逃しやすくなる。
+</Tip>
+
+参考: [Node.js Documentation: 'unhandledRejection'](https://nodejs.org/api/process.html#event-unhandledrejection)
