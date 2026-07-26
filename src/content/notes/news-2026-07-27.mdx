@@ -1,0 +1,92 @@
+---
+title: ITニュースダイジェスト 2026-07-27
+listTitle: ITニュースダイジェスト 2026-07-27 — MCP仕様がステートレス通信へ移行、ゲームエンジン「Unity 7」がCoreCLR基盤で発表、GitHub/PyPIがサプライチェーン攻撃対策を強化、Discordにテキサス州の年齢確認命令。
+date: 2026-07-27
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ, 訴訟]
+summary: AIエージェント連携プロトコル「MCP」がステートレス通信へ移行しGitHub MCPサーバも対応を発表、ゲームエンジン「Unity 7」がMonoから.NET CoreCLRへの移行を発表、GitHubとPyPIがサプライチェーン攻撃対策を相次いで強化、Discordがテキサス州の裁判所命令で年齢確認機能の実装を迫られ、暗号資産投資家を狙うブラウザメモリ内マルウェア生成の手口が発覚した計5件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-27</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## AIエージェント連携プロトコル「MCP」、ステートレス通信へ移行 GitHub MCPサーバも早期対応を表明
+
+AIエージェントと外部ツールをつなぐ標準プロトコル「MCP（Model Context Protocol）」が7月28日付の仕様改訂でステートレスな通信方式に切り替わることになり、GitHubは自社のMCPサーバを同日付で対応させると発表した。
+
+AI・LLM動向案件（エージェント技術）。従来のMCPはクライアントとサーバ間でステートフルな通信を行い、接続ごとに`Mcp-Session-Id`ヘッダによるセッション管理が必要だった。新仕様ではイニシャライズのハンドシェイクやセッションID管理が不要になり、リクエストがどのサーバに届いても処理できるようになる。GitHub MCPサーバはこれに合わせてセッション開始時の初期化処理とセッションIDに紐づくデータベース操作を廃止し、接続をよりシンプルかつ高速にするとしている。既存クライアントとの後方互換性は維持される見込み。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/mcp728mcpgithub_mcp.html)
+
+## ゲームエンジン「Unity 7」発表 ランタイムをMonoから.NET CoreCLRへ移行しシェーダービルドが90%高速化
+
+Unity Technologiesは次世代版ゲームエンジン「Unity 7」を発表した。実行基盤をMonoから.NET CoreCLRへ移行することで、開発中のプレイモード起動やシェーダービルドを大幅に高速化する。
+
+新技術紹介案件。CoreCLR移行により、プログラマーが開発画面からテスト実行するまでの待ち時間がほぼなくなるほか、シェーダーのビルド速度は90%高速になったという。MCP機能を備え、AIエージェントをUnityに接続して操作させることも可能になるほか、リアルタイムグローバルイルミネーションなどレンダリング面の強化も行われる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/unity_7mononet_coreclr.html)
+
+## GitHubとPyPI、サプライチェーン攻撃対策を相次いで強化 新規パッケージに時間差の防御策
+
+GitHubはDependabotに新規公開パッケージの取り込みを72時間遅らせる「クールダウン」機能を導入し、PyPIはリリース後14日を過ぎたパッケージへのファイル追加を禁止する新ルールを実装するなど、両プラットフォームがサプライチェーン攻撃対策を強化した。
+
+開発ツール・言語・OSS動向案件。GitHubのDependabotクールダウンは、新規公開されたパッケージが実際に悪性かどうか検証される時間を確保する狙いで、遅延期間はユーザー側で調整できる。PyPIの新ルールは、メンテナーのトークンやCI/CDワークフローが侵害された場合でも、既に信頼を得た古いリリースへ悪質なファイルを後から追加される被害を防ぐもの。両社とも過去1年で高プロファイルなサプライチェーン攻撃を複数経験しており、その対応として予防的な仕組みを導入した。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/github-pypi-add-time-absed-defenses-against-supply-chain-attacks/)
+
+## Discord、テキサス州の裁判所命令で年齢確認機能の実装を迫られる
+
+テキサス州コリン郡の裁判所は、未成年者が成人の捕食者と接触するリスクを理由に州がDiscordを提訴していた訴訟で、Discordに90日以内にテキサス州ユーザー向けの年齢確認機能などを実装するよう命じる一時的差止命令を認可した。
+
+訴訟・トラブル案件。Angela Tucker判事は両者合意の動議に基づき命令を発令し、Discordは見知らぬ相手からのメッセージを別の「リクエスト受信箱」に振り分けること、テキサス州の10代ユーザー向けにセンシティブなコンテンツをブロックしその設定を年齢確認済みの成人以外は解除できないようロックすること、年齢確認していないユーザーを成人限定スペースから締め出すことなどが求められる。Discordは30日ごとに州司法長官へ対応状況を報告する義務も負う。裁判は今後、テキサス州の消費者保護法（DTPA）に基づく民事制裁金の是非を争う本裁判へ進む見通し。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/tech-and-telecom-law/discord-must-verify-texas-users-age-under-judges-ruling)
+
+## 暗号資産投資家を狙う新手口 ブラウザメモリ内でマルウェアを直接組み立てるキャンペーンが発覚
+
+Solana・Luno・TradingViewなどを装った偽サイトが、ReactJS製のサービスワーカーを使って暗号化されたコンポーネントを段階的にダウンロードし、ブラウザのメモリ上でマルウェアの実行ファイルを直接組み立てる手口が確認された。
+
+セキュリティインシデント・脆弱性案件。2024年末から続く大規模キャンペーンで、25言語・12カ国に展開されアジア太平洋やラテンアメリカの暗号資産・トレーディング投資家を主な標的にしている。ディスクに検知可能なファイルを残しにくい手法のため、セキュリティ製品による検知を回避しやすい点が特徴。
+
+<Note label="⚠ 注意">
+実行ファイルは必ず公式サイトから取得し、デジタル署名と発行元を確認してから実行することが推奨される。検索広告や偽サイト経由での配布に注意したい。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/malicious-sites-use-javascript-to-build-malware-in-browser-memory/)
+
+## 今日のTips: TypeScriptのcatch節の変数は、strictモードでは既定でunknown型になる
+
+TypeScript 4.4で追加された`useUnknownInCatchVariables`は`strict`ファミリーに含まれており、`strict: true`にしていれば自動的に有効になる。これにより`catch`節の変数は`any`ではなく`unknown`型として扱われる。
+
+```ts
+try {
+  JSON.parse(input);
+} catch (err) {
+  // err の型は unknown。プロパティに直接アクセスするとコンパイルエラーになる
+  console.error(err.message); // Error: Property 'message' does not exist on type 'unknown'
+}
+```
+
+`unknown`はどんな型でも代入できる一方、使う前に型を絞り込む（narrowing）ことを強制する型なので、`instanceof`などで安全に絞り込んでからアクセスする必要がある。
+
+```ts
+try {
+  JSON.parse(input);
+} catch (err) {
+  if (err instanceof Error) {
+    console.error(err.message); // OK
+  }
+}
+```
+
+<Tip label="▶ 補足">
+TypeScript 4.3以前の挙動に戻したい（＝チェックを緩めたい）場合は、`catch (err: any)`のように明示的に型注釈を付ければオプトアウトできる。
+</Tip>
+
+参考: [TypeScript 4.4 Release Notes: Catch Clause Variables](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-4.html)
