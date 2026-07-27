@@ -1,0 +1,102 @@
+---
+title: ITニュースダイジェスト 2026-07-28
+listTitle: ITニュースダイジェスト 2026-07-28 — TypeScript→Cコンパイラ「scriptc」がOSS公開、AWSが無料サンドボックス環境を開始、NVIDIA主導のAIセキュリティ連合が発足、Anthropicに消費者集団訴訟、Windows証明書サービスに深刻な脆弱性。
+date: 2026-07-28
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, クラウド, 業界動向, 訴訟, セキュリティ]
+summary: VercelがTypeScriptをC言語経由でネイティブバイナリ化する「scriptc」をOSS公開、AWSが無料の学習用サンドボックス環境を開始、NVIDIA主導のAIセキュリティ連合にMicrosoftなど30社超が参加、NVIDIAの750億ドル規模のAI取引が循環取引懸念を再燃させ、Anthropicがサービス低下を巡り消費者集団訴訟に直面、Appleが偽の暗号資産ウォレットアプリ放置で提訴され、Windows証明書サービスの深刻な脆弱性「Certighost」のPoCが公開、EYがShinyHuntersにサプライチェーン侵害を主張された計8件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-28</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Vercel、TypeScriptをC言語経由でネイティブバイナリにコンパイルする「scriptc」をOSS公開
+
+Vercelは、Node.jsで動くTypeScriptコードをコードの変更なしにネイティブな実行ファイルへコンパイルするツール「scriptc」をオープンソースで公開した。
+
+開発ツール・言語・OSS動向案件。既存のNode.js/Deno/Bunがランタイムとコードをパッケージ化するだけなのに対し、scriptcはTypeScriptを型付き中間表現に変換したうえでC言語コードに落とし込み、Clangでコンパイルする。これによりJavaScriptランタイムに依存しないバイナリが生成され、Node.jsで60〜100MBあったアプリのサイズが170〜200KBまで縮小、Appleシリコン搭載Macでの起動時間も47ミリ秒から2.4ミリ秒以下に短縮されるという。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/verceltypescriptcscriptc.html)
+
+## AWS、無料の学習用サンドボックス環境を提供開始 クレカ登録不要で最大8時間利用可能
+
+AWSは、開発者向けコミュニティサイト「AWS Builder Center」のオンラインワークショップ向けに、無料のAWSサンドボックス環境の提供を開始した。
+
+クラウド・大規模障害案件。AWSアカウントもクレジットカード登録も不要で、無料のビルダーIDを登録するだけでリクエストからおよそ15分以内に環境が使えるようになる。1回のリクエストで最大8時間、リソースのデプロイやコード実行を試せ、終了後は自動でクリーンアップされる。リクエストは週1回までで毎週日曜にリセットされ、現時点では対応するワークショップは一部にとどまる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/awsawsaws.html)
+
+## NVIDIA主導の「Open Secure AI Alliance」始動 Microsoftなど30社超がAIセキュリティで結集
+
+NVIDIAは、AI時代のサイバーセキュリティに向けたオープンな技術・ツールを共同開発する業界連合「Open Secure AI Alliance」を設立し、MicrosoftやSpaceXAIなど30社超が参加したと発表した。
+
+AI・LLM動向案件。AIを悪用したサイバー攻撃への懸念が背景にあり、自律的に動くAIエージェントの監視・追跡に役立つフレームワークの研究などを進めるとしている。なお参加企業一覧にOpenAIとGoogleは含まれていない。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2607/27/2000000224/)
+
+## NVIDIAが750億ドル規模の新規AI取引 SK GroupやOpenAIとの提携で「循環取引」懸念再燃
+
+NVIDIAが米大手企業群と総額750億ドル超の新規AI関連取引を進めていることが明らかになり、AI業界の需要や企業価値を人為的に膨張させているのではという「循環取引」への懸念が再燃している。
+
+業界動向案件。韓国のSK Groupとの提携では500億ドル超の事業規模が発表されたほか、OpenAIとの間では最大250億ドル規模の資金支援によりデータセンター向けコンピューティング設備をリース化する交渉が進んでいるという。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/tech-and-telecom-law/nvidias-750-billion-in-deals-reignite-circular-ai-fears-1)
+
+## Anthropic、Claude Codeのサービス低下を巡り消費者集団訴訟に直面
+
+Anthropicが、2026年3月に実施したピーク時間帯の仕様変更でセッション上限に早く達するようになったことや、Claude Codeのバックエンド変更によるサービス低下を巡り、消費者による集団訴訟の被告となった。
+
+訴訟・トラブル案件。訴状は2026年7月24日にカリフォルニア北地区連邦地裁に提出された。原告側は、利用者が上限到達が正当な利用制限なのかシステム不具合なのか判別できなくなったにもかかわらず、Anthropicが購読料を返金せず保持し続けたのは不正な行為に当たると主張している。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/tech-and-telecom-law/anthropic-hit-with-consumer-deception-suit-over-reduced-service)
+
+## Apple、偽の暗号資産ウォレットアプリ放置で提訴 App Store審査の甘さが焦点に
+
+Appleは、App Store上に出回っていた正規の「Sparrow Wallet」を装う偽アプリを通じて計約180万ドル相当のビットコインを盗まれたとする利用者3人から訴訟を起こされた。
+
+訴訟・トラブル案件。正規版Sparrow Walletの開発者は2024年1月時点で偽アプリの存在を指摘し警告していたが、Appleの対応が遅れる間に被害が拡大したと主張されている。被害は2025年5月〜8月にかけて発生し、1件あたり最大約87万5000ドルの被害が出たケースもあるという。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/apple/apple-sued-over-fake-app-store-crypto-wallet-app-stealing-18m-in-bitcoin/)
+
+## Windows証明書サービスの深刻な脆弱性「Certighost」PoC公開 ドメイン乗っ取りの恐れ
+
+Windows Active Directory Certificate Services（AD CS）の脆弱性「Certighost」（CVE-2026-54121）を突く実証コード（PoC）が公開され、認証済み攻撃者によるドメイン乗っ取りのリスクが指摘されている。
+
+セキュリティインシデント・脆弱性案件。攻撃者は機械アカウントの属性を操作し、PKINIT経由で機械になりすませる証明書を取得できる。対象がドメインコントローラーのアカウントの場合、特権的なActive Directory操作が可能になりドメイン全体の侵害に至る恐れがあるという。
+
+<Note label="⚠ 注意">
+研究者は本番環境での完全な検証は済んでいないとしつつ、Microsoftが2026年7月のPatch Tuesdayで提供したセキュリティ更新プログラムの適用を優先するよう呼びかけている。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/new-certighost-poc-exploit-lets-attackers-hijack-windows-domains/)
+
+## アーンスト・アンド・ヤング、ShinyHuntersにサプライチェーン侵害を主張される
+
+大手会計事務所アーンスト・アンド・ヤング（EY）が、恐喝グループ「ShinyHunters」からサプライチェーン攻撃によるデータ侵害を主張されていることが分かった。
+
+セキュリティインシデント・脆弱性案件。ShinyHuntersは窃取した認証情報を使い、EYが利用するJira・GitHub・Azure環境にアクセスしたと主張。EYは第三者のITサービス管理プラットフォームが侵害され、顧客の税務情報を含む文書がサポートチケットに含まれていた可能性があるとしている。同グループは7月31日までにEYから連絡がなければ窃取データを公開すると脅迫しており、EYは連邦法執行機関へ通知のうえ、影響を受けた顧客にExperian経由で24カ月間の身元監視サービスを提供するという。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/ernst-and-young-data-breach-claimed-by-shinyhunters-extortion-gang/)
+
+## 今日のTips: PostgreSQL 11以降、定数DEFAULT付きのカラム追加はテーブル書き換え不要になった
+
+PostgreSQL 10以前は、既存テーブルに`NOT NULL DEFAULT`付きのカラムを追加すると、テーブル全体を書き換える処理が走り、大きなテーブルでは長時間のロックが発生していた。PostgreSQL 11ではこの挙動が改善され、デフォルト値が定数の場合はテーブル書き換えなしでカラムを追加できるようになった。
+
+```sql
+-- テーブル書き換えなしで一瞬で完了する（PostgreSQL 11以降）
+ALTER TABLE users ADD COLUMN plan_type text DEFAULT 'free' NOT NULL;
+```
+
+この最適化はカタログにデフォルト値を保持し、変更時点で既存の行に対してはそれを参照する仕組みで実現されている。ただし`random()`や`now()`のようなvolatile（揮発性）な式をデフォルトに使う場合はこの最適化の対象外で、従来通りテーブル書き換えが発生する点には注意したい。
+
+<Tip label="▶ 補足">
+行ごとに異なる値が必要になるvolatileなデフォルト式では、カタログに単一の値を保持するだけでは済まないため、この最適化が使えない。
+</Tip>
+
+参考: [PostgreSQL 11.0 Release Notes](https://www.postgresql.org/docs/11/release-11.html)
