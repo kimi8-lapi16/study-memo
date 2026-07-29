@@ -1,0 +1,112 @@
+---
+title: ITニュースダイジェスト 2026-07-30
+listTitle: ITニュースダイジェスト 2026-07-30 — 総務省がKDDIに「通信の秘密」侵害で過去最大規模の行政指導、川崎重工が四脚モビリティ「CORLEO」のロードマップ公表、PFNが防衛装備庁の実証実験を受託、Node.jsが11件のCVEを修正する緊急セキュリティリリース。
+date: 2026-07-30
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, クラウド, 業界動向, 法改正, セキュリティ]
+summary: 総務省がKDDIのメール不正アクセス事案（最大1223万件のメールアドレス・761万人分のパスワード流出）で過去最大規模の「通信の秘密」侵害と認定し行政指導、川崎重工が四脚オフロードモビリティ「CORLEO」の実用化ロードマップを公表、PFNが防衛装備庁の実証実験でPLaMo 3.0 Primeを提供、Node.jsが11件のCVEを修正する緊急リリース、AWSがOCIとのマルチクラウド接続をGA、AppleがKlarnaと組みサブスク型リース「Apple Upgrade」を開始、BMWがフォーラム選択条項でITC調査を終結、ミネソタ州の水道施設30カ所超への協調サイバー攻撃とCisco FMCの悪用中ゼロデイの計8件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-30</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## 川崎重工、乗馬のように体重移動で操る四脚オフロードモビリティ「CORLEO」の実用化ロードマップを公表
+
+川崎重工は、タイヤの代わりに4本脚で走行するオフロード・パーソナルモビリティ「CORLEO」について、2030年のリヤド万博でプロトタイプの動態デモを行い、2035年の実用化を目指すロードマップを公表した。
+
+新技術紹介案件。水素エンジンによる発電で各脚のアクチュエータを駆動する「シリーズハイブリッド方式」を採用し、ブレーキやステアリングは持たず、ライダーは乗馬のように体重移動で進行方向を伝える設計。NVIDIAのフィジカルAIプラットフォーム「Cosmos」を使った仮想オフロードコースでの学習により、実機とシミュレーションのギャップをAIが補正するという。ロボティクスと乗り物の境界を融合させる新しい移動体のアプローチとして注目される。
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2128633.html)
+
+## Preferred Networks、国産AI「PLaMo 3.0 Prime」で自衛隊の作戦立案支援を検証 防衛装備庁の実証実験を受託
+
+Preferred Networks（PFN）は、防衛装備庁が実施する実証実験を受託し、自社の国産AIモデル「PLaMo 3.0 Prime」などを用いて自衛隊の意思決定を支援するシステムの検証に着手すると発表した。
+
+AI・LLM動向案件。文書・地理空間情報・部隊運用データをAIで統合的に整理・分析し、自衛隊司令部の作戦計画立案における判断支援が可能かを検証する。自衛隊指揮統制分野で実績を持つパートナー企業と協力してシステムを構築し、将来的には大規模災害時の支援業務への応用も視野に入れる。PFNは6月にも三菱重工業と国産AI技術の共同開発で提携しており、国産LLMの安全保障・公共分野への実装が広がっている。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2607/29/2000000272/)
+
+## Node.js、HTTP/2関連の高深刻度脆弱性など11件のCVEを修正する緊急セキュリティリリース
+
+Node.jsプロジェクトは、v26.x/v24.x/v22.xの各系列を対象に、高深刻度3件・中深刻度5件・低深刻度3件の計11件のCVEを修正するセキュリティリリースを公開した。
+
+開発ツール・言語・OSS動向案件。高深刻度のうち2件はHTTP/2関連で、保持ヘッダーが`maxSessionMemory`制限をバイパスしうるリモートメモリ枯渇（CVE-2026-56846）と、`nghttp2_session_mem_send()`/`nghttp2_session_mem_recv()`の再入によるheap-use-after-free（CVE-2026-56848）。依存パッケージのundici・llhttpも合わせて更新された。当初7月28日予定だったリリースは追加検証のため2度延期され、29日の公開となった。v22.x系のみ1件（CVE-2026-58041）が対象外。
+
+出典: [Node.js公式ブログ](https://nodejs.org/en/blog/vulnerability/july-2026-security-releases)
+
+## AWS、Oracle Cloud Infrastructureとのマルチクラウド直接接続サービス「AWS Interconnect」をGA
+
+AWSは、Oracle Cloud Infrastructure（OCI）との間でプライベート接続を構築できる専用製品「AWS Interconnect」を一般提供（GA）したと発表した。
+
+クラウド・大規模障害案件。従来はクラウド間の相互接続を顧客自身が個別に構築・運用する必要があり複雑だったが、本サービスはスケーラブルで復元力のある専用接続を迅速にプロビジョニングできる。Google Cloudとの接続はすでに提供済みで、Microsoft Azureとの接続も2026年後半に対応予定。まずはus-east-1（北バージニア）リージョンで利用できる。マルチクラウド運用の複雑さを吸収するインフラ側の取り組みとして、企業のクラウド戦略に影響しうる。
+
+出典: [AWS What's New](https://aws.amazon.com/about-aws/whats-new/2026/07/aws-announces-AWS-interconnect-multicloud-OCI-GA/)
+
+## Apple、Klarnaと提携しiPhone・Macなどをサブスク型でリースできる「Apple Upgrade」を米国で開始
+
+Appleは後払い大手Klarnaと組み、iPhone・iPad・Apple Watch・Macを月額課金で利用できる新プログラム「Apple Upgrade」を米国で開始した。
+
+業界動向案件。価格はiPhoneが月額17.99ドルから、Apple Watchとタブレットは同11.99ドルから、Macは同24.99ドルから。リース期間はiPhone・Apple Watchが12カ月または24カ月、Mac・iPadが24カ月または36カ月で、対象はiPhone 17 Proなど最新世代モデルのみ。終了時にアップグレード・購入・返却を選べる一方、既存の「iPhone Upgrade Program」と「iPhone Payments」は終了する予定。スマートフォンの高価格化が続くなか、「所有」から「利用」への購入体験の転換を狙う戦略的な方針転換といえる。
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2128715.html)
+
+## 総務省、KDDIに行政指導 メール不正アクセスで「通信の秘密」侵害は過去最大規模
+
+総務省は、KDDIが提供するISP向けメールシステムへの不正アクセスにより、最大1223万件のメールアドレスと761万人分のパスワード（暗号化されず平文）が流出した事案について、電気通信事業法上の「通信の秘密」侵害と認定し、KDDIに対して行政指導（厳重注意）を行った。
+
+法改正・規制動向案件。総務省によれば「通信の秘密」侵害としては過去最大規模。不正アクセスは5月16日に始まり、KDDIが6月17日に確認、6月23日に公表していた。総務省はKDDIに対し8月31日までに再発防止策を提出するよう求めたうえで、その後1年間は四半期ごとの実施状況報告を課しており、通信事業者にとっては認証基盤の脆弱性管理と侵害時の当局対応の重要性を改めて示す事例となった。
+
+出典: [総務省](https://www.soumu.go.jp/menu_news/s-news/01kiban18_01000285.html), [日本経済新聞](https://www.nikkei.com/article/DGXZQOUA284JE0Y6A720C2000000/)
+
+## BMW、車載ソフト企業との営業秘密訴訟でNDAのフォーラム選択条項を根拠にITC調査を終結
+
+米国際貿易委員会（ITC）は、車載インフォテインメントソフト企業Zyncが起こしていたBMWに対する営業秘密侵害の申し立てについて、調査を打ち切った。
+
+訴訟・トラブル案件。Zyncは提携提案が破談した後、BMWが自社の知的財産を盗用したと主張し、ITCとカリフォルニア州裁判所の双方で争っていた。BMWは両社が交わした秘密保持契約（NDA）に含まれるフォーラム選択条項（紛争解決地を限定する条項）を根拠に反論し、ITC側を説得して調査終結にこぎつけた。契約条項が訴訟の管轄・帰趨をどう左右しうるかを示す事例として注目されている。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/tech-and-telecom-law/bmw-secures-novel-end-to-investigation-over-trade-secret-claims)
+
+## ミネソタ州の水道施設30カ所超に協調サイバー攻撃、OTシステムが標的に
+
+米ミネソタ州で、7月26〜27日にかけて30カ所を超える公営水道システムの運用技術（OT）が狙われる協調サイバー攻撃が発生した。
+
+セキュリティインシデント・脆弱性案件。ブラハム市では水処理施設の自動制御システムが停止し、悪意あるサイバー攻撃であることが確認された。他の自治体でも設備の一時的な誤作動が報告され、各施設は手動運転への切り替えで給水を継続。ブラハムの施設は数時間で復旧し、水質汚染の兆候はないという。攻撃主体は特定されていないが、州のサイバーインシデント対応チームが連邦・州・地元・部族の関係機関と連携して調査を進めている。重要インフラのOTシステムを狙った攻撃が実被害に至った事例として重い。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/)
+
+## Cisco Secure FMCの静的認証情報の欠陥、ゼロデイ攻撃で悪用中
+
+Ciscoは、ファイアウォール管理製品「Secure Firewall Management Center（FMC）」に低権限アカウント向けの静的認証情報が組み込まれている脆弱性（CVE-2026-20316）が、実際にゼロデイ攻撃で悪用されていると警告した。
+
+セキュリティインシデント・脆弱性案件。CVSSスコアは5.3だが、悪用中であることからCiscoは重要度を高く評価している。対象はFMC Software 7.0/7.2/7.4/7.6/7.7/10.0（クラウド提供版は対象外）で、回避策はなくパッチ適用が必須。あわせて、認証不要でroot権限のコマンド実行が可能な既知の脆弱性（CVE-2026-20079、CVSS 10.0、3月開示）についてもアドバイザリが更新されており、Horizon3.aiの研究者が報告したCVE-2026-20316と組み合わされることで権限昇格のリスクが高まるとされる。
+
+<Note label="⚠ 注意">
+FMCを利用する組織は、悪用が既に確認されている点を踏まえ、回避策に頼らず速やかなパッチ適用が推奨される。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/)
+
+## 今日のTips: Prisma 7でコネクションプールのデフォルトサイズが「CPUコア数×2+1」から固定値10に変わった
+
+Prisma 6以前は、コネクションプールのサイズ（`connection_limit`）が明示的に指定しない限り`num_cpus::get_physical() * 2 + 1`という計算式で自動決定されていた。CPUコア数が多いマシンほどプールも大きくなる仕様だったが、Prisma 7でドライバーアダプター方式に移行したことで、プールの設定はドライバー自体が持つ値に委ねられるようになり、PostgreSQL/MySQL/SQL Serverいずれも固定値10がデフォルトになった。
+
+```ts
+// v6以前: マシンのCPUコア数に応じて自動でプールサイズが変動
+// v7以降: ドライバーアダプター側のデフォルトは固定値10
+const adapter = new PrismaPg({
+  connectionString,
+  // 明示的に指定しない限りプールサイズは10
+});
+```
+
+<Tip label="▶ 補足">
+コア数の多いマシンで旧来の計算式による大きめのプールを前提に運用していた場合、v7に上げると気づかないうちにプールが小さくなることがある。高並行度が必要な環境ではアダプター初期化時に明示的にプールサイズを指定した方が安全。
+</Tip>
+
+参考: [Prisma Docs: Connection pool](https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration/databases-connections/connection-pool)
