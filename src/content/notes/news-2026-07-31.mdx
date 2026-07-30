@@ -1,0 +1,93 @@
+---
+title: ITニュースダイジェスト 2026-07-31
+listTitle: ITニュースダイジェスト 2026-07-31 — Ruby on RailsのActive Storageに任意コード実行の重大脆弱性、Amazonがnpmのdebug/chalk/axios供給チェーン攻撃を北朝鮮系ハッカーと関連付け、GitHubがnpm公開時のマルウェア自動スキャンを導入、PTABがSamsara対Motiveの特許紛争でMotive側特許の有効性を維持。
+date: 2026-07-31
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 開発ツール, クラウド, 訴訟]
+summary: Ruby on RailsのActive Storageにファイルアップロード経由の任意コード実行につながる重大脆弱性が発覚しJPCERT/CCが注意喚起、Amazonがdebug・chalk・axiosなどのnpmサプライチェーン攻撃を北朝鮮系ハッカー「Sapphire Sleet」と関連付け、GitHubがnpm公開時のマルウェア自動スキャンを導入、JetBrainsがAIエージェント向けにリポジトリを事前インデックス化する「JetBrains Context」を提供開始、Google CloudがCloud KMSで耐量子デジタル署名をGA、米PTABがSamsara対Motiveの特許紛争でMotive側特許の有効性を維持、ロシア系「Laundry Bear」がExchange OWAのXSS脆弱性を突くゼロクリック攻撃で政府機関等に長期侵入。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-07-31</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Ruby on RailsのActive Storageに任意コード実行につながる重大脆弱性、JPCERT/CCが注意喚起
+
+JPCERT/CCは、Ruby on RailsのActive Storageに存在するリモートコード実行につながる脆弱性（CVE-2026-66066）について注意喚起を発表した。
+
+セキュリティインシデント・脆弱性案件。悪意あるファイルのアップロードを通じてファイル読み取りや認証情報の窃取が可能になり、条件次第では任意コード実行にまで至る。影響を受けるのは`activestorage` 7.2.3.2未満、8.0系は8.0.5.1未満、8.1系は8.1.3.1未満で、Active Storageが有効・バリアントプロセッサがlibvips・libvipsが標準ビルドという3条件がそろう環境が対象。ダイレクトアップロードは既定で認証を必須としないため、ユーザー向けのアップロード機能を持たないアプリでもActive Storageが有効なら影響を受けうる。既にエクスプロイトコードが公開されており、WAFによる回避策は有効な対策にならないとされる。
+
+<Note label="⚠ 注意">
+パッチ適用に加え、libvipsを8.13以上・ruby-vipsを2.2.1以上へ先行更新したうえで、システムがアクセスできる認証情報はすべて漏えいした前提でローテーションすることが推奨される。
+</Note>
+
+出典: [JPCERT/CC](https://www.jpcert.or.jp/at/2026/at260021.html)
+
+## Amazon、debug・chalk・axiosのnpmサプライチェーン攻撃を北朝鮮系ハッカー「Sapphire Sleet」と関連付け
+
+Amazonは、2025年以降に相次いだdebug・chalk・axiosなど著名npmパッケージへのサプライチェーン攻撃について、北朝鮮関連の脅威グループ「Sapphire Sleet」（BlueNoroff、Stardust Chollimaとも呼ばれる）と中程度の確度で関連付けたと発表した。
+
+セキュリティインシデント・脆弱性案件。手口はパッケージ保守担当者をソーシャルエンジニアリングで欺いてアカウントを乗っ取り、悪意ある更新を公開して利用者に自動配布するというもの。2025年3月のtypo-cryptoでの初期テストを経て、同年9月のdebug・chalk侵害では公開から2時間以内にクラウド環境の約10%に影響が及んだとされ、2026年3月には週100万回超ダウンロードされるaxiosも侵害された。攻撃で使われた戦術・手法・C2基盤や運用上の類似性から北朝鮮への関連付けが行われた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/)
+
+## GitHub、npmパッケージ公開時のマルウェア自動スキャンを導入 「両義的パッケージ」向けの新メタデータ要件も
+
+GitHubは、npmレジストリに新規公開されるパッケージを対象にした自動マルウェアスキャンを導入したと発表した。
+
+開発ツール・言語・OSS動向案件。相次ぐサプライチェーン攻撃を受けた対策強化の一環で、公開直後のパッケージをスキャンし、結果に応じて正常公開・手動審査保留・公開ブロックのいずれかに振り分ける。通常は公開から利用可能になるまで約5分の遅延が生じ、内容や混雑状況によっては15分以上かかることもあるという。あわせて、マルウェアと似た挙動を取る正当なセキュリティ機能を持つ「両義的パッケージ」向けに、`package.json`への`contentPolicy`フィールド追加と`DISCLOSURE`ファイルでの用途明記を新たに必須化。該当パッケージは2要素認証経由でのみ公開でき、一度宣言したメタデータは削除できない。
+
+出典: [CodeZine](https://codezine.jp/news/detail/29173)
+
+## JetBrains、リポジトリを事前インデックス化しAIエージェントのトークン消費を抑える「JetBrains Context」提供開始
+
+JetBrainsは、コードリポジトリをあらかじめインデックス化してAIエージェントに的確なコンテキストを供給するサービス「JetBrains Context」の提供を始めた。
+
+AI・LLM動向案件。従来のAI開発エージェントはタスクの都度リポジトリ内を検索してコンテキストを集める必要があり非効率だったが、事前インデックスとセマンティック検索によってこれを解消する。JetBrains自身の計測では、エージェントのターン数を最大68%、レイテンシを最大59%、実行コストを最大48%それぞれ削減できたという。複数リポジトリ間のAPI利用や依存関係、再利用可能なコンポーネントの関連性も認識できるのが特徴。まずは「JetBrains AI for Teams and Organizations」利用者向けにアーリーアクセスとして提供される。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/jetbrainsaijetbrains_context.html)
+
+## Google Cloud、耐量子デジタル署名アルゴリズムをCloud KMSで一般提供
+
+Google Cloudは、鍵管理サービスCloud KMSにおいて、NIST標準の耐量子デジタル署名アルゴリズムML-DSA（FIPS 204）とSLH-DSA（FIPS 205）を一般提供（GA）したと発表した。
+
+クラウド・大規模障害案件。ML-DSAはセキュリティレベル2/3/5に対応する高性能な格子ベース署名で、SLH-DSAはレベル1のステートレスなハッシュベース署名。大容量ファイルを扱う際は、アプリケーション側でSHA2やSHAKEを使い約32バイトのダイジェストを作ってからCloud KMSへ送る「pre-hash」運用や、RFC 9881準拠の外部-μ変種を使うことで、帯域幅効率と検証器との互換性を両立できる。鍵カプセル化のML-KEMも同時にGAとなり、NSAのCNSA 2.0など米政府の耐量子移行要件への対応を見据えた布石といえる。
+
+出典: [Google Cloud Blog](https://cloud.google.com/blog/products/identity-security/future-proofing-data-integrity-quantum-safe-digital-signatures-in-cloud-kms)
+
+## 米PTAB、Samsara対Motiveの特許紛争でMotive側AIフリート追跡特許の有効性を維持
+
+米特許商標庁の審判部（PTAB）は、トラック運行管理サービスSamsaraが競合Motive Technologiesの特許（米国特許第11,875,580号）を無効化しようとした請求を退けた。
+
+訴訟・トラブル案件。両社は2024年以降、国際貿易委員会（ITC）調査と複数の連邦地裁訴訟にまたがる大型の特許・営業秘密紛争を続けている。発端はSamsaraが2024年、Motiveが産業スパイまがいの手口で自社のAI技術を模倣・盗用したと提訴したこと。今回PTABは、Motive側が持つAIベースのフリート追跡特許について、Samsaraが提示した先行技術出願と3本の論文だけでは有効性を覆すには不十分と判断し、当該特許はひとまず維持される形となった。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/ip-law/samsara-cant-nix-motives-ai-fleet-patent-in-sprawling-fight)
+
+## ロシア系「Laundry Bear」、Exchange OWAのXSS脆弱性を突くゼロクリック攻撃で長期メールボックスアクセス
+
+ロシア国家支援ハッカー集団「Laundry Bear」（Void Blizzard）が、オンプレミス版Exchangeの Outlook Web Access（OWA）に存在するクロスサイトスクリプティング脆弱性（CVE-2026-42897）を悪用し、米欧の政府機関や通信・金融・航空宇宙などの企業のメールボックスへ長期にわたり侵入していたことが分かった。
+
+セキュリティインシデント・脆弱性案件。サーバーがHTMLを適切にサニタイズしないことが原因で、悪意あるメールを開くだけでJavaScriptが実行されるゼロクリック攻撃が成立する。バックドア「OWAReaper」を仕込むことで認証情報が変更された後もアクセスを維持でき、GitHubのコミットAPIを悪用したC2通信やHTTPS・DNSによる複数経路の情報流出手段を備える。Exchange Onlineは対象外で、Microsoftは2026年5月14日付でパッチを公開済み。同集団は7月にもZimbra Collaboration SuiteのXSS脆弱性を突くゼロクリック攻撃が報じられたばかりで、メールサーバのXSS系脆弱性を継続的に狙う活動実態が改めて浮かび上がった。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/)
+
+## 今日のTips: Reactのkeyを変えると、コンポーネントは強制的に再マウントされinternal stateがリセットされる
+
+Reactの公式ドキュメントによれば、stateはコンポーネントそのものではなく「レンダーツリー内の位置」に結びついている。同じ位置に同じ`key`（またはkey省略時は同じ順序）でレンダーされ続ける限り、Reactはstateを保持し続ける。逆に言えば、`key`を意図的に変更すれば、Reactはそれを別インスタンスとみなし、既存stateを破棄して作り直す。
+
+```tsx
+// to.id が変わるたびにChatコンポーネントが作り直され、
+// 入力途中のテキストなどのstateが自動的にリセットされる
+<Chat key={to.id} contact={to} />
+```
+
+<Tip label="▶ 補足">
+「フォームを初期状態に戻したい」「別エンティティに切り替えたら入力欄をクリアしたい」といった場面で、useEffectでstateを手動リセットするより、keyを変えるだけで済ませられることが多い。ただし再マウントのコストが発生する点には注意。
+</Tip>
+
+参考: [React Docs: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
