@@ -1,0 +1,103 @@
+---
+title: ITニュースダイジェスト 2026-08-02
+listTitle: ITニュースダイジェスト 2026-08-02 — OpenAIのアクティブユーザーが10億人・導入企業200万社を突破、Google EarthのAI画像生成「Nano Banana 2」がディープフェイク悪用で即日停止、ソニーがタムロンに買収提案、GCCがAI生成コードの受け入れを原則拒否する方針を採択、VMware/TeamCity/Adformで相次ぐ重大セキュリティ問題。
+date: 2026-08-02
+category: NEWS
+tags: [NEWS, IT, AI, 業界動向, 開発ツール, セキュリティ]
+summary: OpenAIのアクティブユーザーが10億人・導入企業200万社を突破、Google EarthのAI画像生成「Nano Banana 2」がディープフェイク悪用で公開1日弱で停止、ソニーがタムロンに完全子会社化を提案しフィジカルAIへの技術転用を模索、GCC開発チームが法的に重要なAI生成コードの貢献を原則拒否する方針を採択、BroadcomがVMware vCenter/ESXiの認証バイパス・VM脱出につながる重大脆弱性5件を修正、JetBrainsがTeamCity On-Premisesの認証バイパス→RCEの重大脆弱性を警告、広告配信大手Adformのスクリプトが改ざんされ暗号資産アドレスがすり替えられる被害が発生。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-02</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## OpenAI、アクティブユーザー10億人・導入企業200万社を突破 CFOが成長ペースを説明
+
+OpenAIは、ChatGPTのアクティブユーザーが10億人を超え、導入企業も200万社を突破したことを公式ブログで公表した。
+
+AI・LLM動向案件。サラ・フライアーCFOが「Building abundant intelligence」と題した投稿で明らかにしたもので、登録から半年が経過したユーザーは1日あたりの送信メッセージ数が約50%増え、利用する仕事の種類も約2倍に広がっているという。社内開発でもエージェント的なコーディング支援「Codex」経由の作業が週間出力トークンの99.8%を占めるとしており、この発表は前日のGPT-5.6シリーズの大幅値下げに続くタイミングでの公表となった。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/02/2000000346/)
+
+## Google Earthの新AI画像生成「Nano Banana 2」、ディープフェイク悪用で公開1日弱で停止
+
+Googleは、Google Earthに搭載した衛星写真ベースのAI画像生成機能「Nano Banana 2」を、公開から1日足らずで一時停止した。
+
+新技術紹介（AI関連）案件。同機能は2026年7月30日に、都市計画での活用を想定して「空き地に商業施設を重ねる」といった用途向けに公開されたが、翌31日にはメキシコ国境沿いに偽の難民キャンプを生成したり、ホワイトハウスの敷地にトランプ大統領の像を建てるなど、ディープフェイク画像を作る悪用が相次いで発覚した。Googleは「より強力なガードレール」を構築するまで機能を停止するとしている。
+
+<Note label="⚠ 注意">
+現実の衛星写真・航空写真を土台にした生成AIは、通常の生成AIより偽情報が「本物らしく」見えやすい。地図・地理情報にAI画像生成を組み込む際は、公開前に悪用シナリオを具体的に想定したガードレール設計が要る。
+</Note>
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2129842.html)
+
+## ソニー、タムロンに完全子会社化を提案 「イメージング事業とフィジカルAIの融合」が狙い
+
+ソニーグループは、レンズメーカーのタムロン（さいたま市）に完全子会社化を提案し、タムロンが特別委員会を設置して検討を始めたことが明らかになった。
+
+業界動向案件。ソニーグループは2025年12月末時点でタムロン株式の15.35%を保有する大株主で、7月30日に提案を受領したタムロン側はこれを認めて検討を開始。翌31日の決算説明会でソニーグループの陶琳CFOは「両者が一緒になることで強みを生かし、当社のイメージング事業の発展につながる」と狙いを説明した。提案には法的拘束力はなく、カメラ用交換レンズなどで培ったタムロンの光学技術をフィジカルAI分野へ転用する思惑も指摘されている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2607/31/2000000342/)
+
+## GCC開発チーム、法的に重要なAI生成コードの貢献を原則拒否する方針を採択
+
+GNUのGCC開発チームは、著作権・ライセンス上「法的に重要」とみなされるAI生成コードの貢献を原則として受け付けない方針を公式に採択した。
+
+開発ツール・言語・OSS動向案件。GNUのメンテナー向けガイドラインは「法的に重要な貢献」を約15行を超えるコード・文章の貢献と定義しており、これを超えるLLM生成コンテンツやその派生物を含む貢献は拒否される。15行以下の小規模な貢献やテストケースは例外的に受け入れられるが、その場合もコミットメッセージへの「Assisted-by:」タグの明記と、人間による内容の理解・説明責任が必須とされる。個人利用や研究・デバッグ目的でのAI利用は対象外だが、その成果物をプロジェクトに取り込む場合は同方針が適用される。
+
+出典: [gcc.gnu.org](https://gcc.gnu.org/ai-policy.html)、[GIGAZINE](https://gigazine.net/news/20260731-gcc-ai-policy/)
+
+## Broadcom、VMware vCenter/ESXiの認証バイパス・VM脱出につながる重大脆弱性5件を修正
+
+Broadcomは、VMware製品に存在する5件の脆弱性を修正し、このうち3件をCVSSスコア9.3〜9.8の「重大」と評価した。
+
+セキュリティインシデント・脆弱性案件。CVE-2026-59309は未認証の攻撃者がネットワーク経由でvCenterの認証をバイパスできる脆弱性、CVE-2026-59310はディレクトリトラバーサルにより任意コード実行が可能になる脆弱性、CVE-2026-47876はVMXNET3アダプタのバッファオーバーフローによりVM内の管理者権限保持者がホスト側でコード実行できる「VM脱出」につながる脆弱性。vCenterは9.1.0.0300以上、ESXiは9.1.0.0200以上へのアップデートが必須で、Broadcomは緊急パッチ適用を推奨している。現時点で実際の悪用は確認されていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/vmware-fixes-three-critical-flaws-allowing-auth-bypass-vm-escapes/)
+
+## JetBrains、TeamCity On-Premisesの認証バイパス→リモートコード実行の重大脆弱性を警告
+
+JetBrainsは、CI/CDツール「TeamCity」のオンプレミス版（TeamCity On-Premises）に存在する認証バイパスとリモートコード実行の重大脆弱性（CVE-2026-63077）を公表した。
+
+セキュリティインシデント・脆弱性案件。クラウド版は影響を受けないが、On-Premises版は全バージョンが対象。攻撃者はエージェントポーリングプロトコル経由のHTTPSアクセスで認証を回避し、サーバープロセスの権限で任意のコマンドを実行できるため、保存済み認証情報の漏えいやビルド成果物・CI/CDパイプライン自体の侵害につながる恐れがある。バージョン2025.11.7または2026.1.3へのアップグレード、もしくは2017.1以降向けのセキュリティパッチプラグイン適用が推奨されており、インターネットに公開されたサーバーにはVPN経由アクセスなどの追加対策も呼びかけられている。公開時点で悪用は確認されていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/)
+
+## 広告配信大手Adformのスクリプトが改ざん被害に、暗号資産アドレスを不正すり替え
+
+広告配信プラットフォームAdformが配信するトラッキングスクリプトが改ざんされ、閲覧者のクリップボード上の暗号資産アドレスを攻撃者のものにすり替えるサプライチェーン攻撃が発生した。
+
+セキュリティインシデント・脆弱性案件。セキュリティ研究者Kevin Beaumont氏の指摘で発覚したもので、悪質なコードはBitcoin・Ethereum・TRONのウォレットアドレスをクリップボード上で監視・置換するほか、ページ上に表示されたアドレス自体を書き換えて送金先を攻撃者側に誘導していた。同スクリプトを組み込む全てのサイトが影響を受けうる規模で、最も古いサンプルは7月26日にさかのぼり、約1週間気づかれずにVirusTotal上の検知も回避していたという。Adformは7月27日にコードを削除し、影響を受けた顧客には個別に連絡したとしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/)
+
+## 今日のTips: TypeScriptの超過プロパティチェックは、オブジェクトリテラルを直接渡した時にしか働かない
+
+TypeScriptの「超過プロパティチェック（Excess Property Checks）」は、オブジェクトリテラルを関数呼び出しや変数宣言の場で直接渡したときだけ働く仕組みで、いったん変数に代入してから渡すとチェックをすり抜ける。
+
+```ts
+interface Point {
+  x: number;
+  y: number;
+}
+
+function draw(p: Point) {}
+
+draw({ x: 1, y: 2, z: 3 });
+// Error: Object literal may only specify known
+// properties, and 'z' does not exist in type 'Point'
+
+const obj = { x: 1, y: 2, z: 3 };
+draw(obj); // エラーにならない
+```
+
+<Tip label="▶ 補足">
+`obj`が`draw`に代入される時点では超過プロパティチェックの対象にならないため、余分な`z`プロパティが混入していても素通りする。タイポしたプロパティ名に気づきたい場合は、オブジェクトを直接リテラルで渡すか、`obj`の型を明示的に注釈しておくとよい。
+</Tip>
+
+参考: [TypeScript Handbook: Excess Property Checks](https://www.typescriptlang.org/docs/handbook/2/objects.html)
