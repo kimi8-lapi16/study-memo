@@ -1,0 +1,81 @@
+---
+title: ITニュースダイジェスト 2026-08-05
+listTitle: ITニュースダイジェスト 2026-08-05 — 自己増殖型マルウェア「ChainDrop」がnpmで1300以上のパッケージに拡散、GitHubがnpmの2FAバイパストークンによる管理操作を制限、中部電力に不正アクセスで最大7万4100人分の情報漏えいの恐れ、Microsoftが操作録画をCopilotのスキルに変換する無料アプリ「Skill Recorder」を公開、AI普及の影響でデザイン業の倒産が前年比2.7倍に急増。
+date: 2026-08-05
+category: NEWS
+tags: [NEWS, IT, セキュリティ, 開発ツール, AI, 業界動向]
+summary: npmで自己増殖型マルウェア「ChainDrop」が1300以上のパッケージに拡散しGitHubが2FAバイパストークンの管理操作を制限、中部電力への不正アクセスで最大7万4100人分の情報漏えいの恐れ、MicrosoftがPC操作をCopilotのスキルに変換する無料アプリ「Skill Recorder」を公開、AI普及の影響でデザイン業の倒産が前年比2.7倍に急増した計5件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-05</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## npmで自己増殖型マルウェア「ChainDrop」が拡散、1300以上のパッケージが汚染
+
+npmのパッケージエコシステムで自己増殖型マルウェア「ChainDrop」による大規模なサプライチェーン攻撃が発生し、月間合計20億ダウンロードに達する1300以上のパッケージが汚染された。
+
+セキュリティインシデント・脆弱性案件。発端は人気キャッシュライブラリ「Keyv」のメンテナーのGitHubアカウント侵害で、攻撃者はリポジトリのmainブランチへ悪意あるコードを直接pushしたうえで即座に新バージョンをリリースした。GitHub Actionsの正規ワークフローを経由したためnpm上では正当な来歴（provenance）付きの公開に見え、Keyv・Cacheable・flat-cache・file-entry-cacheなど同一開発者のキャッシュ系パッケージから、Deliveroo・Ornikar・OneReach・Picsart・Qlik・ServiceTitanなど大手企業が関わるパッケージにも被害が波及した。悪用されると`npm install`実行時のpreinstallスクリプトが自動的にBunランタイムをダウンロードし、GitHubの個人アクセストークンやnpmトークン、AWS認証情報、Kubernetesシークレット、HashiCorp Vaultトークンなどを窃取する。BleepingComputerは、影響を受けたバージョンを一度でもインストールした開発環境・CI/CDランナーは侵害済みとして扱い、バックアップからの再構築とすべてのトークンのローテーション、ログの確認が必要だと呼びかけている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/)
+
+## GitHub、npmの2FAバイパストークンによる管理操作を制限 悪用リスクの高い機能を封鎖
+
+GitHubは、npmのグラニュラーアクセストークン（GATs）に設定できる「2FAバイパス」機能について、アカウントや組織・パッケージの管理に関わる操作への利用を禁止した。
+
+開発ツール・言語・OSS動向案件。制限対象は新規トークンの作成・削除、パッケージのアクセス権限や管理者・信頼済み公開設定の変更、組織・チームのメンバーシップやパッケージ権限の管理など。漏洩した2FAバイパストークンを使ったアカウント乗っ取りや不正な管理者追加、新規トークンの生成といったリスクの高い攻撃経路を塞ぐ狙いで、GitHubの個人アクセストークンやGitHub Appトークン、Actionsの`GITHUB_TOKEN`は今回の制限の対象外。2027年1月をめどに、2FAバイパストークンによるパッケージの直接公開機能自体も廃止する予定としている。
+
+出典: [CodeZine](https://codezine.jp/news/detail/29215)
+
+## 中部電力に不正アクセス、最大7万4100人分の情報漏えいの恐れ
+
+中部電力は、社内で使う一部システムが不正アクセスを受け、役職員や取引先・自治体関係者ら最大約7万4100人分の連絡先情報が外部に漏えいした可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件。7月29日に第三者機関からの情報提供を受けて調査した結果、一部システムの資格情報が何者かに不正利用されていたことが判明した。同社は情報提供を受けた当日中に悪用された資格情報を無効化し、アクセス元を遮断した。漏えいの可能性がある情報は氏名・役職・メールアドレス・電話番号などで、内訳はグループの役職員や委託先社員など約7万1700人分、関係機関・自治体・取引先など約2400人分。電気・ガスの契約者情報や、供給・顧客情報を扱うシステムへの侵害は確認されていないとしている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/04/2000000380/)
+
+## Microsoft、PC操作を録画してCopilotのスキルに変換する無料アプリ「Skill Recorder」公開
+
+Microsoftは、画面操作と音声説明の録画からAIエージェントが実行可能な「スキル」を自動生成するオープンソースアプリ「Skill Recorder」を無料公開した。
+
+AI・LLM動向案件。録画した操作内容を「GitHub Copilot CLI」が解析し、作業の意図と手順をMarkdownファイルのスキルとして出力する。生成したスキルは「Microsoft Copilot Cowork」などのサービスから呼び出し、スケジュールやトリガーに基づく自動化に利用できる。対応OSはmacOSを主軸にWindows 11もサポートし、MITライセンスでGitHub上に公開されている。利用にはGitHub Copilotが使えるGitHubアカウントが必要で、Microsoftは録画時にパスワードなど機微情報を含めないよう注意を呼びかけている。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2608/04/2000000361/)
+
+## AI普及の影響でデザイン業の倒産が前年比2.7倍に、14年ぶり高水準
+
+東京商工リサーチの調査によると、2026年上半期のデザイン業の倒産件数は40件に達し、前年同期比166.6％増（約2.7倍）と14年ぶりの高水準となった。
+
+業界動向案件。要因として、生成AIの普及で発注企業がデザイン業務を内製化する動きが進んだこと、紙媒体中心の事業がデジタル広告シフトのあおりを受けたこと、ハウスメーカーの倒産増加がインテリアデザイン・家具関連企業に波及したことなどが挙げられている。倒産企業の約9割は従業員5人未満の小規模事業者で、東京商工リサーチは「独自性を打ち出せない企業は価格競争で劣勢に立たされ、淘汰が続く」と分析し、現ペースが続けば年間倒産件数は80件を超える可能性があるとしている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/04/2000000377/)
+
+## 今日のTips: Prismaのupsertは常にDBレベルでアトミックになるとは限らない
+
+Prisma Clientの`upsert()`は、可能な場合はデータベース側に`INSERT ... ON CONFLICT`として処理を丸ごと委譲する「database upsert」を行うが、これが使えるのはCockroachDB・PostgreSQL・SQLiteのみ。MySQLなど対象外のデータソースでは、Prisma Client自身がfind→create/updateという手順でupsertをエミュレートするため、複数の呼び出しが同時に実行されると両方とも「レコードが存在しない」と判定してcreateを試みる競合状態が起こり得る。この場合、片方は成功するがもう片方は一意制約違反（エラーコードP2002）で失敗する。
+
+```ts
+try {
+  await prisma.counter.upsert({
+    where: { id: 1 },
+    update: { count: { increment: 1 } },
+    create: { id: 1, count: 1 },
+  });
+} catch (e) {
+  if (e.code === 'P2002') {
+    // 別の呼び出しが先にcreateした → updateとしてリトライする
+  }
+}
+```
+
+<Tip label="▶ 補足">
+Prisma公式ドキュメントは、この競合状態が起きた場合はアプリケーションコード側でP2002エラーをハンドルし、upsert操作をリトライしてレコードを更新することを推奨している。
+</Tip>
+
+参考: [Prisma Documentation: Prisma Client API reference](https://www.prisma.io/docs/orm/reference/prisma-client-reference)
