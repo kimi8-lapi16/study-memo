@@ -1,0 +1,76 @@
+---
+title: ITニュースダイジェスト 2026-08-06
+listTitle: ITニュースダイジェスト 2026-08-06 — Google DeepMindのハサビスCEOが退任し会長へ、npm代替のパッケージマネージャ「vlt」がv1.0到達、CISAがLangflow等の悪用中脆弱性に対応期限を通知、東芝テックで顧客情報38万件超が閲覧可能な状態に、Googleパスワードマネージャーを狙う新攻撃「Pass-the-Passkey」が判明。
+date: 2026-08-06
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ, 開発ツール]
+summary: Google DeepMindのハサビスCEOが退任し会長・Alphabet最高科学者に、ジェフ・ディーン氏も離脱、npm代替のパッケージマネージャ「vlt」がv1.0に到達、CISAがLangflow・N-central・Apache Tomcatの悪用中脆弱性に対応期限を通知、東芝テックで顧客情報38万件超が閲覧可能な状態に、Googleパスワードマネージャーを狙う新攻撃「Pass-the-Passkey」が判明した計5件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-06</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google DeepMind、ハサビスCEOが退任して会長へ ジェフ・ディーン氏らも離脱
+
+Google DeepMindのデミス・ハサビスCEOが日常業務から退き、DeepMindの会長と親会社AlphabetのチーフサイエンティストというAGIの将来像づくりに軸足を置く役職へ移った。同時に、チーフサイエンティストのジェフ・ディーン氏やシニアフェローのサンジェイ・ゲマワット氏もGoogleを離れることが分かった。
+
+AI・LLM動向案件。後任としてDeepMindの日常運営を率いるのは、WaveNetやDQNの開発を主導してきたCTOのコーレイ・カブクチュオール氏で、Google CEOのサンダー・ピチャイ氏の直下でDeepMindを統括する。ハサビス氏は創薬AI企業Isomorphic Labsの経営は継続しつつ、「AGIの将来を形作ることに時間を割きたい」との考えを社員向けメッセージで説明した。ディーン氏は退社後、機械学習・科学分野の発展を目的とした独立公益法人を立ち上げる予定で、Googleは出資者兼クラウドパートナーとして関与を続ける。Gemini共同リードやAlphaFold開発責任者など主要人材の流出が続く一方、Geminiアプリの月間ユーザーは9億5000万人を超えたという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/06/2000000407/)
+
+## npm代替のパッケージマネージャ「vlt」がv1.0に到達、ミラー/プライベートレジストリの有料提供も開始
+
+セキュリティ重視のnpm代替パッケージマネージャ「vlt」がバージョン1.0に到達し、開発元のvlt technologyはnpmのミラーレジストリ・プライベートレジストリソフト「vsr」の有料ホスティングも同時に開始した。
+
+開発ツール・言語・OSS動向案件。npmと同じコマンド体系を備え既存ツールチェーンをそのまま置き換えられるうえ、既定でnpmレジストリのミラーを参照することでクリーンインストール時間を38%短縮したという。脆弱性データベース「OSV」を参照して27万5000以上の危険なパッケージをあらかじめレジストリから除外しており、パッケージ間の依存関係をグラフ構造で検索・フィルタリングできる点も特徴。プライベートレジストリは2GBまで無料で使え、それ以上は有料プランとなる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/npmvlt10npm.html)
+
+## CISA、悪用が確認されたLangflow・N-central・Apache Tomcatの脆弱性に対応期限を通知
+
+米CISAは、実際の悪用が確認された3件の脆弱性を「既知の悪用された脆弱性」カタログに追加し、連邦機関に8月7日までの対応を義務付けた。
+
+セキュリティインシデント・脆弱性案件。深刻度が最も高いのはAIワークフロー構築ツール「IBM Langflow」のCVE-2026-9198（CVSS 9.8）で、既定構成では認証なしにリモートコード実行が可能。7月下旬にPoCが公開されて以降悪用が広がった。監視ソフト「N-able N-central」のCVE-2026-18576は認証なしで管理者アカウントを奪えるもので、既存パッチが不十分だったため8月1日に緊急修正版がリリースされた。Apache TomcatのCVE-2026-34486（CVSS 7.5）は先行の修正が不完全だったことに起因し、Palo Alto Networksの調査で中国系脅威アクターによる悪用が7月30日に確認されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-langflow-n-central-apache-tomcat-flaws/)
+
+## 東芝テック、手順書への誤記載で顧客情報38万件超が外部から閲覧可能に
+
+東芝テックは、特定顧客向けに作成した手順書に管理者権限を持つアカウント情報を誤って記載したことが原因で、顧客38万2123人分の個人情報が特定の1社から閲覧できる状態になっていたと公表した。
+
+セキュリティインシデント・脆弱性案件。問題が生じていたのは3月26日から6月23日までの期間で、該当アカウントには他ユーザーの氏名・生年月日・性別・住所・電話番号・メールアドレスなどを閲覧できる設定がされていた。同社は該当アカウントの無効化とパスワード変更を実施し、関係ユーザーへの説明と個人情報保護委員会への報告を済ませたとしている。8月3日時点で実際の閲覧や不正利用は確認されていないが、今後情報管理体制と運用プロセスの見直しを進めるという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/05/2000000399/)
+
+## Googleパスワードマネージャーに脆弱性、パスキーを乗っ取る「Pass-the-Passkey」攻撃
+
+Palo Alto NetworksのUnit 42は、Googleパスワードマネージャーの同期機能を悪用し、パスキーで保護されたアカウントを乗っ取れる3種類の攻撃手法「Pass-the-Passkey」を報告した。
+
+セキュリティインシデント・脆弱性案件。基本形はマルウェアに感染したPCのTPMから鍵情報を盗み出し正規のChrome認証手続きを装う手口で、本人確認が不十分なサービスでは指紋認証やPIN入力なしに別端末からのログインを許してしまう。端末の再登録手続きを悪用して不正な認証情報を長期間登録し続ける発展形「Silver」、保存済みパスキーを複数まとめて復号できるマスターキーをChromeのメモリから丸ごと盗み出す「Golden」もある。前提としてTPM搭載Windows PCのマルウェア感染が必要で、Unit 42はパスキーそのものの暗号方式が破られたわけではないと強調しつつ、サービス提供者側での本人確認情報の検証強化や不審な端末再登録パターンの検知を呼びかけている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260805-pass-the-passkey/), [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/05/2000000395/)
+
+## 今日のTips: StrictModeがeffectを2回実行するのはバグを"あぶり出す"ため
+
+Reactの`<StrictMode>`配下では、開発環境限定でエフェクトが「セットアップ→クリーンアップ→セットアップ」の順に2回実行される。これはReact 18以降の挙動で、狙いはクリーンアップの書き忘れを早期に発見すること。クリーンアップを実装し忘れたエフェクトは、2回目のセットアップ時点で購読やタイマーが二重に張られてしまうため、開発中に不具合として気づける。
+
+```tsx
+useEffect(() => {
+  const connection = createConnection(url);
+  connection.connect(); // 1回目のセットアップ
+  return () => connection.disconnect(); // クリーンアップ
+  // ここでセットアップが再実行される
+}, [url]);
+```
+
+<Tip label="▶ 補足">
+2回実行されるのはコンポーネント本体やuseState/useMemoの初期化関数、effect、コールバックref関数など「純粋であるべき」処理のみで、イベントハンドラ内のコードやsetTimeoutのコールバックは対象外。本番ビルドでは1回しか実行されない。
+</Tip>
+
+参考: [React公式ドキュメント: `<StrictMode>`](https://react.dev/reference/react/StrictMode)
