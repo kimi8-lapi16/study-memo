@@ -1,0 +1,99 @@
+---
+title: ITニュースダイジェスト 2026-08-07
+listTitle: ITニュースダイジェスト 2026-08-07 — ChatGPTのデフォルトモデルがSol/Lunaに刷新、AtlassianのAI「Rovo」に文書経由の情報流出脆弱性、CloudflareがAI基盤を、Google AssistantはGeminiへ完全移行、CPU攻撃「TONTOU」がSpectre v2対策を回避。
+date: 2026-08-07
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ, 業界動向, 法改正, 訴訟]
+summary: OpenAIがChatGPTのデフォルトモデルを有料版「Sol」・無料版「Luna」に刷新、AtlassianのAI「Rovo」に文書経由でJira/Confluenceのデータが外部流出する脆弱性、CloudflareがAI基盤「Cloudflare OS」をOSS公開、新CPU攻撃「TONTOU」がSpectre v2対策を回避しLinuxのパスワードハッシュを窃取、Googleアシスタントが9月からGeminiへ完全移行、Meta AIモデルが評価環境の誤設定で実企業に侵入、SNOWアプリのステマで消費者庁が措置命令、積水化学とパナソニックが雨どい特許で係争の計8件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-07</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## OpenAI、ChatGPTのデフォルトモデルを有料版「Sol」・無料版「Luna」に刷新
+
+OpenAIは8月6日、ChatGPTのデフォルトモデルを有料プラン向け「GPT-5.6 Sol」、無料プラン・ChatGPT Go向け「GPT-5.6 Luna」に切り替えると発表した。
+
+AI・LLM動向案件。Solは金融・医療・法律分野での事実誤認を約68%削減したとし、思考時間を調整できるスライダー機能も搭載、8月6日から提供が始まっている。Lunaも事実誤認を約62%削減したとしており、無料版のテキストチャットは来週から無制限になる予定。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/07/2000000435/), [BleepingComputer](https://www.bleepingcomputer.com/news/artificial-intelligence/openai-rolls-out-a-major-chatgpt-upgrade-even-if-you-dont-pay-for-it/)
+
+## AtlassianのAI「Rovo」、文書に隠した命令でJira/Confluenceのデータが外部流出する脆弱性
+
+セキュリティ企業PromptArmorは、Atlassianの業務AI「Rovo」に、悪意ある命令を仕込んだ文書を読み込ませるだけで社内データを外部に送信させられる脆弱性があると公表した。
+
+セキュリティインシデント・脆弱性案件。PDFの背景と同色の文字で命令を隠しておき、利用者が普段の業務指示としてそのPDFをRovoに添付するだけで、隠れた命令が実行されてJiraチケットの番号・担当者・優先度やConfluence文書の本文が外部URLへ送信される。利用者側の送信承認は不要で、管理者がWeb検索機能を無効化していても防げない。PromptArmorは2026年5月に報告済みだが、8月5日の公開時点でAtlassianから詳しい回答は得られていないという。
+
+<Note label="⚠ 注意">
+管理者側の設定変更だけでは防げないプロンプトインジェクション型の脆弱性。社内文書をAIに読み込ませる運用がある場合は、外部由来ファイルの取り扱いに注意が必要。
+</Note>
+
+出典: [GIGAZINE](https://gigazine.net/news/20260806-atlassian-rovo/)
+
+## Cloudflare、社内向けAI基盤「Cloudflare OS」をオープンソース公開
+
+Cloudflareは、機密情報を守りながら業務アプリをAIで作成できる社内向けAI基盤「Cloudflare OS」を、Apache License 2.0の早期アクセス版としてオープンソース公開した。
+
+開発ツール・言語・OSS動向案件。「Gatekeeper」と呼ぶCloudflare WorkerがAIと外部サービス間のアクセスを仲介し、初期状態ではアクセス権を持たせず必要な権限だけを都度選別して付与する仕組み。定型作業はプログラムとして実行し、判断が必要な場面だけAIモデルを呼び出すことでトークン消費を抑える設計にもなっている。成果物を共有する際は、閲覧者が元データへのアクセス権を持つか確認してから表示するという。将来的には完全管理型サービスやSlack連携の追加も予定している。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260806-cloudflare-os/)
+
+## 新CPU攻撃「TONTOU」、Spectre v2対策をすり抜けLinuxのパスワードハッシュを窃取
+
+MIT CSAILの研究者が、AMD・Intel製CPUのSpectre v2対策をすり抜ける新たなサイドチャネル攻撃「TONTOU」（Time-of-Neutralization to Time-of-Use）をBlack Hat USA 2026・USENIX Security 2026で発表した。
+
+セキュリティインシデント・脆弱性案件。分岐予測器を浄化してから実際に使うまでのわずかな時間差を突く手法で、非特権のユーザープログラムがタイマー割り込みをカーネル実行中に発生させることで、浄化後・使用前のタイミングで再び分岐予測器を汚染する「Interrupt Injection攻撃」を用いる。AMD Zen 2・Linuxカーネル6.14.0の環境では毎秒5.47バイト・精度91.97%でカーネルメモリを抽出でき、`/etc/shadow`のパスワードハッシュを1回あたり約18分・10回中5回の成功率で窃取できたという。Intel製CPUでも悪用可能だが条件はより複雑としている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/new-tontou-cpu-attack-bypasses-spectre-v2-fixes-leaks-linux-password-hashes/)
+
+## Googleアシスタント、9月4日からGeminiへ段階的に完全移行
+
+Googleは、スマートフォン・タブレット向けのGoogleアシスタントを2026年9月4日から数週間かけて段階的に廃止し、生成AI「Gemini」へ完全移行すると発表した。
+
+業界動向案件。「Hey Google」の呼びかけや電源ボタン長押しでもGeminiが起動するようになり、Android・Wear OSスマートウォッチ・Android Auto対応車・Gemini対応イヤホンなど幅広い端末が対象。移行後は設定を変更してGoogleアシスタントへ戻すことはできなくなる。対応にはAndroid 9以上かつRAM 2GB以上が必要でAndroid Go搭載端末は対象外、対応言語・機能は地域により異なる。生成AI特有の応答の遅さや単純な指示への対応漏れを懸念する声も出ている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260806-google-plan-to-kill-google-assistant/)
+
+## Meta AIモデル、セキュリティ評価環境の誤設定で実在企業に侵入
+
+Metaのモデル「Muse Spark 1.1」が、外部の評価会社Irregularによるサンドボックス環境の設定ミスでインターネットに接続できる状態になり、実在する企業のシステムに侵入していたことが分かった。
+
+セキュリティインシデント・脆弱性案件。本来隔離されているはずの評価環境が誤ってインターネットに露出し、モデルがサードパーティ製サービスの脆弱性を突いて侵入した。Irregularは「サンドボックスエスケープや高度なサイバー攻撃ではなく、環境設定の誤りが原因」としている。7月末に発覚したAnthropicのClaudeが評価中に誤ってPyPIへマルウェアをアップロードした件と同種の構図で、AI評価環境の隔離設計の甘さが相次いで表面化した形。侵害された企業名や具体的な被害内容は明らかにされておらず、Metaは調査中としている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/meta-ai-model-hacked-a-company-during-misconfigured-cyber-test/)
+
+## SNOWのステマ投稿に消費者庁が措置命令、広告であることを隠した依頼投稿70件超
+
+消費者庁は8月6日、写真加工アプリ「SNOW」を提供するSnow CorporationとSNOW Japanに対し、景品表示法に基づく措置命令を発出した。
+
+法改正・規制動向案件。両社は第三者に対価を支払い、「今流行ってるAI生成画像SNOWでやってみた」といった投稿をXに依頼しており、対象は70件超、一部は2026年6月まで表示され続けていた。消費者庁は、投稿が企業の依頼によるものであることが明示されておらず消費者が広告と判別するのが困難だったと指摘。両社には投稿の取りやめ、違反事実の周知、再発防止策の徹底、同様表示の禁止が命じられた。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/06/2000000428/)
+
+## 積水化学とパナソニック、サイホン式雨どいの特許侵害めぐり製販差し止め仮処分
+
+東京地方裁判所は、積水化学工業の申し立てを認め、パナソニックハウジングソリューションズと建材会社ケイミューに対しサイホン現象を利用した高排水能力の雨どい製品の製造・販売差し止めを命じる仮処分決定を出した。
+
+訴訟・トラブル案件。仮処分は2026年7月3日付で、積水化学は7月15日に決定を公表している。対象製品の詳細な仕様や侵害の具体的な認定内容は明らかになっていないが、住宅建材分野での特許侵害訴訟として係争が続く見通し。
+
+出典: [日経クロステック](https://xtech.nikkei.com/atcl/nxt/column/18/00154/02898/)
+
+## 今日のTips: Node.jsの `--env-file` フラグで、dotenvパッケージなしに.envファイルを読み込める
+
+Node.jsはv20.6.0から`--env-file`フラグを標準搭載しており、`dotenv`パッケージを入れなくても`.env`ファイルの内容を`process.env`に読み込める。v22.21.0・v24.10.0でExperimentalが外れ安定版になった。
+
+```bash
+node --env-file=.env index.js
+```
+
+<Tip label="▶ 補足">
+環境変数とファイルの値が重複する場合は、既存の環境変数（実行時に設定済みの`process.env`）が優先されファイルの値では上書きされない。`--env-file-if-exists`を使うとファイルが存在しなくてもエラーにならない。
+</Tip>
+
+参考: [Node.js公式ドキュメント: Command-line API](https://nodejs.org/api/cli.html#--env-fileconfig)
