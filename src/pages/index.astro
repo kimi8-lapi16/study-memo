@@ -9,7 +9,7 @@ notes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const studyNotes = notes.filter((n) => n.data.category !== 'NEWS');
 const newsNotes = notes.filter((n) => n.data.category === 'NEWS');
 
-// ニュースは月ごとに見出しを挟んでグルーピングする（newsNotes は日付降順のまま）
+// ニュースは無限に伸びないよう月ごとにグルーピングし、月タブで切り替える（newsNotes は日付降順のまま）
 const newsByMonth: { key: string; label: string; items: typeof newsNotes }[] = [];
 for (const note of newsNotes) {
   const key = note.data.date.toISOString().slice(0, 7); // "2026-08"
@@ -63,27 +63,41 @@ for (const note of newsNotes) {
         )}
       </ul>
 
-      <ul class="entries entries-news">
+      <div class="entries entries-news">
         {newsNotes.length === 0 ? (
-          <li class="empty">まだ記事がありません</li>
+          <p class="empty">まだ記事がありません</p>
         ) : (
-          newsByMonth.flatMap((group) => [
-            <li class="month-head">{group.label}</li>,
-            ...group.items.map((note) => (
-              <li>
-                <a class="entry" href={withBase(`notes/${note.id}/`)}>
-                  <div class="e-meta">
-                    <span>{formatDate(note.data.date)}</span>
-                    <span>{note.data.category}</span>
-                  </div>
-                  <div class="e-title">{note.data.title}</div>
-                  <div class="e-summary">{note.data.summary}</div>
-                </a>
-              </li>
-            )),
-          ])
+          <>
+            <div class="month-select-row">
+              <label for="month-select" class="month-select-label">表示する月</label>
+              <select id="month-select" class="month-select">
+                {newsByMonth.map((group, i) => (
+                  <option value={group.key} selected={i === 0}>
+                    {group.label} ({group.items.length}件)
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {newsByMonth.map((group) => (
+              <ul class={`month-block month-${group.key}`}>
+                {group.items.map((note) => (
+                  <li>
+                    <a class="entry" href={withBase(`notes/${note.id}/`)}>
+                      <div class="e-meta">
+                        <span>{formatDate(note.data.date)}</span>
+                        <span>{note.data.category}</span>
+                      </div>
+                      <div class="e-title">{note.data.title}</div>
+                      <div class="e-summary">{note.data.summary}</div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </>
         )}
-      </ul>
+      </div>
     </div>
   </main>
 
@@ -147,19 +161,42 @@ for (const note of newsNotes) {
     outline-offset: -2px;
   }
 
-  ul.entries { list-style: none; display: none; }
-
-  .entries-news .month-head {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
-    padding: 30px 4px 4px;
-  }
-  .entries-news .month-head:first-child { padding-top: 4px; }
+  .entries { list-style: none; display: none; }
 
   #tab-study:checked ~ .entries-study,
   #tab-news:checked ~ .entries-news { display: block; }
+
+  /* ---------- NEWS: 月ごとの切り替え（select + :has()、JSなし） ---------- */
+  /* 月ごとにグルーピングしないと記事が無限に下へ伸びていくため、月単位で
+     最大31件だけを表示し、プルダウンで月を切り替える */
+  .month-select-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 20px;
+  }
+
+  .month-select-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+
+  .month-select {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  .month-select:hover { border-color: var(--ink-faint); }
+  .month-select:focus-visible { outline: 2px solid var(--acc); outline-offset: 1px; }
+
+  .month-block { list-style: none; display: none; }
 
   /* ---------- ENTRY LIST ---------- */
   .entry {
@@ -215,3 +252,10 @@ for (const note of newsNotes) {
   footer a { color: var(--ink-dim); text-decoration: none; }
   footer a:hover { color: var(--acc); }
 </style>
+
+{/* select の選択中 option ⇔ 対応する月の一覧は、月キーごとに固有のセレクタが要るため動的生成する。
+   :has() は .month-select-row（select の親）に付ける ── select 自身は月一覧と
+   きょうだい関係にないため、直接 .month-select に付けても ~ が届かない */}
+<style set:html={newsByMonth.map((group) => `
+  .month-select-row:has(option[value="${group.key}"]:checked) ~ .month-${group.key} { display: block; }
+`).join('')} />
