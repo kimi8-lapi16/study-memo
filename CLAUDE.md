@@ -41,7 +41,7 @@ npm run new -- <slug> "タイトル"   # 記事の雛形を作成
 
 ## 自動生成記事について
 
-`src/content/notes/news-YYYY-MM-DD.mdx`（`category: NEWS`）は、毎朝7:00(JST)に
+`src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`（`category: NEWS`）は、毎朝7:00(JST)に
 GitHub Actions（`.github/workflows/daily-news-digest.yml`）が自動収集・生成し、
 masterへ直接pushしているITニュースダイジェスト（PR・人手レビューは挟まない）。
 生成ルールは `docs/daily-news-digest.md` を参照。

@@ -8,6 +8,19 @@ notes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const studyNotes = notes.filter((n) => n.data.category !== 'NEWS');
 const newsNotes = notes.filter((n) => n.data.category === 'NEWS');
+
+// ニュースは月ごとに見出しを挟んでグルーピングする（newsNotes は日付降順のまま）
+const newsByMonth: { key: string; label: string; items: typeof newsNotes }[] = [];
+for (const note of newsNotes) {
+  const key = note.data.date.toISOString().slice(0, 7); // "2026-08"
+  const current = newsByMonth.at(-1);
+  if (current?.key === key) {
+    current.items.push(note);
+  } else {
+    const [year, month] = key.split('-');
+    newsByMonth.push({ key, label: `${year}年${Number(month)}月`, items: [note] });
+  }
+}
 ---
 <BaseLayout
   title="study-memo｜勉強会メモ アーカイブ"
@@ -31,31 +44,46 @@ const newsNotes = notes.filter((n) => n.data.category === 'NEWS');
         <label for="tab-news">ニュース<span class="count">{newsNotes.length}</span></label>
       </div>
 
-      {[
-        { key: 'study', items: studyNotes, useListTitle: true },
-        { key: 'news', items: newsNotes, useListTitle: false },
-      ].map(({ key, items, useListTitle }) => (
-        <ul class={`entries entries-${key}`}>
-          {items.length === 0 ? (
-            <li class="empty">まだ記事がありません</li>
-          ) : (
-            items.map((note) => (
+      <ul class="entries entries-study">
+        {studyNotes.length === 0 ? (
+          <li class="empty">まだ記事がありません</li>
+        ) : (
+          studyNotes.map((note) => (
+            <li>
+              <a class="entry" href={withBase(`notes/${note.id}/`)}>
+                <div class="e-meta">
+                  <span>{formatDate(note.data.date)}</span>
+                  <span>{note.data.category}</span>
+                </div>
+                <div class="e-title">{note.data.listTitle ?? note.data.title}</div>
+                <div class="e-summary">{note.data.summary}</div>
+              </a>
+            </li>
+          ))
+        )}
+      </ul>
+
+      <ul class="entries entries-news">
+        {newsNotes.length === 0 ? (
+          <li class="empty">まだ記事がありません</li>
+        ) : (
+          newsByMonth.flatMap((group) => [
+            <li class="month-head">{group.label}</li>,
+            ...group.items.map((note) => (
               <li>
                 <a class="entry" href={withBase(`notes/${note.id}/`)}>
                   <div class="e-meta">
                     <span>{formatDate(note.data.date)}</span>
                     <span>{note.data.category}</span>
                   </div>
-                  <div class="e-title">
-                    {useListTitle ? (note.data.listTitle ?? note.data.title) : note.data.title}
-                  </div>
+                  <div class="e-title">{note.data.title}</div>
                   <div class="e-summary">{note.data.summary}</div>
                 </a>
               </li>
-            ))
-          )}
-        </ul>
-      ))}
+            )),
+          ])
+        )}
+      </ul>
     </div>
   </main>
 
@@ -120,6 +148,15 @@ const newsNotes = notes.filter((n) => n.data.category === 'NEWS');
   }
 
   ul.entries { list-style: none; display: none; }
+
+  .entries-news .month-head {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    padding: 30px 4px 4px;
+  }
+  .entries-news .month-head:first-child { padding-top: 4px; }
 
   #tab-study:checked ~ .entries-study,
   #tab-news:checked ~ .entries-news { display: block; }

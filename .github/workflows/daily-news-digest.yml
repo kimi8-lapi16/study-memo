@@ -47,7 +47,10 @@ jobs:
       # JSTの日付をここで確定させてプロンプトに埋め込む
       - name: Compute today's date in JST
         id: date
-        run: echo "today=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_OUTPUT"
+        run: |
+          TODAY="$(TZ=Asia/Tokyo date +%F)"
+          echo "today=${TODAY}" >> "$GITHUB_OUTPUT"
+          echo "yyyymm=${TODAY:0:4}${TODAY:5:2}" >> "$GITHUB_OUTPUT"
 
       # 記事はmasterへ直接pushされるため、リトライ実行時はcheckout済みの
       # masterに今日分のファイルが既に存在するかだけを見ればよい
@@ -55,8 +58,9 @@ jobs:
         id: guard
         run: |
           TODAY="${{ steps.date.outputs.today }}"
-          if [ -f "src/content/notes/news-${TODAY}.mdx" ]; then
-            echo "今日分（news-${TODAY}.mdx）は既にmasterに存在するためスキップします"
+          FILE="src/content/notes/news/${{ steps.date.outputs.yyyymm }}/news-${TODAY}.mdx"
+          if [ -f "$FILE" ]; then
+            echo "今日分（${FILE}）は既にmasterに存在するためスキップします"
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -76,8 +80,9 @@ jobs:
             **今日の日付（JST）は ${{ steps.date.outputs.today }} である。**
             実行環境のシステム時計はUTCなので `date` コマンドの出力とはズレるが、
             必ずこの日付を使うこと。作成するファイルは
-            `src/content/notes/news-${{ steps.date.outputs.today }}.mdx`。
-            リポジトリ内にそれより過去の日付の `news-*.mdx` が存在しても、それは
+            `src/content/notes/news/${{ steps.date.outputs.yyyymm }}/news-${{ steps.date.outputs.today }}.mdx`
+            （`${{ steps.date.outputs.yyyymm }}` ディレクトリが無ければ作成する）。
+            リポジトリ内にそれより過去の日付の `news/*/news-*.mdx` が存在しても、それは
             過去分の公開済み記事であり今日分とは無関係。既存記事を理由に今日分の
             作成をスキップしてはならない（重複チェックは「同じ出来事を再度取り上げ
             ない」ためのものであり、記事作成自体の要否判断ではない）。
@@ -111,8 +116,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TODAY="${{ steps.date.outputs.today }}"
+          YYYYMM="${{ steps.date.outputs.yyyymm }}"
           git fetch origin master
-          if git cat-file -e "origin/master:src/content/notes/news-${TODAY}.mdx" 2>/dev/null; then
+          if git cat-file -e "origin/master:src/content/notes/news/${YYYYMM}/news-${TODAY}.mdx" 2>/dev/null; then
             echo "今日分の記事を確認。デプロイを起動します"
             gh workflow run deploy.yml --ref master -R "${{ github.repository }}"
           else

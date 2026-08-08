@@ -2,8 +2,8 @@
 
 このドキュメントは、毎朝7:00（JST）に自動実行される「今日のITニュースダイジェスト」記事
 生成フローの仕様。`.github/workflows/daily-news-digest.yml`（GitHub Actionsのcron）が
-Claude Code Actionを起動し、この仕様に従って `src/content/notes/news-YYYY-MM-DD.mdx` を
-1本作成する。
+Claude Code Actionを起動し、この仕様に従って `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`
+を1本作成する。
 
 以前は「専用ブランチにpush → masterへのPRを自動作成 → オーナーが手動マージ」という
 レビュー運用だったが、この運用は廃止した。現在は**生成した記事をmasterへ直接pushする**
@@ -143,19 +143,20 @@ Prisma / PostgreSQL
   断言しない。
 - TypeScript型パズルのような自作問題の場合は、参考リンクの代わりに解答コードが正しいことを
   確認する（リポジトリにTypeScriptが入っているので `npx tsc --noEmit` 等で検証できる）。
-- 直近2週間分の `news-*.mdx` の「今日のTips」を確認し、**同じ技術が連続しないよう
+- 直近2週間分の `news/*/news-*.mdx` の「今日のTips」を確認し、**同じ技術が連続しないよう
   ローテーション**し、過去に書いた内容と重複させない。
 - コード例は短く（10行程度まで）。`<Tip>` コンポーネントを補足に使ってよい。
 
 ## 重複チェック
 
-新規記事を書く前に `src/content/notes/news-*.mdx` を確認し、同一の出来事を重複して
+新規記事を書く前に `src/content/notes/news/*/news-*.mdx` を確認し、同一の出来事を重複して
 取り上げていないかを確認する（`grep` などで見出しやURLを検索）。既出の話題は続報がある
 場合のみ扱う。
 
 ## ファイル・front-matter
 
-- ファイル名: `src/content/notes/news-YYYY-MM-DD.mdx`（実行日の日付、JST基準）
+- ファイル名: `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`（実行日の日付、JST基準。
+  `YYYYMM` は実行日の年月4+2桁。ディレクトリが無ければ作成する）
 - スキーマは `src/content.config.ts` を参照。以下のように埋める:
 
 ```yaml
@@ -198,11 +199,12 @@ disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約�
 このワークフローは `.github/workflows/daily-news-digest.yml` の中で実行され、リポジトリは
 すでにmasterブランチでcheckout済みの状態からスタートする。ブランチもPRも作らない。
 
-1. masterブランチのまま、記事ファイル `src/content/notes/news-YYYY-MM-DD.mdx` を作成する。
+1. masterブランチのまま、記事ファイル `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`
+   を作成する（`YYYYMM` ディレクトリが無ければ作成する）。
 2. `npm ci`（未インストールの場合）→ `npm run build` を実行し、ビルドが通ることを確認する。
    **ビルドが失敗する場合はコミット・pushをしない。** front-matterやMDX構文を見直して
    再度ビルドを通す。それでも解決しなければ、記事ファイルを削除して終了する。
-3. `git add src/content/notes/news-YYYY-MM-DD.mdx` → コミット
+3. `git add src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx` → コミット
    （例: `news: YYYY-MM-DD のITニュースダイジェストを追加`）→ `git push origin master`。
    pushがnon-fast-forwardで拒否された場合は `git pull --rebase origin master` してから
    再pushする。
