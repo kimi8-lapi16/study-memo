@@ -14,7 +14,6 @@ on:
 
 permissions:
   contents: write
-  actions: write # push後に deploy.yml を workflow_dispatch で起動するため
   id-token: write
 
 concurrency:
@@ -110,21 +109,7 @@ jobs:
             --max-turns 120
             --model claude-sonnet-5
             --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
-
-      # GITHUB_TOKENによるpushはpushトリガーのワークフローを起動しない（Actionsの
-      # 再帰実行防止仕様）ため、記事がmasterに入ったことを確認したうえで
-      # deploy.yml を workflow_dispatch で明示的に起動する
-      - name: Trigger Pages deploy if today's digest was pushed
-        if: steps.guard.outputs.skip != 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          TODAY="${{ steps.date.outputs.today }}"
-          YYYYMM="${{ steps.date.outputs.yyyymm }}"
-          git fetch origin master
-          if git cat-file -e "origin/master:src/content/notes/news/${YYYYMM}/news-${TODAY}.mdx" 2>/dev/null; then
-            echo "今日分の記事を確認。デプロイを起動します"
-            gh workflow run deploy.yml --ref master -R "${{ github.repository }}"
-          else
-            echo "今日分の記事はmasterに存在しないため、デプロイは起動しません"
-          fi
+      # 記事のpushはclaude-code-actionのGitHub Appトークンで行われるため、
+      # deploy.yml の push トリガーがそのまま発火する（GITHUB_TOKENによるpushで
+      # ワークフローが起動しない再帰実行防止の制約は当てはまらない）。
+      # そのため deploy.yml を workflow_dispatch で明示的に起動する必要はない
