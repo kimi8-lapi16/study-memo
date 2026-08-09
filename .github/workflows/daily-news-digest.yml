@@ -14,7 +14,6 @@ on:
 
 permissions:
   contents: write
-  actions: write # push後に deploy.yml を workflow_dispatch で起動するため
   id-token: write
 
 concurrency:
@@ -102,25 +101,15 @@ jobs:
 
             最後に、pushしたコミットのSHAと採用ニュース件数（記事を作らなかった場合はその旨と
             スキップ理由）を報告すること。
+          # max-turnsを超えると、記事の作成・pushが正常に終わっていてもactionは
+          # exit 1で失敗扱いになる（実測: 60に対し62ターンで失敗、記事自体は正常）。
+          # 実行あたりのターン数は日によってぶれるため、上限は実測値に対して十分な
+          # 余裕を持たせ、暴走の歯止めは timeout-minutes 側に任せる
           claude_args: |
-            --max-turns 60
+            --max-turns 120
             --model claude-sonnet-5
             --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
-
-      # GITHUB_TOKENによるpushはpushトリガーのワークフローを起動しない（Actionsの
-      # 再帰実行防止仕様）ため、記事がmasterに入ったことを確認したうえで
-      # deploy.yml を workflow_dispatch で明示的に起動する
-      - name: Trigger Pages deploy if today's digest was pushed
-        if: steps.guard.outputs.skip != 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          TODAY="${{ steps.date.outputs.today }}"
-          YYYYMM="${{ steps.date.outputs.yyyymm }}"
-          git fetch origin master
-          if git cat-file -e "origin/master:src/content/notes/news/${YYYYMM}/news-${TODAY}.mdx" 2>/dev/null; then
-            echo "今日分の記事を確認。デプロイを起動します"
-            gh workflow run deploy.yml --ref master -R "${{ github.repository }}"
-          else
-            echo "今日分の記事はmasterに存在しないため、デプロイは起動しません"
-          fi
+      # 記事のpushはclaude-code-actionのGitHub Appトークンで行われるため、
+      # deploy.yml の push トリガーがそのまま発火する（GITHUB_TOKENによるpushで
+      # ワークフローが起動しない再帰実行防止の制約は当てはまらない）。
+      # そのため deploy.yml を workflow_dispatch で明示的に起動する必要はない
