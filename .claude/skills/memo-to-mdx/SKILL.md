@@ -14,13 +14,21 @@ description: original-memo/ の生メモ（.md）を、共通デザインの記�
 1. **元メモを読む** — 対象が未指定なら `original-memo/` を `ls` して確認する。
    `original-memo/<slug>.md` を Read し、章立て・要点を把握する。
 
-2. **雛形を作る**（既存 MDX が無い場合）:
+2. **既存 MDX の有無を確認する**:
 
-   ```
-   npm run new -- <slug> "記事タイトル"
-   ```
+   - `src/content/notes/<slug>.mdx` が無ければ雛形を作る:
 
-   → `src/content/notes/<slug>.mdx` ができる。slug は元メモのファイル名に合わせる。
+     ```
+     npm run new -- <slug> "記事タイトル"
+     ```
+
+     → slug は元メモのファイル名に合わせる。
+
+   - **既に MDX が存在する場合は全文を再生成しない。** 既存 MDX の `##` 見出しと
+     元メモの章立てを突き合わせ、まだ変換されていない章だけを特定する。
+     その章だけを本文末尾（または該当箇所）に追記する diff 編集にとどめ、
+     front-matter の `date`/`tags`/`summary` 等、変更が必要な項目のみ更新する。
+     既存の章の文面は理由なく書き換えない。
 
 3. **front-matter を埋める** — 下表参照。`date` は today、`category`/`tags` は内容から。
    `heroTitle`/`sub` は `<br>` や `<span class="em">`（青）/`<span class="v">`（赤）で装飾可。

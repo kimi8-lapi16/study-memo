@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# original-memo/*.md のうち、コミットされる差分だけを Prettier で整形してから
+# コミットに含める。有効化は `npm install`（package.json の prepare スクリプト）。
+
+files=$(git diff --cached --name-only --diff-filter=ACM -- 'original-memo/*.md')
+[ -z "$files" ] && exit 0
+
+printf '%s\n' "$files" | while IFS= read -r f; do
+  npx prettier --write "$f"
+  git add "$f"
+done
