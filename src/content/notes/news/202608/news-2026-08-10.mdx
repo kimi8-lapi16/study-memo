@@ -1,0 +1,83 @@
+---
+title: ITニュースダイジェスト 2026-08-10
+listTitle: ITニュースダイジェスト 2026-08-10 — AIエージェント連携仕様「Agent Plugins」が1.0.0に到達しAnthropicは不参加、Claude Codeが「auto mode」を8/14から標準化、中国MiniMaxが参照機能付き動画生成AI「H3」を公開、Django Software Foundationが初のED職を公募、Xがクリエイター収益制度を刷新、Proofpoint調査でランサム被害の主因は人的要因と判明。
+date: 2026-08-10
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, 業界動向, セキュリティ]
+summary: AIエージェント間でスキル・MCP設定を共通化する「Agent Plugins」が1.0.0に到達しAWS・Microsoft・OpenAI・Googleが支持する一方Anthropicは不参加、Claude Codeが危険コマンドを自動判定する「auto mode」を8月14日から標準化しセッション間メッセージング機能も追加、中国MiniMaxが参照素材との一貫性を保てる動画生成AI「H3」を公開、Django Software Foundationが初のエグゼクティブディレクター職を公募、Xがクリエイター収益プログラムをオリジナル投稿重視の新制度に刷新、Proofpoint調査でランサムウェア被害の主因は技術的脆弱性より人的要因と判明。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-10</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - DEV TOOLS
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## AIエージェント連携仕様「Agent Plugins」が1.0.0に到達、AWS・Microsoft・OpenAI・Googleが支持も陣営外にAnthropic
+
+異なるAIエージェント間でスキルやMCPサーバーの設定を共通化できるオープン仕様「Agent Plugins」が、正式にバージョン1.0.0へ到達したと発表された。
+
+開発ツール・言語・OSS動向案件（続報）。8月8日にGoogleがコア保守者として参加したことは既報だが、今回1.0.0仕様として公開され、AWS・Microsoft・OpenAI・Anysphere・Vercel・Googleが名を連ねた。GitHub Copilot、Visual Studio Code、Cursor、ChatGPT、AWS Kiroなど主要クライアントが対応を表明する一方、Claude Codeを提供するAnthropicは仕様策定への参加・対応表明のいずれも明らかにしておらず、陣営外に留まっている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/agent_plugins_100aimcpopenaiawsgoogle.html)
+
+## Claude Code、危険コマンドを自動判定する「auto mode」を8月14日から標準化 セッション間メッセージングも追加
+
+Anthropicは、AIコーディングツール「Claude Code」の機能アップデートを相次いで発表した。危険なコマンドの実行可否を分類器が自動判定する「auto mode」が8月14日からPro/Max/Teamプランで既定設定になるほか、複数セッション間でメッセージをやり取りできる新機能も加わった。
+
+AI・LLM動向案件。auto modeは、人間による承認では危険コマンドの検出率が13.6%にとどまるのに対し分類器は89%を検出できたという社内テスト結果を踏まえた変更で、Enterpriseプラン等も1カ月以内に既定化予定。従来ユーザーが実行確認の97%を機械的に承認していた"形骸化した権限確認"の改善が狙いという。あわせて8月7日には、macOS・Linux（WSL 2含む）で複数のClaude Codeセッションが互いにメッセージを送り合える機能も追加され、あるセッションでの変更が別セッションの作業に影響する場合に自律的に通知するといった用途を想定する。
+
+出典: [ITmedia AI+（auto mode）](https://www.itmedia.co.jp/aiplus/article/2608/09/2000000465/) / [ITmedia AI+（セッション間メッセージング）](https://www.itmedia.co.jp/aiplus/article/2608/09/2000000466/)
+
+## 中国MiniMax、画像・動画・音楽を参照して一貫性を保てる動画生成AI「MiniMax H3」を公開
+
+中国MiniMaxは、オープンモデルとして動画生成AI「MiniMax H3」を公開した。ローカルPCでも実行可能で、ByteDanceの「Seedance 2.0」に匹敵する性能をうたう。
+
+新技術紹介案件。最大の特徴は「Omni Reference」機能で、画像最大9枚・動画最大3本・音楽最大3本を参照データとして与え、それらとの一貫性を保ちながら動画を生成できる。オープンモデルでこの種の参照機能を備えるのは初めてという。ComfyUI向けの圧縮版も用意されており、RTX 4090搭載PCで1248×832解像度・15秒の動画を約20分で生成できる。
+
+出典: [ASCII.jp](https://ascii.jp/elem/000/004/426/4426043/)
+
+## Django Software Foundation、組織初となるエグゼクティブディレクター職の公募を開始
+
+Django Software Foundation（DSF）は8月6日、Djangoフレームワークを支援する同財団として初となるエグゼクティブディレクター（ED）職の募集を開始した。
+
+開発ツール・言語・OSS動向案件。ED職は年間30万ドルから50万ドルへの資金調達目標達成、スポンサー・寄付者との関係構築、日々の運営・財務管理などを担う。報酬は9万〜12万ドル（ボーナス最大6万ドル）で米国内リモート勤務（ビザスポンサーなし）、応募締切は9月14日、就任は11月1日ごろを予定する。非営利団体での指導経験や資金調達実績を重視して選考するという。
+
+出典: [CodeZine](https://codezine.jp/news/detail/29287)
+
+## X、「クリエイター収益配分プログラム」を終了し「オリジナル投稿」重視の新報酬制度へ移行
+
+Xは、既存の「クリエイター収益配分プログラム」を8月7日付で新規受付停止し、9月7日分の支払いを最後に終了すると発表した。後継として「Original Content Rewards Program」を開始する。
+
+業界動向案件。新制度は無断転載やAI自動生成コンテンツを対象外とし、オリジナルコンテンツのみを対象とする。報酬は「有効インプレッション」（X Premium利用者がタイムラインで50%以上表示した場合のみカウント）に基づき算定し、支払い周期も従来より短い2週間ごとに変更する。参加にはX Premium加入に加え、認証済みフォロワー500人以上、直近90日で認証ユーザーから50万インプレッション以上の獲得などの条件を課す。無断転載やインプレゾンビ対策として、オリジナルコンテンツ重視の方針を強めた形。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/09/2000000464/)
+
+## ランサムウェア被害の主因は技術的脆弱性より"人" Proofpoint調査
+
+セキュリティ企業Proofpointが12カ国953人のサイバーセキュリティ専門家を対象に実施した調査で、ランサムウェア被害の主な侵入経路が技術的脆弱性ではなくメール経由のソーシャルエンジニアリングであることが分かった。
+
+セキュリティインシデント・脆弱性案件。侵入手段はメールによる詐欺が34%で最多、警戒しなかった理由は「本物らしく見えたので疑わなかった」が40%でトップだった。日本では不正な添付ファイルの割合が71%と突出して高い。身代金を支払った企業のうち37%が2度目の恐喝被害に遭っており、AIの悪用による詐欺メールの巧妙化も進んでいるという。同社は技術的な防御だけでなく、従業員教育など人的要因への対策強化が重要だと指摘する。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/10/2000000432/)
+
+## 今日のTips: NestJSのシャットダウンフックは`enableShutdownHooks()`を呼ばないとSIGTERMで発火しない
+
+`onModuleDestroy` / `beforeApplicationShutdown` / `onApplicationShutdown`は、`app.close()`を明示的に呼ぶか、SIGTERMなどのシステムシグナル受信時に発火するが、後者はブートストラップ時に`enableShutdownHooks()`を呼んで明示的にオプトインしないと機能しない。呼び忘れると、Kubernetesのpod終了やHerokuのdyno停止時にコネクションのクローズ処理などが一切実行されない。
+
+```typescript
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableShutdownHooks(); // これが無いとSIGTERMでonModuleDestroy等が呼ばれない
+  await app.listen(3000);
+}
+```
+
+<Tip label="▶ 補足">
+デフォルト無効なのは、shutdown hookのリスナーがシステムリソースを消費するため。Jestの並列テストのように同一Nodeプロセスで複数のNestアプリを起動するケースでリスナー過多の警告が出るのを避ける狙いという。また`SIGTERM`はWindowsではプラットフォームの制約により機能しない（`SIGINT`/`SIGBREAK`は動作する）点にも注意。
+</Tip>
+
+参考: [NestJS Documentation: Lifecycle Events](https://docs.nestjs.com/fundamentals/lifecycle-events)
