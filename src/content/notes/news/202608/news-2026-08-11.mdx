@@ -1,0 +1,93 @@
+---
+title: ITニュースダイジェスト 2026-08-11
+listTitle: ITニュースダイジェスト 2026-08-11 — GoogleがAIエージェント基盤「Gemini Enterprise Agent Platform」を正式提供、CloudflareがサイトへのWebMCP追加機能を公開、Linuxロックダウンモードの保護漏れが発覚、テレビ朝日が映像全編AI生成CMを制作、SonicWall SMA1000の脆弱性をランサムウェア集団が悪用、Valveの配送パートナーがハッキングされ顧客情報流出、デジタル庁で職員個人情報の誤送付が発覚。
+date: 2026-08-11
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ]
+summary: Googleがエージェント開発基盤「Gemini Enterprise Agent Platform」を正式提供し第8世代TPUや新GPUも披露、Cloudflareがコード変更なしでサイトにWebMCPインターフェースを追加できる機能を公開、Linuxカーネルのロックダウンモードでレガシーインタフェースの保護漏れが発覚、テレビ朝日が映像全編を生成AIで作ったテレビCMを制作、SonicWall SMA1000の既知脆弱性をランサムウェア集団が悪用中とCISAが警告、Valveの欧州配送パートナーがハッキングされSteamハードウェア顧客の配送情報が流出、デジタル庁で運用手順書の不備により職員150人分の個人情報が誤って外部送付された。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-11</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google Cloud、AIエージェント開発基盤「Gemini Enterprise Agent Platform」を正式提供 第8世代TPUも披露
+
+Google Cloudは「Google Cloud Next Tokyo '26」で、ADK・A2A・MCPを統合したAIエージェント開発プラットフォーム「Gemini Enterprise Agent Platform」の一般提供（GA）を発表した。
+
+AI・LLM動向案件。オープンソースフレームワーク「Agent Development Kit（ADK）」でエージェントを開発し、「Agent Registry」がスキルを管理、複数エージェント間の連携は「A2A（Agent-to-Agent）」プロトコルで実現、「Model Armor」がセキュリティ層として機能する構成。あわせて学習向け第8世代TPU「TPU 8t」・推論向け「TPU 8i」、NVIDIAの新GPU「Vera Rubin NVL72」の提供開始、独自Arm CPU「Axion」ラインアップの拡充も発表された。「デモで1つのエージェントを動かすことと実業務で成果を出すことには乖離がある」とし、その解消を狙うという。
+
+出典: [CodeZine](https://codezine.jp/article/detail/29223)
+
+## Cloudflare、サイトにコード変更なしでWebMCPインターフェースを追加できる機能をプレビュー公開
+
+Cloudflareは、自社サービスを利用するWebサイトに「WebMCP」インターフェースを追加できる新機能を開発者プレビューとして公開した。
+
+新技術紹介案件。ダッシュボードの設定のみで有効化でき、オリジンサーバーやサイトのコード変更は不要。エッジでブリッジスクリプトを注入する方式のため、静的サイト・SPAの両方で動作する。ブラウザ内で動くAIエージェントが、画像のC2PAコンテンツ来歴情報を読み取る「Content Credentials」や、既存のMCPサーバーのツールを呼び出す「Site MCP Server」などをツールとして直接利用できるようになる。処理はブラウザ内で完結し、データはCloudflareには送信されないという。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/08/cloudflare-webmcp-interface)
+
+## Linuxカーネルのロックダウンモード、レガシーI/Oインタフェースが保護対象から漏れるバグが発覚
+
+Linuxカーネルのセキュリティ機構「ロックダウンモード」に、レガシーなI/O・メモリ空間アクセスが保護対象から漏れていたことが分かり、修正パッチが提出された。
+
+開発ツール・言語・OSS動向案件。ロックダウンモードは2019年のLinux 5.4で導入され、root権限があってもカーネルの書き換えを禁止する機構だが、古いPCIデバイス操作用の`legacy_io`・`legacy_mem`インタフェースが見落とされており、root権限を持つユーザーが依然としてI/Oポートへの書き込みを行えた。カーネルメンテナーのKrzysztof Wilczyński氏が提出した修正パッチはLinux 7.3への統合を予定する。デスクトップ用途ではこれらのレガシーインタフェースがほぼ使われないため一般利用への影響は限定的とされるが、30年以上の互換性維持とセキュリティ強化の両立という設計上の難しさを改めて浮き彫りにした。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/08/daily-linux-260810)
+
+## テレビ朝日、「映像全編AI生成」のテレビCMを制作 サントリー飲料向け
+
+テレビ朝日は8月9日、映像をすべて生成AIで作成したテレビCMを制作したと発表した。
+
+新技術紹介案件。対象はサントリーの飲料「GREEN DA・KA・RA」のCMで、音声とテロップは従来手法のまま、映像部分は4月設立の社内「AIクリエイティブスタジオ」が生成AIで制作した。親子での外出や運動、部活動など多様なシーンを描いている。テレビ朝日ホールディングスは新経営計画でAI活用を重点戦略に位置づけ、2025年10月に「AIポリシー」を制定しており、「今後もAIを活用した様々なCM制作に挑戦する」としている。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2608/10/2000000475/)
+
+## SonicWall SMA1000の既知脆弱性、ランサムウェア集団が悪用 CISAが警告
+
+米CISAは、SonicWallのセキュアリモートアクセスゲートウェイ「SMA1000」の脆弱性がランサムウェア集団に悪用されていると警告した。
+
+セキュリティインシデント・脆弱性案件。対象は最大深刻度のSSRF脆弱性CVE-2026-15409・CVE-2026-15410で、SonicWallは7月中旬にパッチを公開済みだったが、脅威アクターは6月22日の時点から「KNUCKLEBALL」「Sou5」「ROOTRUN」「ORANGETAIL」などの独自マルウェア展開を目的に悪用していたことが判明した。CISAは7月14日に既知悪用脆弱性（KEV）カタログへ追加し、連邦機関に3日以内のパッチ適用を指示している。SMA1000は大企業・政府機関・MSSPのVPNアクセスに使われる製品で、Shadowserverは現在も380台超の露出デバイスを確認している。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-sonicwall-sma1000-flaws-now-exploited-by-ransomware-gangs/)
+
+## Valve、Steamハードウェア顧客の配送情報が漏洩 欧州の配送パートナーがハッキング被害に
+
+Valveは、Steamハードウェア製品の欧州顧客に対し、配送パートナーのCEVA Logisticsがサイバー攻撃を受け顧客データが盗まれたとする通知を始めた。
+
+セキュリティインシデント・脆弱性案件。攻撃者は7月29日から8月1日の間にCEVA Logisticsのサーバーへアクセスし、氏名・住所・電話番号・メールアドレス・注文製品の種類と価格といった配送関連情報を窃取した。Valveは支払い情報やパスワード、Steam Guardコードなど機密性の高い情報への影響はないとしている。Valveは8月7日に漏洩を把握し、8月10日から対象顧客への通知メール送付を開始した。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/valve-notifies-steam-hardware-customers-of-a-data-breach/)
+
+## デジタル庁、資格管理団体職員150人分の個人情報が誤送付で流出
+
+デジタル庁は8月7日、「国家資格等情報連携・活用システム」の運用において、資格管理団体職員150人分の個人情報を誤って外部に送付していたと発表した。
+
+セキュリティインシデント・脆弱性案件。対象ユーザーのみのログイン履歴ファイルを作成すべきところ、運用作業手順書の記載不備により他の資格管理団体のユーザー情報が混入し、他省庁へ送付するファイルに職員の氏名・ユーザーID・所属コードなどが記載されていた。7月6日に送付先担当者の指摘で発覚し、問題のファイルは送付先で削除済み、第三者への転送や二次被害は確認されていないという。デジタル庁はチェック体制の強化と手順書の見直しに取り組むとしている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/10/2000000467/)
+
+## 今日のTips: Prismaのインタラクティブトランザクションは既定で5秒（timeout）以内に完了しないと失敗する
+
+`$transaction`にコールバック関数を渡す「インタラクティブトランザクション」には、既定でtimeout（トランザクション全体の実行時間上限）5000ms、maxWait（トランザクションを取得するまでの最大待機時間）2000msが設定されている。外部API呼び出しなど時間のかかる処理をトランザクション内に含めると、既定値を超えた時点でタイムアウトエラーとなりロールバックされる。必要な場合はオプションで個別に延長できる。
+
+```typescript
+await prisma.$transaction(
+  async (tx) => {
+    await tx.order.create({ data: { status: 'pending' } });
+    await callExternalApi(); // 遅いと既定5秒でタイムアウトする
+  },
+  { maxWait: 5000, timeout: 10000 },
+);
+```
+
+<Tip label="▶ 補足">
+timeoutは「トランザクションを開始してから完了するまでの最大実行時間」、maxWaitは「データベース接続（トランザクション）を確保するまでの最大待機時間」を指す、別概念のパラメータ。長時間かかる処理はトランザクションの外に出し、トランザクション内はDB操作だけに留めるのが基本。
+</Tip>
+
+参考: [Prisma Documentation: Transactions](https://www.prisma.io/docs/orm/prisma-client/queries/transactions)
