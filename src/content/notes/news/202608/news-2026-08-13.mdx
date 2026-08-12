@@ -1,0 +1,68 @@
+---
+title: ITニュースダイジェスト 2026-08-13
+listTitle: ITニュースダイジェスト 2026-08-13 — SpaceXAIが「Grok 4.6」を発表しGPT-5.6 Sol Maxに並ぶ性能を謳う、AI向け言語Mojoがバージョン1.0に到達、中国発AIエージェント「Manus」が中国政府の反発でMetaから独立、RIZAP運営ECサイトで不正アクセスによる情報流出の可能性。
+date: 2026-08-13
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ, 業界動向]
+summary: xAI改めSpaceXAIが最新モデル「Grok 4.6」を発表しGPT-5.6 Sol Maxに並ぶ性能を謳い、AI向け言語Mojoがバージョン1.0に到達、中国発AIエージェント「Manus」が中国政府の反発でMetaから独立、RIZAP運営のECサイトで不正アクセスによりカード情報を含む個人情報が流出した可能性が判明した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-13</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## SpaceXAI、「Grok 4.6」を発表 総合指標で「GPT-5.6 Sol Max」に並ぶと謳う
+
+xAI改めSpaceXAIは、最新の大規模言語モデル「Grok 4.6」を発表した。長時間にわたる複数手順のエージェント作業と、対話的・視覚的な成果物の生成に重点を置いたモデルという。
+
+AI・LLM動向案件。前世代「Grok 4.5」をベースに教師あり微調整と強化学習を強化し、総合指標「Artificial Analysis Intelligence Index」で61を記録、OpenAIの「GPT-5.6 Sol Max」に並んだ（AnthropicのFable 5 Maxは62）。同日からGrok Build・Cursor・APIなどで提供を開始し、価格は入力100万トークンあたり2ドル、出力6ドルから。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/13/2000000520/)
+
+## プログラミング言語「Mojo」がバージョン1.0に到達
+
+AI向け言語Mojoを開発するModularは、Mojo 1.0をリリースした。「言語の完成」ではなく「長期開発に使える安定した基盤」と位置づけ、自社製品（MAX・Modular Cloud）での本番運用実績を根拠とする。
+
+開発ツール・言語動向案件。Pythonライクな`lambda`無名関数の追加や一部標準ライブラリAPIの安定指定に加え、`Pointer`と`UnsafePointer`の型統合、「interior origins」による参照無効化の検出などメモリ安全性を強化した。コンパイラとツールチェーンは2026年中にオープンソース化される予定。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/08/mojo-1.0)
+
+## 中国発AIエージェント「Manus」、Metaから独立へ 中国政府の反発で買収破談
+
+中国発のAIエージェント「Manus」の運営元は、米Metaから分離し独立企業としての運営を再開すると発表した。Metaは2025年12月に約20億ドル規模でManusを買収していたが、中国国家発展改革委員会が2026年4月にこの取引を認めず撤回を命じていた。
+
+業界動向案件。分離に伴い、Meta傘下だった2025年12月29日以降に生成された一部ユーザーデータは「特定の法域における規制要件」に抵触するとして、8月23〜24日（シンガポール時間）にかけて削除される。対象ユーザーは8月23日午前7時59分までバックアップが可能で、25日午前8時以降に復元できるという。AI開発を巡る米中の緊張が企業買収にも影響した事例。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/12/2000000508/)
+
+## RIZAP運営のECサイトに不正アクセス カード情報含む個人情報が流出の可能性
+
+RIZAPが運営するスポーツ・アウトドア用品の通販サイト「APORITOオンラインストア」が不正アクセスを受け、利用者の個人情報とカード情報が流出した可能性があることが判明した。
+
+セキュリティインシデント案件。対象は5月1日〜8月5日にサイトで注文・情報入力した利用者で、氏名・住所・電話番号・メールアドレスに加え、クレジットカード番号・有効期限・セキュリティコードが流出した可能性がある。8月5日に不審な外部送信プログラムが見つかり同日サイトを一時閉鎖、個人情報保護委員会への報告と警察への相談を進めているが、8月12日時点で実際の不正利用は確認されていないという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/12/2000000512/)
+
+## 今日のTips: `Object.groupBy()`の戻り値はnullプロトタイプオブジェクト、`hasOwnProperty`が呼べない
+
+ES2024で追加された`Object.groupBy()`は、配列などのイテラブルをコールバックが返す文字列キーでグループ化できる静的メソッド。Node.jsは21以降で標準搭載している。
+
+```js
+const items = [
+  { name: "a", type: "fruit" },
+  { name: "b", type: "veg" },
+];
+const grouped = Object.groupBy(items, ({ type }) => type);
+grouped.hasOwnProperty("fruit"); // TypeError: grouped.hasOwnProperty is not a function
+```
+
+<Tip label="▶ 補足">
+戻り値は`Object.prototype`を継承しないnullプロトタイプオブジェクトのため、`hasOwnProperty`や`toString`などのメソッドは呼び出せない。存在確認には`"fruit" in grouped`や`Object.hasOwn(grouped, "fruit")`を使う。プロトタイプ由来のプロパティと衝突しない、意図された設計。
+</Tip>
+
+参考: [Object.groupBy() - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)
