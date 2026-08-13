@@ -1,0 +1,93 @@
+---
+title: ITニュースダイジェスト 2026-08-14
+listTitle: ITニュースダイジェスト 2026-08-14 — Googleが「Gemini 3.7 Flash」を公開しコーディング性能を強化、DeepSeekがAPI料金を最大12倍に値上げ、修正済みVMware vCenter脆弱性が公開3日で悪用開始、ヨネックス公式ECサイトへのリスト型攻撃で個人情報閲覧の恐れ、トランプ大統領が民間企業のサイバー攻撃作戦を容認する覚書に署名。
+date: 2026-08-14
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ, 法改正]
+summary: Googleが「Gemini 3.7 Flash」を公開しコーディング性能を強化、中国DeepSeekがAPI料金を最大12倍に値上げ、修正済みのVMware vCenter脆弱性が公開からわずか3日で悪用が始まっていたことが判明、ヨネックス公式ECサイトへのリスト型攻撃で個人情報が閲覧された恐れ、トランプ大統領が民間企業によるサイバー攻撃作戦を容認する覚書に署名した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-14</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google、「Gemini 3.7 Flash」を公開 コーディング性能を強化、年内は半額の導入価格
+
+Googleは8月13日、Geminiシリーズの軽量モデル「Gemini 3.7 Flash」を公開した。前モデル「3.6 Flash」からわずか3週間での投入で、コーディング性能を中心に強化した。
+
+AI・LLM動向案件。Cognitionのベンチマークで43.6%を記録し、3.6 Flashの34.4%を上回ったほか、Web開発でのUI再現性や複数ステップの計画立案・ツール呼び出しの精度も向上している。最大100万トークンのコンテキストウィンドウと6万4000トークンの出力に対応し、推論の深さを「low」「medium」「high」の3段階から選択できる。価格は入力100万トークンあたり0.75ドル・出力3.75ドルで3.6 Flashの半額だが、この導入価格は2026年12月31日までの期間限定。Google AI Studio・Gemini API・Android Studio・Google Antigravity経由で利用できる。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2608/14/2000000534/)
+
+## 中国DeepSeek、API料金を最大12倍に値上げ 8月17日からピーク時価格も導入
+
+中国のAIスタートアップDeepSeekは、8月17日午前1時（日本時間）からAPI利用料金を大幅に改定すると発表した。最新モデル「DeepSeek-V4-Pro」正式版のリリースに合わせた措置で、従来比で最大約12倍の値上げとなる。
+
+AI・LLM動向案件。具体的には、DeepSeek-V4-Proの入力料金（キャッシュヒット時）が約12.1倍、出力料金が約4.5倍に上昇する。あわせて、日本時間午前10時〜午後1時・午後3時〜7時を「ピーク時」として通常の2倍を課す二層価格制も導入する。軽量モデルDeepSeek-V4-Flashの新料金は、入力が0.007ドル（キャッシュヒット）〜0.22ドル（キャッシュミス）、出力が0.66ドル（いずれも100万トークンあたり）。低価格を武器にシェアを伸ばしてきたDeepSeekの値付け戦略の転換点となる。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2608/13/2000000533/)
+
+## 修正済みのVMware vCenter脆弱性、公開3日で悪用開始 47カ国361台が侵害
+
+8月2日のダイジェストで報じたVMware vCenterの重大脆弱性「CVE-2026-59310」について、パッチ公開からわずか5日後の8月3日には実際の悪用が始まっていたことが、デジタルフォレンジック企業QUIRSOの調査で判明した。
+
+セキュリティインシデント・脆弱性案件（続報）。同脆弱性はvCenterのSyslogサーバーにおけるディレクトリトラバーサルの欠陥で、未認証の攻撃者がネットワーク経由で任意コードを実行できる。QUIRSOによると、47カ国361台のIPアドレスが侵害されており、ドイツ・米国・トルコ・イラン・フランスに集中している。攻撃者はオープンソースのリバースSSHツール「reverse_ssh」を展開し、ファイアウォールを迂回する形で持続的なC2チャネルを確立しているという。Broadcomは対象バージョン（vCenter 9.1系は9.1.0.0300、9.0系は9.0.2.0100、8.0系は8.0 U3kまたは8.0 U2f）への緊急アップデート適用を改めて呼びかけている。回避策はない。
+
+<Note label="⚠ 注意">
+該当バージョンのvCenterを未更新のまま運用している場合は、侵害の有無に関わらず早急なパッチ適用が必要。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-vmware-vcenter-rce-flaw-exploited-for-reverse-ssh-access/)
+
+## ヨネックス公式ECサイトへリスト型攻撃 個人情報が閲覧された恐れ
+
+スポーツ用品大手ヨネックスは8月12日、公式オンラインショップへの不正ログインがあったと発表した。外部で流出したID・パスワードを使う「リスト型攻撃」とみられ、8月5日に検知した。
+
+セキュリティインシデント・脆弱性案件。不正ログインは3件確認され、うち1件で氏名・フリガナ・住所・電話番号・性別・生年月日・購入履歴、配送先の氏名・住所・電話番号が閲覧された可能性がある。同社は不正通信元のIPアドレスを遮断したうえで該当アカウントを無効化・利用者へ個別連絡し、個人情報保護委員会と警察庁へ報告済み。利用者にはパスワードの再設定を呼びかけている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/13/2000000527/)
+
+## トランプ大統領、民間企業によるサイバー攻撃作戦を容認する覚書に署名
+
+トランプ米大統領は8月12日、国境を越えたサイバー犯罪への対処能力を拡大するとする大統領覚書に署名した。審査を通過した民間企業が連邦政府の監督下でサイバー作戦を実施できるプログラムの創設を指示する内容。
+
+法改正・規制動向案件。対象は米政府・米国人・米国の利益を狙う海外の犯罪集団で、外国政府機関や国家支援型ハッカー集団（国家支援の証拠がない場合は対象と推定）は除外される。背景には、2025年の米国内サイバー犯罪被害額が208億ドル超に上り、成人の73%が詐欺や攻撃を経験したという実態がある。国土安全保障タスクフォース内の国家調整センターが個別作戦を審査・承認し、人命喪失や国際法上の武力行使に該当する作戦は対象外、参加企業には100万ドル以上の保証金を義務付ける。覚書自体に法的拘束力はなく、将来の大統領による撤回や司法による差し止めの可能性も残る。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/14/2000000535/)
+
+## 今日のTips: TypeScript 5.4の`NoInfer`、ジェネリック関数の型パラメータを特定引数の推論から除外する
+
+TypeScriptのジェネリック関数は、デフォルト値を渡す引数からも型パラメータを推論してしまうため、意図しない値を通してしまうことがある。
+
+```ts
+function createStreetLight<C extends string>(
+  colors: C[],
+  defaultColor?: C
+) {}
+
+createStreetLight(["red", "yellow", "green"], "blue");
+// "blue" は colors に無いのに C が "red"|"yellow"|"green"|"blue" と推論され、エラーにならない
+```
+
+TypeScript 5.4で追加された`NoInfer<T>`で`defaultColor`の型を包むと、その引数を型推論のソースから除外できる。
+
+```ts
+function createStreetLight<C extends string>(
+  colors: C[],
+  defaultColor?: NoInfer<C>
+) {}
+
+createStreetLight(["red", "yellow", "green"], "blue");
+// Error: Argument of type '"blue"' is not assignable to parameter of type '"red" | "yellow" | "green"'.
+```
+
+<Tip label="▶ 補足">
+`NoInfer`は「この位置の値を型推論に使わない」という意思表示。デフォルト値やコールバックの戻り値など、他の引数で確定した型パラメータを"受け取る側"にのみ使い、"決める側"の引数には使わないのが基本。
+</Tip>
+
+参考: [Announcing TypeScript 5.4 - TypeScript Blog](https://devblogs.microsoft.com/typescript/announcing-typescript-5-4/)
