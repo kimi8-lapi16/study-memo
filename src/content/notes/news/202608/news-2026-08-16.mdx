@@ -1,0 +1,76 @@
+---
+title: ITニュースダイジェスト 2026-08-16
+listTitle: ITニュースダイジェスト 2026-08-16 — Anthropicが「Claude」の生成文に電子透かしを実装、Googleが半額導入価格の「Gemini 3.7 Flash」を公開、熱雑音を計算資源に変える「熱力学コンピューティング」の研究動向、Citrix NetScaler ADC/GatewayのPoC公開済み認証不要RCE脆弱性にJPCERT/CCが注意喚起、ルーターを踏み台化するLinuxボットネット「Evooo1Bot」が拡散。
+date: 2026-08-16
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ, 新技術]
+summary: Anthropicが「Claude」の生成文に電子透かしを実装、Googleが半額導入価格の「Gemini 3.7 Flash」を公開、熱雑音を計算資源に変える「熱力学コンピューティング」の研究動向、Citrix NetScaler ADC/GatewayのPoC公開済み認証不要RCE脆弱性にJPCERT/CCが注意喚起、ルーターを踏み台化するLinuxボットネット「Evooo1Bot」が拡散した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-16</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropic、「Claude」の生成文に電子透かしを実装 見た目を変えずAI生成を判定
+
+Anthropicは8月14日、「Claude」が生成するテキストにAI生成であることを示す電子透かしを組み込んだ仕組みを公開した。文章に不可視文字や追加トークンを挿入せず、既存の見た目のまま生成元を判定できるという。
+
+AI・LLM動向案件。単語の生成時に複数の候補がある場合、内部の「鍵」と直前の単語列を使って一見ランダムに見える選び方で単語を選択し、そのパターンから生成元を後から検証できる仕組み。追加コストやトークン増加は発生しない。軽微な編集では透かしが残るが、全文を書き換えるような大幅な改変では機能しなくなる可能性があるとしている。全世界のClaudeの出力に順次適用し、8月2日以前のレガシーモデルについても数カ月かけて対応する予定。
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2132925.html), [Anthropic](https://www.anthropic.com/news/claude-text-watermark)
+
+## Google、「Gemini 3.7 Flash」公開 コーディング性能が大幅向上し価格は半額に
+
+Googleは8月13日（米国時間）、「Gemini」シリーズの新モデル「Gemini 3.7 Flash」を公開した。コーディングベンチマークで前モデルから大幅な性能向上を実現しつつ、導入価格を前モデルの半額に設定した。
+
+AI・LLM動向案件。コーディング系ベンチマーク「FrontierCode 1.1 Main」でスコアが34.4%から43%へ、「DeepSWE v1.1」で49%から65.3%へ向上したとする。少ないプロンプトで実用的なレイアウトのWebアプリを構築できる点や、金融・法律・バイオサイエンス分野の複雑な文書処理、3Dゲームやインタラクティブページの生成などマルチモーダル対応も強化した。料金は入力100万トークンあたり0.75ドル、出力100万トークンあたり3.75ドルで、前バージョン比半額の導入価格としている。
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2132694.html), [Google](https://blog.google/intl/ja-jp/company-news/technology/gemini-37-flash/)
+
+## 熱雑音を計算資源に変える「熱力学コンピューティング」、省電力な専用計算機として研究進む
+
+計算の妨げとされてきた熱雑音を逆に活用し、省電力に計算を行う「熱力学コンピューティング」の研究動向が8月15日までに報じられた。米ローレンス・バークレー国立研究所やNormal Computingなどが試作機の開発を進めている段階にある。
+
+新技術紹介案件。坂を転がるボールのように熱の揺らぎそのものを計算過程に利用する仕組みで、将来的にはAI・最適化・科学シミュレーション向けの専用計算装置への応用が期待されている。ただし小規模な試作機やシミュレーションの段階にとどまり、大規模化した際の安定性や、自然な熱雑音のみで実用的な速度が出せるか、従来のGPUより本当に効率的かといった検証はこれからだとしている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260815-thermodynamic-computing/)
+
+## Citrix NetScaler ADC/GatewayのPoC公開済み認証不要RCE脆弱性、JPCERT/CCが注意喚起
+
+JPCERT/CCは8月15日、Citrix NetScaler ADCおよびNetScaler Gatewayのヒープベースのバッファオーバーフロー脆弱性「CVE-2026-8452」に関する注意喚起を発表した。セキュリティ研究チームwatchTowr Labsが8月14日に、Webshellの設置につながり得る概念実証（PoC）コードを含む詳細な分析を公開している。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。対象機器がSAMLのSPまたはIdPとして構成されている場合、認証なしでリモートコード実行に至る可能性がある。対象バージョンはNetScaler ADC/Gateway 14.1-72.61未満および13.1-63.18未満（FIPS版含む）。JPCERT/CCは8月15日時点で悪用を示す情報は確認していないとしつつ、PoC公開を受けた攻撃発生を懸念し早急なアップデート適用を呼びかけている。
+
+出典: [JPCERT/CC](https://www.jpcert.or.jp/at/2026/at260024.html)
+
+## ルーターを踏み台にするLinuxボットネット「Evooo1Bot」が拡散、SOCKS5中継ノード化
+
+Mirai系の亜種とみられる新種のLinuxボットネット「Evooo1Bot」が、インターネットに公開されたゲートウェイ機器を標的に拡散していることが8月15日までに判明した。感染機器をSOCKS5の通信中継ノードに変え、認証情報の窃取やDDoS攻撃にも悪用するという。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。Fortinetの脅威研究チームが分析・報告したもので、暗号化されたC2通信、SSHブルートフォース、SOCKSリレーの各モジュールを備える。Alcatel、NETGEAR、Tenda、三菱電機、Telesquare、D-Link製のゲートウェイ機器のほか、Hikvision製カメラ、Atlassian Confluence、Zyxelファイアウォールなどの既知の脆弱性も悪用対象としており、2026年7月以降複数地域で検出が拡大している。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/new-evooo1bot-linux-botnet-turns-routers-into-traffic-relay-nodes/)
+
+## 今日のTips: NestJSのリクエストは「Middleware→Guard→Interceptor→Pipe→ハンドラ」の順で処理される
+
+NestJSでリクエストがどのコンポーネントをどの順で通過するのか、感覚で把握している人は多いが、公式ドキュメントには明確な順序が定義されている。
+
+```
+Middleware → Guard → Interceptor（コントローラ呼び出し前）
+  → Pipe → コントローラ（ハンドラ）→ Service
+  → Interceptor（レスポンス側）→ Exception Filter
+  → レスポンス
+```
+
+各段階は基本的に「グローバル → コントローラ → ルート」の順で解決される（Interceptorのレスポンス側だけは逆に「ルート → コントローラ → グローバル」の順）。ルートパラメータに複数のPipeを設定した場合は、最後のパラメータに紐づくPipeから先に実行される点も見落としやすい。
+
+<Tip label="▶ 補足">
+Guardは「認可判断」、Interceptorは「前後処理の差し込み」、Pipeは「入力の検証・変換」という役割分担のため、この順序は「まず入れるかどうかを判断し（Guard）、次に処理を横取りできるようにし（Interceptor前段）、最後に入力データを整形する（Pipe）」という設計意図の表れと理解すると覚えやすい。
+</Tip>
+
+参考: [Request lifecycle - NestJS Documentation](https://docs.nestjs.com/faq/request-lifecycle)
