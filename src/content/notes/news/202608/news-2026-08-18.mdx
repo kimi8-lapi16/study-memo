@@ -1,0 +1,89 @@
+---
+title: ITニュースダイジェスト 2026-08-18
+listTitle: ITニュースダイジェスト 2026-08-18 — さくらインターネットのレンタルサーバに不正アクセスで583アカウント被害、フランス税務当局DGFiPから67.8万人分のデータ流出、Windows Defenderの権限昇格ゼロデイ「ShieldBreak」の実証コードが無断公開、GitHubが世界規模の障害でActions・Copilotに影響、縦読み漫画アプリ「comico」が13年の歴史に幕、GoogleがGemini・Flowの生成物から見た目の透かしを消せる設定を追加。
+date: 2026-08-18
+category: NEWS
+tags: [NEWS, IT, セキュリティ, クラウド, 業界動向, 新技術]
+summary: さくらインターネットのレンタルサーバに不正アクセスで583アカウント被害、フランス税務当局DGFiPから67.8万人分のデータ流出、Windows Defenderの権限昇格ゼロデイ「ShieldBreak」の実証コード公開、GitHubが世界規模の障害でActions・Copilotに影響、縦読み漫画アプリ「comico」が13年の歴史に幕、GoogleがGemini・Flowの生成物から見た目の透かしを消せる設定を追加した計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-18</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - CLOUD
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## さくらインターネット、レンタルサーバに不正アクセス 583アカウントで不正ログイン
+
+さくらインターネットは8月17日、「さくらのレンタルサーバ」のサービス基盤に第三者による不正アクセスがあったと発表した。583アカウントで不正ログインが確認され、顧客領域内の情報や利用者識別子が閲覧・取得された可能性があるという。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。8月9日にサーバ環境の異常を検知して調査を開始し、社内の管理環境を経由して顧客環境に侵入され、一部サーバにマルウェアが設置されていたことが判明した。認証情報の無効化やマルウェア除去、外部専門機関と連携したフォレンジック調査を進めており、影響を受けた顧客には個別に案内しているという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/17/2000000563/)
+
+## フランス税務当局DGFiPに不正アクセス、67万8000人分のデータ流出
+
+フランス経済財政省は、税務当局DGFiP（公共財政総局）のシステムに第三者が不正アクセスし、67万8000人分の個人・事業者データが窃取されたと公表した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠、海外）。攻撃者「ZeroBytes」がハッキングフォーラム上で8月12日に犯行を表明。参照課税所得や家族除数、源泉徴収税率といった税務情報のほか、企業名やSIREN番号などの事業者データ、住所・地積が分かる地籍データが対象となった。同省はフランスのデータ保護当局CNILに通知済みで、ログイン認証情報自体は流出していないとしている。攻撃者は関連する地籍プラットフォーム経由で約2000万人分へのアクセスも主張しているが、実際に窃取を確認できたのはそのうち25万2149件としている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/french-tax-authority-data-breach-affects-678-000-individuals/)
+
+## Windows Defenderに権限昇格ゼロデイ「ShieldBreak」、実証コードが無断公開
+
+Windows Defenderのマルウェア対策エンジンに、ローカル攻撃者がSYSTEM権限まで昇格できる未修正の脆弱性「ShieldBreak」（CVE-2026-69414）が公表された。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。研究者「Nightmare Eclipse」が、既知の脆弱性RoguePlanet（CVE-2026-50656）向け対策を回避する手法として、マイクロソフトへの事前通知なしに実証コードを公開した。成功率100%とされるが、公開時点で悪用は確認されていない。マイクロソフトは修正パッチを準備中としているが未リリースで、開示元は同社の脆弱性開示・報奨金制度への不満を背景に無通知公開に踏み切ったとしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/microsoft-working-on-defender-patch-for-shieldbreak-zero-day/)
+
+## GitHub、世界規模の障害でActions・Copilotなど広範囲に影響
+
+GitHubは8月17日（現地時間）、Actions・Pull Requests・Issues・Copilotなど主要機能に影響する世界規模の障害を起こした。
+
+クラウド・大規模障害案件。米国東部時間午前9時40分ごろに発生し、Web/API経由のエラー率は約20%、アーカイブダウンロードやリポジトリの生コンテンツ取得では約50%に達した。SAML/OIDC/SCIM/Team Syncなど認証まわりにも影響が及び、約3時間19分後に8サービス中7つの復旧を確認したが、原因は同社の調査が続いており明らかにされていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-github-is-down-worldwide/)
+
+## 縦読み漫画アプリ「comico」、13年の歴史に幕 めちゃコミックへ移管
+
+NHN comicoは8月17日、縦読み漫画配信サービス「comico」の提供終了を発表した。2013年の開始から約13年の歴史に幕を閉じる。
+
+業界動向案件。8月31日に新刊配信・コイン販売・新規登録を終了し、9月28日には作品の販売・レンタル機能も停止、サービス自体は2027年1月6日に終了する。購入済み作品は電子書籍サービス「めちゃコミック」で引き続き閲覧可能とし、未使用の有償コインは返金対応する。「ReLIFE」「ももくり」などアニメ化・実写化作品も生んだサービスの終了は、縦読み漫画市場を取り巻く競争環境の変化を映す動きといえる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/17/2000000569/)
+
+## Google、Gemini・Flowで生成物の「見た目の透かし」を消せる設定を追加
+
+Googleは、Gemini・Flowで生成した画像・動画・音楽から目に見える透かしを非表示にできる切り替え機能を追加した。
+
+新技術紹介案件。対象は画像生成のNano Banana、動画生成のOmni、音楽生成のLyriaで、設定から透かし表示のオン/オフを切り替えられる。目に見える透かしを消しても、不可視の電子透かしSynthIDやコンテンツ来歴を示すC2PAメタデータは常に埋め込まれたままで、Geminiでのアップロード確認やC2PA検出ポータルを通じた生成物の判定は引き続き可能。EU圏や韓国など保持義務を課す法律がある地域ではこの切り替え機能自体が使えず、近く検索機能にも展開予定という。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260817-google-visible-watermarks/)
+
+## 今日のTips: Reactのエラーバウンダリはイベントハンドラ・非同期コードの例外を捕捉しない
+
+Reactのエラーバウンダリ（`static getDerivedStateFromError`や`componentDidCatch`を実装したクラスコンポーネント）は、子孫コンポーネントの「レンダリング中」に投げられた例外を捕捉してフォールバックUIに切り替える仕組みだが、捕捉できる範囲には明確な制限がある。
+
+公式ドキュメントでは、以下のケースは捕捉対象外と明記されている。
+
+- イベントハンドラ内の例外
+- サーバーサイドレンダリング中の例外
+- エラーバウンダリ自身（子孫ではなく自分自身）で投げられた例外
+- 非同期コード（`setTimeout`や`requestAnimationFrame`のコールバックなど）
+
+```jsx
+// このエラーはError Boundaryで捕捉されない
+<button onClick={() => { throw new Error('boom'); }}>Click</button>
+```
+
+イベントハンドラや`setTimeout`内の例外は、素直に`try/catch`するかstateにエラーを持たせて自前でUIを切り替える必要がある。
+
+<Tip label="▶ 補足">
+例外的に、`useTransition`が返す`startTransition`関数の中で投げられた例外はエラーバウンダリで捕捉される。非同期処理でも`startTransition`経由ならエラーバウンダリに委譲できる、数少ない抜け道。
+</Tip>
+
+参考: [Component – React](https://react.dev/reference/react/Component)
