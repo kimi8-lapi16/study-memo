@@ -1,0 +1,96 @@
+---
+title: ITニュースダイジェスト 2026-08-20
+listTitle: ITニュースダイジェスト 2026-08-20 — CISAがWindows IKE Extension脆弱性の悪用を警告、CursorがAIエージェント時代のGitホスティング「Origin」を発表、Mojoがコンパイラをオープンソース化しWindows版開発も表明、DockerがVMMハイパーバイザをベータ公開、GoogleがAI推論を暗号化データのまま実行できる「HEIR」を発表、KDDI子会社「menu」がフードデリバリー事業終了、Medusaランサムウェアの重要インフラ被害500件超を共同勧告。
+date: 2026-08-20
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 開発ツール, 業界動向]
+summary: CISAがWindows IKE Extensionの悪用中RCE脆弱性（CVE-2026-33824）を警告、CursorがAIエージェント時代のGitホスティング「Origin」を発表、Mojoがコンパイラをオープンソース化しWindows版開発も表明、DockerがVMMハイパーバイザをベータ公開、GoogleがAIモデルを暗号化データのまま扱う「HEIR」を発表、KDDI子会社「menu」がフードデリバリー事業終了・解散、CISAらがMedusaランサムウェアによる重要インフラ被害500件超を共同勧告した計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-20</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - DEV TOOLS
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## CISA、Windows IKE Extensionの悪用中RCE脆弱性を警告
+
+米CISAは、Windows 10・11・Serverの全サポート版に影響する重大なリモートコード実行脆弱性（CVE-2026-33824）が実際の攻撃で悪用されていると発表した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。Windows Internet Key Exchange（IKE）Service Extensionsコンポーネントの「double free」バグが原因で、認証不要の攻撃者がUDPポート500または4500経由で細工したパケットを送るだけでコード実行が可能になる。CISAは既知の悪用脆弱性カタログに追加し、連邦機関には3日以内のパッチ適用を義務付けた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-critical-windows-ike-extension-flaw-now-exploited-in-attacks/)
+
+## Cursor、AIエージェント時代のGitホスティング「Origin」を発表
+
+AIコーディングツールを手がけるCursorは、Gitホスティングサービス「Origin」を早期ベータで公開した。
+
+AI・LLM動向案件。Cursor上からリポジトリの作成・クローン・プッシュ/プル・プルリクエストの確認とマージまで直接行えるほか、専用のコマンドラインツールも用意する。多数のAIエージェントからのアクセス増でGitHubの動作が不安定になりがちな状況を踏まえ、「AIエージェントが利用する規模」を前提に設計したとしており、既存のGitHubリポジトリをOriginへ同期する機能も備える。現在はCursorのPro・Teams・企業プラン向けに提供中。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/aigitorigincursorcursorgithub.html)
+
+## Mojo、コンパイラをオープンソース化しWindows版開発も表明
+
+Pythonライクな言語「Mojo」を開発するModularは、ModCon 2026でコンパイラとツールチェーンをApache 2.0ライセンスで公開した。
+
+開発ツール・言語・OSS動向案件。今月初めのバージョン1.0到達に続く動きで、推論処理向けのMAXライブラリのソースコードも同時に公開し、いずれもGitHubから入手できる。あわせてマイクロソフトとの協業により、現行のMac・Linuxサポートに加えてWindows版の開発に着手すると表明したが、リリース時期は未定としている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/pythonmojowindows.html)
+
+## Docker、新世代ハイパーバイザ「Docker VMM」をパブリックベータ公開
+
+Docker社は、コンテナ実行基盤を刷新する新ハイパーバイザ「Docker VMM」をDocker Desktop v4.86でパブリックベータ公開した。
+
+新技術紹介案件。コンテナ起動の高速化、ホストOSとコンテナ間のファイル共有の大幅な高速化、アイドル時のメモリをホストOSへ返却する最適化などを盛り込む。Windows向けには自社開発の仮想化ハイパーバイザとしては初めてで、WSLの性能とHyper-Vの分離特性の両立を狙う。2026年10月末の正式リリースを予定している。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/dockerdocker_vmm.html)
+
+## Google、暗号化データのままAIモデルを扱う「HEIR」を発表
+
+Googleは、AIモデルのロジックを完全準同型暗号（FHE）対応に自動変換するコンパイラ「HEIR」を発表した。
+
+AI・LLM動向案件。データを復号せずに暗号化したまま推論・分析できるようにすることで、セキュリティとプライバシーを両立させる狙いがある。レコメンデーション処理やクレジットカード詐欺検出、暗号化ネットワークトラフィックの異常検知などへの応用を想定し、開発段階ながら業界標準コンパイラを目指すとしている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/googleaiheirai.html)
+
+## KDDI子会社「menu」、フードデリバリー事業終了・解散へ
+
+KDDIとレアゾン・ホールディングスが共同運営してきたフードデリバリー・テイクアウトサービス「menu」が、9月30日でサービスを終了すると発表した。
+
+業界動向案件。「事業環境の変化により持続的なサービス提供が困難」としており、予約注文は9月23日20時、通常注文は9月30日20時受付分までとなる。KDDIはレアゾン・ホールディングスが保有するmenu社株式を8月31日付で取得して完全子会社化したうえで、解散・清算手続きを進める方針。menuは2019年のテイクアウトサービス開始以降、事業を拡大してきた。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/19/2000000620/)
+
+## CISAら、Medusaランサムウェアの重要インフラ被害500件超で共同勧告
+
+CISA・保健福祉省・FBIは、Medusaランサムウェアによる被害が2026年4月時点で重要インフラ分野の500組織超に拡大したとする共同勧告を更新した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。2025年3月時点の約300組織から被害が拡大し、医療・公衆衛生や防衛産業基盤、重要製造業など複数セクターへ影響が広がっているという。Medusaは2021年から活動するランサムウェア・アズ・ア・サービス型の集団で、勧告ではネットワークセグメンテーションや既知脆弱性の対策、信頼できない発信元からのアクセス遮断といった防御策を推奨している。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/)
+
+## 今日のTips: `satisfies`演算子で、型チェックと具体的な型推論を両立させる
+
+TypeScriptで値がある型に沿っているかをチェックしたいとき、変数に型注釈を付けると型チェックはできるが、各プロパティの具体的な型情報が失われてしまう。TypeScript 4.9で導入された`satisfies`演算子は、型チェックをしつつ元の式が持つ最も具体的な型を保持できる。
+
+```ts
+type Colors = "red" | "green" | "blue";
+
+const palette = {
+  red: [255, 0, 0],
+  green: "#00ff00",
+  bleu: [0, 0, 255], // ← "bleu" のタイプミスをここで検出できる
+} satisfies Record<Colors, string | number[]>;
+
+palette.green.toUpperCase(); // green は string と推論されるのでOK
+```
+
+<Tip label="▶ 補足">
+`const palette: Record<Colors, string | number[]> = {...}`のように型注釈を付けると、この検出とプロパティごとの型推論はどちらも失われる（`palette.green`は`string | number[]`型になり`toUpperCase()`が呼べない）。「型に合っているかの検証」と「値そのものの型を保ちたい」を両立したい場面が`satisfies`の使いどころ。
+</Tip>
+
+参考: [TypeScript 4.9 Release Notes - satisfies Operator](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html)
