@@ -1,0 +1,87 @@
+---
+title: ITニュースダイジェスト 2026-08-21
+listTitle: ITニュースダイジェスト 2026-08-21 — Zimbra Collaboration Suiteの認証不要RCE脆弱性が実際の攻撃で悪用、SlackがAIエージェント協働機能「Slack Code」を発表、Flutter 3.47でMaterial/Cupertinoが独立パッケージ化、さくらインターネットの不正アクセスが顧客管理システムにも拡大し136万アカウントへ、StripeがAIモデルゲートウェイ「OpenRouter」を買収、CISAがMLflowの重大SSRF脆弱性の悪用をKEVカタログで警告。
+date: 2026-08-21
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 開発ツール, 業界動向]
+summary: Zimbra Collaboration SuiteのRCE脆弱性（CVE-2026-73570）が実際の攻撃で悪用、SlackがAIエージェント協働機能「Slack Code」を発表、Flutter 3.47でMaterial/Cupertinoが独立パッケージ化、さくらインターネットの不正アクセスが顧客管理システムにも拡大し約136万アカウントへ、StripeがAIモデルゲートウェイ「OpenRouter」を買収、CISAがMLflowの重大SSRF脆弱性（CVE-2026-64849）の悪用をKEVカタログで警告した計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-21</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - DEV TOOLS
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Zimbra Collaboration Suiteの認証不要RCE脆弱性、実際の攻撃で悪用
+
+メールサーバ製品「Zimbra Collaboration Suite」の脆弱性（CVE-2026-73570）が、実際の攻撃で悪用されていることがポーランドのCERT Polskaにより8月20日に報告された。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。SNMP通知処理における入力サニタイズ不備が原因で、攻撃者は認証なしで細工したSMTP要求を送るだけでZimbraユーザー権限による任意のOSコマンド実行が可能になる。Shadowserverの追跡では脆弱性を持ちうるZimbraサーバが1万2100台以上インターネット上に公開されており、うちヨーロッパに4382台、アジアに4492台が存在するという。修正版10.1.20は7月20日に公開済みで、未適用の組織は早急なアップデートが求められる。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-zimbra-rce-flaw-now-actively-exploited-in-attacks/)
+
+## Slack、AIエージェントとチームが協働する「Slack Code」を発表
+
+Slackは、AIコーディングエージェントとチームメンバーがSlack上で協働できる新機能「Slack Code」を発表した。
+
+AI・LLM動向案件。エージェントにメンションすると、そのタスク専用の「コードチャネル」が自動生成され、会話・計画・コード差分・HTMLプレビューをタブで確認しながらフィードバックできる。完了後は自動アーカイブされ、監査ログとして検索可能な形で残る。現時点でAnthropicの「Claude」、Cognitionの「Devin」、GitHub Copilot、Vercelのエージェントに対応し、ChatGPTも近日対応予定。本番環境へのコードプッシュなど重要な操作は既存のSlack権限管理を継承したうえで人間の承認を経る仕組みで、Slackの実績ではコードチャネルの7割超がアイデアからPRマージまで1日以内に完結しているという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/21/2000000667/)
+
+## Flutter 3.47、Material/CupertinoがUIライブラリとして独立
+
+Googleは、UIツールキット「Flutter」の最新版3.47をリリースした。
+
+開発ツール・言語・OSS動向案件。これまでフレームワーク本体に組み込まれていたデザインシステム「Material」「Cupertino」がバージョン1.0のスタンドアロンパッケージとして独立し、Flutter SDK本体とは別のリリースサイクルでアップデートできるようになった。あわせて、Web向けビルドで将来的にWebAssembly出力をデフォルト化する方針を明確化したほか、Impellerがデスクトップの既定レンダラーになり、ウィジェットプレビューが安定版に到達した。iOS 27・macOS 27・Xcode 27への対応準備も始めている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/fluter_347uiwebassembly.html)
+
+## さくらインターネットの不正アクセス、顧客管理システムにも拡大 約136万アカウントへ
+
+さくらインターネットは8月19日、「さくらのレンタルサーバ」で確認されていた不正アクセスとは別に、顧客情報を管理する社内システムにも第三者がアクセスした可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠、国内）。8月17日の第一報では583アカウントへの不正ログインとマルウェア設置を公表していたが、続報となる今回、影響を受けうる会員情報は約136万5000アカウントに拡大した。一部顧客のハッシュ化されたパスワード情報が含まれる一方、クレジットカード情報は保存しておらず、現時点で外部への持ち出しは確認されていないという。管理システムへの侵入はレンタルサーバへの攻撃が検知される8月9日より前に発生していたとみられ、両事案の関連性を含め外部専門機関による調査を継続している。
+
+出典: [さくらインターネット](https://www.sakura.ad.jp/corporate/information/newsreleases/2026/08/19/1968225633/)
+
+## Stripe、AIモデルゲートウェイ「OpenRouter」を買収
+
+決済大手Stripeは、400以上のAIモデルへの統一APIを提供するゲートウェイ「OpenRouter」を買収したと発表した。
+
+業界動向案件。買収金額は非公表だが、米New York Timesの報道では75億ドル規模とされる。OpenRouterは2023年創業、80社超のモデルプロバイダーに対応し1日10兆トークン超を処理、1000万を超える開発者・企業が利用する。パトリック・コリソンCEOは「AIで開発する企業にとってトークンは中核となる通貨」とし、決済分野の最適化ノウハウをトークンコスト最適化に応用する狙いを示した。買収後もミッション・名称・製品・ロードマップは維持し、ルーティング判断は特定モデルや親会社に左右されないと強調している。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/20/2000000639/)
+
+## CISA、MLflowの重大SSRF脆弱性の悪用をKEVカタログで警告
+
+米CISAは8月19日、機械学習基盤「MLflow」の脆弱性（CVE-2026-64849）を既知の悪用脆弱性（KEV）カタログに追加した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。DNS再バインディングを利用したSSRF（サーバーサイドリクエストフォージェリ）保護のバイパスが原因で、認証なし・SQLiteバックエンドといったデフォルト構成のMLflow Tracking Serverが対象。攻撃者はクラウドのメタデータサービスへアクセスし、AWSのIAM認証情報などを窃取できる。セキュリティ企業watchTowrによると、CVE ID割り当てから数時間のうちにインターネット上のMLflowシステムに対するスキャンが始まったという。対象バージョンは3.15.0未満。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-mlflow-vulnerability/)
+
+## 今日のTips: `CREATE INDEX CONCURRENTLY`はトランザクションブロックの中で実行できない
+
+PostgreSQLで本番稼働中のテーブルにインデックスを追加する場合、通常の`CREATE INDEX`は書き込みをロックしてしまうため`CONCURRENTLY`オプションを使うのが定石。ただしこのオプションには見落としやすい制約がある。
+
+```sql
+-- NG: トランザクションブロック内では実行できない
+BEGIN;
+CREATE INDEX CONCURRENTLY idx_orders_user_id ON orders (user_id);
+COMMIT;
+-- ERROR: CREATE INDEX CONCURRENTLY cannot run inside a transaction block
+
+-- OK: トランザクションの外で単独実行する
+CREATE INDEX CONCURRENTLY idx_orders_user_id ON orders (user_id);
+```
+
+<Tip label="▶ 補足">
+`CONCURRENTLY`は書き込みロックを取らない代わりにテーブルを2回スキャンする（通常より低速・高負荷）。また処理が失敗すると`INVALID`状態のインデックスが残ることがあり、この場合はクエリからは無視されつつ更新のたびにオーバーヘッドだけが発生するため、`DROP INDEX`してから再実行する必要がある。マイグレーションツールを使う場合、自動でトランザクションに包まれてこのエラーになるケースがあるので、対象マイグレーションだけトランザクション無効化の設定が要る。
+</Tip>
+
+参考: [PostgreSQL Documentation - CREATE INDEX](https://www.postgresql.org/docs/current/sql-createindex.html)
