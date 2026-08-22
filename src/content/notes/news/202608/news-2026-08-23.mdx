@@ -1,0 +1,91 @@
+---
+title: ITニュースダイジェスト 2026-08-23
+listTitle: ITニュースダイジェスト 2026-08-23 — GitHub約8時間ダウンの原因判明、AWSキー9,300件超が流出したまま有効、車載ヘッドユニットのボットネット化、Waymoの専用ASICチップ。
+date: 2026-08-23
+category: NEWS
+tags: [NEWS, IT, セキュリティ, クラウド, AI, 新技術]
+summary: GitHubの約8時間ダウンの原因が自動拡張の監視漏れと判明、9,300件超のAWSアクセスキーが流出したまま今も有効、中国製カーナビ向けアプリを悪用した車載ヘッドユニットのボットネット化、ポケモンセンターの物流委託先への攻撃、WaymoのロボタクシーAI用ASICチップ、Google Antigravityのリモート操作機能を扱った計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-23</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - CLOUD
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## GitHub、約8時間ダウンの原因は「自動拡張がサイドカーの容量を見ていなかった」こと
+
+GitHubは8月20日、8月17日22時28分〜18日6時15分（世界各地の時刻換算）にかけて発生した約7時間47分の大規模障害について、調査結果を公式ブログで公表した。
+
+クラウド・大規模障害案件。米中部データセンターでサービス間通信を仲介する「Istio」サイドカーが同時処理上限に達したが、自動拡張の仕組みがサイドカーの容量そのものを監視していなかったため増強が働かず、後段の「HAProxy」ロードバランサーも処理上限に達して認証経路の遅延が連鎖した。さらに大量のリトライとGitHub Copilot側の不具合とみられる挙動が重なり、認証リクエストが平常時の毎秒7000〜9000件から7万〜10万件まで急増したという。ピーク時にはWeb機能・APIで約20%、リポジトリダウンロードで約50%のエラーが発生し、Issues・Pull Requests・Actions・Copilot・認証機能に世界的な影響が出た。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260821-why-github-down/)
+
+## 9,300件超のAWSアクセスキーが流出したまま今も有効、Truffle Securityが4年分を再検証
+
+セキュリティ企業Truffle Securityが8月21日までにまとめた調査で、2022年8月から2026年8月にかけて公開状態で流出したAWSアクセスキーのうち9,300件超が今も有効なままだと判明した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。流出キー総数43万1875件のうち6万4024件（約88%）が今回の再検証で認証に成功し、うち817件が企業アカウント、526件がルートキーだったという。特にroot権限を持つ組織管理アカウントのキーも130件見つかっており、1件の侵害でその配下の全アカウントに影響が及ぶリスクがある。最大の流出元はHugging Faceで、GitのコミットログやDockerイメージ、CI/CDログなどからも見つかったとしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hundreds-of-leaked-aws-keys-give-full-control-over-corporate-accounts/)
+
+## 車載ヘッドユニットが標的に、中国製アップデートアプリ悪用のプロキシボットネット
+
+セキュリティ企業Kasperskyは、中国の車載機器メーカーDoFun製Androidヘッドユニット向けの正規アップデートアプリ「TWCore」を悪用したマルウェア感染チェーンを確認したと8月22日までに報告した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。攻撃グループ「MoYu」は、無害を装った「JarService」というアプリ経由で段階的にペイロードを配信し、最終的にC2通信を確立。走行系システムそのものは標的にせず、感染した車載機をレジデンシャルプロキシのノードや広告不正のトラフィック生成に悪用して収益化する手口だという。車両の安全機能を狙う攻撃ではないものの、車載機を狙う感染チェーンとしては初の確認事例とされる。DoFunは通報を受けて対応済みと説明している。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/)
+
+## ポケモンセンターの物流委託先がサイバー攻撃、英独ユーザーの個人情報流出
+
+ポケモンセンターの物流を担うフランスの大手物流企業CEVA Logisticsが7月29日〜8月1日にサイバー攻撃を受け、氏名・住所・電話番号・メールアドレス・注文内容などの顧客情報が流出したことが8月中旬までに判明した。
+
+セキュリティインシデント・脆弱性案件（3件枠の最後）。影響を受けたのは英国・ドイツのポケモンセンター利用者で、同じくCEVA Logisticsを利用するSteam（Valve）の欧州顧客にも同様の被害が出ているという。決済カード情報へのアクセスはなく、クレジットカード情報の流出リスクはないとされるが、30周年記念商品を含む一部注文がキャンセルになるなど実害も出ている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260821-pokemon-center-data-breach/)
+
+## Waymo、ロボタクシー専用ASICチップを開発 TSMC5nmベースで1000TOPS超
+
+Alphabet傘下Waymoは8月22日、自動運転車の認識・判断処理向けに設計した専用ASICチップを開発したと発表した。
+
+新技術紹介案件。従来の既製プロセッサから、TSMCの5nmプロセスをベースにした機械学習特化チップへ切り替えた。センサーの生データをリアルタイムで統合・処理しながら高度なニューラルネットワークを実行でき、単体で1000TOPS超のML性能を発揮するという。安全性確保のため1台あたり2基を冗長構成で搭載し、13台の高解像度カメラの映像を同時処理、低照度環境での認識精度も高めたとしている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260822-waymo-brain/)
+
+## Google Antigravity、複数マシンのAIエージェントをブラウザ越しに遠隔操作できる「Remote Control」
+
+Googleは8月21日、AIコーディングエージェント「Antigravity」向けに、複数マシン上で動くセッションをWebブラウザから一元管理できる新機能「Remote Control」を公式ブログで発表した。
+
+AI・LLM動向案件。ノートPCやサーバー、デスクトップなど別々のマシンで動くエージェントセッションを、作業環境を複製することなくブラウザやモバイル端末から確認・操作できる。長時間かかるコードリファクタリングやテスト実行などのタスク中に、ユーザーの入力が必要になった際はプッシュ通知で知らせる仕組みも備える。複数マシンで開発するソフトウェア開発者を主な対象としている。
+
+出典: [Google Antigravity Blog](https://antigravity.google/blog/remote-control-for-antigravity)
+
+## 今日のTips: Prismaの`$use`ミドルウェアはPrisma ORM v7で削除済み、代わりにClient Extensionsを使う
+
+Prismaには以前`prisma.$use()`によるミドルウェアAPIがあったが、Prisma ORM v7へのアップグレードガイドでは、このAPIは既に削除済みで、代わりに`$extends`によるClient Extensionsへの移行が必須と案内されている。
+
+```ts
+// 旧: ミドルウェア（v7で削除済み）
+prisma.$use(async (params, next) => next(params));
+
+// 新: Client Extensions
+const prisma = new PrismaClient().$extends({
+  query: {
+    user: {
+      async findMany({ args, query }) {
+        return query(args);
+      },
+    },
+  },
+});
+```
+
+<Tip label="▶ 補足">
+Client Extensionsはモデル・操作単位でクエリをフックする形に変わっており、ミドルウェアのように全モデル横断で1つの関数に処理を集約する書き方はできない。既存の`$use`実装をそのまま移植するのではなく、対象モデル・操作ごとに書き直す前提でアップグレードを計画する必要がある。
+</Tip>
+
+参考: [Upgrade to Prisma ORM 7 - Prisma Documentation](https://www.prisma.io/docs/guides/upgrade-prisma-orm/v7)
