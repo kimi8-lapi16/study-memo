@@ -1,0 +1,89 @@
+---
+title: ITニュースダイジェスト 2026-08-24
+listTitle: ITニュースダイジェスト 2026-08-24 — TikTokが児童プライバシー訴訟で米司法省と4億ドル和解、個人情報保護委員会がKDDI・ISP各社に行政上の対応、CISAがTrueConf Serverの脆弱性2件をKEV入り、ChatGPTの医療助言を巡り牧師がOpenAIを提訴、Bun 1.4がRust移植で正式リリース、GoogleのGemmaが累計10億ダウンロード達成。
+date: 2026-08-24
+category: NEWS
+tags: [NEWS, IT, 訴訟, 法改正, セキュリティ, AI, 開発ツール]
+summary: TikTokが児童プライバシー訴訟で米司法省と4億ドルの和解、個人情報保護委員会がKDDIとISP各社に行政上の対応、CISAがTrueConf Serverの認証不要RCE脆弱性2件をKEVカタログに追加し連邦機関に9月3日までの対応を指示、ChatGPTの医療助言を巡り米国の牧師がOpenAIを提訴、JavaScriptランタイム「Bun」がRust移植版のv1.4を正式リリース、GoogleのオープンモデルGemmaが累計10億ダウンロードを達成した計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-24</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## TikTok、児童プライバシー訴訟で米司法省と4億ドルの和解
+
+米司法省とTikTokは8月21日、児童オンラインプライバシー保護法（COPPA）違反を巡る訴訟について、総額4億ドル（約640億円）の支払いで和解したと発表した。
+
+訴訟・トラブル案件。司法省は2024年8月、TikTokと親会社ByteDanceを「13歳未満と把握している子どもにも通常アカウントの作成を認め、保護者の同意なく個人情報を収集・保持していた」として提訴していた。和解金は即座に支払う3億ドルと、前身の動画サービスMusical.lyに関する2019年の同意判決が取り消された時点で追加支払いとなる1億ドルの2段階構成。司法省は、提訴後にTikTokが年齢確認や保護者管理機能などの若年ユーザー保護策を大幅に強化したことも和解判断の要因として挙げている。COPPA関連訴訟としては過去最大級の和解金額という。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/23/2000000701/)
+
+## 個人情報保護委員会、KDDIとISP各社に行政上の対応 メール不正アクセス問題で
+
+個人情報保護委員会は8月19日、KDDIが提供するISP事業者向けメールシステムへの不正アクセス事案について、KDDIおよび関係するインターネットサービスプロバイダ各社に対し個人情報保護法に基づく行政上の対応を行ったと公表した。
+
+法改正・規制動向案件。同事案では最大1223万件のメールアドレスなどが流出したとされる。委員会はKDDI側のアクセス制御などの技術的安全管理措置に不備があったと指摘し、一部ISPではパスワードが暗号化されずに保存されていた点も問題視して改善を求めた。総務省が7月に電気通信事業法上の「通信の秘密」侵害として行政指導を行ったのに続き、今回は個人情報保護の観点から別の当局が対応した形。メールサービス利用者に対しても、同一・類似パスワードの使い回しがあれば速やかに変更するよう注意喚起している。
+
+出典: [個人情報保護委員会](https://www.ppc.go.jp/news/press/2026/260819_01_houdou/)
+
+## CISA、TrueConf Serverの認証不要RCE脆弱性2件をKEVカタログに追加
+
+米CISAは8月20日、社内ビデオ会議・メッセージング基盤「TrueConf Server」の脆弱性2件を悪用が確認された脆弱性（KEV）カタログに追加し、米連邦機関に9月3日までの対応を指示した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。追加されたのはTCP 4307ポート経由で認証なしに任意スクリプトを実行できる「CVE-2026-72529」と、サンドボックスを脱出してホストOS上でコマンド実行が可能になる「CVE-2026-72530」で、いずれも深刻度は最高評価。ハクティビスト集団「Head Mare」が7月以降、ロシア・ベラルーシの運輸・エネルギー・IT関連組織を標的にこれらの脆弱性を悪用し、クライアントインストーラーの改ざんなどでバックドアを仕込んでいたことが確認されている。修正版は6月に公開済みで、自社運用しているTrueConf Serverの管理者は速やかな更新が必要。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-trueconf-server-flaws/)
+
+## ChatGPTの医療助言を巡り、米国の牧師がOpenAIを提訴
+
+米フロリダ州の牧師スコット・ウィンターズ氏が、ChatGPTから受けた医療助言が原因で肺塞栓症を悪化させたとして、OpenAIとCEOサム・アルトマン氏を相手取りカリフォルニア州上級裁判所に提訴した。
+
+訴訟・トラブル案件。訴状によれば、ウィンターズ氏はめまいや脚の痛みについてChatGPTに相談したところ、当初は受診を勧められたものの、その後は自宅療養や安静を勧める助言に変わり、翌日に医療機関を受診したところ肺塞栓症と診断されたという。訴状は欠陥設計・警告不足・過失に加え、カリフォルニア州の不正競争法違反やプライバシー侵害を主張し、緊急性が疑われる会話を自動的に終了させる仕組みの導入などを求めている。OpenAIは「ChatGPTは医師の代わりではない」とコメントしている。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/litigation/pastor-sues-openai-after-chatgpt-dissuaded-seeking-medical-care)
+
+## JavaScriptランタイム「Bun」、Rust移植版のv1.4を正式リリース
+
+Bunの開発元は、これまでZig言語で書かれていたランタイムをRustへ全面移植したv1.4を正式リリースした。
+
+開発ツール・言語・OSS動向案件。移植作業にはClaude Codeを活用したという。アイドル時のCPU使用量を5分の1に、メモリ消費を最大32〜35%削減し、Linux環境での起動速度は最大50%高速化（4.8ミリ秒）。正規表現処理はNode.js比で最大281倍高速化したとしている。従来動かなかったPlaywrightやvitestなどのテストフレームワーク、OpenTelemetryなどのテレメトリツールもNode.js互換性の改善により動作するようになり、Node.js公式テストスイートから1517件のテストを新たに追加、2900件超のGitHub Issueを解消したという。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/rustbun_14nodejsplaywrightvitestcpu.html)
+
+## Googleのオープンモデル「Gemma」、累計10億ダウンロードを達成
+
+Google DeepMindは8月20日、オープンウェイトのAIモデルファミリー「Gemma」の累計ダウンロード数が10億件を突破したと発表した。
+
+AI・LLM動向案件。2024年初頭の登場から2年余りで、外部開発者が公開した派生モデル（バリアント）は10万件を超えるという。この集計値にはAndroidやChromeへの組み込み利用は含まれておらず、実際の利用範囲はさらに広いとみられる。活用例としてNASAや宇宙関連企業が衛星軌道上での画像解析にGemmaを利用しているほか、インドの保健当局が統計処理に、イルカの音声パターン解析プロジェクト「DolphinGemma」にも使われているとしている。
+
+出典: [Google Blog](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-one-billion-downloads/)
+
+## 今日のTips: React 19、`<Context.Provider>`を`<Context>`として直接使えるようになった
+
+React 19以前は、Contextの値を子孫コンポーネントに渡す際、必ず`<Context.Provider>`でラップする必要があった。
+
+```jsx
+// 従来（React 18以前）
+<ThemeContext.Provider value="dark">
+  {children}
+</ThemeContext.Provider>
+
+// React 19
+<ThemeContext value="dark">
+  {children}
+</ThemeContext>
+```
+
+React 19では`<Context>`自体をプロバイダーとして直接レンダリングできるようになり、`.Provider`の記述が不要になった。公式ブログでは今後`<Context.Provider>`を非推奨化していく方針が示されており、移行を助けるcodemodの提供も予告されている。
+
+<Tip label="▶ 補足">
+同時にrefをpropsとして直接受け取れるようになったことで`forwardRef`も非推奨化の方向とされており、`useFormState`も`useActionState`への改名が案内されている。いずれも既存コードが即座に動かなくなるわけではないが、新規実装では新しい書き方への統一を検討する価値がある。
+</Tip>
+
+参考: [React v19 – React Blog](https://react.dev/blog/2024/12/05/react-19)
