@@ -1,0 +1,97 @@
+---
+title: ITニュースダイジェスト 2026-08-25
+listTitle: ITニュースダイジェスト 2026-08-25 — NVIDIAがメモリ高騰でAI関連製品を15％以上値上げ、消費者庁がダークパターン規制の中間取りまとめ案を公表、CISAが悪用継続中のZimbra脆弱性をKEV入りさせ3日以内のパッチ適用を指示、Calixルーターの未パッチ脆弱性で内部機器が外部露出、JetBrains調査でClaude CodeがGitHub Copilotを逆転しシェア首位に、MCPが新ロードマップを公開、DuckDB 2.0がプレビュー公開。
+date: 2026-08-25
+category: NEWS
+tags: [NEWS, IT, 業界動向, 法改正, セキュリティ, AI, 開発ツール]
+summary: NVIDIAがメモリ価格高騰を理由にAI関連製品を15％以上値上げへ、消費者庁がダークパターン規制を盛り込んだ中間取りまとめ案を公表、CISAが悪用継続中のZimbra脆弱性をKEVカタログに追加し米連邦機関に3日以内のパッチ適用を指示、Calixルーターの未パッチ脆弱性で内部ネットワーク機器が外部に露出する恐れ、JetBrainsの調査でAIコーディングエージェント「Claude Code」がGitHub Copilotを逆転しシェア首位に浮上、MCPが新ロードマップを公開、OLAP DB「DuckDB 2.0」がプレビュー公開された計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-25</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## NVIDIA、AI関連製品を15％以上値上げへ メモリ高騰が直撃
+
+NVIDIAは主要顧客に対し、2027年初頭以降に出荷するAI関連製品の価格を15％以上引き上げると通知したことが8月24日までに分かった。
+
+業界動向案件。値上げの対象は次世代CPU「Vera」とGPU「Rubin」を組み合わせた「Vera Rubin」、データセンター向けCPU「Grace」とGPU「Blackwell」を組み合わせた「Grace Blackwell」などAIチップ搭載サーバー全般。理由として挙げられているのはメモリ価格の高騰で、Samsung・SK Hynix・Micronの主要3社が生産するメモリの需要が供給を大幅に上回り、価格が下がらない状況が続いているという。AI投資の膨張がメモリ市況を通じてサーバーコストに跳ね返る構図が改めて浮き彫りになった。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260824-nvidia-price-hike-ai-related-products/)
+
+## 消費者庁、「ダークパターン」規制へ中間取りまとめ案 特商法改正も視野
+
+消費者庁は8月24日、消費者の意思決定をゆがめる表示・UI「ダークパターン」への対応を盛り込んだ中間取りまとめ案を公表した。
+
+法改正・規制動向案件。「お試し」と表示しながら実際は定期購入が条件になっているなど誤認させる手法の相談が増加していることを受け、法律で大枠のルールを定め、具体的な違反基準はガイドラインで示す方式を提言している。チャットを用いたSNS勧誘については勧誘目的の事前明示と8日間のクーリングオフ義務化を、誇大広告については消費者庁などがプラットフォームに削除やアカウント停止を要請できる制度の法定化も検討するとしている。特定商取引法の改正を視野に入れており、今後ガイドライン等で具体的な対応方針を示していく方針。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/24/2000000728/)
+
+## CISA、悪用継続中のZimbra脆弱性をKEV入り 米連邦機関に3日以内のパッチ適用を指示
+
+米CISAは、メールサーバ製品「Zimbra Collaboration Suite」の脆弱性CVE-2026-73570を既知の悪用された脆弱性（KEV）カタログに追加し、米連邦政府機関に8月24日までの3日以内でのパッチ適用を指示した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠、続報）。この脆弱性はSNMP監視コンポーネントのコマンドインジェクション不備が原因で、未認証の攻撃者が細工したSMTP要求を送るだけでZimbraユーザー権限による任意のOSコマンド実行が可能になる。修正版10.1.20は7月20日に公開済みだったが、ポーランドのCERT PolskaがCISAのKEV追加に先立ち実際の悪用を確認。Shadowserverの調査では、単に脆弱性を持つだけでなく実際に侵害されたインスタンスが270台超に上ることが判明している。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-orders-urgent-patching-of-actively-exploited-zimbra-flaw/)
+
+## Calixルーターの未パッチ脆弱性、内部ネットワーク機器が外部に露出
+
+米CalixのONT/ルーター製品「GigaSpire」「GS7 XGS」シリーズに未パッチの脆弱性CVE-2026-75501が見つかり、内部ネットワーク機器がインターネットに露出する恐れがあることが8月24日までに報告された。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。ファームウェアEXOS/6.6.47では、認証なしでMiniUPnPdの制御エンドポイントがWAN側のTCPポート5000に公開されており、遠隔の未認証攻撃者がルータのポート転送ルールを自由に作成・削除・列挙できてしまう。これによりカメラやNAS、IoT機器など本来インターネットに公開されるべきでない内部機器が外部からアクセス可能になる危険がある。研究者からの複数回の連絡にもCalixは応答しておらず、公式パッチは未公開。管理画面からUPnP機能を無効化することが当面の対策として推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/unpatched-calix-flaw-lets-hackers-bypass-nat-to-expose-internal-devices/)
+
+## AIコーディングエージェント、プロ開発者の90％が週1回以上利用 Claude CodeがCopilotを逆転しシェア首位に
+
+JetBrainsが世界の開発者1万5000人以上を対象に実施した「Developer Ecosystem Survey 2026」で、プロ開発者の90％がAIコーディングエージェントを週1回以上利用し、68％は毎日業務で使っていることが分かった。
+
+AI・LLM動向案件。2026年5〜7月時点のツール別利用率は、Claude Codeが39％（2025年初頭は3％）、GitHub Copilotが21％（2025年中頃は29〜31％）、OpenAI Codexが16％（2025年初頭は0％）。Claude Codeは1年強でGitHub Copilotのほぼ2倍のシェアに達し首位に浮上しており、AIコーディングエージェント市場の勢力図が急速に塗り替わっている実態が示された形。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260824-ai-coding-agent-adoption-trends/)
+
+## MCP、新ロードマップを公開 エージェント認証や長時間処理など5分野を重点化
+
+AIツール連携の標準プロトコル「Model Context Protocol」（MCP）は、今後重点的に取り組む5分野をまとめた新ロードマップを公開した。
+
+開発ツール・言語・OSS動向案件。挙げられているのは、時間のかかるジョブを扱う「Tasks」や更新通知の仕組みを整理する「エージェント向けメッセージングの基本機能」、ローカル／リモートサーバ間のHTTP通信方式統一、DPoPやWorkload Identity Federationなどを組み合わせたエージェントの身元・権限確認の仕組み、必要なツールやリソースを段階的に提示する「Progressive Discovery」によるツール呼び出しの負担軽減、仕様から自動生成したSDKの適合性テストなど開発者体験の改善の5点。自律的に動作するAIエージェントの普及を見据え、認証・スケーラビリティ面の課題に焦点を当てた内容になっている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260824-mcp-roadmap/)
+
+## OLAP DB「DuckDB 2.0」がプレビュー公開 クライアント/サーバ機能やVARIANT型を追加
+
+組み込み型OLAP DB「DuckDB」の次期メジャーバージョン「DuckDB 2.0」のプレビューが公開された。秋の正式リリースが予定されている。
+
+新技術紹介案件。目玉機能は、独自の「Quackプロトコル」により別マシン上のDuckDBインスタンスへ複数クライアントから接続できるようになるクライアント/サーバ機能。このほか、従来PostgreSQL由来だったSQLパーサをPEG（Parsing Expression Grammar）ベースへ全面刷新して文法拡張を容易にしたほか、テキストではなく圧縮形式で保存するスキーマレスの「VARIANT型」、データ変更時に自動処理を実行するトリガー機能、クエリ処理とI/O処理を独立してスケールさせる非同期I/Oなども新たに加わる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/olap_dbduckdb_20variantio.html)
+
+## 今日のTips: `Promise.withResolvers()`で、resolve/rejectを外側のスコープに取り出せる
+
+これまで、Promiseのexecutor関数の外でresolve/rejectを使いたい場合、一度`let`で変数を宣言してからexecutor内で代入するという回りくどい書き方が必要だった。
+
+```js
+// 従来の書き方
+let resolve, reject;
+const promise = new Promise((res, rej) => {
+  resolve = res;
+  reject = rej;
+});
+
+// Promise.withResolvers()を使った書き方
+const { promise, resolve, reject } = Promise.withResolvers();
+```
+
+ES2024で追加された`Promise.withResolvers()`は、`promise`・`resolve`・`reject`の3つを持つオブジェクトを直接返すため、このラップが不要になる。ストリームのイベントハンドラのように「外部のコールバックからPromiseを解決したい」場面で特に有効で、ループのたびに新しいPromiseを作り直すようなパターンとも相性がいい。
+
+<Tip label="▶ 補足">
+Node.jsではv22.9以降で利用可能。それ以前のバージョンをサポートする必要がある場合は、従来通り`new Promise()`にexecutorを渡す書き方を使う。
+</Tip>
+
+参考: [Promise.withResolvers() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)
