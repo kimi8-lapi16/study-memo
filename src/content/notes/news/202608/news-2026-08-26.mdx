@@ -1,0 +1,95 @@
+---
+title: ITニュースダイジェスト 2026-08-26
+listTitle: ITニュースダイジェスト 2026-08-26 — Mozillaレポートでオープンソースモデルは中国製が上位独占、AnthropicがClaude Securityに新モデル「Claude Mythos 5」を追加、Deno開発チームがブラウザだけでiOS/Androidアプリを作れる「Dactyl」を発表、ノルウェー政府のデジタル基盤に大規模DDoS攻撃、npmミラーを悪用したCloudflare偽CAPTCHAフィッシング、医療機関運営Nutex Healthのデータ窃取。
+date: 2026-08-26
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ]
+summary: Mozillaのレポートでオープンウェイトモデルのトークン消費上位を中国製が独占していることが判明、AnthropicがClaude Securityの脆弱性スキャンに新モデル「Claude Mythos 5」を追加しOSS支援基金も新設、Deno開発チームがブラウザだけでiOS/Androidネイティブアプリを作れる「Dactyl」を発表、ノルウェー政府のデジタル基盤が大規模DDoS攻撃を受けID-porten等に一部影響、npmミラーを悪用したCloudflare偽CAPTCHAフィッシングが確認、医療機関運営のNutex Healthがサイバー攻撃によるデータ窃取を確認した計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-26</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Mozillaレポート、オープンソースAIのトークン消費で中国製モデルが上位を独占
+
+MozillaとSlashDataが公開した調査レポート「The State of Open Source AI」で、主要なオープンウェイトモデルの週間トークン処理量トップ5を中国企業のモデルが独占していることが分かった。
+
+AI・LLM動向案件。Chatbot ArenaとOpenRouterの開発データをもとにした集計によると、トークン処理量シェアはDeepSeek V4 Flash（18.4％）、MiMo-V2.5（シャオミ、14.9％）、Hy3 preview（テンセント、14.8％）、MiniMax M3（14.3％）、Owl Alpha（美団、11％）の順で、6位のClaude Opus 4.7（9.02％）を大きく上回る。オープンとクローズドのモデル性能差は2026年3月時点で3.3ポイントまで縮小し、アプリ開発でAIを導入した開発者の79％がオープンソースモデルを採用（クローズドは71％）。HuggingFaceの累計ダウンロード数でもAlibabaの「Qwen」が9億4200万件とMetaの「Llama」（4億7600万件）を上回っており、OpenRouterにおける中国製オープンモデルの週間トラフィック比率も2024年後半の2％未満から2026年4月には45％超まで伸びた。
+
+出典: [＠IT](https://atmarkit.itmedia.co.jp/ait/articles/2608/25/news055.html)
+
+## Anthropic、「Claude Security」の脆弱性スキャンに新モデル「Claude Mythos 5」を追加
+
+Anthropicは8月21日、エンタープライズ向けセキュリティ機能「Claude Security」の脆弱性スキャンモデルとして、最新モデル「Claude Mythos 5」を利用可能にしたと発表した。
+
+AI・LLM動向案件。Claude Securityはコードベースの脆弱性検出とパッチ提案を行う機能で、Mythos 5の投入により複数コンポーネントにまたがる複雑な脆弱性パターンの特定精度が向上したとしている。現在はClaudeエンタープライズプランのユーザー向けにパブリックベータとして提供中。あわせて、OSSプロジェクトのセキュリティ強化を支援する「Defender Advantage Fund」（3500万ドル相当のクレジット）の新設のほか、既存のサイバー防御ツールとの統合推進、サイバー検証プログラムの拡大も発表した。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/08/mythos-5-to-claude-security)
+
+## Deno開発チーム、ブラウザだけでiOS/Androidアプリを作れる「Dactyl」を発表
+
+Deno開発チームは、AIエージェントとの対話でネイティブのiOS/Androidアプリをリアルタイムに構築できるバイブコーディングプラットフォーム「Dactyl」を発表した。
+
+新技術紹介案件。ブラウザ上でテキストによる説明をSwiftUIコードへ変換し、WASMで構築した独自のSwiftUIレンダラーによってMacやXcodeなしでもリアルタイムプレビューできるのが特徴。同じコードからiOS/Android双方で動作するアプリを作成でき、カメラやGPSなど端末機能へのアクセスにも対応する。Google/Appleアカウントでログインしてすぐ使い始められ、料金は無料プラン（月100クレジット）から有料プラン（月額20〜100ドル）まで用意されている。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/08/dactyl)
+
+## ノルウェー政府のデジタル基盤に大規模DDoS攻撃、ID-portenなどに一部影響
+
+ノルウェーの官庁向け共通デジタル基盤を運営するDigdir（官庁デジタル化庁）とその運営パートナーVivictaのシステムが8月24日未明、大規模なDDoS攻撃を受けた。
+
+クラウド・大規模障害案件。攻撃は中央ヨーロッパ夏時間8月24日午前3時38分ごろに始まり、電子ID・電子署名基盤「ID-porten」や行政ポータル「Altinn」など一部サービスで短時間の完全停止やログイン遅延・エラーが発生した。Digdirの責任者は個人データの侵害はないとしており、多くのシステムは安定化したが一部サービスは不完全な状態が続いている。ノルウェーメディアはロシアの関与を指摘しており、犯行声明は出ていないものの6月・8月3日に続き今年3度目となる大規模攻撃となった。
+
+<Note>公的機関の電子ID基盤が標的になると、納税・福祉給付・医療予約などログインを要する行政サービス全般が連鎖的に止まる点が今回の攻撃の特徴。</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/massive-ddos-attack-disrupts-norways-government-digital-services/)
+
+## npmミラーを悪用したCloudflare偽CAPTCHAフィッシング、24パッケージで確認
+
+攻撃者がnpmレジストリとそのミラーサービスを、Cloudflareの偽CAPTCHAページをホストするための無料インフラとして悪用していることが分かった。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。研究者によると悪用が確認された悪意あるnpmパッケージは24個。パッケージ自体を実行させるのではなく、unpkgなどのミラーにキャッシュされたHTMLファイルを悪用する手口で、信頼されたドメイン上に偽のCloudflare CAPTCHAページが表示され、クリックすると「ClickFix」型のフィッシングインフラへリダイレクトされる。現時点のリダイレクト先は正規のChatGPTサイトだが、攻撃者の設定次第で任意のフィッシングドメインに切り替え可能な状態だという。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-abuse-npm-mirrors-to-host-phishing-redirect-pages/)
+
+## 医療機関運営のNutex Health、サイバー攻撃によるデータ窃取を確認
+
+米国で28施設・12州の医療機関を運営するNutex Healthは、社内サーバーから第三者にデータを窃取されるサイバー攻撃を受けたことを確認したと発表した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。米証券取引委員会（SEC）への提出書類で明らかにしたもので、窃取されたデータには非公開・機密情報が含まれる可能性があるとしている。8月24日時点で事業運営や財務報告システムへの重大な影響は確認されておらず、事業戦略や財務状況への重大な影響も見込んでいないとしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hospital-operator-nutex-health-says-data-stolen-in-cyberattack/)
+
+## 今日のTips: TypeScriptの`const`型パラメータで、`as const`なしにリテラル型を推論させる
+
+ジェネリック関数は通常、呼び出し時に渡した配列リテラルを`string[]`のような広い型に推論するため、要素のリテラル型や`readonly`タプルとして扱いたい場合は呼び出し側で毎回`as const`を書く必要があった。
+
+```typescript
+type HasNames = { names: readonly string[] };
+
+function getNames<T extends HasNames>(arg: T): T["names"] {
+  return arg.names;
+}
+function getNamesConst<const T extends HasNames>(arg: T): T["names"] {
+  return arg.names;
+}
+
+// 推論型: string[]
+const loose = getNames({ names: ["Alice", "Bob"] });
+// 推論型: readonly ["Alice", "Bob"]（as const不要）
+const strict = getNamesConst({ names: ["Alice", "Bob"] });
+```
+
+TypeScript 5.0で追加された`const`型パラメータは、型パラメータに`const`修飾子を付けるだけで呼び出し側の`as const`を省略でき、既定の推論を「できるだけ具体的な型」に切り替えられる。
+
+<Tip label="▶ 補足">
+制約に`string[]`のような可変型を使うと`readonly`配列が代入できず期待通りに推論されないため、`<const T extends readonly string[]>`のように制約自体も`readonly`にする必要がある。また`const`修飾子が効くのは呼び出し時に書かれたリテラルのみで、既存の変数を渡した場合は通常通り広い型に推論される。
+</Tip>
+
+参考: [TypeScript 5.0 Release Notes - const Type Parameters](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html)
