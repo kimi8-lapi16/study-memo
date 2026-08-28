@@ -1,0 +1,92 @@
+---
+title: ITニュースダイジェスト 2026-08-28
+listTitle: ITニュースダイジェスト 2026-08-28 — Googleが動画生成AI「Gemini Omni 1.1 Flash」公開、DuckDB開発元DuckLabsがAWS子会社に、Next.jsに未認証RCEの緊急パッチ、キオクシア・SanDiskが日本に5兆円投資、旧Twitter法務担当の新SNS「Twitter.now」がXと係争中のまま始動、Citrix NetScalerの実質RCE化にCISAが緊急パッチ命令、豪州でサプライチェーン攻撃集団「TeamPCP」の容疑者2人を逮捕。
+date: 2026-08-28
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, 業界動向, 訴訟, セキュリティ]
+summary: Googleの動画生成AI「Gemini Omni 1.1 Flash」公開、DuckDB開発元DuckLabsのAWS子会社化、Next.jsの未認証RCE緊急パッチ、キオクシア・SanDiskの対日5兆円投資計画、「Twitter.now」とXの商標係争、Citrix NetScalerの実質RCE化とCISAの緊急命令、豪州でのTeamPCP容疑者逮捕の計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-08-28</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google、動画生成AI「Gemini Omni 1.1 Flash」を公開
+
+Googleは8月27日（現地時間）、動画生成AIモデル「Gemini Omni 1.1 Flash」をAPI経由で公開した。
+
+新技術紹介案件。既存動画の直近10秒分を解析してシーンの続きを違和感なく生成できる「動画の続き生成」に対応するほか、高速プレビュー用の360pから最大4Kまでの解像度・アップスケールを選択できる。入力方式もテキストのほか開始・終了フレーム指定、最大3秒の参照動画に対応する。第三者評価機関Arenaのランキングではテキスト→動画部門で1位、画像→動画部門で2位を獲得したという。料金は生成秒数と解像度に応じて変動する。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260828-gemini-omni-1-1-flash/)
+
+## DuckDBの開発元DuckLabs、AWSの子会社に　MITライセンスは維持
+
+OLAP DB「DuckDB」の開発元DuckLabsは、2026年9月初旬付けでAWSの子会社になると発表した。
+
+開発ツール・言語・OSS動向案件。DuckDBとその関連プロジェクト「DuckLake」は現在DuckDB Foundationの監督下でMITライセンスのオープンソースとして開発されており、買収後もライセンス・開発体制・ガバナンス・ロードマップは維持されるとしている。AWSにとってはAmazon S3上のデータ分析を補完する高速OLAP技術を取り込む狙いがあり、SnowflakeやDatabricksなど競合による買収を先んじる意味合いもあるとみられる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/duckdbducklabsawsduckdbmit.html)
+
+## Next.jsに未認証RCEの脆弱性、AVIF画像最適化とWindows環境が対象
+
+Vercelは8月25日、Next.jsの緊急セキュリティリリースを公開し、Critical（緊急）の未認証リモートコード実行（RCE）脆弱性2件を修正した。
+
+開発ツール・言語・OSS動向案件。1件（GHSA-2xp9-vwfh-vxw4）は画像最適化APIが利用する`sharp`の依存先`libheif`の脆弱性に起因し、攻撃者が用意したAVIF画像を最適化処理する際にRCEが発生し得るというもの。もう1件（CVE-2026-75604 / GHSA-p293-qw3h-jr36）はPages RouterとApp Routerを併用しCache Componentsを使っていない構成で、NextサーバーがWindows上のファイルシステムを使っている場合にRCEが発生し得る（Linux・macOSは影響なし）。当初は8月26日公開予定だったが、追加のCritical脆弱性が見つかったため前倒しで公開された。`next@15.5.24`（15.5系）・`next@16.3.3`（16.3系）へのアップデートが必要で、Windows環境の脆弱性には回避策が無いとしている。
+
+出典: [CodeZine](https://codezine.jp/news/detail/29397)、[Next.js公式ブログ](https://nextjs.org/blog/august-2026-security-release)
+
+## キオクシアとSanDisk、日本に約5兆円の追加投資へ
+
+キオクシアと米SanDiskは8月28日、2032年度までに日本国内で最大5兆円（310億ドル超）規模の追加投資を行う計画を発表した。
+
+業界動向案件。三重県四日市工場・岩手県北上工場でのフラッシュメモリ生産設備・関連インフラの増強が柱で、政府からの支援が前提とされている。両社は過去25年間で日本国内に約9兆円を投じてきており、高市政権の経済政策とも歩調を合わせた形での長期的パートナーシップ強化と位置付けられる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/28/2000000879/)
+
+## 元Twitter法務担当の新SNS「Twitter.now」、Xとの商標係争が決着しないまま始動
+
+元Twitter法務担当のスティーブン・コーツ氏率いるスタートアップ「Operation Bluebird」は8月24日、有料制SNS「Twitter.now」の提供を始めた。
+
+訴訟・トラブル案件。X社が2023年にTwitterをXへリブランドした際、Operation Bluebirdは2025年12月に「Twitter」商標の取り消しを申し立て、X社が「リブランドは商標放棄ではない」として提訴する事態となった。2026年4月の審理では連邦地裁判事が「X社は『Twitter』の名称についても知的財産権を手放したように見える」との暫定見解を示したが、Operation Bluebirdは係争の決着を待たずにサービスを開始している。
+
+<Note>あくまで訴訟継続中の暫定見解であり、商標の帰属が確定したわけではない点に注意。</Note>
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2608/27/2000000842/)
+
+## Citrix NetScalerの脆弱性、実質RCE化が判明しCISAが緊急パッチ命令
+
+Citrix NetScaler ADC・Gatewayに影響するメモリオーバーフロー脆弱性CVE-2026-8452について、当初はDoS（サービス拒否）のみとされていたが、セキュリティ企業watchTowrの調査で攻撃者がroot権限のリモートコード実行を取得できることが判明した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。影響を受けるのはGateway VPNまたはAAA（認証・認可・監査）仮想サーバーを設定した構成で、Shadowserverの調査によればインターネット上に22,000台以上のNetScaler ADCと約1,800台のGatewayインスタンスが公開されている。米CISAは連邦機関に対し8月29日（土）までのパッチ適用を命じた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/)
+
+## サプライチェーン攻撃集団「TeamPCP」、豪州で容疑者2人を逮捕・起訴
+
+オーストラリア連邦警察と西オーストラリア州警察は8月26日、Trivy・LiteLLM・Telnyx・SAP・TanStackなどのパッケージや欧州委員会・Mistral AI・OpenAI・GitHubを標的にした一連のサプライチェーン攻撃集団「TeamPCP」に関与した疑いで、21歳と23歳の男2人をコテスロー・マンドゥーラで逮捕し、8月27日にパース治安判事裁判所に起訴した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。容疑にはコンピュータ犯罪に関するデータの所持・供給、重大犯罪を助長するためのデータ改ざんなど14件が含まれる。TeamPCPによる攻撃は世界1,000超の組織に及び、50万件の認証情報窃取・300GB以上のデータ流出を引き起こしたとされ、被害総額は数億ドル規模とみられる。捜査は2026年4月、サイバーセキュリティ企業からの情報提供を受けてFBIとの連携で始まった。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/australia-arrests-alleged-teampcp-hackers-behind-supply-chain-attacks/)
+
+## 今日のTips: NestJSのライフサイクルフック、実行順序は「モジュールのインポート順」に依存する
+
+`onModuleInit()`や`onApplicationBootstrap()`のようなNestJSのライフサイクルフックは、モジュール依存関係グラフを解析してリーフ（末端）から実行される、といった賢い順序制御をしているわけではない。
+
+```ts
+@Module({ imports: [FooModule, BarModule] })
+export class AppModule {}
+```
+
+公式ドキュメントには「`onModuleInit()`と`onApplicationBootstrap()`の実行順序は、モジュールのインポート順に直接依存し、前のフックの完了を待って次に進む」と明記されている。つまり上記の例では`FooModule`配下の`onModuleInit()`が完了してから`BarModule`配下の`onModuleInit()`が呼ばれる、という単純な逐次実行であり、依存し合う複雑なモジュール構成では「重い初期化処理を持つモジュールをどこに`imports`するか」で他モジュールの起動が意図せず遅延し得る。
+
+<Tip label="▶ 補足">
+どちらのフックも戻り値をPromiseにする（またはメソッドをasyncにする）ことで、完了を待たせる非同期処理として書ける。`onApplicationBootstrap()`は全モジュールの`onModuleInit()`完了後、実際に接続をリッスンし始める前に呼ばれる。
+</Tip>
+
+参考: [NestJS Documentation - Lifecycle Events](https://docs.nestjs.com/fundamentals/lifecycle-events)
