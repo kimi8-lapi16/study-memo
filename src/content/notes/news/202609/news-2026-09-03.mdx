@@ -1,0 +1,70 @@
+---
+title: ITニュースダイジェスト 2026-09-03
+listTitle: ITニュースダイジェスト 2026-09-03 — Anthropic×Salesforceの「Claudeforce」発表、AWSとAzureが100Gbps相互接続、CloudflareのAI駆動ボット検出、JFrog Artifactoryの認証回避脆弱性が悪用中。
+date: 2026-09-03
+category: NEWS
+tags: [NEWS, IT, AI, クラウド, セキュリティ, 開発ツール]
+summary: AnthropicとSalesforceの統合プロダクト「Claudeforce」発表、AWSとAzureの100Gbpsマルチクラウド相互接続、CloudflareのAI駆動ボット検出エンジン「Adaptive Intelligence」、JFrog Artifactoryの認証回避脆弱性(CVE-2026-82329)の悪用が確認された計4件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-03</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropic、SalesforceとAIエージェント統合プロダクト「Claudeforce」を発表
+
+AnthropicとSalesforceは9月2日、両社の技術を統合した新プロダクト「Claudeforce」を発表した。
+
+AI・LLM動向案件。目玉機能の「Salesforce in Claude」により、Claudeのインターフェース内から直接Salesforceのデータやワークフローへアクセスできるようになり、営業担当者は値引き提案やメール文面の作成、商談準備、パイプラインレビューなどの業務をClaude上で完結できる。37種類のセールススキルを備えるという。Salesforce CEOのマーク・ベニオフ氏は「確率論的なモデルだけでは会社は運用できず、決定論的システムだけでは推論ができない」と述べ、Claudeの推論能力とSalesforceの信頼できるデータ・コントロール機能を組み合わせる狙いを説明した。すべてのエージェントの操作はSalesforceを経由するため、企業側のビジネスルールが確実に適用される設計になっている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/claudesalesforceclaudeforceanthropicsalesforceclaude.html)
+
+## AWSとMicrosoft Azure、最大100Gbpsのマルチクラウド相互接続を開始
+
+AWSとMicrosoftは9月3日、両社のクラウドを最大100Gbpsの高速閉域網で直接相互接続するサービスをプレビュー公開した。
+
+クラウド・大規模障害案件。AWS側は「AWS Interconnect – multicloud」でAzureをサポートし、Microsoft側も新たに「Azure Multicloud Interconnect for AWS」を提供開始した。いずれもマネージド型のネットワークサービスで、AWSが提唱するネットワーク相互運用性のためのOpen API仕様に対応する。これまで複数クラウドを使う企業はユーザー自身が物理接続の構築やルーティング設定、接続監視などを担う必要があったが、今回のサービスによりインフラ管理の負担が大きく軽減される。この発表によりAWSはAzureに加えGoogle Cloud・Oracle Cloudとも同様のマルチクラウド接続を持つことになり、主要クラウド間の相互接続が一段と進んだ。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/awsazure100gbpsawsazuregoogle_cloudoracle_cloud.html)
+
+## Cloudflare、AIが継続学習するボット検出エンジン「Adaptive Intelligence」を発表
+
+Cloudflareは、ネットワーク全体から継続的に学習してリアルタイムに防御を更新するボット検出エンジン「Adaptive Intelligence」を発表した。
+
+新技術紹介案件。従来の固定ルールベースの防御と異なり、(1)ネットワーク上で検出された新たなボットや回避策を即座にAIモデルへ取り込む「自己改善」、(2)特定の攻撃向けルールをランダムに有効・無効化し攻撃者によるパターン特定を困難にする「使い捨てルール」、(3)誤検知の報告も学習に反映する仕組み、の3点を特徴とする。攻撃側に「対策を止めるべき標的」ではなく「割に合わない相手」だと認識させることで、いたちごっこの構造そのものを変えることを狙っているという。エンタープライズプランのユーザーが「自動機械学習更新」機能で利用できる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/adaptive_intelligencecloudflare.html)
+
+## JFrog Artifactoryの認証回避脆弱性、公開から日を置かず悪用が確認される
+
+セキュリティ企業watchTowrは、JFrog Artifactoryの認証回避の脆弱性（CVE-2026-82329、CVSS 9.8）が実際の攻撃で悪用されていると報告した。
+
+セキュリティインシデント・脆弱性案件。既定設定のArtifactoryでは、未認証の攻撃者がネットワーク経由で管理者トークンを偽造でき、ユーザーやグループ、資格情報、連携アクセス関係の列挙まで行える。watchTowrは9月1日時点で、攻撃者が管理者トークンを発行したうえで環境を調査し、深く侵入する価値があるか見極めている様子を確認したという。リモートコード実行ではなく認証不備であり、JFrogのSaaS版は対象外でセルフホスト版のみが影響を受ける。JFrogは8月28日リリースの7.111.21・7.117.28・7.125.20・7.133.29・7.146.38・7.161.20以降で修正済みだが、更新後も既発行のトークンは有効なままのため別途無効化が必要。Artifactoryを巡っては7月にも別の脆弱性群がAIモデルに悪用される事例（既報）があったばかりで、今回は無関係の新規の脆弱性。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/)
+
+## 今日のTips: NestJSのグローバル例外フィルター、登録方法によってDIできるかが変わる
+
+`app.useGlobalFilters()` で登録したグローバル例外フィルターは、モジュールのコンテキスト外で生成されるため、他のプロバイダーを依存性注入（DI）できない。
+
+```ts
+// NG: モジュール外での登録、DIできない
+app.useGlobalFilters(new AllExceptionsFilter(loggerService));
+
+// OK: APP_FILTERトークンで任意のモジュールから登録、DIできる
+@Module({
+  providers: [
+    { provide: APP_FILTER, useClass: AllExceptionsFilter },
+  ],
+})
+export class AppModule {}
+```
+
+`APP_FILTER` トークンを使って `providers` 配列経由で登録すると、フィルターはNestのDIコンテナ管理下でインスタンス化されるため、コンストラクタで他のサービスを注入できるようになる。同じ違いはガード（`APP_GUARD`）やインターセプター（`APP_INTERCEPTOR`）にも当てはまる。ロガーやリポジトリを使いたいグローバルフィルター・ガードを書く際は、`useGlobalXxx()` ではなく `APP_*` トークン経由での登録を選ぶ必要がある。
+
+参考: [NestJS: Exception filters](https://docs.nestjs.com/exception-filters)
