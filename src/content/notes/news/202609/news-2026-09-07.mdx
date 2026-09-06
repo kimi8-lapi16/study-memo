@@ -1,0 +1,77 @@
+---
+title: ITニュースダイジェスト 2026-09-07
+listTitle: ITニュースダイジェスト 2026-09-07 — JavaScript/TypeScriptをC言語に変換する「porffor」がアルファ版に到達、AIコーディングエージェントを束ねる「Herdr」が登場、GitHubのAIエージェントコスト最適化事例、不可視Unicode文字を使うフィッシング新手口。
+date: 2026-09-07
+category: NEWS
+tags: [NEWS, IT, 開発ツール, AI, セキュリティ]
+summary: JS/TypeScriptをC言語・WASMに変換する「porffor」がアルファ版に到達、複数のAIコーディングエージェントを1画面で統括する「Herdr」が登場、GitHubがAIエージェントのコスト最適化は「タスク全体の見直し」が有効と報告、不可視Unicode文字でメールセキュリティを回避するフィッシング新手口がピーク時237万通/日規模に。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-07</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## JavaScript/TypeScriptをC言語に変換する「porffor」がアルファ版に到達
+
+JS/TypeScriptコードを事前コンパイルしてC言語に変換し、ネイティブ実行ファイルやWebAssemblyを生成できるコンパイラ「porffor」が、アルファ版に到達した。
+
+開発ツール・言語・OSS動向案件。開発者のOliver Medhurst氏は「実世界の依存関係が動き始めており、Node互換性が主な残課題」とコメント。生成されたバイナリはJavaScriptランタイムを同梱したファイルに比べて最大50分の1程度まで小さくなるという。JSランタイムに依存しない単体実行ファイルを配布できる点が特徴で、GitHub上でソースが公開されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/javascriptcporfforwasm.html)
+
+## 複数のAIコーディングエージェントを1つのターミナルで統括する「Herdr」が登場
+
+Claude Code・Codex・GitHub Copilot CLIなど複数のAIコーディングエージェントを、1つの統合インターフェースから管理できるツール「Herdr」が公開され、話題になっている。
+
+AI・LLM動向案件。エージェントごとの状態を「作業中＝黄色」「一時停止＝赤」「停止中＝黒」のように色分け表示し、エージェント同士の連携指示や、画面を閉じてもセッションを継続できる機能を備える。並行して複数のAIエージェントを走らせる開発スタイルが広がる中、その運用管理に特化したツールとしてHacker Newsなどで注目を集めた。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260906-herdr/)
+
+## GitHub、AIエージェントのコスト最適化は「トークン削減」より「タスク全体の見直し」と報告
+
+GitHubは、AIコーディングエージェントの運用コストを効率化するには、個々のツール呼び出しのトークン数を削るだけでは不十分で、タスク全体の設計を見直す方が効果的だとする知見を公開した。
+
+AI・LLM動向案件。GitHub Copilot CLIでの実施例として、インストールログなど繰り返し出るノイズの圧縮、現在使っていない行番号プレフィックスなどの形式の削除（推論コスト約5%減）、プロンプト全体を半分程度に削った再設計（正規化コスト2.9%減）、バックグラウンド処理の結果をまとめて1回で返す変更（トークン使用量2.3%減）の4施策を紹介。単純な出力の切り詰めはかえって手戻りでコストがかさむ場合があり、「ツール呼び出し単位ではなくタスク全体を最適化する」ことが重要だとしている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260907-ai-coding-cost-efficient/)
+
+## 不可視Unicode文字でフィッシングメールの検出を回避する手口が横行、ピーク時237万通/日
+
+不可視のUnicode「タグ文字」（U+E0000〜U+E007F）を単語の中に埋め込み、メールセキュリティのキーワードフィルターをすり抜ける「ASCII smuggling」型のフィッシング攻撃が確認された。
+
+セキュリティインシデント・脆弱性案件。例えば"funding"のような金融関連の語に不可視文字を挟んで"fun[不可視文字]ding"のように変形し、検出ワードとして認識されにくくする。2月9日から5月中旬にかけて観測され、ピーク時には1日あたり237万件のメッセージに達し、148ドメインが全体の96%を占めたという。Microsoftは対策として、メールフィルタリングの前段階、およびAI支援システムに渡す前段階の両方で、Unicodeタグ文字など不可視のコードポイントを正規化・除去することを推奨している。
+
+<Note>
+既存のキーワードベースの検出ルールだけに頼っていると、表示上は同じ単語に見えても不可視文字混入ですり抜けられる。フィルタリング前の文字列正規化が対策の要になる。
+</Note>
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/attackers-conceal-phishing-lures-using-invisible-unicode-characters/)
+
+## 今日のTips: TypeScriptの「Excess Property Checks」、オブジェクトリテラル直書きの時だけ働く
+
+TypeScriptは、オブジェクトリテラルを関数引数などに直接渡すとき、対象の型に存在しないプロパティがあればエラーにする「Excess Property Checks（過剰プロパティチェック）」を行う。ところが、いったん変数に代入してから渡すとこのチェックは働かない、という落とし穴がある。
+
+```ts
+interface SquareConfig {
+  color?: string;
+  width?: number;
+}
+
+declare function createSquare(config: SquareConfig): void;
+
+createSquare({ colour: "red", width: 100 }); // エラー: 'colour' は存在しない
+
+const opts = { colour: "red", width: 100 };
+createSquare(opts); // エラーにならない（共通プロパティwidthがあるため）
+```
+
+<Note>
+変数経由で回避できてしまうのは、構造的型付け（structural typing）上は`colour`のような余剰プロパティを許容するのが本来の動作だから。過剰プロパティチェックはあくまで「タイポの早期発見」のための追加チェックであり、オブジェクトリテラル直書きの場合にだけ働く点を覚えておくと、スペルミスが変数経由ですり抜ける事故を理解しやすい。
+</Note>
+
+参考: [TypeScript Handbook: Object Types - Excess Property Checks](https://www.typescriptlang.org/docs/handbook/2/objects.html)
