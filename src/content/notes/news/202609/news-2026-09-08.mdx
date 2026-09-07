@@ -1,0 +1,88 @@
+---
+title: ITニュースダイジェスト 2026-09-08
+listTitle: ITニュースダイジェスト 2026-09-08 — HTMX 4.0がXHRからfetchへ刷新、EVE Onlineが240万行のPythonコードを16年ぶり移行、M365 CopilotがGPT-6 AstraとClaude Fable 5.1に対応、ベルリン州政府から5.8TB流出、教育アプリMathspaceで108万人分漏洩、Webメディア「新R25」が運営終了。
+date: 2026-09-08
+category: NEWS
+tags: [NEWS, IT, 開発ツール, AI, セキュリティ, 業界動向]
+summary: HTMX 4.0が内部通信をXHRからfetchへ刷新しStreaming HTML対応、EVE Onlineが240万行のPython 2.7コードを16年ぶりにPython 3へ移行、Microsoft 365 CopilotがGPT-6 AstraとClaude Fable 5.1に対応、ハッカー集団Rhysidaがベルリン州政府から5.8TBを窃取・公開、教育アプリMathspaceで108万人分の個人情報が流出、Webメディア「新R25」が9月末で運営終了の計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-08</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## HTMXが4.0に、内部通信をXHRからfetchへ刷新しStreaming HTML対応
+
+HTMX開発チームは8月28日、メジャーバージョン「HTMX 4.0」を正式リリースした。
+
+開発ツール・言語・OSS動向案件。従来の内部通信にXMLHttpRequestを使っていた実装をfetch APIベースに刷新し、コードをシンプル化するとともに新機能に対応できるようにした。目玉はServer Sent Events・WebSocket・Multi-Part Responsesの3方式に対応した「Streaming HTML」で、チャットAIの応答のように連続して届く文字列を受け取りながら画面へ順次表示するような処理が可能になる。このほか、`hx-`属性が親要素から子要素へ既定で継承されなくなった点や、イベント名が`htmx:beforeRequest`から`htmx:before:request`に統一された点など、移行時に注意が必要な破壊的変更も含まれる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/htmx_40xhrfetchstreaming_html.html)
+
+## EVE Online、16年ぶりに240万行のPython 2.7コードをPython 3へ移行
+
+大規模オンラインゲーム「EVE Online」の開発元は8月25日、ゲームを支える240万行のPython 2.7コードをPython 3へ移行すると発表した。
+
+開発ツール・言語・OSS動向案件。同ゲームのPythonバージョンアップは2007年の2.5、2010年の2.7以来16年ぶり。移行理由として、Python 3の高速化によるゲーム処理の性能向上に加え、ライブラリやデバッガ・プロファイラなどのエコシステムが軒並みPython 3前提になっている点を挙げている。まずPython-Futureツールで機械的に変換し、現時点でコードの95.9%がPython 3でコンパイル可能な状態まで進んでいるが、両バージョンで挙動が異なる約2万行分は人手での修正が必要という。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/eve_online240python_27python_3.html)
+
+## Microsoft 365 Copilot、GPT-6 AstraとClaude Fable 5.1が利用可能に
+
+Microsoftは9月4日、OpenAIの新モデル「GPT-6 Astra」をMicrosoft 365 Copilotのエージェント機能「Copilot Cowork」と構築ツール「Copilot Studio」で提供開始した。AnthropicのClaude Fable 5.1も9月1日付でラインアップに追加済み。
+
+AI・LLM動向案件。GPT-6 Astraにより、より大きな粒度のタスクを一括で任せやすくなり、細かく指示を分割する必要が減るという。Claude Fable 5.1はWork IQと組み合わせることで、より的確な応答が可能になるとしている。利用可否は組織や地域によって異なり、管理者はMicrosoft 365管理センターから利用範囲を設定できる。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2609/07/2000001217/)
+
+## ベルリン州政府から5.8TBの機密データが流出、ハッカー集団Rhysidaが身代金拒否後に公開
+
+ドイツ・ベルリン州政府がハッカー集団「Rhysida」の攻撃を受け、約5.8TB・144万ファイルに及ぶ機密データが窃取され、身代金交渉決裂後にダークウェブ上で公開された。
+
+セキュリティインシデント・脆弱性案件。流出データには防衛計画や重要インフラの脆弱性情報、職員の携帯電話番号・住所、消防・救急対応記録、給与や口座情報などが含まれる。Rhysidaは当初ビットコイン30枚（約3.7億円）を最低入札額としてデータをオークションにかけたが、ベルリン州政府が「身代金交渉には応じない」との方針のもと支払いを拒否したため、全データが公開された。政府は特別対策チームを設置し、影響を受けた個人への通知と捜査を進めている。
+
+<Note>
+専門家は「身代金の支払いは犯罪行為を助長するだけ」として支払い拒否を支持しており、ランサム型攻撃への対応方針として参考になる事例。
+</Note>
+
+出典: [GIGAZINE](https://gigazine.net/news/20260907-berlin-hacking-rhysida/)
+
+## 教育アプリMathspace、Metabase悪用の侵害で108万人分の個人情報が流出
+
+オーストラリア発の教育アプリ「Mathspace」は、社内利用のMetabase自社設置版の脆弱性を突かれて管理者権限を奪われ、オーストラリア・ニュージーランドの生徒・教職員・保護者ら約108万人分の個人情報が流出したと公表した。
+
+セキュリティインシデント・脆弱性案件。侵入は8月10日、データの持ち出しは8月27日に発生し、9月3日に不正アクセスが発覚した。パスワードや学業記録、認証トークン・API認証情報は流出データに含まれていないという。今回の侵害は、Metabaseを狙い撃ちにした攻撃グループShinyHuntersによる一連の攻撃の一部とみられ、Trezorなど他社も同様の手口で被害を受けている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/mathspace-discloses-data-breach-affecting-over-1-million-people/)
+
+## Webメディア「新R25」、9月末で運営終了 約9年の歴史に幕
+
+サイバーエージェント子会社のCAMは9月4日、ビジネスパーソン向けWebメディア「新R25」の運営を2026年9月末で終了すると発表した。
+
+業界動向案件。2017年9月の開設から約9年の歴史に幕を下ろす。編集長は「昨今のメディア運営環境の変化に伴い、次なる大きな成長トレンドを掴むことへの課題を感じていた」とコメントしており、グループ全体の効率化の一環としての判断という。終了までの間、編集部は卒業コンテンツを公開する予定。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/04/2000001190/)
+
+## 今日のTips: PostgreSQLの制約は`NOT VALID`で追加すると、既存行の検証を後回しにできる
+
+PostgreSQLでCHECK制約・外部キー制約・NOT NULL制約を大きなテーブルに追加するとき、そのままだと既存行すべてを検証するスキャンが走り、その間`ACCESS EXCLUSIVE`ロックが長時間保持されてしまう。`NOT VALID`を付けて追加すると、このスキャンをスキップしていったんロックを即座に解放できる。
+
+```sql
+-- スキャンなしで一瞬だけロックを取って解放
+ALTER TABLE orders ADD CONSTRAINT status_check
+  CHECK (status IN ('pending', 'paid', 'shipped')) NOT VALID;
+
+-- 後から検証（書き込みをブロックしない軽量ロックで済む）
+ALTER TABLE orders VALIDATE CONSTRAINT status_check;
+```
+
+<Note>
+`NOT VALID`で追加した制約は、以降のINSERT/UPDATEには即座に適用されるが、既存行が満たしているとは仮定されない。後で`VALIDATE CONSTRAINT`を実行するまで「検証待ち」の状態になる点に注意。`VALIDATE CONSTRAINT`自体は`SHARE UPDATE EXCLUSIVE`ロックしか取らず、他のトランザクションが挿入・更新する行には制約がすでに適用されていると分かっているため、既存行だけをチェックすればよく、並行更新をブロックしない。
+</Note>
+
+参考: [PostgreSQL Documentation: ALTER TABLE](https://www.postgresql.org/docs/current/sql-altertable.html)
