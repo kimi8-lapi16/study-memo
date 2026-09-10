@@ -1,0 +1,92 @@
+---
+title: ITニュースダイジェスト 2026-09-11
+listTitle: ITニュースダイジェスト 2026-09-11 — さくらインターネット不正アクセス第3報で初期パスワード漏えい判明、Microsoftが過去最大966件の脆弱性を修正、AI エージェント数百体を使ったPaperCut攻撃、ChatGPT Proが「前例のない需要」で新規受付停止検討、.NET 11 RC登場、Amazon Quickが自然言語でのアプリ構築に対応。
+date: 2026-09-11
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 開発ツール, クラウド]
+summary: さくらインターネットが不正アクセス第3報で一部初期パスワードの非ハッシュ化保管を公表、Microsoftが過去最大966件の脆弱性を修正する9月Patch Tuesdayを公開、ロシア語話者とみられる攻撃者が数百のAIエージェントでPaperCutの脆弱性を悪用し395組織に侵害、OpenAIがChatGPT Proの「前例のない需要」で新規受付停止を検討、.NET 11のリリース候補版が登場、AWSのAmazon Quickが自然言語でのアプリ構築に対応した計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-11</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## さくらインターネット不正アクセス、第3報で初期パスワードの非ハッシュ化保管が判明
+
+さくらインターネットは9月10日、8月に公表した不正アクセス事案の調査結果および再発防止策（第3報）を公開した。
+
+セキュリティインシデント案件。「さくらのレンタルサーバ」と「さくらのVPS」の初期パスワードの一部が、販売管理システム内でハッシュ化されずに保管されており、第三者に閲覧・取得された可能性があることが新たに判明した。また、不正ログインの可能性がある対象は第1報の583アカウントから951アカウントに増加し、2025年7月以降のものとみられる不審な活動の痕跡もレンタルサーバ環境で新たに確認されたという。販売管理システムへの不正アクセスは2023年4月〜2026年3月の間に発生していたとみられ、会員情報136万563アカウントへの影響可能性は変わらず。同社は非ハッシュ化パスワードの契約者のパスワードを変更するとともに、権限総点検や認証方式の改善、EDR導入拡大を進めるとしている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/10/2000001360/)
+
+## Microsoft、過去最大966件の脆弱性を修正する9月Patch Tuesdayを公開
+
+Microsoftは9月8日、月例セキュリティ更新（Patch Tuesday）で過去最大となる966件の脆弱性を修正した。うち実悪用が確認されているゼロデイは2件。
+
+セキュリティインシデント案件。実悪用ゼロデイは、Windows Updateスタックのリンク解決不備により権限昇格が可能なCVE-2026-81963と、Windows ALPCのヒープバッファオーバーフローによりサンドボックスからの権限昇格が可能なCVE-2026-85880。深刻度別ではCritical（緊急）が105件（うちリモートコード実行81件）、権限昇格438件、リモートコード実行258件、情報漏えい173件、機能バイパス19件という内訳で、単月としては過去最大規模の更新となった。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days/)
+
+## 数百のAIエージェントを使ったPaperCut攻撃、395組織に侵害
+
+ロシア語話者とみられる脅威アクターが、数百のAIエージェントを使ってPaperCut NG/MFの脆弱性を悪用する攻撃を組織的に展開し、48カ国395組織・440インスタンス以上を侵害していたことが9月10日までに判明した。
+
+セキュリティインシデント案件（AI活用という点でAI・LLM動向にも関わる）。攻撃者はOpenAIのCodexとDeepSeekのモデルを組み合わせ、Netlasのスキャンプラットフォームで標的リストを自動生成、認証バイパスとリモートコード実行を組み合わせるCVE-2026-81578・CVE-2026-82078のエクスプロイト開発から実行までをAIエージェントに全自動で担わせた。侵入から4時間でリモートコード実行、さらに2時間でドメイン管理者権限を取得するなど展開速度が極めて速く、被害は教育セクターが約半数を占めた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/)
+
+## ChatGPT Pro、「前例のない需要」で新規受付停止を検討
+
+OpenAIのプロダクト責任者ティボー・ソティオ氏は9月9日、ChatGPT Proプランへの申し込みが急増しているとして、この状況が続けば新規受付を一時停止せざるを得ないかもしれないとXで明らかにした。
+
+AI・LLM動向案件。9月3日に公開した新モデル「GPT-6 Astra」をProプランで先行提供したところ、Astraの「Pro推論」モードや拡大された利用上限を目当てに加入者が急増しているとみられる。同氏は「以前にも急激な成長を経験してきたが、今までこんな状況は見たことがない」とコメント。OpenAIは既存の有料プランユーザー向けに利用制限のリセットを発表するなど、需要への対応を急いでいる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/aiplus/article/2609/09/2000001322/)
+
+## .NET 11のリリース候補版が登場、非同期処理をランタイムがネイティブ実行
+
+Microsoftは9月11日、次期版「.NET 11」のリリース候補版（RC1）を公開した。正式版は11月の.NET Conf 2026でリリース予定。
+
+開発ツール・言語・OSS動向案件。目玉は非同期処理のネイティブ対応で、これまでタスクやライブラリへの分解を介して実行していた非同期処理を、ランタイムが直接ネイティブに実行することでオーバーヘッドを削減し高速化する。このほか、従来1024個超の論理プロセッサでは初期化に失敗していた制限を動的CPUセット割り当てにより撤廃したほか、JITでは境界チェック・オーバーフロー検査の効率的な削除や小規模Switch文の最適化展開、AOTコンパイラでは複数インターフェース呼び出しの共有ディスパッチによるネイティブバイナリの高速化・縮小、WebAssembly版CoreCLRの標準版との互換性強化も行われた。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/net_11netaot.html)
+
+## AWSのBIツール「Amazon Quick」、自然言語だけでカスタムアプリを構築可能に
+
+AWSは9月10日、生成AIを活用したBIツール「Amazon Quick」に新機能を追加し、自然言語の指示だけでカスタムアプリケーションを構築できるようにしたと発表した。
+
+クラウド・大規模障害案件。Amazon QuickはS3上のCSV・Excel・JSONファイルやAurora・Redshiftに加え、BigQueryやSalesforce、Microsoft OneDriveなどサードパーティのデータソースにも接続できるBIツール。従来は自然言語によるデータ分析・可視化にとどまっていたが、今回のアップデートでタブやナビゲーションメニュー、グラフ、フォーム、モーダルダイアログといったUIコンポーネントを備えたアプリケーションを、AIが自動でレイアウトを判断しながら生成できるようになった。キーバリューストレージによる大規模データ処理やAI推論・チャット機能の組み込み、社内外への公開にも対応する。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/awsamazon_quick.html)
+
+## 今日のTips: `startTransition`は`await`の後の状態更新を自動ではトランジション扱いにしない
+
+Reactの`startTransition`（および`useTransition`）は、コールバック内で同期的に呼び出した`set`関数の更新だけをトランジションとしてマークする。`async`関数を渡して`await`を挟むと、`await`より後ろで呼ぶ`set`関数の更新はトランジションの対象外になり、通常の緊急な更新として扱われてしまう。
+
+```jsx
+function updateName(name) {
+  startTransition(async () => {
+    const error = await updateNameOnServer(name);
+    if (error) {
+      setError(error); // ここはトランジション扱いにならない
+      return;
+    }
+    // await の後で更新をトランジション扱いにするには
+    // 追加でstartTransitionにラップする必要がある
+    startTransition(() => {
+      setName(name);
+    });
+  });
+}
+```
+
+<Note>
+公式ドキュメントも「これは既知の制限で、将来的に修正予定」としている現状の仕様。`await`後の更新を含めてローディング表示を制御したい場合は、`await`の後ろの`set`呼び出しをもう一段`startTransition`でラップする必要がある。
+</Note>
+
+参考: [React Docs - startTransition](https://react.dev/reference/react/startTransition)
