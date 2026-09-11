@@ -1,0 +1,97 @@
+---
+title: ITニュースダイジェスト 2026-09-12
+listTitle: ITニュースダイジェスト 2026-09-12 — GitLabの最大深刻度パストラバーサル脆弱性が実悪用偵察下に、パスキー詐称フィッシングでMicrosoft 365侵害、OpenAIがCodexと同じ基盤の「Agents API」公開、DeepSeek-V4.1-FlashがClaude Opus 5等を上回る性能でOSS公開、Tailwind CSSがShopify傘下に、カリフォルニア州がAIチャットボット規制法に署名、Bending SpoonsがMiroを1355億円規模で買収。
+date: 2026-09-12
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 開発ツール, 法改正, 業界動向]
+summary: GitLabの未認証パストラバーサル脆弱性（CVSS最大深刻度）が実悪用偵察下に、パスキー詐称のソーシャルエンジニアリングでMicrosoft 365侵害が拡大、OpenAIがCodexと同じハーネスを使う「Agents API」を公開、中国DeepSeekの新モデルがClaude Opus 5等を上回る性能でMITライセンス公開、Tailwind CSSがShopify傘下入り、カリフォルニア州がAIチャットボット規制法に署名、Bending SpoonsがMiroを約1355億円で買収した計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-12</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## GitLabの最大深刻度パストラバーサル脆弱性、公開翌日から実悪用偵察が発生
+
+GitLabは9月10日、リポジトリのコミットAPIにおける最大深刻度（CVSS 10.0）のパストラバーサル脆弱性CVE-2026-85706を修正した。公開から1日で未パッチサーバーへの偵察活動が観測されている。
+
+セキュリティインシデント案件。パス制限の不備と認証の欠落により、未認証の攻撃者がコミットAPIへのリクエストだけで設定ファイルや認証情報など本来公開されないサーバー内のファイルを読み取れる状態だった。セキュリティ研究者「s3ntago」がHackerOne経由で報告し、影響を受けるのはGitLab CE/EEの18.7以降19.1.8未満・19.2系19.2.6未満・19.3系19.3.2未満で、修正版は19.1.8・19.2.6・19.3.2。watchTowrのハニーポットでは9月11日6時（UTC）時点で未パッチサーバーへの探索的アクセスを検知しており、セルフホストGitLabの利用者は早急なアップデートが必要。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/gitlab-urges-users-to-patch-max-severity-path-traversal-flaw/)
+
+## パスキー詐称のソーシャルエンジニアリングでMicrosoft 365侵害が拡大
+
+ShinyHunters系の攻撃グループなどが、企業のヘルプデスクを装い「パスキーの緊急更新が必要」と偽ってMicrosoft 365アカウントを乗っ取る手口が広がっていることが9月11日までに判明した。
+
+セキュリティインシデント案件。攻撃者は事前にSNS等で標的企業の組織構成や従業員情報を調査した上で電話・SMSで接触し、偽のMicrosoftログインページやデバイスコード認証を使って認証トークンを窃取する。Microsoftは一連の初期侵入活動を、ShinyHunters/Falcon系とされる「Storm-3121」、BlackFile/Helix系とされる「Storm-3032」による関与とみており（Googleは両者を脅迫集団「UNC6671」の一部として追跡）、侵入後はMicrosoft Graphで組織内リソースを探索しSharePoint・OneDriveからデータを窃取する。フィッシング耐性のあるMFA導入とデバイスコード認証の無効化が対策として推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/passkey-themed-phishing-attacks-lead-to-microsoft-365-data-theft/)
+
+## OpenAI、Codexと同じ基盤でAIエージェントを構築できる「Agents API」を公開
+
+OpenAIは9月10日、企業向け・カスタマー向けAIエージェントの構築を支援する「Agents API」のパブリックベータを公開した。
+
+AI・LLM動向案件。最大の特徴はコーディングエージェント「Codex」と同じハーネスを使える点で、プロンプト整形やツール利用、コンテキスト管理、長時間セッションの維持といった、これまで開発者が自前で実装する必要があった処理をAPI側が肩代わりする。実行環境はOpenAI提供のサンドボックスに加え、OracleやCloudflareなどセルフホスト型からも選択できる。API自体の利用は無料で、AIモデルの利用料金のみ別途発生する。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260911-openai-agents-api/)
+
+## 中国DeepSeekの新モデル「V4.1-Flash」、複数ベンチマークでClaude Opus 5等を上回りMITライセンス公開
+
+中国DeepSeekは9月10日、新モデル「DeepSeek-V4.1-Flash」をMITライセンスのオープンモデルとしてHugging Face・ModelScopeで公開した。
+
+AI・LLM動向案件。総パラメータ数5520億のMoEモデルで、アクティブパラメータは入力80億・出力160億。テキストと画像の両方に対応し、新しい事前学習・強化学習手法を採用したという。Artificial Analysisの総合性能指標や事務作業エージェント向けベンチマークで、Claude Opus 5やGPT-5.6 Sol、GPT-6 Astraを上回るスコアを記録したとしている。KVキャッシュは前バージョンのDeepSeek-V4-Flash比で約4分の1に削減されメモリ効率が改善したほか、API料金もピーク時で入力100万トークンあたり0.3ドル・出力1.2ドルと低価格に設定されている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260911-deepseek-v4-1-flash/)
+
+## Tailwind CSS開発元がShopify傘下に、商用事業は終了しOSS版はMITライセンスで継続
+
+Tailwind Labsは9月9日、人気CSSフレームワーク「Tailwind CSS」の開発元としてShopifyの傘下に入ると発表した。
+
+開発ツール・言語・OSS動向案件。週1億1000万回以上インストールされる同フレームワークだが、開発元は2026年1月に収益悪化でエンジニアリングチームの75%を解雇する事態に直面し、スポンサー支援でしのいでいた。今回Shopify入りにより商用事業（有料プラン等）は終了し既存顧客のみアクセス可能なまま新規受付を停止する一方、Tailwind CSS本体は引き続きMITライセンスで無償提供され、開発・メンテナンスもTailwind Labsチームが継続する。創業者のアダム・ワサン氏は、Shopifyが同フレームワークの可能性を早くから認識し起業支援という同社の使命に共感したことを選定理由に挙げている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260911-tailwind-is-joining-shopify/)
+
+## カリフォルニア州、AIチャットボット・SNSの子ども安全規制法に署名
+
+カリフォルニア州のニューサム知事は9月10日、AIチャットボットやSNSから子どもを守ることを目的とした一連の法案に署名した。
+
+法改正・規制動向案件。中心となる「アダムの法律」（SB 1119）は、コンパニオンチャットボット事業者に自殺念慮など危機的兆候への対応プロトコル、保護者による管理機能、安全設定を無効化した際の通知を義務付け、独立した児童安全監査と年次リスク評価の実施を初めて要求する内容。あわせて16歳未満向けの自動再生・アルゴリズムフィードを禁じるAB 1709や、AI生成の児童性的搾取物対応を定めるSB 1276など計十数本の法案に署名しており、米国内でも最も強力な部類のAI・SNS子ども安全規制とされる。AIチャットボットを提供・組み込む事業者は、米国向けサービスでの対応要否を確認しておく必要がある。
+
+出典: [California Governor's Office](https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/)
+
+## Bending Spoons、コラボツール「Miro」を約1355億円で買収
+
+イタリアのBending Spoonsは9月10日、ビジュアルコラボレーションツール「Miro」を企業価値ベースで13億5500万ドル（約1355億円）で買収する最終合意に達したと発表した。
+
+業界動向案件。Miroは有料ユーザー約400万人を抱え、AccentureやCisco、Deloitte、HPなど大手企業を含む750社以上が年間10万ドル超の経常収益を生んでいるという。Bending SpoonsはAOL・Eventbrite・Vimeo・Airtableなど複数のサービスを買収してきた実績があり、今回の買収でワークプレイス協業ツール領域での存在感をさらに強める狙い。買収完了は2026年第4四半期を予定しており、完了後はMiroのパフォーマンスや信頼性、機能面への投資を続けるとしている。
+
+出典: [PYMNTS](https://www.pymnts.com/news/acquiring/2026/bending-spoons-pays-1-billion-dollars-collaboration-firm-miro/)
+
+## 今日のTips: `Object.groupBy()`が返すのはプロトタイプなしのオブジェクト、`hasOwnProperty()`は使えない
+
+ES2024で追加された`Object.groupBy()`は配列を条件でグルーピングして返す便利な関数だが、返り値は通常の`Object`インスタンスではなく**プロトタイプを持たない（`null`-prototype）オブジェクト**である。そのため`Object.prototype`由来のメソッドを直接呼び出すとエラーになる。
+
+```js
+const items = [
+  { name: 'asparagus', type: 'vegetables' },
+  { name: 'banana', type: 'fruit' },
+];
+
+const grouped = Object.groupBy(items, ({ type }) => type);
+
+grouped.hasOwnProperty('fruit');
+// TypeError: grouped.hasOwnProperty is not a function
+
+Object.prototype.hasOwnProperty.call(grouped, 'fruit'); // true
+```
+
+<Note>
+`Object.keys()` / `Object.values()` / `Object.entries()` や `for...in` はプロトタイプチェーンに依存しないため問題なく使える。詰まりやすいのは`hasOwnProperty()`や`toString()`など`Object.prototype`のメソッドを直接呼んだ場合で、必要なら`Object.prototype.xxx.call(grouped, ...)`の形で呼び出す。
+</Note>
+
+参考: [MDN - Object.groupBy()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)
