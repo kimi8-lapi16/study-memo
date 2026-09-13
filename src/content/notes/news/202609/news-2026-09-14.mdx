@@ -1,0 +1,98 @@
+---
+title: ITニュースダイジェスト 2026-09-14
+listTitle: ITニュースダイジェスト 2026-09-14 — トランプ政権サックス氏がAI「ペース調整」論に反論、MicrosoftがRustを社内Tier 1言語に格上げ、ShopifyがReact NativeからSwift/Kotlinへ回帰、Tailscale「Aperture」正式リリース、JFrog Artifactory脆弱性連鎖でバックドア設置、Trezorで34.7万件フィッシング、Contiメンバーに禁錮4年判決。
+date: 2026-09-14
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ, 訴訟]
+summary: トランプ政権のサックス氏がAnthropic・OpenAIの「AIペース調整」論に反論、MicrosoftがRustを社内Tier 1言語に格上げ、ShopifyがモバイルアプリをReact NativeからSwift/Kotlinへ回帰、Tailscaleが AIエージェント統合VPN「Aperture」を正式リリース、JFrog Artifactoryの脆弱性連鎖悪用で5分でバックドア設置、Trezorがメール配信業者侵害由来のフィッシングで34.7万件標的、Contiランサムウェア元メンバーに禁錮4年判決の計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-14</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## トランプ政権のサックス氏、AnthropicとOpenAIの「AIペース調整」論に反論
+
+トランプ政権でAI政策を統括するデビッド・サックス氏は9月14日、前日にAnthropic CEOのダリオ・アモデイ氏が公開した「AI開発のペースを意図的に落とすべきだ」とする提言に対し、強く異議を唱えた。
+
+AI・LLM動向案件。アモデイ氏はエッセイ「We Must Pace the Frontier」で、フロンティアAI企業が能力向上のペースを意図的に落とし、第三者評価者への常時アクセス権付与などを段階的に進めるべきだと提言し、OpenAIのサム・アルトマン氏やElon Musk氏も同調していた（既報）。これに対しサックス氏（大統領科学技術政策局(PCAST)共同議長）は「規制当局の許可がなければ動けないふりをするのはやめろ」と批判。AnthropicとOpenAIはいずれも市場で強い立場にあり、減速の動機が「純粋に利他的とは言えない」としたうえで、製造物責任リスクや市場からの要請に対応しているに過ぎない話を規制の枠組みと結びつけるべきではないと主張した。政権内でAI開発速度を巡る意見の隔たりが表面化した形。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/14/2000001433/)
+
+## Microsoft、Rustを社内の最上位言語「Tier 1」に格上げ
+
+Microsoftは9月14日、プログラミング言語Rustを社内のソフトウェア開発における「Tier 1」言語に格上げしたと発表した。
+
+開発ツール・言語・OSS動向案件。同社Rustツールチームのプリンシパルエンジニアが明らかにしたもので、Tier 1指定は安全なツールチェーン・ビルド・開発環境・ワークフロー・プラットフォーム統合を含む全社的なソフトウェアライフサイクル要件をRustが満たしたことを意味し、C++やC#、TypeScriptと並ぶ位置づけになる。背景には、RustコンパイラとMicrosoft VC++の相互運用を実現する独自基盤「rustc_codegen_utc」の開発があり、既存のMSVCエコシステムをRustからも利用できるようにした。これによりファームウェアからアプリケーション層まで幅広い採用が可能になり、社内では既に100以上のプロジェクトが本番環境で採用、その数は週単位で増加しているという。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/rustcctstier_1.html)
+
+## Shopify、モバイルアプリ開発をReact NativeからSwift/Kotlinへ回帰
+
+Shopifyは、2020年から続けてきたモバイルアプリのReact Native一本化方針を転換し、iOS版をSwift、Android版をKotlinによるネイティブ開発へ回帰させると明らかにした。
+
+開発ツール・言語・OSS動向案件。2025年1月時点ではまだReact Native継続を掲げていたが、その後のコーディングAIの性能向上を受けて方針を撤回した。主要アプリのコア部分をAIを使ってSwift/Kotlinで再構築したプロトタイプで検証したところ、2プラットフォーム分の重複開発・互換性維持にかかるコストを大幅に削減できると判断したという。買い物アプリ「Shop」は既に移行を完了しており、Shopifyアプリ本体のネイティブ版も2026年中のリリースを予定している。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260914-shopify-back-to-native-mobile-ai/)
+
+## Tailscale、AIエージェントがネットワークを直接操作できる「Aperture」を正式リリース
+
+Tailscaleは、AI関連の通信を一元管理する「AIゲートウェイ」機能「Aperture」を正式リリースした。
+
+新技術紹介案件。ApertureはAPIキーを各ノードに配布せずゲートウェイ側で一元管理できるほか、AIサービスの利用コスト管理・ガードレール・監査ログ取得、Model Context Protocol(MCP)やAPIのプロキシ機能を備える。新たに追加された「Tailscale MCP」「Tailscale SSH MCP」により、ClaudeやGeminiなどのAIエージェントがApertureのチャットUI経由でTailscaleネットワークへのノード追加やSSH接続を直接行えるようになった。アクセス制御や人間の承認フロー、監査ログを維持しながらAIによる運用自動化を進められる点を打ち出している。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/tailscalevpnaiapertureaitailscale.html)
+
+## JFrog Artifactoryの脆弱性連鎖悪用、5分で管理者権限奪取からバックドア設置まで
+
+クラウドセキュリティ企業Wizは、JFrog Artifactoryの複数の脆弱性が実際の攻撃で組み合わせて悪用され、わずか5分で管理者アカウント作成からバックドア設置まで到達するケースを確認したと報告した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。今回の悪用は、認証が無効な場合でも匿名ユーザーのJWTを取得できるCVE-2026-42018と、トークン検証不備により権限をadminへ昇格できるCVE-2026-42016を組み合わせたもので、9月上旬に報じた認証バイパスの脆弱性CVE-2026-82329（既報）とは別系統。攻撃者は管理者権限を奪ったのちRustベースのバックドアを設置し持続的なアクセスを確保していた。Wizによれば、インターネットから到達可能なArtifactoryインスタンスの49〜62%がこれら脆弱性のいずれかの影響を受けるといい、JFrogが提供する7.111.21・7.117.28・7.125.20・7.133.29・7.146.38・7.161.20以降へのアップグレードが推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/artifactory-flaws-chained-in-attacks-deploying-backdoor-malware/)
+
+## 暗号資産ウォレットTrezor、メール配信業者Brevo侵害を悪用したフィッシングで34.7万件が標的に
+
+ハードウェアウォレット大手Trezorは、メールマーケティング業者Brevoが侵害を受けたことに端を発するフィッシング攻撃で、自社ニュースレター購読者リストが悪用されたと明らかにした。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。Brevoは9月9日、120アカウントが不正アクセスを受けたと公表しており、攻撃者はTrezorを含む複数の顧客アカウントを悪用して詐欺メールを送信した。Trezor宛を装ったフィッシングメールは「STM32マイクロコントローラーの脆弱性を悪用した資金盗取の危険性がある」との偽の緊急セキュリティ警告を装い、受信者にウォレットのバックアップ情報を入力させる悪意あるアプリへ誘導する内容だった。影響を受けたメールアドレスは約34.7万件、実際に不審なリンクをクリックしたユーザーは約2,500人という。Trezorは検知から20分以内に悪用ドメインを削除し、Brevo側のアカウントも停止させたことで被害拡大を防いだとしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/trezor-347-000-users-targeted-in-phishing-attacks-after-brevo-breach/)
+
+## Contiランサムウェア元メンバーに禁錮4年の判決
+
+米司法省は9月11日、ランサムウェアグループ「Conti」の元メンバーであるウクライナ国籍の男に禁錮4年の判決が下ったと発表した。
+
+訴訟・トラブル案件。判決を受けたOleksii Oleksiyovych Lytvynenko被告(44)は侵入担当とマルウェア開発者の両方の役割を担い、米国8件・海外4件の被害企業から窃取したデータを管理していたほか、攻撃を助けるローダーの開発にも関与したとされる。2023年7月にアイルランドで身柄を拘束され米国への身柄引き渡しを経て、2026年6月に電信詐欺共謀の罪状で有罪を認めていた。求刑上限は禁錮20年だったが、実際の判決は4年にとどまった。Contiは2021年9月から2022年6月にかけて活動し、米国47州・海外31か国のシステムを攻撃、2022年の活動停止までに1億5000万ドル超の身代金を集めたとされる。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/conti-ransomware-gang-member-sentenced-to-four-years-in-prison/)
+
+## 今日のTips: PostgreSQLの外部キー、参照元列にインデックスが無いと親の更新・削除で遅くなる
+
+PostgreSQLで外部キー制約（REFERENCES）を張るとき、参照先（親）テーブル側の列には主キー等で通常インデックスが付いているが、参照元（子）テーブル側の列には自動でインデックスは作られない。公式ドキュメントは「参照先列が頻繁に変更される場合、参照アクションを効率的に実行できるよう参照元列にインデックスを作成するのが賢明」と明記している。
+
+```sql
+CREATE TABLE distributors (
+  did  integer PRIMARY KEY,
+  name varchar(40) NOT NULL
+);
+
+CREATE TABLE films (
+  code char(5) PRIMARY KEY,
+  did  integer REFERENCES distributors(did)
+);
+
+-- 子テーブル側にも明示的にインデックスを作成する
+CREATE INDEX idx_films_did ON films (did);
+```
+
+<Note>
+インデックスが無くても外部キー制約自体は機能する（挿入・更新時の整合性チェックには親テーブル側のインデックスが使われる）。問題になるのは親テーブルの行をUPDATE/DELETEしたときで、子テーブル側に対応行が残っていないか確認するスキャンのコストが、子テーブル側のインデックスの有無で大きく変わってくる。
+</Note>
+
+参考: [PostgreSQL Documentation: CREATE TABLE](https://www.postgresql.org/docs/current/sql-createtable.html)
