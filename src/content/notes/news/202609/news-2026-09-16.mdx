@@ -1,0 +1,83 @@
+---
+title: ITニュースダイジェスト 2026-09-16
+listTitle: ITニュースダイジェスト 2026-09-16 — OpenAIがAnthropic・Google DeepMindとAI安全性基準を協議、GO・Waymo・日本交通が2027年に東京で無人タクシー運行へ、Java 27正式リリース、VMware vCenter脆弱性にランサムウェア集団も参戦、初代Switchに脆弱性、円谷プロの抽選システムに不正アクセス。
+date: 2026-09-16
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ, 業界動向]
+summary: OpenAIがAI安全性の基準づくりでAnthropic・Google DeepMindと協議していることが判明、GO・Waymo・日本交通が2027年に東京で完全無人タクシーの商用運行を目指すと発表、Javaの最新版「Java 27」が正式リリース、修正済みVMware vCenter脆弱性の悪用にランサムウェア集団も参戦、初代Nintendo Switchに脆弱性、円谷プロの抽選システムへの不正アクセスで133人の当選が一時「落選」に改ざんされた計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-16</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## OpenAI、AI安全性の基準づくりでAnthropic・Google DeepMindと協議中
+
+OpenAIは9月15日、ワシントンでのブリーフィングで、フロンティアAIモデルの安全性基準づくりについてAnthropic、Google DeepMindと協議を続けていることを明らかにした。
+
+AI・LLM動向案件。明らかにしたのはOpenAIのグローバル政策責任者クリス・リヘイン氏で、3社は数週間前から安全性評価のあり方を巡る協議を続けているという。リヘイン氏は「協力する方が安全性を優先しやすい」との考えを示し、独占禁止法上の適用除外を求めるものではないと強調した。一方、FTC(連邦取引委員会)のファーガソン委員長は、AI企業が適用除外を求めるとすれば「強い疑いを持って見る」と述べ、競争障壁づくりに利用されないか懸念を示した。米議会でもバーニー・サンダース上院議員が超知能AIの開発を禁じる法案の提出を表明するなど、AI企業の自主規制と政府規制のあり方を巡る議論が広がっている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/16/2000001522/)
+
+## GO・Waymo・日本交通、東京で2027年に完全無人タクシー運行へ
+
+配車アプリ「GO」、Waymo、日本交通の3社は、2027年中に東京でレベル4の完全無人タクシーの商用運行を目指すことで合意したと発表した。
+
+業界動向案件。3社は2025年から東京都内7区で、日本交通の乗務員が同乗する形の自動運転試験走行を進めてきた。商用化にあたってはまず100台規模での段階的な運行開始を目指す。役割分担としてGOがタクシー事業者との連携やアプリを通じた配車サービスを、Waymoが自動運転技術と車両管理システムを、日本交通が営業所運営や現場の運行管理を担う。利用者は配車アプリ「GO」「Waymo」のいずれからも配車を依頼できるという。実現すれば国内初となる完全無人の商用タクシー運行で、今後は安全性検証と許認可取得を進める。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/15/2000001472/)
+
+## Java 27正式リリース、全環境でG1 GCがデフォルトに
+
+Oracleは9月15日、Javaの最新版「Java 27」を正式リリースした。
+
+開発ツール・言語・OSS動向案件。目玉はJEP 523により、G1ガベージコレクタがすべての環境で既定になった点。これまでCPU1個・物理メモリ1792MB未満の環境では軽量なSerial GCが既定だったが、性能改善が進んだG1に統一される。またJEP 527により、TLS 1.3向けにポスト量子暗号を組み合わせたハイブリッド鍵交換が既定で有効になり、既存アプリのコード変更なしに「Harvest Now, Decrypt Later」(現在の暗号通信を保存し将来の量子コンピュータで復号する攻撃手法)への耐性を高められる。このほかコンパクトオブジェクトヘッダー(64bit環境で96bitから64bitへ削減)、構造化並行処理やVector APIのプレビュー更新なども含まれる。なおJava 27はLTS(長期サポート)版ではなく、サポート期間は2027年3月までの半年間にとどまる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/java_27g1_gctls_13.html)
+
+## 修正済みVMware vCenter脆弱性、ランサムウェア集団も便乗悪用に参戦
+
+米CISA(サイバーセキュリティ・インフラセキュリティ庁)は、VMware vCenterの重大脆弱性「CVE-2026-59310」を悪用する攻撃に、新たにランサムウェア集団が加わったと警告した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠、続報）。同脆弱性はvCenterのSyslogサーバーにおけるディレクトリトラバーサルの欠陥で、7月29日のパッチ公開直後から悪用が始まり、8月14日のダイジェストで報じた通り47カ国361台への侵害が判明していた。これまでの悪用は特定の攻撃グループによるものとみられていたが、CISAによれば新たにランサムウェアの運用者もこの攻撃キャンペーンに加わったという。セキュリティ企業Shadowserverの追跡では、パッチ適用状況が不明な露出済みvCenterサーバーが450台超確認されている。未パッチのvCenterを運用中の場合は、侵害の有無にかかわらず緊急パッチの適用が必要。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/)
+
+## 初代Nintendo Switchに脆弱性、QRコード読み取りで情報漏えいの恐れ
+
+任天堂は、初代Nintendo Switchに深刻度「高」の脆弱性「CVE-2026-82079」があることを公表した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。CVSS v4.0のスコアは7.0で、表示中のQRコードを悪意ある第三者に直接読み取られると、不正なコードを実行されたり本体内の情報を取得されたりする恐れがある。脆弱性が確認されたのは、アルバム内の「スマートフォンへ送る」機能を使うときと、「マリオカート ライブ ホームサーキット」でカートを使用するときの2場面。対象はシステムバージョン23.0.0未満の初代Switchで、Nintendo Switch 2への影響はない。9月10日配信のバージョン23.0.0で修正済みのため、任天堂はユーザーに更新を呼びかけている。なお本件は、任天堂が2026年1月にCVE採番機関(CNA)になって以降、自ら初めて公表したCVEとなる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/15/2000001474/)
+
+## 円谷プロのLINE抽選システムに不正アクセス、当選133人が一時「落選」に改ざん
+
+円谷プロダクションが運営する店舗「ULTRA MART」のLINE連携抽選システムが不正アクセスを受け、本来「当選」だった133人のステータスが「落選」に書き換えられる被害が発生した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。9月9日から10日にかけて、抽選システム「mogily」を運営する事業者の管理システムに外部から不正アクセスがあり、限定のウルトラマンぬいぐるみの抽選結果が改ざんされた。ログ調査で影響を受けた133人を特定し、ステータスはすべて「当選」に復旧済み。侵入経路の特定とセキュリティ強化も完了し、新たな不正アクセスは確認されていないという。個人情報の漏えいは確認されていないとしつつ、9月19日以降の抽選は一時休止し、本来当選していた顧客への補償を検討している。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/15/2000001480/)
+
+## 今日のTips: Prismaのカラムリネームは既定でDROP+CREATE、そのままではデータが失われる
+
+Prismaスキーマでフィールド名を変更して`prisma migrate dev`を実行すると、既定では旧カラムをDROPし新カラムをCREATEするマイグレーションが生成される。公式ドキュメントも「renaming a field in the schema results in a migration that will: CREATE a new column ... DROP the existing column ... and the data in that column」と明記しており、見た目はリネームでも実体は「別カラムへの置き換え」で、既存データが失われる。
+
+```sql
+-- 既定で生成されるSQL(データが失われる)
+ALTER TABLE "User" DROP COLUMN "name", ADD COLUMN "fullname" TEXT;
+
+-- RENAME COLUMNに書き換えれば既存データを保持できる
+ALTER TABLE "User" RENAME COLUMN "name" TO "fullname";
+```
+
+<Note>
+`prisma migrate dev --create-only`でマイグレーションファイルを生成するとDBにはまだ適用されないため、この段階でSQLを上記のように手動編集してから`prisma migrate dev`を実行すれば、データを保持したままリネームできる。
+</Note>
+
+参考: [Prisma Documentation: Customizing migrations](https://www.prisma.io/docs/orm/v7/prisma-migrate/workflows/customizing-migrations)
