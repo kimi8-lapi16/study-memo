@@ -1,0 +1,94 @@
+---
+title: ITニュースダイジェスト 2026-09-15
+listTitle: ITニュースダイジェスト 2026-09-15 — ヤマハが自動耳コピアプリ公開、トランプ大統領がアモデイ氏を名指し批判、Agent RouterがLinux Foundation傘下に、Homebrew 7.0.0公開、デジタル庁GSSに不正アクセスで24.6万件漏えいの可能性、Vite開発サーバー狙う攻撃、HBO Max公式Reddit乗っ取り。
+date: 2026-09-15
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, セキュリティ, 新技術]
+summary: ヤマハが音源から3分でピアノ譜を作る自動耳コピアプリ「Piano Sheet Converter」β版を公開、トランプ大統領がAnthropicのアモデイCEOを名指しで批判し中国外務省も論争に言及、AIゲートウェイ「Agent Router」がLinux Foundation傘下の標準プロジェクトに、Homebrew 7.0.0が脆弱性スキャナーを搭載、デジタル庁のGSSに不正アクセスで24.6万件の個人情報流出の可能性、公開Viteサーバーを狙うクラウド認証情報窃取攻撃、HBO Max公式Redditアカウント乗っ取りでClickFix型マルウェア配信の計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-15</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## ヤマハ、音源から3分でピアノ譜を自動生成する「Piano Sheet Converter」β版を無料公開
+
+ヤマハは9月11日、音源ファイルを読み込むだけでピアノ譜を自動生成するアプリ「Piano Sheet Converter」のβ版をWindows/macOS向けに無料公開した。
+
+新技術紹介案件。いわゆる「自動耳コピ」機能を搭載し、標準的な楽曲であれば読み込みから約3分でピアノ譜を作成できる。譜面は入門・初級・中級・上級の4段階で作り分けられ、アプリ内での編集や再生も可能。完成した楽譜はPDF・MIDI・MusicXML形式で書き出せる。10月末までのβ期間中は有料機能も無料で使えるが、商用利用は不可で私的利用のみが対象、GDPR適用地域（欧州経済領域など）では利用できない。正式版はWindows/macOS向けが2026年秋、iOS/Android向けが2027年春ごろを予定している。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/14/2000001452/)
+
+## トランプ大統領、Anthropic CEOのアモデイ氏を名指しで批判
+
+トランプ米大統領は9月14日、自身のSNS「Truth Social」への投稿で、Anthropic CEOのダリオ・アモデイ氏を名指しし「完璧な小さい天使のふりをしている」と批判した。
+
+AI・LLM動向案件。アモデイ氏が公開したエッセイ「We Must Pace the Frontier」で、フロンティアAI企業が開発ペースを意図的に落とすべきだと提言していたことへの反応で（既報）、トランプ氏は「AIに必要なガードレールは強く賢い大統領だけだ」とし、政権がAI企業による悪行を止めてきたと主張、規制当局の許可待ちを装う姿勢を批判した。同日の定例記者会見では中国外務省の郭嘉昆副報道局長もこの論争に言及し、「様々な脅威論を広めたり対立や悪質な競争に身を投じたりすることは、AIのグローバルガバナンスを阻害するだけで誰の利益にもならない」と述べたうえで、BRICS向けのAIオープンソースコミュニティ・クラウド基盤づくりを通じグローバルサウス諸国を支援する方針を示した。フロンティアAIの開発速度を巡る論争が、米政権・中国を巻き込みながら広がっている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/15/2000001470/), [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/15/2000001469/)
+
+## AIベンダAPIの差異を統合する「Agent Router」、Linux Foundation傘下の標準プロジェクトに
+
+オープンソースのAIゲートウェイ「Envoy AI Gateway」は、Linux Foundation傘下のAgentic AI Foundation(AAIF)に参加し「Agent Router」へ改称したと発表した。東京で開催された「AGNTCon+MCPCon Japan 2026」の基調講演での発表内容が、9月15日にPublickeyで報じられた。
+
+開発ツール・言語・OSS動向案件。OpenAI・Anthropic・Google・Mistralなど複数のAIベンダのAPI仕様の違いを吸収し、OpenAI互換の共通エンドポイントからモデルを切り替えられるゲートウェイで、複数のMCPサーバーを単一エンドポイントに集約する機能や、メトリクスに基づく動的ルーティング、フォールバック、使用量制限、トークン使用量・レイテンシの可観測性などを備える。バージョン1.1は本番運用実績があり、Bloomberg・Tencentなど11社が採用済みという。AnthropicのMCP、BlockのGoose、OpenAIのAGENTS.mdに続く、AAIFの主要ホストプロジェクトの1つとなった。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/openaianthropicapiagent_routerlinux_foundation.html)
+
+## macOSパッケージ管理ツールHomebrew、脆弱性スキャナー内蔵の「7.0.0」を公開
+
+Homebrewプロジェクトは9月14日、macOS向けパッケージマネージャーの最新版「Homebrew 7.0.0」を公開した。
+
+開発ツール・言語・OSS動向案件。目玉機能は新設された`brew vulns`コマンドで、インストール済みパッケージの情報をOSV.devの脆弱性データベースと照合し、既知の脆弱性の有無やパッチ適用状況を確認できる。あわせてHomebrew独自の脆弱性アドバイザリDBも新設された。GUIツール「BrewUI」もmacOS 26「Tahoe」以降向けに正式搭載され、パッケージの検索・依存関係管理をGUIから行えるようになった。セキュリティ面では既定でホームディレクトリへのアクセスをブロックし、ネットワーク経由のダウンロードとオフラインインストール処理を分離するなどサンドボックス強化も図られている。GitHubスター4万9000超の人気パッケージマネージャーだけに、マルウェア配布の標的にされやすい点への対策強化という側面もある。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/homebrew-700-gets-built-in-gui-better-security-controls/)
+
+## デジタル庁のGSSに不正アクセス、VPN脆弱性悪用で24.6万件の個人情報流出の可能性
+
+デジタル庁は、各府省庁向け基幹ネットワーク「ガバメントソリューションサービス(GSS)」がVPN機器の脆弱性を突かれて不正アクセスを受け、職員等の個人情報約24.6万件が流出した可能性があると明らかにした。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。6月25日に保守運用担当者アカウントからの大規模なファイルアクセスを検知したのを端緒に調査した結果、7月9日、第三者がVPN機器の既知の脆弱性（深刻度は中程度）を悪用して侵入していたことが判明した。流出の可能性がある情報は氏名約23.6万件、メールアドレス約23.1万件、電話番号約9.4万件、住所約0.1万件で、GSS利用機関の職員や関係事業者などが対象。マイナンバーや金融機関口座、年金関連の情報は含まれていないという。デジタル庁は該当アカウントの停止や侵害機器の外部遮断などの措置を講じ、なりすましメール・電話への注意を呼びかけている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/)
+
+## 公開Viteサーバーを狙う大規模スキャン攻撃、狙いはAWS/Azureの認証情報
+
+セキュリティ企業F5は、インターネットに露出したVite開発サーバーを狙う大規模なスキャン攻撃を観測したと報告した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。悪用されているのはVite 7.1.0〜7.3.2および8.0.5未満に存在するパストラバーサル脆弱性CVE-2026-39364で、未認証の攻撃者がHTTP GETリクエストのクエリパラメータを細工するだけで本来アクセスできないファイルを平文で読み取れる。F5のハニーポットでは1か月間で800件超・約3万2000件のイベントを検知しており、`.env.local`や`.env.production`などの環境変数ファイル、AWS認証情報ファイルやSSOキャッシュ、Azureのトークン・認証情報、Terraformのstate/変数ファイルなど、クラウド認証情報を狙い撃ちする専用の辞書リストが使われていた。Viteの開発サーバーはポート5173で待ち受けることが多く、Docker Compose・Kubernetes・リバースプロキシ経由で意図せず外部公開されるケースが後を絶たないという。最新版へのアップデートとポート5173の遮断、既に露出した認証情報のローテーションが推奨される。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-target-exposed-vite-dev-servers-to-steal-aws-azure-secrets/)
+
+## HBO Max公式Redditアカウントが乗っ取り被害、ClickFix型マルウェア広告を配信
+
+HBO Maxの公式Redditアカウント「u/hbomax」が何者かに乗っ取られ、約48時間で108件の悪意ある広告が配信される被害が発生した。
+
+セキュリティインシデント・脆弱性案件（最大3件枠）。攻撃には「ClickFix」と呼ばれる手口が使われ、偽のCAPTCHA認証やエラー修正、ソフトウェアインストールを装ってユーザーにWindowsの「ファイル名を指定して実行」やPowerShell、macOSのターミナルへ悪意あるコマンドを手動でコピー&ペーストさせる。OS標準のツールを使わせることでブラウザやセキュリティソフトの検知を回避できる点が特徴。広告は偽のHBO Maxアプリ(macOS向け)や偽の開発者向けツール、偽のmacOSユーティリティなどを装い、Windows・macOS双方に対応したマルウェアでブラウザの認証情報や暗号資産ウォレット情報を窃取していた。セキュリティ研究者らはこの一連のキャンペーンを「PasteSwitch」と命名しており、Reddit側は報告を受けて該当広告の停止とアカウントの保護、社内調査を進めている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-hijack-hbo-max-reddit-account-to-push-malware-in-clickfix-ads/)
+
+## 今日のTips: NestJSのREQUESTスコープProvider、それに依存するControllerまでスコープが伝播する
+
+NestJSでプロバイダーを`Scope.REQUEST`にすると、リクエストごとに新しいインスタンスが生成されるようになるが、公式ドキュメントは「A controller that depends on a request-scoped provider will, itself, be request-scoped.」と明記している。スコープの影響はそのプロバイダー単体にとどまらず、それに依存するコンポーネントへ連鎖的に伝播する。
+
+```ts
+@Injectable({ scope: Scope.REQUEST })
+export class CatsService {}
+
+@Controller('cats')
+export class CatsController {
+  // CatsServiceに依存しているため、CatsController自体もREQUESTスコープになる
+  constructor(private catsService: CatsService) {}
+}
+```
+
+<Note>
+公式ドキュメントはパフォーマンスへの影響にも言及しており、「適切に設計されたアプリケーションであれば、REQUESTスコープのプロバイダーを使ってもレイテンシへの影響はおよそ5%程度に収まるはず」としつつ、リクエストのたびにインスタンス生成が発生し平均応答時間が遅くなる点も明確に警告している。テナントIDなど本当にリクエスト単位の状態が必要な箇所だけに絞って使うのが安全。
+</Note>
+
+参考: [NestJS Documentation: Injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes)
