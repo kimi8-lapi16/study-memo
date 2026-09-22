@@ -1,0 +1,76 @@
+---
+title: ITニュースダイジェスト 2026-09-23
+listTitle: ITニュースダイジェスト 2026-09-23 — Anthropicが新モデル「Claude Opus 5.5」を公開、AmazonがMetaのAIエージェント「Muse」の代理購入をブロックしMetaはShopifyと連携、OpenAIが10億人超を支えるストレージ基盤「Habitat」を解説、ShinyHuntersがOracle PeopleSoftのゼロデイ悪用によるFBI侵入を主張、Check PointがManagement Serverの実悪用ゼロデイに緊急パッチ。
+date: 2026-09-23
+category: NEWS
+tags: [NEWS, IT, AI, 新技術, セキュリティ]
+summary: Anthropicが新モデル「Claude Opus 5.5」を公開、AmazonがMetaのAIエージェント「Muse」の代理購入をブロックしMetaはShopifyと連携、OpenAIがストレージ基盤「Habitat」を解説、ShinyHuntersによるFBIへの侵入主張、Check PointのManagement Server実悪用ゼロデイの計5件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-23</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropic、新モデル「Claude Opus 5.5」公開 Fable 5.1並み性能を4割安く
+
+Anthropicは9月22日(米国時間)、新モデル「Claude Opus 5.5」を公開した。上位モデル「Claude Fable 5.1」に匹敵する性能を、利用コストは前世代Opus 5より4割低く抑えたという。
+
+AI・LLM動向案件。コーディングやエージェント操作向けのベンチマーク「Terminal-Bench 4.0」で66.4%を記録し、Fable 5.1の55.8%を上回った。価格は入力が100万トークンあたり4ドル、出力が20ドルで、前世代Opus 5比で入出力2割、キャッシュ読み込みは6割の値下げとなる。Pro・Max・Team・Enterpriseの各プランで同日提供開始したほか、Amazon Bedrock・Google Cloud・Microsoft Foundry経由のAPIでも利用できる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/23/2000001673/)
+
+## Amazon、MetaのAIエージェント「Muse」による代理購入をブロック Shopifyは連携へ
+
+Amazonは9月22日までに、Metaが提供するAIエージェント「Muse」による自社サイトでの代理購入をブロックした。一方Metaは要請を拒否し、Shopifyとの決済連携を拡大する方針を示した。
+
+業界動向案件(AIエージェントによる代理購入をめぐる主導権争い)。AmazonはMuseがプライバシー・セキュリティ上のリスクを伴うとして対象からの除外を求めたが、Metaはこれに応じず、9月21日にはShopifyと連携しShop Payでの決済をShopify全店舗に広げると発表した。Museは9月8日の米国提供開始からわずか1週間でApp Storeの無料アプリランキング1位に到達しており、AIエージェントに代理購入を許すかどうかの対応がEC各社で割れ始めている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/22/2000001669/)
+
+## OpenAI、10億人超のChatGPTユーザーを支えるストレージ基盤「Habitat」を解説
+
+OpenAIは、10億人を超えるChatGPTユーザーのデータを扱う自社製ストレージシステム「Habitat」の設計を公式ブログで公開した。Python実装からRustへの全面移行により、大幅な性能改善を実現したという。
+
+新技術紹介案件。HabitatはもともとAzure Cosmos DBの機能を検索・暗号化・シリアライズ向けにラップするPythonライブラリとして始まったが、急成長するリクエスト量に対応するため2026年第2四半期にRustへの移行を完了した。現在は全リクエストの95%をRust版が処理しており、CPU効率は6倍、メモリ効率は15倍に向上、毎秒7000万件超のリクエストと500ペタバイト超のデータを扱えるようになったという。
+
+出典: [GIGAZINE](https://gigazine.net/news/20260922-openai-storage-habitat/)
+
+## ShinyHunters、FBI求人サイトを改ざん Oracle PeopleSoftのゼロデイ悪用を主張
+
+恐喝グループ「ShinyHunters」は9月22日、Oracle PeopleSoftのゼロデイ脆弱性を悪用しFBIのシステムに侵入したと主張し、採用サイト「FBIJobs.gov」を改ざんした。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。同グループはリモートコード実行を足がかりにFBI管理のAWS GovCloud環境へ侵入し、現旧職員や応募者の人事・医療関連データなど2〜3TB相当を窃取したと主張している。FBIは「FBIJobs.govに関する不正な活動の主張を認識しており、調査中」とコメントした。ShinyHuntersによれば侵入は早期に検知され該当システムはオフライン化されたといい、BleepingComputerはゼロデイの悪用や窃取データ量など同グループの主張について独自検証はできていないとしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/)
+
+## Check Point、Management Serverの実悪用ゼロデイに緊急ホットフィックス
+
+Check Pointは9月22日、同社のSecurity Management Serverなどに存在するパストラバーサル脆弱性が実際の攻撃で悪用されているとして、緊急ホットフィックスを公開した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。脆弱性はCVE-2026-93616で、認証なしの攻撃者がManagement Server・Multi-Domain Security Management Server・Log Server・Multi-Domain Log Server・SmartEventに対し任意のスクリプトを実行できるというもの。同社は一部顧客が実際に攻撃を受けたことを確認しており、R82.20向け緊急ホットフィックスの適用に加え、ファイアウォールでのアクセス制限など暫定対策の実施を呼びかけている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/check-point-patches-management-server-zero-day-exploited-in-attacks/)
+
+## 今日のTips: React 19、関数コンポーネントがrefをpropとして直接受け取れる(forwardRef不要に)
+
+React 19以降、関数コンポーネントは`ref`を通常のpropとして直接受け取れるようになり、`forwardRef`でのラップが不要になった。
+
+```tsx
+// React 19
+function MyInput({ placeholder, ref }: Props) {
+  return <input placeholder={placeholder} ref={ref} />;
+}
+
+<MyInput ref={inputRef} />;
+```
+
+<Tip>
+`forwardRef`自体はReact 19でも動作するが、Reactチームは将来的に非推奨化・削除する方針を明言しており、移行用のcodemodも提供予定としている。新規コンポーネントはpropとして`ref`を受け取る書き方に揃えておくとよい。なお、この変更はクラスコンポーネントには適用されない。
+</Tip>
+
+参考: [React v19 – React Blog](https://react.dev/blog/2024/12/05/react-19)
