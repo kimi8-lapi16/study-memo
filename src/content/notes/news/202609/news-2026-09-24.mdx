@@ -1,0 +1,95 @@
+---
+title: ITニュースダイジェスト 2026-09-24
+listTitle: ITニュースダイジェスト 2026-09-24 — OpenAIが「GPT-6 Sol」「GPT-6 Luna」公開、CloudflareがPython Workersを正式サービス化、Claude Codeが「AGENTS.md」に対応、MicrosoftがXboxで268人削減、AIエージェントによる自動攻撃で60万件超のカード情報窃取、WordPress重大脆弱性が実悪用、Check PointのVPN機器RCEが9月12日から実悪用と判明。
+date: 2026-09-24
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, 業界動向, セキュリティ]
+summary: OpenAIが低価格モデル「GPT-6 Sol」「GPT-6 Luna」を公開、CloudflareがPython Workersを正式サービス化、Claude Codeが「AGENTS.md」に対応、MicrosoftがXboxで268人削減しHalo等をActivision傘下へ、AIエージェントを使った自動攻撃で60万件超のカード情報が窃取、WordPressの重大脆弱性が公開数時間で実悪用、Check PointのVPN機器RCE脆弱性が9月12日から実悪用されていたと判明の計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-24</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## OpenAI、低価格モデル「GPT-6 Sol」「GPT-6 Luna」公開 API料金は前世代の半額
+
+OpenAIは9月22日(米国時間)、新モデル「GPT-6 Sol」と「GPT-6 Luna」を公開した。最上位モデル「GPT-6 Astra」と同様の手法で訓練しつつ、速度とコストを優先した位置付けだという。
+
+AI・LLM動向案件。SolはコーディングなどSolo思考が必要なタスク向け、Lunaは要約や情報抽出のような大量・定型処理向けとされる。API価格は前世代GPT-5.6系のプロモーション価格からさらに半額となり、Solは入力100万トークンあたり2ドル・出力10ドル、Lunaは入力0.1ドル・出力0.5ドル。ChatGPTのPlus・Pro・Business・Enterprise・Eduプランや「Codex」などで順次提供が始まっている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/23/2000001674/)
+
+## Cloudflare、Python Workersを正式サービス化 Django・FastAPIが本番運用可能に
+
+Cloudflareは、WebAssembly版Pythonランタイム「Pyodide」を使った「Python Workers」を正式サービスとして提供開始した。2024年のオープンベータ公開から正式版への移行となる。
+
+開発ツール・言語・OSS動向案件。Django・Flask・FastAPIといった主要フレームワークをJavaScriptのグルーコードなしにネイティブ実行でき、Hyperdrive経由で標準のDBドライバからPostgreSQL・MySQLへ接続できるようになった。WebAssembly対応Pythonパッケージの標準化を目指す「PEP 783」もPythonコミュニティに提案し、採択されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/cloudflarepython_wrokerspythonweb.html)
+
+## Claude Code、「AGENTS.md」に対応 CLAUDE.md不在時は自動で読み込み
+
+Anthropicは、AIコーディングツール「Claude Code」バージョン2.1.277で、複数のAIベンダ横断の指示ファイル形式「AGENTS.md」への対応を追加した。
+
+開発ツール・言語・OSS動向案件。プロジェクトに`CLAUDE.md`が存在しない場合、Claude Codeは代わりに`AGENTS.md`を自動的に読み込むようになる。`CLAUDE.md`が存在する場合はそちらが優先されるが、設定次第で両方を読み込むことも可能。複数のAIコーディングツールを併用するチームが、指示ファイルを重複管理せずに済むようになる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/claude_codeagentsmdclaudemd.html)
+
+## Microsoft、Xboxでさらに268人削減 次期「Halo」はActivisionへ移管
+
+Microsoftは9月22日、ゲーム部門Xboxで新たに268人を削減すると発表した。次期「Halo」タイトルの開発はCall of Duty開発元Activisionの新設チームに移管され、Halo Studiosは小規模体制で既存タイトルの運用支援に専念する。
+
+業界動向案件。今回の削減で、7月に発表した約3,200人規模の人員削減計画のおおむね4分の3を終えたことになる。「World's Edge」「Rare」もActivisionの管轄下に再編されるほか、独立に向けた交渉が白紙になったNinja Theoryは閉鎖案が検討されているという。Xbox CEOのアシャ・シャルマ氏は事業を「健全ではない」と表現しており、組織再編が続いている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2609/23/2000001675/)
+
+## AIエージェントによる自動攻撃キャンペーン、60万件超のクレジットカード情報を窃取
+
+単独の脅威アクターが、オープンソースのAIエージェントフレームワークを悪用して119のECサイトにカードスキマーを設置し、60万件超のクレジットカード情報を窃取したことが判明した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。脆弱性スキャン用の「Strix」、攻撃実行用の「Cairn」、Claude Opus 4.6を組み込みキャンペーン統制に使う「Hermes」という3つのAIツールを組み合わせ、9月10〜15日の間に105波の攻撃を自動実行したという。標的にはフォーチュン500の大手ホテルチェーンや米大手航空会社も含まれ、JSファイル改ざんやキャッシュ汚染、Kubernetes設定の書き換えなど複数の手口でスキマーを注入していた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/)
+
+## WordPressの重大脆弱性、パッチ公開から数時間で実悪用 攻撃は10倍に急増
+
+WordPressコア(CVE-2026-87902、CVSS 9.2)の未認証パストラバーサル脆弱性が、9月22日のパッチ公開からわずか数時間で偵察が始まり、9月23日には攻撃が10倍に急増していることが確認された。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。`page-`で始まる名前のトップレベルディレクトリを持つテーマを使い、サーバー上に読み取り可能なPHPファイルが存在する環境が影響を受け、リモートコード実行につながる。修正版は4.7まで遡って提供されており、WordPress 7.1.2以降へのアップグレードとログ確認が推奨される。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-start-exploiting-critical-wordpress-flaw-for-code-execution/)
+
+## Check PointのVPN機器RCE脆弱性、9月12日から実悪用されていたと判明
+
+Check Pointは、Security GatewayおよびSparkファイアウォールのVPN証明書検証に起因するRCE脆弱性(CVE-2026-85102)について、9月12日から実際の攻撃で悪用されていたと明らかにした。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、続報)。同脆弱性は英国NCSCが9月13日時点で「近いうちに悪用が予想される」と警戒を呼びかけていたもので、今回Check Pointが実悪用の発生を確認した形。攻撃者はVPNやプロキシで発信元を隠し特定の証明書を使っていたという。対策としてLivePatch Take 26やJumbo Hotfixの適用、Sparkファイアウォールはビルド2325以降への更新が推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/check-point-warns-of-hackers-exploiting-security-gateway-vpn-rce-flaw/)
+
+## 今日のTips: `Map.groupBy()`はオブジェクトをキーにできるが、同じ参照でないと引けない
+
+`Object.groupBy()`はキーが文字列（Symbolも可）に限られるが、`Map.groupBy()`はオブジェクトそのものをキーにできる。ただし取り出す際は、グループ化時に使ったのと**同じ参照**のオブジェクトでなければならない。
+
+```js
+const restock = { restock: true };
+const sufficient = { restock: false };
+
+const result = Map.groupBy(inventory, ({ quantity }) =>
+  quantity < 6 ? restock : sufficient,
+);
+
+result.get(restock); // OK: 同じ参照
+result.get({ restock: true }); // undefined: 中身が同じでも別オブジェクト
+```
+
+<Tip>
+`restock`のプロパティを後から書き換えても`result.get(restock)`は引き続き取得できる。参照さえ保てば、値を可変な状態管理のキーとして使える点が`Object.groupBy()`との実用上の違いになる。
+</Tip>
+
+参考: [Map.groupBy() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy)
