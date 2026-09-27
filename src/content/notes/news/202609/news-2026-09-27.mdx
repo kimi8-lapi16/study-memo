@@ -1,0 +1,96 @@
+---
+title: ITニュースダイジェスト 2026-09-27
+listTitle: ITニュースダイジェスト 2026-09-27 — Googleが宇宙でAIチップ試験、OpenAI Codexで障害、Docker Skills公開、Appleが特許訴訟で57億ドル賠償命令、Anthropicの国防総省リスク指定を控訴裁が支持、GitHub Actionsのサプライチェーン攻撃再燃、ShinyHuntersのWAF回避攻撃。
+date: 2026-09-27
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, 訴訟, 法改正, セキュリティ]
+summary: Googleの宇宙AIチップ試験「Project Suncatcher」、OpenAI Codexの障害と使用量リセット、Docker Skills公開、Appleの特許訴訟57億ドル賠償命令、Anthropicの国防総省供給網リスク指定を控訴裁が支持、GitHub Actionsのサプライチェーン攻撃再燃、ShinyHuntersのOracle PeopleSoft狙いWAF回避攻撃の計7件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-09-27</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google、AIチップを宇宙で試験する「Project Suncatcher」
+
+Googleは、機械学習インフラを宇宙に展開できるかを検証する研究プロジェクト「Project Suncatcher」の詳細を公開した。
+
+新技術紹介案件。低軌道の衛星は地上の最大8倍の太陽光エネルギーを利用できることに着目し、将来的に複数の衛星群を連携させたスケーラブルな機械学習基盤を構想している。プロトタイプ衛星に搭載したTPU「Trillium」は、UC Davisでの陽子線照射試験で5年間の宇宙ミッション相当以上の放射線量に耐えたほか、ロケット打ち上げ時に想定される最大50〜100Gの振動を模した3軸振動試験もクリアした。真空環境向けにヒートパイプとラジエーターを用いた独自の冷却方式も開発している。SpaceXの共同ミッション「Transporter-18」で最初の衛星を打ち上げ、2027年には2基の衛星でレーザー通信による連携も検証する計画。
+
+出典: [Google Blog](https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/)
+
+## OpenAI「Codex」で1時間の障害、全有料ユーザーの使用制限をリセット
+
+OpenAIのAIコーディングツール「Codex」で日本時間9月26日午前8時前から約1時間、Web版・API・CLI・VS Code拡張機能すべてが利用できなくなる障害が発生した。
+
+AI・LLM動向案件。8時54分に復旧し、ChatGPTなど他のOpenAIサービスへの影響はなかった。原因は「内部の問題」とされ詳細は明らかにされていない。Codexを率いるティボ・ソティオ氏はX上で謝罪し、影響を受けたユーザーへの補填としてCodexとChatGPT全体の全有料ユーザーの使用制限をリセットすると発表した。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2609/26/2000001774/)
+
+## Docker、AIコーディングエージェント向け公式スキル集「Docker Skills」を公開
+
+Dockerは、Claude Code・Codex・GitHub Copilot・CursorなどのAIコーディングエージェントがDocker公式の指針に沿って作業できるようにする「Docker Skills」をApache License 2.0で公開した。
+
+開発ツール・言語・OSS動向案件。Dockerfile・Composeの構成やイメージ最適化、Docker Sandboxesでの隔離環境管理、Docker Agentの設定・実行・配布など11種類のスキルを収録し、削除などの破壊的操作には確認を求めるポリシーも共通機能として組み込まれている。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/09/docker-skills)
+
+## Apple、触覚技術の特許侵害で57億ドル超の賠償命令
+
+米サンディエゴの連邦地裁の陪審は、AppleがTaction Technologyの触覚(ハプティクス)関連特許2件を侵害したとして、57億ドル超の賠償を命じる評決を下した。
+
+訴訟・トラブル案件。Tactionは2021年に提訴し、iPhoneやApple Watchの「Taptic Engine」が自社の振動技術に関する特許(US10,659,885・US10,820,117)を無断使用していると主張していた。2023年に一度は却下されたが、2025年に連邦巡回控訴裁判所が復活させ今回の評決に至った。陪審は侵害を「故意ではない」と認定。Appleは「Taptic EngineはTactionの技術とは根本的に異なる」として控訴する方針を示している。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/ip-law/apple-owes-5-7-billion-to-litigation-funded-firm-in-patent-case)
+
+## Anthropic、国防総省の「供給網リスク」指定めぐる控訴審で敗訴
+
+米連邦控訴裁判所(DC循環区)は2対1の判断で、米国防総省がAnthropicを「サプライチェーンリスク」として指定したことは適法だったとする判決を下した。
+
+法改正・規制動向案件。国防総省は今年、AIモデル「Claude」が大量監視や自律型致死兵器に使われないよう求めるAnthropicの契約条件をめぐる交渉が難航したことを受け、同社を供給網リスクに指定していた。控訴裁は「国防総省がClaudeの継続的な統合を安全保障上のリスクと結論づける十分な根拠があった」と述べ、指定は恣意的でも違法でも違憲でもないとするAnthropicの主張をいずれも退けた。Anthropicは別の連邦地裁(カリフォルニア)がすでに同種の指定を違法と判断していると強調し、さらなる司法審査を含むあらゆる選択肢を検討しているとコメントした。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/us-law-week/anthropic-faces-court-setback-over-us-supply-chain-risk-label)
+
+## GitHub Actionsの侵害済みアクション、削除前に再有効化されペイロードが復活
+
+2026年5月に侵害され無効化されていたGitHub Actions「actions-cool/issues-helper」「actions-cool/maintain-one-comment」が、9月16日に不適切に再有効化され、悪意あるコードを指すリリースタグがそのまま残る状態になっていたことが判明した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。約1.5万のリポジトリがこれらのアクションに依存しており、9月16日から9月25日にGitHubが両アクションを再度無効化するまでの間、これらを利用したワークフローが悪質なペイロードをダウンロード・実行した可能性がある。セキュリティ企業Socketの調査で発覚した。両アクションを参照している開発者は、参照の削除や検証済みコミットへのピン留め、ワークフロー実行履歴の確認、アクセス可能だったシークレットのローテーションが推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/github-actions-re-enabled-with-mini-shai-hulud-payload-still-active/)
+
+## ShinyHunters、URLエンコードでWAFを回避しOracle PeopleSoftを攻撃
+
+ハッカー集団ShinyHuntersが、Oracle PeopleSoftの脆弱性(CVE-2026-35273)を突く攻撃において、URLエンコードでWebアプリケーションファイアウォール(WAF)を回避する手法を使っていることが確認された。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。`/PSEMHUB/`へのアクセスを`/%50EMHUB/`のようにエンコードすることで、リテラルなパスしか見ないWAFの検知をすり抜けつつ、デコードするOracle WebLogic側では正規のパスとして処理させる手口。今年6月11日に修正済みの認証不要リモートコード実行の脆弱性で、高等教育・IT・医療・農業・運輸・政府機関など幅広い業種が標的になっている。侵入後はJSP Webシェルや「SIDEEYE」バックドア、Linux向けリモート管理ツール「MeshAgent」を展開する手口が確認されており、パッチ未適用の環境では該当エンドポイントの外部公開を停止するなどの対応が推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/)
+
+## 今日のTips: NestJSの例外フィルター、他と違い「ルート→コントローラー→グローバル」の順で解決される
+
+NestJSのリクエストライフサイクルでは、Middleware→Guards→Interceptors→Pipesの順に処理が進み、これらはいずれも「グローバル→コントローラー→ルート」の順で解決される。ところが例外フィルターだけはこの原則の例外で、公式ドキュメントは「Filters are the only component that don't resolve global first」と明記しており、実際には**ルートレベル→コントローラーレベル→グローバル**の順で解決される。
+
+```typescript
+@Controller('cats')
+@UseFilters(ControllerLevelFilter) // 2番目に評価される
+export class CatsController {
+  @Get()
+  @UseFilters(RouteLevelFilter) // 最初に評価される
+  findAll() {
+    throw new HttpException('Forbidden', 403);
+  }
+}
+// main.ts の app.useGlobalFilters(GlobalFilter) は最後に評価される
+```
+
+<Tip>
+Guards/Interceptors/Pipesの感覚で「グローバルが最優先」と思い込むと、ルート/コントローラーの個別フィルターがグローバルの共通処理(ロギング・レスポンス整形など)より先に例外を捕まえてしまい、想定した共通処理が効かないことがある。
+</Tip>
+
+参考: [Request lifecycle - NestJS Documentation](https://docs.nestjs.com/faq/request-lifecycle)
