@@ -1,0 +1,83 @@
+---
+title: ITニュースダイジェスト 2026-10-02
+listTitle: ITニュースダイジェスト 2026-10-02 — SoftBankのOpenAI追加出資完了、Cloudflare「Vinext 1.0」、Google Cloud「Spanner Omni」正式版、FortiMailゼロデイ、ローソンのメールサーバ悪用、KillSecランサムウェア摘発の計6件。
+date: 2026-10-02
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, クラウド, セキュリティ]
+summary: SoftBank GroupのOpenAIへの追加出資完了、CloudflareのNext.jsデプロイツール「Vinext 1.0」、Google Cloudの分散DB「Spanner Omni」正式版、FortiMailの悪用済みゼロデイ脆弱性、ローソンのメールサーバ踏み台化、KillSecランサムウェアギャング摘発のセキュリティ3件を含む計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-02</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## ソフトバンクG、OpenAIへの追加出資が完了 累計10兆円超で持分約13%に
+
+ソフトバンクグループは10月1日、OpenAIへの追加出資の最終(第3)トランシェとなる100億ドルの払い込みを完了したと発表した。
+
+AI・LLM動向案件。2月に合意した300億ドルの追加出資契約の最終回で、これにより同社の累計出資額は約646億ドル(約10.2兆円)、OpenAIに対する持分比率は約13%に達した。これまでのトランシェではブリッジローンを活用していたが、今回は社債発行で資金を調達した点が特徴。OpenAIは9月、AIの安全性確保を優先するとして2026年中のIPOを見送る方針を示している。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/01/2000001944/)
+
+## Cloudflare、Next.jsをVercel以外のサーバレス基盤へデプロイできる「Vinext 1.0」公開
+
+Cloudflareは10月1日、Next.jsアプリケーションをCloudflare WorkersやAWS Lambda、Netlifyなど複数のサーバレス基盤へデプロイできるビルドツール「Vinext 1.0」をリリースした。
+
+開発ツール・言語・OSS動向案件。従来のTurbopackに代わりViteを採用し、App Router・Pages Router・SSG・SSRなどNext.jsの主要機能の99%に対応するという。Cloudflare Workers向けにはデータベース接続や画像最適化の設定も簡素化されている。Cloudflareは2026年6月にViteの開発元VoidZeroを買収しており、その統合戦略の一環と位置づけられる。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/vercelnextjscloudflare_workersaws_lambdavercelvinext_10.html)
+
+## Google Cloud、ローカルでも動く分散型マルチモデルDB「Spanner Omni」正式版をリリース
+
+Google Cloudは10月2日、マネージドDB「Cloud Spanner」をソフトウェア版にした「Spanner Omni」の一般提供を開始したと発表した。
+
+クラウド・大規模障害案件。リレーショナルモデルに加えグラフ型・キーバリュー型・ベクトル検索・テキスト検索などに対応するマルチモデルDBで、LinuxやmacOSのローカルマシンのほかGoogle Cloud/AWSの仮想マシン、Kubernetes Pod上でも動作する。Paxosコンセンサスや自動シャーディングなどSpannerのコア技術を継承しつつローカル環境向けに最適化されており、ベクトル検索やMCP Toolbox連携などAIワークロードも意識した設計。無償のDeveloper Editionと有償のCommercial Editionが用意される。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/google_clouddbspanner_omni.html)
+
+## FortiMailに悪用済みの重大ゼロデイ、CVSS 9.8で任意ファイル書き込みが可能に
+
+Fortinetは10月1日、メールセキュリティ製品FortiMailの管理画面に存在する重大な脆弱性(CVE-2026-104286、CVSS 9.8)が既にゼロデイ攻撃で悪用されていると警告した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。パス制限の不備とNULLバイト処理の不備が組み合わさり、未認証の攻撃者が細工したHTTP/HTTPSリクエストで任意のファイルを書き込めるという。対象はFortiMail 7.2.0〜7.2.9、7.4.0〜7.4.8、7.6.0〜7.6.6、8.0.0〜8.0.1。7.2系は7.4以降へのアップグレードが必要で、他系統向けの修正版(7.4.9/7.6.7/8.0.2)は順次提供予定。当面の緩和策としてIBE機能の無効化や管理画面への接続元制限が案内されており、米CISAは連邦機関に10月4日までの対応を義務付けた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/)
+
+## ローソンのメールサーバが踏み台に、不審メール約70万件が送信される
+
+ローソンは10月2日、同社のメールサーバーが第三者に不正利用され、9月25日午後3時ごろから27日午後5時15分ごろにかけて約70万件の不審な英文メールが送信されたと発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。件名は「Mutual Benefit」や「RE」などで、英文で金銭の取得を示唆し個人情報の提供や連絡を求める内容だったという。同社は27日にメールサーバーの設定変更や通信制限を実施して送信を停止させており、現在原因の確認と恒久対策を進めている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/02/2000001947/)
+
+## 国際法執行作戦でランサムウェア集団「KillSec」を摘発、首謀者は16歳か
+
+ベルギー・米国・フィンランド・ドイツ・ギリシャ・オランダ・ルーマニア・スペイン・スイス・英国の法執行機関とEuropol・Eurojustによる国際共同作戦「Operation KillSwitch」が10月1日までに、ランサムウェアギャング「KillSec」のリークサイトとサーバーを押収し、3人を仮逮捕したことが明らかになった。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。首謀者とされるのは16歳の少年。KillSecはソフトウェアの脆弱性や設定不備のある機器を悪用して企業システムに侵入し、データを窃取した上でダークウェブのリークサイトを通じて身代金を要求する手口で、AIを用いてランサムウェア基盤の構築や標的選定を行っていたとされる。これまでに約500件の攻撃と110テラバイトの窃取データが確認されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/police-dismantle-killsec-ransomware-gang-allegedly-led-by-16-year-old/)
+
+## 今日のTips: `CREATE INDEX CONCURRENTLY`が失敗すると「INVALID」インデックスが残り続ける
+
+PostgreSQLの`CREATE INDEX CONCURRENTLY`はテーブルをロックせずにインデックスを作成できるが、スキャン中にデッドロックや一意制約違反などの問題が起きると、コマンド自体は失敗するのに不完全な「invalid」インデックスがテーブルに残ってしまう。
+
+```sql
+-- \d tab で確認すると残ってしまう例
+-- Indexes:
+--     "idx" btree (col) INVALID
+```
+
+このインデックスはクエリでは使われないが、INSERT/UPDATEのたびに保守コストだけはかかり続ける。
+
+<Tip>
+放置せず`DROP INDEX idx;`で削除してから`CREATE INDEX CONCURRENTLY`をやり直す(または`REINDEX INDEX CONCURRENTLY`で再構築する)のが公式ドキュメントの推奨手順。ユニークインデックスの場合は失敗後もinvalidなまま一意制約を強制し続ける点にも注意。
+</Tip>
+
+参考: [CREATE INDEX - PostgreSQL Documentation](https://www.postgresql.org/docs/current/sql-createindex.html)
