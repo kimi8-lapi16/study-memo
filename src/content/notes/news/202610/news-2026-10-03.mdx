@@ -1,0 +1,83 @@
+---
+title: ITニュースダイジェスト 2026-10-03
+listTitle: ITニュースダイジェスト 2026-10-03 — ELYZAの国産LLM無償公開、Claude Code Mods正式リリース、Google Cloud「Data Agent Kit」GA、第一生命・ヤマト運輸の不正アクセス、GitLab AI Gateway重大脆弱性の計6件。
+date: 2026-10-03
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, クラウド, セキュリティ]
+summary: ELYZAが国産LLM「LLM-jp-4」ベースの新モデルを無償公開、AnthropicがClaude CodeをTypeScriptで拡張できる「Mods」を正式リリース、Google Cloudの「Data Agent Kit」がGAに、第一生命とヤマト運輸の不正アクセス、GitLab AI Gatewayの重大脆弱性のセキュリティ3件を含む計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-03</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## ELYZA、国産LLM「LLM-jp-4」ベースの高性能モデルを無償公開
+
+ELYZAは10月2日、国立情報学研究所(NII)が開発した「LLM-jp-4」シリーズをベースにした新モデル「ELYZA-Thinking-1.0-llm-jp-4-33b」「ELYZA-Thinking-1.0-llm-jp-4-32b-a3b」をHugging Face上で無償公開した。
+
+AI・LLM動向案件。日本語処理の性能向上に重点を置いた中間・事後学習を実施しており、一部ベンチマークではNIIが公表した改良版「LLM-jp-4.1」を上回るスコアを記録したという。商用利用も可能なApache 2.0ライセンスで提供され、同社が立ち上げた研究プロジェクト「ELYZA RSI Research」の活動の一環としている。
+
+出典: [ITmedia AI+](https://www.itmedia.co.jp/aiplus/article/2610/02/2000001965/)
+
+## Anthropic、Claude CodeをTypeScriptで拡張できる「Mods」を正式リリース
+
+Anthropicは10月1日、Claude CodeをTypeScriptのコードでカスタマイズできる新機能「Mods」を正式リリースした。
+
+開発ツール・言語・OSS動向案件。従来のHooksがシェルコマンド実行に限られていたのに対し、Modsはセッション内で状態を保持するTypeScript関数を登録でき、プロンプトの書き換えやUIコンポーネント(ボタン・入力フォーム・ペインなど)の追加・変更、ツール呼び出しのブロック・再試行、権限要求の自動承認/拒否といった挙動まで変更できる。プラグインとして配布され、Claude Code 2.1.287以降ではCLI・デスクトップアプリの両方でデフォルト有効になっている。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/10/claude-code-mods)
+
+## Google Cloud「Data Agent Kit」が正式版に、コーディングエージェントからデータ基盤を直接操作
+
+Google Cloudは9月30日、BigQueryやSpannerなどのデータサービスをClaude CodeやAntigravityなどのコーディングエージェントから直接操作できる無償のMCPツール群「Data Agent Kit」を一般提供(GA)した。
+
+クラウド・大規模障害案件。GAにあわせてBigQuery Graph・Bigtable・Managed Service for Apache Sparkへの対応を追加し、スキーマ調査やクエリ実行、ジョブログ確認などを15以上のGoogle Data Cloudサービスに対して行えるようになった。IAM権限の自動適用やVPC Service Controls対応などエンタープライズ向けの機能も備え、IDE拡張機能やCLIプラグインの形で導入できる。
+
+出典: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/data-agent-kit-is-now-ga-bring-google-data-cloud-to-any-coding-agent)
+
+## 第一生命に不正アクセス、従業員ら約12万人分の情報漏えいか 退職者7万人分も対象
+
+第一生命ホールディングスと第一生命保険は10月2日、両社が共用する人事システムに不正アクセスがあり、従業員・退職者ら約12万人分の個人情報が漏えいした可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。不正アクセスが確認されたのは9月24日で、従業員番号・氏名・住所・電話番号・所属・職位・上長名などが対象。退職者は内勤職員が1967年以降、営業職が2017年以降に退職した人が対象で、グループ会社への出向者も含まれる。発表時点で原因は明らかにされておらず、顧客情報への影響は確認されていないという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/02/2000001971/)
+
+## ヤマト運輸「クロネコ代金後払い」不正アクセスで続報、氏名・住所など利用者情報が漏えいの可能性
+
+ヤマト運輸は10月2日、9月28日に発覚した後払い決済サービス「クロネコ代金後払いサービス」への不正アクセスについて続報を発表し、利用者の氏名・住所・電話番号・与信番号・請求金額・債権残高・商品明細などが漏えいした可能性があるとした。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。クレジットカード情報やパスワードは含まれていないとしつつ、一部加盟店の名称・コードやサービス担当社員の氏名も対象になり得るという。サービスは9月28日午後10時28分の停止以降復旧しておらず、セキュリティ専門機関の協力を得て調査が続いている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/02/2000001979/)
+
+## GitLab、AI GatewayのCVSS 9.9の重大脆弱性を修正 認証済みユーザーが任意コード実行可能
+
+GitLabは10月2日、セルフホスト型のAI Gatewayに存在するCVSS 9.9の重大な脆弱性(CVE-2026-90970)を修正した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。Duo Agent Platformへのアクセス権を持つ認証済みユーザーが、特別に作成したフロー設定でカスタムフローのプロンプトテンプレートのサンドボックスを脱出し、Gatewayホスト上で任意のコマンドを実行できる不備だった。影響を受けるのは自己ホスト型のGateway 18.1.6以降19.2.4未満・19.3系19.3.2未満・19.4系19.4.1未満で、GitLab.com/GitLab Dedicatedのクラウド版は対象外。修正版は19.2.4・19.3.2・19.4.1で、セルフホスト利用者には早急な更新が呼びかけられている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/gitlab-warns-of-critical-rce-vulnerability-in-ai-gateway-service/)
+
+## 今日のTips: NestJSのREQUESTスコープ、使うとコントローラーまで丸ごとリクエストスコープ化する
+
+NestJSのプロバイダーには`DEFAULT`(シングルトン)・`REQUEST`・`TRANSIENT`の3種類のスコープがあるが、`REQUEST`スコープは依存関係の鎖全体に波及する。あるプロバイダーを`REQUEST`スコープにすると、それに依存するコントローラーなど上位のコンポーネントも自動的に`REQUEST`スコープになってしまう。
+
+```ts
+// CatsController ← CatsService ← CatsRepository の依存関係で
+// CatsService だけを REQUEST スコープにしても…
+@Injectable({ scope: Scope.REQUEST })
+export class CatsService {}
+// → CatsController も連鎖的に REQUEST スコープになる
+```
+
+<Tip>
+`TRANSIENT`はこの連鎖ルールに従わない。シングルトンのサービスが`TRANSIENT`プロバイダーを注入しても、シングルトン自体はリクエストスコープ化されず、注入されたインスタンスだけがリクエストごとに新規生成される。`REQUEST`スコープはリクエストごとにインスタンスを再生成するためDIのキャッシュが効かずパフォーマンスに影響するほか、WebSocket Gatewayやパスポート戦略など単一インスタンスであるべきプロバイダーには使えない点にも注意。
+</Tip>
+
+参考: [Injection Scopes - NestJS Documentation](https://docs.nestjs.com/fundamentals/injection-scopes)
