@@ -1,0 +1,81 @@
+---
+title: ITニュースダイジェスト 2026-10-06
+listTitle: ITニュースダイジェスト 2026-10-06 — 「焼肉きんぐ」で個人情報1079万件漏えい、みずほFGがClaude Agent SDK活用のAIエージェント基盤「みずほCowork」開発、デンマーク人口登録DB・韓国大手銀行3行への不正アクセス、GoogleがgVisorをCNCFに寄贈、Cloudflareがコンテナ基盤をAIエージェント向けに刷新の計6件。
+date: 2026-10-06
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, クラウド, OSS, 業界動向]
+summary: 物語コーポレーション「焼肉きんぐ」で個人情報約1079万件が漏えいし、みずほFGはAnthropicのClaude Agent SDKを使ったAIエージェント基盤「みずほCowork」の3万人規模PoCを開始。GoogleがgVisorをCNCFに寄贈、Cloudflareがコンテナ基盤をAIエージェント向けに刷新した一方、デンマークの人口登録DBと韓国大手銀行3行への不正アクセスというセキュリティ2件を含む計6件。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-06</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## 「焼肉きんぐ」運営元の物語コーポレーション、個人情報約1079万件が漏えい ほぼ全会員分に相当
+
+物語コーポレーションは10月5日、「焼肉きんぐ」公式アプリの会員管理システムに10月2日ごろ第三者による不正アクセスがあり、会員番号・氏名・メールアドレス・電話番号など約1079万件の個人情報が漏えいした可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。漏えい規模はほぼ全会員分に相当する一方、パスワード・生年月日・性別・郵便番号・ポイント残高・購入履歴・決済情報は対象に含まれないという。侵入の原因・手口は調査中で、同社は個人情報保護委員会への報告と警察への相談を済ませ、アプリは防御策を講じたうえで運用を継続している。現時点で情報の不正利用や外部への公開は確認されていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/05/2000002011/)
+
+## みずほFG、Anthropic「Claude Agent SDK」活用の自律型AIエージェント基盤「みずほCowork」を開発 3万人規模へ
+
+みずほフィナンシャルグループは10月5日、社員がパソコン上で担っていた業務を自律的に処理するAIエージェント基盤「みずほCowork」を開発し、2027年度をめどにみずほFG・みずほ銀行・みずほ信託銀行の計約3万人への導入を目指すPoCを始めたと発表した。
+
+業界動向案件。AnthropicのSDK「Claude Agent SDK」を基盤に、AWS上(Amazon ECS on Fargate・Amazon S3)で社員ごとに作業環境を分離し、Amazon Bedrock Guardrailsで入出力制御とログ管理を行う2層構成を採る。用途ごとに専用エージェントを作るのではなく、手順やルールをまとめた「Skills」を汎用エージェントに追加する方式で、経費精算・SNS分析・業務監査・資料翻訳といった非定型業務まで横断的にカバーする狙いという。
+
+出典: [日経クロステック](https://xtech.nikkei.com/atcl/nxt/column/18/00001/12072/)
+
+## デンマークの人口登録データベースに不正アクセス、約880万人分の個人情報が流出
+
+デンマークのデータ保護当局は10月5日、同国の中央人口登録(CPR)データへアクセス権を持つ民間企業のアクセス権限が悪用され、約880万人分(登録者約1100万人の約8割)の個人情報が流出したと発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠)。攻撃者はCPR番号をブルートフォースで割り出し、該当する氏名・住所・CPR番号・生年月日・婚姻状況などを抜き出したとみられ、在住者だけでなく国外居住者や死亡者の記録も含まれる。発覚は10月2日で、当局は侵害元企業のアクセスを即時遮断し、警察が捜査を開始、専用の相談窓口も設置した。エゲルンド担当閣僚は「極めて重大な事案」としている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/denmark-population-registry-data-breach-affects-88-million-people/)
+
+## 韓国大手銀行3行に相次ぎ不正アクセス、AIによる自動攻撃ツール使用の疑いも
+
+韓国の金融委員会は10月5日までに、新韓銀行・KB国民銀行・ハナ銀行の大手3行で相次いだサイバー攻撃を受け緊急調査に入ったことを明らかにした。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日3件目のため以降の類似ニュースは見送り)。新韓銀行では約2万5000件、KB国民銀行では約11万9000件のクレジットカード情報などが流出した可能性があり、ハナ銀行は営業支援システムの限定的な侵害にとどまるという。攻撃に使われたサーバーの一部で、情報収集から攻撃経路の立案までを自動化するOSSの侵入テストツール「ARTEX AI」を参照したとみられる画面が確認されたとの韓国メディア報道もあるが、当局はAIツールの使用自体はまだ確認していない。当局は各社に外部システムの点検強化と認証強化、脅威情報の共有、点検結果の報告を指示した。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/south-korea-probes-bank-breaches-amid-suspected-ai-powered-attacks/)
+
+## Google、サンドボックス型コンテナランタイム「gVisor」をCNCFに寄贈
+
+Googleは10月2日、独自開発のサンドボックス型コンテナランタイム「gVisor」をCloud Native Computing Foundation(CNCF)に寄贈し、サンドボックスプロジェクトとして受理されたことを明らかにした。
+
+開発ツール・言語・OSS動向案件。gVisorはシステムコールをゲストカーネルで横取りし、メモリセーフなGoの実装を活かして通常のコンテナより強い分離を実現するOCI互換ランタイム。コンテナとVMの中間的な性質ゆえに価値が伝わりにくかったことや、Google社内で施したLinuxカーネルへの性能改善パッチがgVisorの非公開性を理由にカーネル側に受け入れられなかったこと、macOS対応などGoogle単独では進めづらい開発があったことが寄贈の背景という。AIエージェントのコード実行向けに安全なサンドボックスの需要が高まっており、コミュニティ主導での開発加速を狙う。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/googlegvisorcncf.html)
+
+## Cloudflare、AIエージェント向けにContainersを刷新 起動を6倍速に
+
+Cloudflareは9月30日、AIエージェント向けにコンテナ実行環境「Containers」を刷新したと発表した。
+
+クラウド・大規模障害案件。新スケジューリング方式により起動時間の中央値を4.049秒から648ミリ秒へ短縮(約6倍速)したほか、コード実行時にコンテナイメージやインスタンスサイズを指定できるようにし、Debian Trixie SlimやNode.js 24 LTSのベースイメージを追加してDockerfile不要でサンドボックスを作れるようにした。コンテナのファイルシステムの状態を保存・復元できるスナップショット機能もベータで追加しており、自律的に実行環境を必要とするAIエージェント向けの需要拡大を見据えた強化という。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/cloudflare_containersai6.html)
+
+## 今日のTips: Node.jsのグローバル`structuredClone`、関数やSymbolを渡すとDOMExceptionで落ちる
+
+Node.js 17以降はWHATWGの構造化クローンアルゴリズムを実装した`structuredClone`がグローバルに使え、importなしで深いコピーが作れる。ただしMapやSet、Dateなどはコピーできる一方、関数やSymbolは複製できずDOMExceptionを投げて落ちる。
+
+```js
+const config = { retry: 3, onError: () => {} };
+structuredClone(config);
+// DOMException [DataCloneError]: () => {} could not be cloned.
+```
+
+<Tip>
+型チェックでは拾えない落とし穴。コールバックを含むオブジェクトや、クラスインスタンス・DOM風のハンドルなどをうっかり`structuredClone`に渡すと実行時に初めて例外で気づくことになる。状態を複製したいだけなら対象をプレーンなデータ(値・配列・プレーンオブジェクト)に絞り、関数や振る舞いを含むものは別経路で渡す。
+</Tip>
+
+参考: [Global objects: structuredClone() – Node.js Docs](https://nodejs.org/api/globals.html#structuredclonevalue-options)
