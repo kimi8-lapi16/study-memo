@@ -1,0 +1,94 @@
+---
+title: ITニュースダイジェスト 2026-10-13
+listTitle: ITニュースダイジェスト 2026-10-13 — Deno開発元がCloudflareに合流しDenoの開発は終了へ、Metaが最大のAIモデル「Muse Wonder」発表、Microsoftが第3世代AIチップ「Maia 300」を2027年投入、ノルウェー当局がMicrosoft傘下Xandrに過去最高額の制裁金、フランスのスーパー数百店舗で冷蔵設備にサイバー攻撃の計7件。
+date: 2026-10-13
+category: NEWS
+tags: [NEWS, IT, 開発ツール, AI, クラウド, 法改正, セキュリティ]
+summary: Deno開発元がCloudflareに合流しDenoの開発は1年後に終了、MetaがAI最大モデル「Muse Wonder」を発表、Microsoftが第3世代AIチップ「Maia 300」を2027年に投入。ノルウェー当局がMicrosoft傘下Xandrに制裁金、フランスのスーパー数百店舗の冷蔵設備がサイバー攻撃を受け食品を大量廃棄、Ahold Delhaizeのシステム障害、GitLabの最高深刻度RCE脆弱性。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-13</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - DEV TOOLS
+  - AI
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Deno開発元がCloudflareに合流、Denoの開発は1年後に終了へ
+
+JavaScript/TypeScriptランタイム「Deno」の開発元Deno Landが、Cloudflareに合流すると発表した。
+
+開発ツール・言語・OSS動向案件。Denoは、Node.jsの作者であるRyan Dahl氏がNode.jsの設計上の後悔を踏まえて開発したランタイムで、Deno Landはエッジ実行環境「Deno Deploy」やパッケージレジストリ「JSR」も運営していた。Deno Landは8月、Cloudflare Durable Objects互換のオープンソース実装「celld」を公開しており、インフラロックインを避けつつ分散アプリを構築できる狙いがあった。今回の合流は単純な買収・救済ではなく両社の技術的方向性が一致した結果だとされ、Dahl氏とBert Belder氏はCloudflare Workersのオープンソース実装「workerd」をセルフホスト対応の正式サポート対象にする取り組みを主導する。Denoの開発自体は、今後1年間バグ修正とセキュリティアップデートのみ提供した後に終了する予定(ソースはオープンソースのまま残るため他の開発者が引き継ぐ可能性はある)。Deno Deployは6カ月後に終了し、Cloudflare Workersへの移行サービスが提供される。JSRはインフラをCloudflareに移行し継続する。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/denocloudflaredenocloudflare_workersdurable_objects.html)
+
+## Meta、最大のAIモデル「Muse Wonder」発表 記憶力と粘り強さを強化
+
+Metaは10月12日(現地時間)、同社最大・最強と位置付ける新AIモデル「Muse Wonder」と上位版「Muse Wonder Full」を発表した。
+
+AI・LLM動向案件。4月発表の「Muse Spark」を土台に事前学習と強化学習の規模を拡大し、ギガワット級データセンター「Prometheus」で訓練した。入力はテキスト・画像・動画・音声に対応し出力はテキスト、コンテキスト長は100万トークン。新機能の「Active Memory」は会話をまたいで重要な情報を保持し関連する詳細を自ら呼び出せるとし、「Active Focus」は難しい作業でも行き詰まったら別の方法を試して粘り強く取り組み、重要な操作の前にはユーザーに確認するという。法律・金融・ヘルスケアなど専門分野の知識も強化した。Muse Wonderは近くMetaのパーソナルAIエージェント「Muse」(現行の基盤モデルはMuse Spark 1.3)に搭載予定で、開発者向けには「Meta Model API」とコーディングエージェント「Muse Code」経由で先行提供されている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/13/2000002197/), [Impress Watch](https://www.watch.impress.co.jp/docs/news/2147484.html)
+
+## Microsoft、第3世代AIチップ「Maia 300」を発表 2027年に自社推論基盤へ投入
+
+Microsoftは10月12日(現地時間)、自社設計の第3世代AIアクセラレータ「Maia 300」を発表した。
+
+クラウド・大規模障害案件。2027年から本番環境への投入を始め、同年からギガワット規模でMaiaファミリーを展開する計画。主要なGPUベースのシステムと比べ、消費電力1メガワットあたりのトークン処理数が40%増える見込みで、長いコンテキストを扱う推論・応答遅延に敏感な対話・複数ステップにわたるエージェント型タスクといった新しいAIワークロード向けに設計した。Microsoftの製品・サービスで使う主力の推論基盤になる予定で、GPUへの依存を下げながら自社クラウド基盤の推論能力を拡張する狙いがある。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/13/2000002200/)
+
+## ノルウェー当局、MicrosoftのXandrにGrindrデータ共有で過去最高額の制裁金
+
+ノルウェーのデータ保護当局Datatilsynetは、Microsoft傘下の広告企業Xandr(現Microsoft Advertising)に対し、出会い系アプリ「Grindr」利用者の機微なデータを違法に処理・共有したとして、同国として過去最高額となるNOK9200万(約9.6百万ドル)の制裁金を科した。
+
+法改正・規制動向案件。2018年7月から2020年4月にかけて、XandrはGrindr内のリアルタイム広告オークションを運営し、広告主はXandrから渡されたプロファイリング情報をもとに利用者への広告表示権を競っていた。この過程で性的指向に関する情報を含む利用者データが数千の企業に露出した可能性があるという。XandrはGrindrと共同管理者の立場にあり明示的な同意を検証する責任があったが、Grindrが有効な同意を得ていると想定したまま検証を行わなかったと判断された。2020年1月にオーストリアの非営利団体noybとノルウェー消費者評議会が申立てを行い、今回の決定に至った。Xandrには3週間の上訴期間が与えられ、Microsoftは調査対象が自社によるXandr買収前の行為だとしつつ、決定を検討し「選択肢を評価している」とコメントしている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/norway-fines-microsoft-ad-firm-96-million-over-grindr-data-sharing/)
+
+## フランスのスーパー数百店舗で冷蔵設備にサイバー攻撃 食品を大量廃棄
+
+フランスのスーパー約250〜350店舗で、冷凍機の制御装置が乗っ取られるサイバー攻撃を受け、食品の大量廃棄につながった。
+
+セキュリティインシデント案件(最大3件枠)。10月11日(日)夜、Intermarché・Coopérative U・Carrefour Market・Monoprix・Leclerc・Super U・Nettoなど複数チェーンで、古いバージョンのDanfoss製冷凍機制御ソフトウェアが乗っ取られ、内蔵の自動霜取り機能を作動させて冷蔵庫の温度を上昇させられたとみられる。侵入経路は不明。パリ検察庁が捜査を開始し、食品の損失に加えて火災発生との関連も調べている。セキュリティ企業Predicta Labの調査では、インターネットに公開されたDanfossシステムが世界で2752台見つかり、うち1590台がフランス国内にあったという。Danfoss AK-SM 8xxAシリーズには2025年にCISAが警告した認証バイパス・コマンドインジェクションの脆弱性があるが、今回の攻撃との関連は確認されていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/)
+
+## 大手小売Ahold Delhaize、サイバー攻撃で一部システムをオフラインに
+
+欧米の大手小売グループAhold Delhaizeは10月12日、サイバーセキュリティインシデントを受けて一部システムをオフラインにしたと発表した。
+
+セキュリティインシデント案件(最大3件枠、本日2件目)。攻撃手法や攻撃者、ランサムウェア感染の有無は明らかにされていないが、米国Stop & Shopでは従業員がシフト表や給与明細にアクセスできなくなり、オランダのAlbert Heijn・Etos・Gall & Gall、ベルギーのDelhaizeでは顧客がウェブサイト・アプリ・カスタマーサービスを利用できなくなったと報じられている。米国Food Lionの社内メモではIT障害として扱われ、店舗での買い物や商品準備に影響する可能性があるとされた。店舗自体は営業を継続している。同社は2024年11月にもランサムウェア集団INC Ransomの攻撃を受け、米国のシステムから220万人以上の個人情報が流出しており、今回は2度目の大規模サイバーインシデントとなる。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/retail-giant-ahold-delhaize-takes-systems-offline-after-cyberattack/)
+
+## GitLab、CI/CDの正規表現コンパイラに最高深刻度のRCE脆弱性
+
+GitLabは、CI/CDの正規表現コンパイラに存在する最高深刻度(Critical)の脆弱性CVE-2026-97229を修正した。
+
+セキュリティインシデント案件(最大3件枠、本日3件目)。原因は正規表現検証の不備による整数オーバーフロー(CWE-190)で、特定の条件下では未認証の攻撃者がCI/CD設定ファイルに細工した正規表現を仕込むことで、GitLabサーバー上で任意のコードを実行できる可能性がある。HackerOne経由で研究者「joaxcar」が報告した。対象はセルフマネージド環境のGitLab CE/EEで、19.2系は19.2.8未満、19.3系は19.3.4未満、19.4系は19.4.2未満。GitLab.comは既にパッチ適用済み、GitLab Dedicatedの顧客は対応不要としている。GitLabでは1月にも2要素認証を回避できる高深刻度脆弱性、9月にも実際に悪用偵察を受けた最高深刻度のパストラバーサル脆弱性が見つかっており、セルフホスト利用者には早急なアップグレードが呼びかけられている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/gitlab-warns-of-max-severity-rce-flaw-in-regex-compiler-engine/)
+
+## 今日のTips: TypeScript 5.0以降、デコレータの既定はTC39標準になりNestJSのDIに影響する
+
+TypeScriptは5.0から、デコレータ構文としてTC39 Stage 3の標準仕様をサポートした。これは`experimentalDecorators`を明示的に有効にしない限り使われる既定の挙動であり、NestJSが依存する従来の(experimental/legacy)デコレータとは別物になる。
+
+```jsonc
+// NestJSのtsconfig.jsonで必須
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
+```
+
+<Note>
+`emitDecoratorMetadata`は`experimentalDecorators`時代のデコレータでのみ機能する機能で、有効にすると`reflect-metadata`経由でプロパティ/パラメータの型(`design:type`)を実行時に取得できるようになる。NestJSのコンストラクタインジェクションはこの`design:type`を読んでDIを解決しているため、TC39標準デコレータに切り替えると型情報が得られずDIが壊れる。実際にNestJS公式のtypescript-starterのtsconfig.jsonでも、この2つは明示的に`true`に設定されている。
+</Note>
+
+参考: [TypeScript Handbook — Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html), [nestjs/typescript-starter — tsconfig.json](https://github.com/nestjs/typescript-starter/blob/master/tsconfig.json)
