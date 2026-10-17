@@ -1,0 +1,82 @@
+---
+title: ITニュースダイジェスト 2026-10-18
+listTitle: ITニュースダイジェスト 2026-10-18 — EストアーからBASEグループ最大2335万人分の情報流出、ConnectWise Cloud Backup侵害によるMicrosoft 365不正アクセス、LinuxカーネルのゲストVM脱出脆弱性「PwnEscape」、OpenAI著作権訴訟でMicrosoftの秘匿指示が判明、xAIの低遅延音声AI「Grok Voice 3.0」、無料OSSオフィススイート「ibisOffice」の計6件。
+date: 2026-10-18
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 訴訟]
+summary: BASE子会社Eストアーの「ショップサーブ」で最大約2335万人分の情報流出が確定し、ConnectWise Cloud Backupの認証情報窃取を起点にMicrosoft 365テナントへの不正アクセスが拡大、LinuxカーネルにはゲストVMからホスト側でコード実行が可能な脆弱性「PwnEscape」が公表されクラウド事業者が対応に動いた。OpenAI・Microsoft著作権訴訟の資料ではMicrosoftが報道記事のスクレイピング計画を社員に秘匿させていたことが判明し、xAIは低遅延の音声AI「Grok Voice 3.0」を公開、ibisPaint開発元は無料オープンソースのオフィススイート「ibisOffice」を発表した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-18</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - LAWSUIT
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Eストアー(BASEグループ)、不正アクセスで最大約2335万人分の情報流出 カード情報の一部も対象
+
+ECサイト構築サービス「ショップサーブ」を運営するEストアー(BASEの完全子会社)は10月16日、不正アクセスにより最大約2335万人分の情報が流出した可能性があるとする最終報告を公表した。
+
+セキュリティインシデント案件(最大3件枠)。攻撃者はサーバー上のアプリケーションの脆弱性を突いて不正プログラムを実行し、5月21日から8月1日の間にデータベースの内容を外部送信していた。対象はショップサーブの現行・過去利用店舗7858店と、その購入者・会員など。店舗側は管理画面のログインID・パスワードや代金引換の店舗情報、ショッパー側は氏名・住所・電話番号・メールアドレス・勤務先情報・暗号化パスワードなどで、うち約209万人分はカード会員名・カード番号の先頭6桁と末尾4桁・有効期限も含まれる。完全なカード番号やセキュリティコードは保有していないため、流出情報だけでは決済に利用できないとしている。8月1日の検知時点で通信を遮断済みで、10月16日時点で二次被害やダークウェブへの投稿は確認されていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/17/2000002349/)
+
+## ConnectWise Cloud Backupの認証情報窃取を起点に、Microsoft 365テナントへの不正アクセスが拡大
+
+ConnectWiseは、同社のクラウドバックアップサービス「Cloud Backup」(旧SkyKick Cloud Backup)でアプリケーションIDへの不正アクセスを確認したと発表し、これを起点にMicrosoft 365テナントが侵害される事例が相次いでいる。
+
+セキュリティインシデント案件(最大3件枠、本日2件目)。攻撃者はユーザーのサインインを介さず、Cloud Backupアプリ自体としてシークレットを使い自動化スクリプトでM365に直接認証したため、MFAでは防げなかった。アプリに付与済みの権限によりメール・OneDrive/SharePoint・Teamsチャットへアクセスでき、一部テナントではサービスプリンシパルが自身にExchange管理者ロールなどを付与、あるテナントではCloud ManagementアプリがGlobal Administrator権限を自身に付与して他アプリの認証情報を追加する事例もあった。セキュリティ企業Huntressは少なくとも162テナントの侵害を確認しており、攻撃活動は少なくとも10月15日から単一IPアドレスから行われていたという。ConnectWiseは顧客のCloud Backupへのアクセスを停止して調査中で復旧時期は未定、バックアップデータの持ち出しは確認されていないとしている。管理者には対象アプリの無効化と、10月13日以降に追加されたシークレット・証明書の確認が推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/)
+
+## Linuxカーネルに「PwnEscape」、ゲストVMからホストでコード実行の脆弱性 クラウド各社が対応開始
+
+Linuxカーネルのネットワーク処理に、仮想マシンのゲストからホストOS側で任意コード実行につながる重大な脆弱性「PwnEscape」(CVE-2026-99999、CVSS 9.3)が公表された。
+
+セキュリティインシデント案件(最大3件枠、本日3件目)。Openwallのoss-securityメーリングリストに10月15日付で投稿された研究によると、検証済みのIPv4ヘッダのチェックサム関連データを書き換えることで検証済みヘッダ自体を上書きでき、結果として任意のメモリ読み書きが可能になる。研究チームはKVM環境でホストOS上のコード実行まで確認しており、投稿のタイトルはKVMからのゲスト・ホスト間脱出を指すが、コンテナなど他環境でも同様の攻撃が成立する可能性があるとしている。投稿は、設定が弱い環境向けの実用的な悪用コードが数週間以内に、既定設定のハイパーバイザー向けも1カ月程度で出回ると予測。さくらインターネットはVPSやレンタルサーバーなど一部サービスの新規申し込みを停止して対応中で、AWSはEC2・Lambda・Fargateなどのマネージドサービスは影響を受けず利用者側の対応は不要と説明している。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/linuxpwnescapecve-2026-99999linux_os.html)、[Openwall oss-security](https://www.openwall.com/lists/oss-security/2026/10/15/5)
+
+## OpenAI著作権訴訟、Microsoftが報道記事スクレイピング計画「Project Mango」の秘匿を社員に指示していたと判明
+
+出版各社がOpenAIとMicrosoftを提訴している著作権侵害訴訟で一部開封された資料から、Microsoftが社員に対し「Project Mango」というコード名のスクレイピング計画を秘密にするよう指示していたことが明らかになった。
+
+訴訟・トラブル案件。米ニューヨーク州南部地区連邦地裁で進む「In re OpenAI, Inc. Copyright Infringement Litigation」のサマリージャッジメント申立の中で言及されたもので、OpenAIがMicrosoftに対価を払い、報道各社のウェブページをクロールして内容を収集するプロジェクトを構築・運用させ、収集したコンテンツがGPT-4oなどの学習に使われたと出版社側は主張している。出版社側は16万点超の著作物が含まれるとし、ChatGPTが報道関連の質問を1日あたり約4700万件受けているとの推計も示した。資料によれば、MicrosoftのApplied Science担当ディレクターは社内でこの行為を「人類史上最大の労働の窃盗」と呼んだとされる。両者は10月9日、出版社側の異議を受けて一部の非開示請求を取り下げている。
+
+出典: [Bloomberg Law](https://news.bloomberglaw.com/ip-law/microsoft-told-staff-to-keep-openai-scraping-project-secret)
+
+## xAI、応答1秒未満の音声AI「Grok Voice 3.0」公開 TeslaやStarlinkが実運用
+
+xAIは10月14日、音声での入出力に対応する最新モデル「Grok Voice 3.0」を発表し、Voice Agent API経由で開発者向け提供を始めた。
+
+AI・LLM動向案件。1秒未満の低遅延応答に加え、会話の間や話者交代、ユーザーによる割り込みにも対応し、雑音や方言を含む25以上の言語を扱える。外部サービス連携により予定確認や予約など複数ステップの操作をこなすエージェントも構築できる。料金は1分あたり0.08ドルで前モデルから変更なし。Teslaは車載AIに採用し、カレンダー確認やメール返信、コーヒーの注文などの音声対話を日々数百万件処理しているという。Starlinkのコールセンターでも採用され、1日約2万件の問い合わせのうち約7割を人間の対応なしに解決しているとしている。
+
+出典: [Impress Watch](https://www.watch.impress.co.jp/docs/news/2148932.html)
+
+## ibisPaint開発元、無料オープンソースのオフィススイート「ibisOffice」を公開
+
+イラストアプリ「ibisPaint」を手がけるibisWorksは、Word・Excel・PowerPoint形式を編集できる無料オープンソースのオフィススイート「ibisOffice」を公開した。
+
+新技術紹介案件。Rustでスクラッチ開発しGPUレンダリングを採用、既存オフィススイートのコードは流用していないという。Windows・Mac向けデスクトップアプリに加え、Wasm+WebGPUによるブラウザ版も用意し、ブラウザ版はファイルをサーバーへアップロードせずローカルで処理する。ライセンスはAGPL-3.0と商用ライセンスのデュアルで、AGPLの条件(改変後のソースコード公開など)を満たせない企業は商用ライセンスが必要。開発元は日次でMicrosoft Officeとのピクセル比較テストを行い高い互換性があるとしているが、第三者による検証は確認されていない。
+
+出典: [GIGAZINE](https://gigazine.net/news/20261017-ibisOffice/)
+
+## 今日のTips: Node.jsのネイティブTypeScript実行、`enum`やデコレータは構文エラーになる
+
+Node.js(v23.6.0/v22.18.0以降はデフォルト有効)は`.ts`ファイルをトランスパイルなしで直接実行できるが、これは型注釈を空白に置き換える「型の消去」だけで、型チェックは一切行われない。さらに`enum`宣言、値を持つ`namespace`、パラメータプロパティ、インポートエイリアスのように新しいJS構文への変換が必要な機能はサポート外で実行時エラーになる。TC39 Stage 3段階のデコレータも変換されず、パースエラーになる。
+
+<Note>
+`tsconfig.json`も読み込まれないため、`paths`によるエイリアス解決やダウンレベリングは効かない(`#`始まりのsubpath importsが代替)。`type`を付けない型専用importはランタイムimportとして実行時エラーになる点にも注意。`tsconfig.json`やenum変換まで含めて動かしたい場合は、公式ドキュメントも`tsx`などのサードパーティツールの利用を案に挙げている。
+</Note>
+
+```ts
+enum Color { Red, Blue } // ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX で実行時エラー
+namespace A { export let x = 1 } // 値を持つnamespaceも同様にエラー
+namespace B { export type T = string } // 型のみのnamespaceはOK
+```
+
+参考: [Node.js Docs — Type Stripping](https://nodejs.org/api/typescript.html)
