@@ -9,6 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "new": "node scripts/new-note.mjs",
+    "news:prepare": "node scripts/news-digest.mjs prepare",
+    "news:publish": "node scripts/news-digest.mjs publish",
     "format": "prettier --write \"original-memo/**/*.md\"",
     "format:check": "prettier --check \"original-memo/**/*.md\""
   },
