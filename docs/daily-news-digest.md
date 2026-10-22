@@ -1,32 +1,53 @@
 # 毎日のITニュースダイジェスト自動生成
 
 このドキュメントは、毎朝（JST）に自動実行される「今日のITニュースダイジェスト」記事
-生成フローの仕様。`.github/workflows/daily-news-digest.yml`（GitHub Actionsのcron）が
-Claude Code Actionを起動し、この仕様に従って `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`
-を1本作成する。
+生成フローの仕様。Claude Code の scheduled task（claude.ai のクラウドで動く定期実行タスク。
+旧称 routines）が毎朝 07:07 JST に1回だけ起動し、この仕様に従って
+`src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx` を1本作成する。
 
-GitHub Actionsのschedule実行は遅延・不発が起きるため、cronは 06:47 / 07:29 / 08:13（JST）の
-3回登録している。最初に成功した回が記事をpushすると、後続の回はmaster上に今日分の
-ファイルがあることを確認してスキップする。
+以前は GitHub Actions（`daily-news-digest.yml`）の schedule で Claude Code Action を
+起動していたが、schedule 実行は数十分の遅延や不発が頻発し、cron を3本登録して
+後続回をスキップする安全弁が必要だった。そのため scheduled task に移行し、ワークフローは
+削除した。
 
-以前は「専用ブランチにpush → masterへのPRを自動作成 → オーナーが手動マージ」という
-レビュー運用だったが、この運用は廃止した。現在は**生成した記事をmasterへ直接pushする**
-（人手のレビューは挟まず、そのまま公開される）。pushはclaude-code-actionのGitHub App
-トークンで行われるため、`deploy.yml` のpushトリガーがそのまま発火してGitHub Pagesへ
-デプロイされる（GITHUB_TOKENによるpushでワークフローが起動しない制約は当てはまらない）。
+生成した記事は**masterへ直接pushする**（人手のレビューは挟まず、そのまま公開される）。
+pushはscheduled taskの所有者のGitHubアカウントで行われるため、`deploy.yml` のpush
+トリガーがそのまま発火してGitHub Pagesへデプロイされる。
 
 この方式は、リポジトリの「masterへの変更にPRを必須とする」ルールセットが無効化されて
-いることが前提。ルールセットが有効なままだとpushが拒否されてワークフローが失敗する。
+いることが前提。ルールセットが有効なままだとpushが拒否されて記事が公開されない。
 
 ## セットアップ（初回のみ）
 
-このワークフローはClaude Pro/MaxサブスクリプションのOAuthトークンで動く（従量課金の
-APIキーは使わない）。
+scheduled task は Claude Pro/Max サブスクリプションの利用枠で動く（従量課金のAPIキーや
+GitHub Secrets は使わない）。
 
-1. Claude Codeがインストールされた端末で `claude setup-token` を実行し、トークンを発行する。
-2. GitHubリポジトリの Settings → Secrets and variables → Actions → New repository secret で
-   `CLAUDE_CODE_OAUTH_TOKEN` という名前でそのトークンを登録する。
-3. トークンが失効した場合は `claude setup-token` を再実行し、Secretの値を更新する。
+1. claude.ai の Claude Code でクラウド環境のネットワークアクセスを設定する。既定の
+   Limited（許可リスト方式）では下記の情報源に接続できないため、**Full** にするか、
+   情報源のドメインを Allowed domains に追加する（Allow package managers は有効のまま）。
+2. scheduled task を作成する。スケジュールは `7 7 * * *`（Asia/Tokyo）、実行ごとに新しい
+   セッションを起動する設定にし、プロンプトには下記「scheduled task のプロンプト」を使う。
+3. 実行結果は claude.ai の scheduled task の履歴から確認する。緑表示はセッションが
+   エラーなく終了したことしか意味しないため、記事が出ていない日は履歴のログを見る。
+   手動で再実行したい場合は履歴画面の Run now を使う（今日分が既にあれば何もせず終わる）。
+
+## scheduled task のプロンプト
+
+```
+GitHub リポジトリ kimi8-lapi16/study-memo の日次ITニュースダイジェストを作成する。
+
+1. 作業ディレクトリにリポジトリが無ければ clone し、master を最新にする。
+2. `npm ci` → `npm run news:prepare` を実行する。出力1行目のJSONの `exists` が true なら、
+   今日分は公開済みなのでここで終了する。
+3. `docs/daily-news-digest.md` を読み、その仕様に**厳密に**従って、JSONの `file` の
+   パスに記事を書く。日付はJSONの `date` を使う（システム時計のUTC日付は使わない）。
+   過去日付の記事が存在しても、それを理由に今日分の作成をスキップしてはならない。
+   価値のあるニュースが1件も無ければ、記事を作らずに終了してよい。
+4. `npm run news:publish` を実行する。ビルドが失敗したら記事を直して再実行し、
+   直せなければ記事を削除して終了する（masterとサイトを壊さないことを最優先する）。
+   ブランチやPRは作らない。
+5. 最後に、pushしたコミットのSHAと採用ニュース件数（作らなかった場合はその理由）を報告する。
+```
 
 ## 対象ジャンル
 
@@ -200,18 +221,13 @@ disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約�
 
 ## 公開手順（masterへ直接push）
 
-このワークフローは `.github/workflows/daily-news-digest.yml` の中で実行され、リポジトリは
-すでにmasterブランチでcheckout済みの状態からスタートする。ブランチもPRも作らない。
+ブランチもPRも作らない。日付の確定・ビルド検証・commit/push は下記の補助スクリプトで行う。
 
-1. masterブランチのまま、記事ファイル `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`
-   を作成する（`YYYYMM` ディレクトリが無ければ作成する）。
-2. `npm ci`（未インストールの場合）→ `npm run build` を実行し、ビルドが通ることを確認する。
-   **ビルドが失敗する場合はコミット・pushをしない。** front-matterやMDX構文を見直して
-   再度ビルドを通す。それでも解決しなければ、記事ファイルを削除して終了する。
-3. `git add src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx` → コミット
-   （例: `news: YYYY-MM-DD のITニュースダイジェストを追加`）→ `git push origin master`。
-   pushがnon-fast-forwardで拒否された場合は `git pull --rebase origin master` してから
-   再pushする。
+1. `npm run news:prepare` で今日（JST）の記事パスを得る。既に存在すれば終了する。
+2. 記事ファイル `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx` を作成する。
+3. `npm run news:publish` でビルド検証 → 記事のみcommit → masterへpushする。
+   **ビルドが失敗する場合はコミット・pushされない。** front-matterやMDX構文を見直して
+   再実行し、それでも解決しなければ記事ファイルを削除して終了する。
 4. GitHub Pagesへのデプロイは、masterへのpushをトリガーに `deploy.yml` が自動で起動する
    （記事作成側での操作は不要）。
 
