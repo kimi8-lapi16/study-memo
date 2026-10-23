@@ -1,0 +1,79 @@
+---
+title: ITニュースダイジェスト 2026-10-23
+listTitle: ITニュースダイジェスト 2026-10-23 — カプコン「CAPCOM ID」最大1177万件漏えい、中国系Storm-0940がAIエージェントで攻撃自動化しConnectWise侵害拡大、OSS AIゲートウェイ「LiteLLM」のリリースパイプライン侵害、Anthropicの常時稼働エージェント「Claude Duet」、衛星搭載AIエッジコンピュータ「TENEDGE」の計5件。
+date: 2026-10-23
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 新技術]
+summary: カプコンの会員サービス「CAPCOM ID」で最大1177万件の情報漏えいが発覚し、Microsoftは中国系攻撃者「Storm-0940」がAIエージェントで攻撃を自動化しConnectWise経由の侵害を拡大させていると警告、OSSのAIゲートウェイ「LiteLLM」はリリースパイプラインが侵害され情報窃取マルウェアが配布された。AnthropicはAIエージェントアプリ「Claude Duet」を公開し、宇宙スタートアップSpaceBlastは衛星搭載の手のひらサイズAIエッジコンピュータ「TENEDGE」を披露した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-23</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## カプコン「CAPCOM ID」に不正アクセス、最大1177万件の会員情報が漏えい
+
+カプコンは、会員サービス「CAPCOM ID」への不正アクセスにより、最大1177万件の会員情報が漏えいした可能性があると発表した。
+
+セキュリティインシデント案件(最大3件枠)。10月19日に不審な活動を検知し、20日に顧客情報の流出を確認、21日に警察と個人情報保護委員会へ報告した。流出したのはメールアドレス、アカウント作成日、最終ログイン日時・回数・IPアドレスなどで、うち43件では生年月日・性別・ニックネーム・国も対象。196件では攻撃者がパスワードを変更して所有者を締め出そうとしたが、カプコンが再設定済み。他会員のパスワードやクレジットカード情報への影響はないとしている。侵入経路は特定・対応済みとしているが詳細は非公開で、通知は対象者の多さから段階的に行う予定。カプコンは2020年にもランサムウェア集団Ragnar Lockerの攻撃を受けている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/)、[ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/22/2000002523/)
+
+## 中国系「Storm-0940」、AIエージェントで攻撃を自動化 ConnectWise侵害の拡大にも関与
+
+Microsoftは、中国国家と連携する攻撃者「Storm-0940」が、AIエージェントを用いる侵入テストフレームワーク「ARTEX」で攻撃を自動化し、世界の数百組織を標的にしていると発表した。
+
+セキュリティインシデント案件(最大3件枠、本日2件目)。9月ごろからARTEXの利用を始め、任意のAIモデルと組み合わせることで偵察からデータ持ち出しまでを人間の手をほとんど介さず自動実行できるという。昼夜・休日を問わず動き続け複数の侵入経路を同時に試せるため、標的化からクラウド環境の管理者級権限取得までが3時間未満だった事例も複数確認された。Microsoftは、今月判明したConnectWise Cloud Backup経由のMicrosoft 365不正アクセス拡大もStorm-0940によるものと分析しており、2250以上のテナントに毎分2900回のペースでサインインを試みていたとしている。国内でもGMOサイバーセキュリティ by イエラエがARTEXを使った日本企業への攻撃(約20社、うち8社は情報漏えいを公表済み)を確認しているが、Storm-0940との関係には触れていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/23/2000002531/)
+
+## OSS AIゲートウェイ「LiteLLM」のリリースパイプラインが侵害、情報窃取マルウェアを配布
+
+オープンソースのAIゲートウェイ「LiteLLM」は、リリースパイプラインへの侵入により、PyPIとDockerレジストリに悪意あるバージョン1.107.0が公開されたことを明らかにした。
+
+セキュリティインシデント案件(最大3件枠、本日3件目)。10月21日、PyPIでは約1時間44分、Docker Hub/GHCRでも同程度(いずれもUTC基準)公開された。アプリケーションコード自体は改変せず、Pythonのライブラリディレクトリに`.pth`ファイルなどを仕込み、Python起動時に自動実行される仕組みでクラウド・Git・CI/CD・ブラウザなどの認証情報を窃取し、RSA-4096/AES-256で暗号化して外部にアップロードしていた。検知後は複数のセキュリティ企業が公開から6分以内に解析し、悪意あるパッケージは削除済み。利用者にはデプロイ停止、Pythonインタープリタを起動しない状態での調査、感染環境のクリーンな再構築、漏えいしうる全シークレットのローテーションが推奨されている。LiteLLMは2026年3月にもCI/CDで使うTrivyの侵害を経由した同種の攻撃を受けている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/)
+
+## Anthropic、常時稼働のAIエージェントアプリ「Claude Duet」をリサーチプレビュー公開
+
+Anthropicは、「Claude Opus 5.5」を基盤とするエージェントアプリ「Claude Duet」をリサーチプレビューとして公開した。
+
+AI・LLM動向案件。業務に追われる専門職や中小企業経営者を主な対象とし、毎朝Gmail・Slackなど連携アプリの情報を要約して届け、日中は注意が必要な場合だけ通知する。会議調整や事務作業、開発などのタスク委任にも対応し、独自ブラウザを備えた仮想マシン上で動作するためPCやスマートフォンを閉じても処理が続く。機密情報の漏えいを防ぐ専用の分類器とシステムプロンプトを備え、クレジットカードや身分証明書の共有要求は拒否し、送信前には宛先を毎回確認する設計。Web版とiOS/Androidアプリで、Pro/Maxプランの利用者がウェイティングリスト登録のうえ利用できる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/aiplus/article/2610/22/2000002490/)
+
+## 手のひらサイズの衛星搭載AIエッジコンピュータ「TENEDGE」、宇宙データセンター構想も
+
+宇宙スタートアップのSpaceBlastは、衛星上で小型言語モデル(SLM)を動かしデータを処理する技術「TENEDGE」と、その中核となる手のひらサイズのエッジコンピュータ「TENEDGE CORE」を「Japan IT Week 秋 2026」で披露した。
+
+新技術紹介案件。画像など大容量データを衛星上で処理し、メガバイト級の生データをキロバイト級のメタデータに圧縮して地上へ送る仕組み。TENEDGE COREの計算性能は1機あたり約60TOPSで、放熱性の高い素材やメモリ・ラッチ回路のエラー検出・修復機構により、放射線対策を素材・設計だけに頼らず可用性を高めているという。建設・都市開発・農業向けの衛星画像取得や、軌道上に複数台を置く宇宙データセンター、将来の月面データセンター構想への応用を見込む。同社は2026年2月にJAXAの支援基金事業に採択され、2031年度までに技術開発と実証、商用化を進める計画。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/22/2000002510/)
+
+## 今日のTips: React 19で`<Context>`をプロバイダーとして直接使えるように(`Context.Provider`はレガシー扱い)
+
+React 19以降、Contextオブジェクトそのものを`<Context value={...}>`のようにプロバイダーとしてレンダリングできるようになった。従来のように`<Context.Provider value={...}>`と書く必要がなくなる。
+
+```jsx
+// React 19以降
+<ThemeContext value={theme}>
+  <Page />
+</ThemeContext>
+
+// 従来の書き方（引き続き動作する）
+<ThemeContext.Provider value={theme}>
+  <Page />
+</ThemeContext.Provider>
+```
+
+<Note>
+公式ドキュメントは`Context.Provider`を「React 19以前の、値を提供するためのレガシーな方法」と位置付けている。正式な非推奨(deprecated)の告知や削除予定の言及はまだないが、新規コードでは`<Context.Provider>`より`<Context>`を直接使う書き方に揃えておくと、将来的な移行コストを抑えられる。
+</Note>
+
+参考: [React Reference — createContext](https://react.dev/reference/react/createContext)
