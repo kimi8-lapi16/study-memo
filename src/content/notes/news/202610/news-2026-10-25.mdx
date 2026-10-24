@@ -1,0 +1,98 @@
+---
+title: ITニュースダイジェスト 2026-10-25
+listTitle: ITニュースダイジェスト 2026-10-25 — 「お名前.com」VPS攻撃を受けGMOが能動的サイバー防御の発動を政府に要請、デジタル庁で問い合わせフォーム情報など最大1万3323件漏えいの恐れ、UEFIブートキット「BlackX」がSecure Bootを回避、リニア談合で大成建設・鹿島に営業停止処分、AI標準化団体AAIFがAnthropicのAgent Skillsなど4件を傘下に、Rubyが正規表現エンジンの重大バグを修正、Google「Coral NPU」32bit設計とコンパイラv1.0公開の計7件。
+date: 2026-10-25
+category: NEWS
+tags: [NEWS, IT, セキュリティ, 法改正, AI, 開発ツール, 訴訟]
+summary: GMOは「お名前.com」FX用VPSへの攻撃を受け被害補償と見舞金を表明するとともに、政府に能動的サイバー防御の発動を要請。デジタル庁ではホームページ制作サービスへの不正アクセスで問い合わせフォーム情報など最大1万3323件が漏えいの恐れ、UEFIブートキット「BlackX」はSecure Bootの回避を確認された。リニア談合では大成建設・鹿島に営業停止処分、AI標準化団体AAIFはAnthropicのAgent Skillsなど4件を新たに傘下に、Rubyは正規表現エンジンの重大バグを修正、GoogleはエッジAI向け「Coral NPU」の32bit設計とコンパイラv1.0を公開した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-25</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - REGULATION
+  - AI
+  - OSS
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## GMO、「お名前.com」VPS攻撃を受け能動的サイバー防御の発動を政府に要請 被害補償も表明
+
+GMOインターネットグループは、FX自動売買用VPS「お名前.com デスクトップクラウド」への攻撃を受けた取引口座の不正操作問題について、被害額の補償方針を示すとともに、政府に「能動的サイバー防御」の発動第1号事案として扱うよう緊急要請した。
+
+法改正・規制動向案件。10月21日ごろに同VPSへの不正プログラム設置で全プランが停止し、23日ごろからFX自動売買口座の不正操作による金銭被害が相次いで報告されていた(続報)。GMOは10月24日、不正取引による被害額の補償と一律5000円の見舞金支払いを発表するとともに、同日中に政府関係機関へ、2026年10月1日に運用が始まった「能動的サイバー防御」(サイバー対処能力強化法等に基づき国が攻撃基盤を追跡・遮断・無力化する枠組み)の発動第1号事案と位置付けるよう要請したと明らかにした。攻撃者からは金銭を要求する脅迫も続いているとし、民間単独の防御や事後対応では国境を越えたサイバー犯罪集団を根絶できないと訴えている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/24/2000002567/)、[ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/24/2000002566/)
+
+## デジタル庁、問い合わせフォーム情報など最大1万3323件漏えいの恐れ ホームページ制作サービスへの不正アクセスで
+
+デジタル庁は、ホームページ運営の一部で利用していたStudio株式会社のクラウド環境が不正アクセスを受け、問い合わせフォームの入力情報などが外部から取得可能な状態になっていたと発表した。
+
+セキュリティインシデント案件(最大3件枠)。Studio社から10月16日に報告を受けた事案で、対象は2021年5月〜2023年3月に送信された問い合わせフォームの入力内容。一般的な意見・要望(最大8833件)、接種証明書アプリ関連(最大3661件)、ワークショップ等参加関連(最大462件)、採用関連(最大250件)、「マイナちゃん」着ぐるみ借用関連(最大117件)の計最大1万3323件が対象で、氏名やメールアドレスなどは任意入力された場合のみ含まれる。職員・委託事業従事者のStudioアカウント情報35件も漏えいの可能性がある。10月22日時点で悪用による二次被害は確認されていないとして、同庁を装う不審な連絡への注意を呼びかけている。
+
+出典: [デジタル庁](https://www.digital.go.jp/press/a0a8f66c-b32d-4695-9372-bcd5d4280f22)
+
+## UEFIブートキット「BlackX」、未失効の署名証明書悪用でSecure Bootを回避
+
+セキュリティ企業Kasperskyは、UEFIブートキット「BlackX」が、パッチ適用済みのWindows 11でも未実施のSecure Boot失効措置の隙を突いて起動段階に侵入していたと報告した。
+
+セキュリティインシデント案件(最大3件枠、本日2件目)。BlackXは2026年初頭、中央アジア(タジキスタン・ウズベキスタン・トルクメニスタン)の外交機関を狙ったスパイ活動で使われ、中国の国家支援グループAPT41(Brass Typhoon)の犯行と中程度の確度で見られている。既知のSecure Boot回避脆弱性「Baton Drop」(CVE-2022-21894)を突いたBlackLotusの手口と類似しており、脆弱な署名に使われる証明書の失効がMicrosoftの修正パッチでは自動適用されず管理者の手動操作を要する点を悪用した。失効済み証明書で署名した悪意あるカーネルドライバでKaspersky・Avast製品の動作を妨害しつつ、Google Drive・OneDrive・Yandex.DiskをC2に使うRATなどを展開していた。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/)
+
+## リニア談合、大成建設・鹿島に120日間の営業停止処分 有罪確定を受け
+
+国土交通省は、リニア中央新幹線の建設工事を巡る談合事件で有罪判決が確定した大成建設と鹿島に対し、建設業法に基づく営業停止処分を科した。
+
+訴訟・トラブル案件。処分期間は2026年11月7日から120日間で、対象は民間土木工事。同事件では2018年3月に東京地検特捜部が両社などを起訴し、談合を認めた大林組・清水建設は2018年に有罪が確定して2019年に同様の120日間の営業停止処分を受けている。大成建設・鹿島は有罪確定が遅れていたため、今回処分のタイミングがずれた。
+
+出典: [日経クロステック](https://xtech.nikkei.com/atcl/nxt/column/18/00142/02804/)
+
+## AI標準化団体AAIF、AnthropicのAgent Skillsなど4プロジェクトを新たに傘下に
+
+Linux Foundation傘下でAIエージェントの標準化を進める団体AAIF(Agentic AI Foundation)は、AnthropicのAgent Skillsをはじめ4件のプロジェクトを新たに傘下に加えたと発表した。
+
+AI・LLM動向案件。2025年12月の発足時はMCP・goose・AGENTS.mdの3件だったが、今回Anthropicの「Agent Skills」(業務知識・手順をエージェント間で再利用する共通形式。名称・ロゴやGitHub組織・ドメインも寄贈)、OpenAIの「Open Responses」(複数モデル提供元を共通形式で呼び出すAPI仕様)、Hugging Faceの「OpenEnv」(エージェント強化学習向け環境の共通API)、Alibabaの「OpenSandbox」(エージェント用隔離実行環境の基盤)が加わり計10件になった。Anthropicの発表では、David Soria Parra氏とMahesh Murag氏がAgent Skillsのリードメンテナーを務めるとされ、特定ベンダーに依存しない技術運営委員会が今後の開発方針を決める。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/10/agent-skills-to-aaif)
+
+## Ruby、正規表現エンジンの重大バグを修正 GitLabの任意コード実行脆弱性にも対応
+
+Ruby開発チームは、正規表現エンジンOnigmoの重大な不具合を修正したRuby 4.0.9・3.4.12・3.3.13を公開した。GitLabで報告された任意コード実行につながる脆弱性群と関係する修正。
+
+開発ツール・言語・OSS動向案件。信頼できない文字列を`Regexp.new`などでパターンとしてコンパイルする場合に、`|`後の解析失敗による二重解放やパターンサイズ計算の整数オーバーフローなどでメモリ破壊が起きうる問題で、CVSSスコア9.9〜10.0のCVEが4件報告されている。GitLabはCI設定の正規表現パターンをサーバー側でコンパイルしていたため影響を受け、同梱Rubyへのパッチを19.4.1(9月23日)・19.4.2(10月12日)・19.5.1(10月21日)で順次提供済み。開発者が記述した正規表現のみを使うアプリケーションは影響を受けないが、利用者入力からパターンを組み立てる実装は早急な更新が推奨される。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/10/ruby-regexp-fixes-gitlab-cves)
+
+## Google、エッジAI向け「Coral NPU」32bit設計とコンパイラv1.0を公開
+
+Googleは、ウェアラブル・IoT機器向けのオープンソースなエッジAI向けハードウェア設計「Coral NPU」について、32ビット設計の最終段階となる行列演算ユニットを公開し、全4段階がそろった。同時にモデル変換ツール「Coral Compiler v1.0」も公開した。
+
+新技術紹介案件。Coral NPUはRISC-V命令セットベースの低消費電力エッジAI向け設計で、半導体メーカーが自社SoCに組み込める。今回公開の行列演算ユニットは1サイクルあたり256回の積和演算に対応し、構成次第で最大1TOPS・平均消費電力10mWを目標とする。回路設計データ(RTL)はGitHubで公開されている。コンパイラはIREE・MLIR基盤でJAX・PyTorch・TensorFlowへの対応を予定するが、現時点でREADMEに手順があるのはJAXのみ。同日、Synapticsは採用ボード「Coralboard SR」の発表と「Coralboard SL」の一般販売も開始した。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/10/google-coral-npu-32bit-compiler-v1)
+
+## 今日のTips: TypeScriptの`NoInfer<T>`、意図しない型引数の推論を防ぐ
+
+TypeScript 5.4で追加された`NoInfer<T>`は、ジェネリック関数の引数の型を型推論の候補から外すためのユーティリティ型だ。
+
+```typescript
+function createStreetLight<C extends string>(
+  colors: C[],
+  defaultColor?: NoInfer<C>,
+) {}
+
+createStreetLight(['red', 'yellow', 'green'], 'blue');
+// Error: Argument of type '"blue"' is not assignable
+// to parameter of type '"red" | "yellow" | "green"'.
+```
+
+`defaultColor`を単なる`C`のままにすると、渡した`"blue"`も型引数`C`の推論候補に含まれてしまい、配列にない色でも型チェックを通ってしまう。`NoInfer<C>`で囲むと`colors`だけが推論の唯一の根拠になり、`defaultColor`側の値は推論に影響しないため、配列外の値を渡した時点でエラーにできる。従来は使われない型パラメータ`D extends C`を追加してごまかす回避策もあったが、`NoInfer`の方が意図を素直に表現できる。
+
+<Tip>
+`NoInfer<T>`自体は型を変えず「推論候補から外す」目印にすぎないため、型チェックを厳しくする効果は推論結果の変化を通じた副次的なものである点に注意。
+</Tip>
+
+参考: [Announcing TypeScript 5.4](https://devblogs.microsoft.com/typescript/announcing-typescript-5-4/)
