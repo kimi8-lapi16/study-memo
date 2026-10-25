@@ -1,0 +1,69 @@
+---
+title: ITニュースダイジェスト 2026-10-26
+listTitle: ITニュースダイジェスト 2026-10-26 — Googleがプライバシーポリシーを更新しGmail・Googleフォトのデータを広告に使う例外を追加、Downloadsフォルダの「AGENTS.md」でAIコーディングエージェントが乗っ取られる手口が判明、DuckDB 2.0 LTSがクライアント/サーバー構成に対応、AIエージェントがhCaptchaやCloudflare Turnstileを高確率で通過する調査結果の計4件。
+date: 2026-10-26
+category: NEWS
+tags: [NEWS, IT, 業界動向, セキュリティ, 開発ツール, AI]
+summary: Googleはプライバシーポリシーを更新し、ユーザーが許可した場合はGmail・Googleフォトのデータを他サービスの広告パーソナライズに使えるようにした。Downloadsフォルダに置かれた「AGENTS.md」でAIコーディングエージェントが乗っ取られる手口が判明し、DuckDBはクライアント/サーバー構成に対応した2.0 LTSを公開。AIエージェントがボット検出システムを高確率で通過するという調査結果も報告された。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-26</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - BUSINESS
+  - PRIVACY
+  - SECURITY
+  - AI
+  - OSS
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google、プライバシーポリシーを更新 Gmail・Googleフォトのデータを広告に使う例外を追加
+
+Googleは2026年10月16日(現地時間)にプライバシーポリシーを更新し、Gmail・Googleドライブ・Googleフォトの内容に基づくパーソナライズド広告を表示しないとしてきた従来の方針に、ユーザーが許可した場合の例外を新たに明記した。
+
+業界動向案件。背景には、Gmailやフォトの内容を参照して回答する「パーソナルインテリジェンス」機能がある(初期設定はオフのオプトイン)。新ポリシーでは、ユーザーが検索やGeminiアプリなどへこれらのデータへのアクセスを許可すると、許可先サービスのポリシー・設定に従って扱われる旨が追加された。例えば検索は、許可されたホテル予約メールの情報を基に周辺スポットを提案するなど、コンテンツのパーソナライズに使うことがあるという。Googleのヘルプによれば、広告がGmailの受信トレイやフォトライブラリの内容に直接基づくことはないが、検索は接続先アプリの要約・抜粋・推測を参照でき、それが広告表示に使われる場合がある。これらの要約はAIモデルの学習に使われることがあり、人種・宗教・性的指向・健康状態など機微なカテゴリに基づく広告を出さない方針自体は変わっていない。回避するには、Googleアカウントの「データとプライバシー」→「パーソナライズ設定」→「追加のパーソナルインテリジェンス」から、Google WorkspaceやGoogleフォトとの連携を解除する必要があるが、解除しても検索サービス履歴に保存済みのデータは削除されず、製品改善(AIの学習含む)に使われ続ける場合があるという。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/26/2000002570/)
+
+## Downloadsフォルダの「AGENTS.md」でAIコーディングエージェントが乗っ取られる手口が判明
+
+セキュリティ企業Forever Securityは、Downloadsフォルダに置かれた悪意ある指示ファイル(`AGENTS.md`や`CLAUDE.md`)によって、AIコーディングエージェントが乗っ取られる手口を報告した。
+
+セキュリティインシデント案件。AIコーディングエージェントは作業ディレクトリ内の`AGENTS.md`等の指示ファイルを自動で読み込み従うため、悪意あるWebページがChrome・Edge・Firefoxの既定のダウンロード先であるDownloadsフォルダへ静かにファイルを保存し、ユーザーがそこでエージェントを起動すれば(ダウンロード直後のファイル整理などで一般的な操作という)乗っ取りが成立する。研究チームはOpenAI Codexで再現したほか、Claude Codeでも類似の手口を実証した。Codexでは無害なペイロード(計算機アプリの起動)が約90%の確率で成功。Claude Codeでは悪意ある`CLAUDE.md`によりAPI通信を研究者のサーバーへ誘導し、エージェントのOAuthトークンを奪取、モデルになりすましてツール呼び出しを返すことで約50%の確率でコード実行に成功したという。実際の顧客被害では、CursorのCLI版をDownloadsフォルダから起動する利用者が多数いたと報告されている。OpenAIやAnthropicが修正すべき脆弱性ではなく「エージェントは設計通りに動いている」だけとされ、対策としてはDownloadsフォルダや上位の親ディレクトリ・ホームディレクトリを作業ディレクトリに指定しない、見慣れない指示ファイルは実行前に確認する、承認プロンプトやサンドボックスを無効化しないことなどが挙げられている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/)
+
+## DuckDB 2.0 LTSリリース、Quackプロトコルでクライアント/サーバー構成に対応
+
+組み込み型の列指向データベースDuckDBの開発チームは、長期サポート版「DuckDB 2.0(コード名Cinnamon Teal)」を公開した。少なくとも2027年10月までサポートされる。
+
+開発ツール・言語・OSS動向案件。開発元DuckLabsが2026年8月にAWSの子会社となって以降、初のメジャーアップデートとなる。今年5月に登場した独自プロトコル「Quack」により、別マシン上のDuckDBインスタンスへ接続してクライアント/サーバー構成を組めるようになり、サーバー側は複数クライアントを処理できるためマスターDBを共有する構成も可能になった。SQLパーサはPostgreSQL由来のものからPEG(Parsing Expression Grammar)ベースの新パーサに刷新され、独自方言DuckSQLを保ちつつ文法拡張がしやすくなった。半構造化データの共通構造を自動検出して分割保存し圧縮効率とクエリ速度を高める新型「VARIANT型」、データの追加・更新・削除を起点に処理を自動実行する「トリガー」、クエリ処理とI/O処理を独立にスケールできる非同期I/O(S3等のリモートストレージからの読み込みが特に高速化)なども加わった。拡張機能開発者向けAPIの拡充や専用の「agent mode」も追加されている。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/duckdb_20_ltsquack.html)
+
+## AIエージェント、hCaptchaやCloudflare Turnstileを高確率で通過と調査結果
+
+ボット検出システムを開発するProof of Humanの研究チームは、AIコーディング・ブラウジングエージェントが主要なボット検出システムをどの程度突破できるかを検証した結果を公開した。
+
+AI・LLM動向案件。検証対象はProof of Human・reCAPTCHA v3・hCaptcha・Cloudflare Turnstile・Cloudflare Bot Managementの5種で、「5問のアンケートに回答する」課題を、AIエージェント3種(Claude Opusを使うBrowser Use、PerplexityのComet、xAIのGrok)と定型ボット2種に各20回試行させ検出率を比較した。hCaptchaは定型ボットを95〜100%検出したのに対しAIエージェントの検出率はBrowser Use16%、Comet0%、Grok6%と低く、エージェントが画像認証を解いて通過するケースが多かった。Cloudflare Turnstileは3種のエージェントすべてで検出率0%、認証問題自体が出されずに通過したという。一方reCAPTCHA v3はエージェントの検出率がBrowser Use95%、Comet100%、Grok72%と高く、画像選択型より振る舞い・ブラウザ状態を評価する方式の方が有効な場合があることを示した。なお調査主体のProof of Humanは競合する検出システムを比較する立場にあり、人間の誤検知率は未検証であるなど、結果の解釈には留意が必要だとしている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20261026-ai-bot-detection-benchmark/)
+
+## 今日のTips: PostgreSQLのCOPY、`ON_ERROR ignore`で変換エラー行だけ読み飛ばせる
+
+PostgreSQL 17で`COPY FROM`に追加された`ON_ERROR`オプションを`ignore`に指定すると、列の型変換に失敗した入力行だけを捨てて処理を続行できる。
+
+```sql
+COPY country FROM '/path/to/country_data.csv'
+  WITH (FORMAT csv, ON_ERROR ignore, LOG_VERBOSITY verbose);
+```
+
+既定(`stop`)では最初の変換エラーでコマンド全体が失敗するが、それまでに挿入された行は削除済みの状態でテーブルに残ってしまい、ディスク領域を占有し続ける(`VACUUM`での回収が必要)。`ignore`を指定すればこの事態を避けられるが、捨てた行数は`COPY`の結果に出るコマンドタグ(`COPY count`)ではなく、終了時のNOTICEメッセージで報告される点に注意。`LOG_VERBOSITY verbose`を併用すると、捨てた行ごとの入力ファイル上の行番号と、変換に失敗した列名までNOTICEに出力される。`text`・`csv`形式でのみ使え、`binary`形式の`COPY`には対応しない。
+
+<Tip>
+`ignore`は型変換エラーのみを無視する機能で、重複キーなどの制約違反までは読み飛ばせない点に注意。
+</Tip>
+
+参考: [PostgreSQL 17 Documentation: COPY](https://www.postgresql.org/docs/17/sql-copy.html)
