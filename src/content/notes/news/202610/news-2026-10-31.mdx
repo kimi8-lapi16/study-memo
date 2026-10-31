@@ -1,0 +1,86 @@
+---
+title: ITニュースダイジェスト 2026-10-31
+listTitle: ITニュースダイジェスト 2026-10-31 — GitHubが複数AIモデルを自動選択する「Copilot Fusion」を一般提供、イオンがフィジカルAIで物流拠点の自動化率5割を達成、総務省がGMO攻撃者サイトのブロッキングを通信各社に要請、Linuxカーネルの重大なMPTCP脆弱性、無印良品の最大2726万件漏えい、Binance窃取事件で北朝鮮ハッカー集団の関与が濃厚にの計6件。
+date: 2026-10-31
+category: NEWS
+tags: [NEWS, IT, AI, 開発ツール, 新技術, 法改正, セキュリティ]
+summary: GitHubは複数のAIモデルを自動選択・連携する「Copilot Fusion」を一般提供し、イオンはフィジカルAIで物流拠点の自動化率5割を達成した。総務省はGMO攻撃者サイトのブロッキングを通信各社に要請、Linuxカーネルの重大なMPTCP脆弱性が発覚し、無印良品では最大2726万件の情報漏えい、Binanceの暗号資産窃取事件では北朝鮮ハッカー集団TraderTraitorの関与が濃厚になった。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-10-31</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - DEV TOOLS
+  - LEGAL
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## GitHub、複数AIモデルを自動選択・連携する「Copilot Fusion」を一般提供
+
+GitHubは「GitHub Universe 2026」で、タスクに応じて使うAIモデルと組み合わせ方を自動で決める「Copilot Fusion」を一般提供した。
+
+AI・LLM動向案件。9月に研究プレビューを始めた「Project HydraFusion」と、従来の自動モデル選択機能を統合したもので、VS Code・GitHub Copilotアプリ・CLI・JetBrains IDEで使える。利用者は処理レベル(Standard/High/Max)を選ぶだけで、実行方式(単一モデル、軽量モデルから高性能モデルへ引き継ぐCascade、複数モデルが互いの回答を検討するCritique)はFusionが依頼ごとに自動選択する。GitHubによれば、Artificial AnalysisのCoding Agent IndexでFusion Maxは総合60点を記録し、Claude CodeでOpus 5.5 Maxを使った結果との差は2点以内としており、タスク当たりのAPI費用は約半分という。あわせて、関連資料やエージェントの作業を一か所にまとめる「Copilot Projects」もパブリックプレビューを開始した。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/10/github-universe-2026)
+
+## イオン、フィジカルAIで物流拠点の自動化率5割達成 深刻な人手不足に対応
+
+イオンとロボット制御ソフトのMujinは、埼玉県の配送拠点「イオン川口東XD」を報道陣に公開し、AIで機械を自律的に動かす「フィジカルAI」ロボットの導入状況を明らかにした。
+
+新技術紹介案件。入荷したケース品の自動認識、82台のAGV(無人搬送車)によるピース品の搬送、重量を考慮して荷崩れを防ぎながら積み付けるアームロボットまで、仕分けから積み付けまでを施設として初めて自動化した。90台以上のロボットが稼働し、作業の自動化率は全体の5割、1日あたり39人分の省人化を実現しているという。2030年には自動化率8割を目指し、グループの店舗物流にも順次広げる方針。生産年齢人口の減少を背景に、高市政権もフィジカルAIを戦略分野の1つに掲げている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/30/2000002751/)
+
+## 総務省、GMO攻撃者サイトの「ブロッキング」を通信各社に要請 報道
+
+総務省が、GMOインターネットグループの顧客情報とみられるデータを掲載する攻撃者側サイトへの接続を遮断するよう、通信事業者4団体を通じて各社に要請したと10月29日に報じられた。
+
+法改正・規制動向案件(続報)。10月20日発覚のGMO不正アクセス事件(本ダイジェストでも既報)を巡る新たな動きで、要請文は27日付。情報の二次被害拡大を懸念した対応とされるが、ブロッキングには全利用者の通信先の把握が前提となり「通信の秘密」侵害の懸念も指摘されている。通信大手幹部は実施判断の難しさを示し、木原官房長官は29日の会見で対応中とコメントするに留めた。日本経済新聞は、対象サイト自体のドメインが28日に停止したため結果的にブロッキングは発動しなかったとの見方を伝えている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/30/2000002765/)
+
+## Linuxカーネルに重大な脆弱性 MPTCP経由でリモートroot権限奪取、Anthropicが実証
+
+LinuxカーネルのIPv4 TCPネットワークコードに、リモートから認証不要でroot権限を奪取できる重大な脆弱性(CVE-2026-98432)が見つかった。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日1件目)。接続要求処理の競合状態に起因するuse-after-freeで、Linuxカーネル CVEチームはCVSS 9.8(重大)と評価(Red Hatは悪用の複雑さから5.9・DoS中心と評価)。Anthropicの研究者は、未公開のClaudeモデルが開発したエクスプロイトでKASLRを回避し、MPTCPリスナーを持つLinuxサーバー上でroot権限のリモートコード実行を約53分で達成したと報告している。MPTCPは通常既定で無効だが、Go 1.24以降はカーネルが対応していれば自動的に有効化されるため、管理者が気付かないうちに該当する場合がある。上流では修正済みだが、Ubuntu・RHEL・Rocky Linuxなどは10月30日時点で対応中。現時点で実際の悪用報告はない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/)
+
+## 無印良品、不正アクセスで最大2726万件漏えいの可能性 退会済み会員も対象
+
+良品計画は10月30日、「MUJIアプリ」への不正アクセスにより、退会済みの利用者を含む最大約2726万件の顧客情報が流出した可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日2件目)。流出の可能性がある情報はメールアドレス・生年月日・性別の3項目で、氏名・住所・電話番号・クレジットカード情報は含まれないとしている。外部からの不正アクセスを検知し、該当箇所へのアクセス遮断と修正を適用済み。現時点でダークウェブへの流出や悪用被害は確認されていないが、対象者には順次連絡するとし、この情報を使った「なりすましメール」への注意を呼び掛けている。MUJIアプリと「無印良品ネットストア」は通常どおり利用できる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/30/2000002756/)
+
+## Binance窃取事件、北朝鮮ハッカー集団「TraderTraitor」の犯行と断定的評価 史上最大規模に
+
+暗号資産取引所Binanceから約63.6億ドル(約1兆円)相当が流出した事件で、ブロックチェーン分析企業TRM LabsとChainalysisが、北朝鮮の国家支援ハッカー集団TraderTraitor(Lazarus Group)による犯行との分析結果を発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日3件目、続報)。前回ダイジェストで報じた調査開始から進展し、BinanceはDevOpsエンジニアの侵害されたノートPCが起点になった可能性があるとしつつ、単独エンジニアの権限だけでは説明できない複雑な攻撃プロセスだったと説明している。攻撃は10月29日20時05分UTC(日本時間29日午後)から約20分間で大半が実行され、TRM Labsは攻撃者が36時間以上前から準備していたとみる。ステーブルコイン発行元などの協力で約27億ドル相当が凍結されたが、攻撃者は凍結を逃れるため数千件の取引を自動化してETHなどに交換し、なお約24億ドル相当を管理しているという。確定すれば2025年2月のBybit事件(約15億ドル)の約4倍で史上最大規模となる。Binanceは入出金を停止し、損失はSAFUファンドと自己資金で補填する方針。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/)、[ITmedia NEWS](https://www.itmedia.co.jp/news/article/2610/31/2000002775/)
+
+## 今日のTips: TypeScriptの`const`型パラメータ、呼び出し時のリテラルを`as const`相当で推論
+
+TypeScript 5.0で追加された型パラメータの`const`修飾子を使うと、呼び出し側で`as const`を書かなくても、渡した値をリテラル型のまま推論できる。
+
+```ts
+type HasNames = { names: readonly string[] };
+
+function getNamesExactly<const T extends HasNames>(arg: T): T["names"] {
+  return arg.names;
+}
+
+// 推論結果: readonly ["Alice", "Bob", "Eve"]
+const names = getNamesExactly({ names: ["Alice", "Bob", "Eve"] });
+```
+
+<Note>`const`修飾子は呼び出し式の中に直接書かれたリテラルにのみ効く。事前に変数へ代入した値を渡しても効果はない。また、制約に可変の配列型(`string[]`等)を使うと`readonly`な推論結果がその制約に代入できず推論が制約側にフォールバックするため、制約自体を`readonly`配列にする必要がある。</Note>
+
+参考: [TypeScript: Documentation - TypeScript 5.0](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html)
