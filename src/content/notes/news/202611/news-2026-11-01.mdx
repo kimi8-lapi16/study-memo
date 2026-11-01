@@ -1,0 +1,91 @@
+---
+title: ITニュースダイジェスト 2026-11-01
+listTitle: ITニュースダイジェスト 2026-11-01 — OpenAI・Google・MicrosoftがAI学習の一括拒否をrobots.txtで伝える共通シグナルに対応、OracleがチャットでAI業務アプリを自動生成する「App Composer」を発表、OpenAIとアクセンチュアが国内で中堅企業向けセキュリティー運用支援を開始、Anthropicの著作権訴訟でスタンフォード大教授らが和解離脱し提訴、GitLabの最大深度脆弱性の悪用開始、Chainalysisが「攻撃的エージェント技術」による侵害を公表、クラウド基盤NorthflankでAI APIキーが悪用の計7件。
+date: 2026-11-01
+category: NEWS
+tags: [NEWS, IT, AI, 新技術, 業界動向, 訴訟, セキュリティ]
+summary: OpenAI・Google・Microsoftは、サイト運営者がrobots.txtで複数のAI企業へ一斉にAI学習への利用拒否を伝えられる共通シグナルへの対応を発表し、OracleはチャットでAI業務アプリを生成する「App Composer」を発表した。Anthropicの著作権訴訟ではスタンフォード大教授らが和解から離脱して提訴し、セキュリティー面ではGitLabの最大深度脆弱性の悪用開始、Chainalysisの侵害、Northflankを介したAI APIキー悪用が発覚した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-01</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - CLOUD
+  - LAWSUIT
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## OpenAI・Google・Microsoft、robots.txtでAI学習の一括拒否を伝える共通シグナルに対応 Anthropicも実装中
+
+OpenAI・Google・Microsoftが、サイト運営者がrobots.txtの記述1つで複数のAI企業へ一斉にAI学習への利用拒否(または許可)の意向を伝えられる共通の仕組みに対応すると発表した。
+
+AI・LLM動向案件。Anthropicの標準化担当者が同日、IETFのAIPREFワーキンググループの議論を踏まえた草案「Machine-Readable Training Preference Signal」を個人名義で提出したのが発端で、まだ正式な標準ではない。仕組みはrobots.txtの`User-Agent`行に共通ポリシートークン`__usage_ai-training`を指定し、`Disallow`/`Allow`で学習利用への意向を示すというもので、新しい構文を追加しないため既存パーサーに影響しない。対応はクロール自体の禁止ではなく、クロール制限は従来どおり各クローラー向けルールで行う。対応時期は企業ごとに異なり、OpenAIは数カ月以内を目標、Googleは2027年目標(共通シグナルで拒否した場合は明示指定がない限り「Google-Extended」による利用も拒否扱い)、Microsoftは2027年2月1日から適用でmetaタグ・HTTPヘッダによるページ単位の指定も導入する。Anthropicは実装を進めているが全サービス対応には時間がかかるとしている。出版社による訴訟が相次ぐ中、Cloudflareが7月に用途別クローラー管理機能を全顧客に開放するなど、同様の動きの延長線上にある。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/01/2000002776/)
+
+## Oracle、チャット指示だけで業務アプリを自動生成しクラウドにデプロイする「App Composer」を発表
+
+Oracleは年次イベント「Oracle AI World 2026」の基調講演で、社員がチャットで指示するだけでOpenAIのCodexが業務アプリのコードを生成し、Oracle Cloudにデプロイできる新サービス「Oracle App Composer」を発表した。
+
+新技術紹介案件。生成されたコードはセキュリティチェックを経てデプロイされ、作成したアプリは社内でURLを通じて共有できる。情報部門向けの管理画面も用意され、利用者・作成担当者や類似アプリの有無を確認したり、責任者を設定したり、長期間使われていないアプリを廃止したりできる。提供開始は2027年春を予定している。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/aioracle_cloudoracle_app_composeroracle_ai_world_2026.html)
+
+## OpenAIとアクセンチュア、AI活用のセキュリティー運用支援サービスを国内で開始 中堅企業も照準
+
+OpenAIとアクセンチュアは、AIを使った攻撃の増加を受けて、セキュリティー運用を支援する新サービスを2026年10月から開始した。
+
+業界動向案件。OpenAIの技術とアクセンチュアのコンサルティングを組み合わせ、人の監視下でAIエージェントが脆弱性の発見から修復・確認までを継続的に行う体制「Defense Factory」の構築を支援する。顧客システムにはAIモデルや実行基盤、AIエージェントを含むOpenAIの基盤「Daybreak」を組み込み、アクセンチュアが顧客の業務知見をもとに設計を提案し脆弱性対応の優先順位を決める。両社は7月に国内協業拡充を発表済みで、今回はその具体策の1つ。対象は国内の大手企業に加え中堅企業も含み、政府の「SCS評価制度」運用開始を控えてセキュリティー対策を見直す動きが広がる中堅企業向けに、低価格の専用サービスも検討しているという。
+
+出典: [日経クロステック](https://xtech.nikkei.com/atcl/nxt/column/18/00001/12135/)
+
+## Anthropicの著作権訴訟、スタンフォード大教授らが一括和解から離脱し個別提訴 「奴隷労働」と批判
+
+Anthropicが「Claude」の学習に海賊版書籍を使ったとされる訴訟で、スタンフォード大学の教授らが一括和解への参加を拒んで離脱し、個別に提訴したことが分かった。
+
+訴訟・トラブル案件(続報)。2024年8月の作家3人による提訴を起点に、2025年には合法的に入手した書籍での学習自体には著者の許可が不要との判決が出た一方、海賊版データの利用は問題視され、48万点超の海賊版コンテンツについて和解が成立・承認されていた。これに反対し離脱した著者・出版社の一部が独自提訴する動きが続いており、英文学教授のトバイアス・ウルフ氏らは2026年5月に別訴訟を提起。和解金が1点あたり約3000ドルだったのに対し、今回は1点最大15万ドルの法定損害賠償を求めている。ウルフ氏は無報酬での作品利用を「奴隷労働」と批判し、包括的な集団訴訟では責任を十分にカバーできないとして個別の救済を求めているという。
+
+出典: [GIGAZINE](https://gigazine.net/news/20261029-anthropic-stanford-professors/)、[Stanford Daily](https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/)
+
+## GitLabの最大深度脆弱性、悪用開始 CISAが連邦機関に緊急パッチを命令
+
+GitLabのCI/CDパイプライン設定内の正規表現を解析する「Regular Expression Compiler」に、未認証でもサーバー上で任意コード実行を許す最大深度(critical)の脆弱性(CVE-2026-97229)が見つかり、悪用が始まったことが確認された。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日1件目)。整数オーバーフローが原因で、特別に作成した正規表現をCI/CD設定ファイルに仕込むことで任意コード実行につながる。CISAは10月29日に悪用を確認して既知exploit脆弱性カタログに追加し、連邦機関に対しては拘束力のある指令で日曜までの対処を命じた。GitLab自身も悪用の試みを検知している。修正済みバージョンはCommunity/Enterprise Editionの19.4.2・19.3.5・19.2.8。Shadowserverはインターネットに公開されたGitLab CE実インスタンスを約2800件確認しているが、対処済みかどうかは不明という。同種のRegular Expression Compilerの最大深度脆弱性(CVE-2026-110264)が10月に修正されたばかりで、GitLabでは2026年に重大な脆弱性が続いている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/)
+
+## ブロックチェーン分析大手Chainalysis、「攻撃的エージェント技術」による侵害を公表
+
+ブロックチェーン分析企業Chainalysisは、外部の攻撃者が「攻撃的なエージェント技術(offensive agentic techniques)」を使って社内システムにアクセスしたとする侵害を公表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日2件目)。侵入は10月中に検知され、10月30日に顧客への通知メールとともに開示された。限られた人の介在で複数ステップの作業を自動実行する「エージェント型」AIが侵入の一部自動化に使われた可能性があるとみられるが、既存の攻撃フレームワークか独自のAIエージェントかは明らかにされていない。流出したのはユーザーID・氏名・メールアドレス・組織内の役割ラベルで、調査内容や認証情報・セッショントークンへのアクセスは確認されていないという。Chainalysisは脆弱性の修正とシステム強化、外部専門家との協力、LLMを使ったセキュリティー見直しを進めており、Binanceの窃取事件とは無関係と説明している。2段階認証の有効化や、復旧支援・採用を装った詐欺への注意を顧客に呼び掛けている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/)
+
+## クラウド基盤Northflankに侵害、顧客のAI APIキーが悪用される
+
+アプリ・コンテナ・AIワークロード向けクラウド基盤Northflankがセキュリティインシデントを公表し、複数の顧客からAI APIキーが不正利用されたとの報告が上がっている。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日3件目)。10月30日、セキュリティー企業Wizからの通報を受けて調査したところ環境変数が復号・窃取された可能性が判明し、Northflankは全顧客に「すべての環境変数が復号されたと想定し、キーを無効化・再発行してほしい」と通知した。侵害の経路は明らかにされていない。Wizは同月のレポート「Black October for AI Developer Platforms」で、NorthflankやRailwayなどAI開発者向けプラットフォーム9件以上の侵害事例を確認しており、盗んだAI利用キーで高額なAPI利用を行う「LLMJacking」の被害では2件でAmazon Bedrock APIが約250万回呼び出され約10万ドルの請求が発生したケースもあるという。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/)
+
+## 今日のTips: PostgreSQLの`VACUUM FULL`、`ACCESS EXCLUSIVE`ロックで読み取りも含めて全セッションをブロックする
+
+通常の`VACUUM`は空き領域を同じテーブル内で再利用可能にするだけで排他ロックを取得せず、通常の読み書きと並行して実行できる。一方`VACUUM FULL`はテーブルの全内容を新しいディスクファイルに書き直して未使用領域をOSへ返却するため、処理中は`ACCESS EXCLUSIVE`ロックが必要になる。
+
+```sql
+-- 排他ロックなし、並行読み書き可能(OSへの領域返却はしない)
+VACUUM (VERBOSE, ANALYZE) big_table;
+
+-- ACCESS EXCLUSIVEロックを取得、読み取りも含め他の全セッションをブロック
+VACUUM (FULL, VERBOSE) big_table;
+```
+
+<Note>`VACUUM FULL`は新しいコピーを書き終えるまで古いコピーを解放しないため追加のディスク容量も必要になる。公式ドキュメントも日常的な運用には推奨しておらず、テーブル内から大きく領域を回収する必要がある特殊なケースでのみ、メンテナンス時間帯に実行するのが基本となる。</Note>
+
+参考: [PostgreSQL: Documentation: VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html)
