@@ -1,0 +1,87 @@
+---
+title: ITニュースダイジェスト 2026-11-02
+listTitle: ITニュースダイジェスト 2026-11-02 — Googleが宇宙のTPUで初のAI応答に成功、AnthropicがClaudeの上位プランを「Ultra」に改称、MySQL 26.10でコミュニティ版もWebAuthn対応、FBIがBinance63億ドル窃盗事件を北朝鮮と正式に断定、Alpine LinuxがGitLab最大深度脆弱性の攻撃を受けインフラを再構築。
+date: 2026-11-02
+category: NEWS
+tags: [NEWS, IT, AI, 新技術, 開発ツール, セキュリティ]
+summary: GoogleのProject Suncatcherが宇宙のTPUから初のAI応答を受信し、AnthropicはClaudeの上位プランを「Ultra」に改称、MySQLの最新版ではコミュニティ版でもWebAuthn認証に対応した。セキュリティ面では、FBIがBinanceの63億ドル窃盗事件を北朝鮮「TraderTraitor」と正式に断定し、Alpine LinuxはGitLabの最大深度脆弱性の攻撃を受けてインフラを再構築した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-02</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - DEV
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google、宇宙のTPUから初のAI応答を受信 「Project Suncatcher」試作衛星でGemma 4が俳句を詠む
+
+Googleは2026年10月30日(現地時間)、宇宙AIデータセンター構想「Project Suncatcher」の試作衛星で、軌道上のTPUがAIの応答を初めて地上に返したと発表した。
+
+新技術紹介案件(続報)。9月に打ち上げを発表していた試作衛星が2026年10月1日にSpaceXのFalcon 9ロケットで実際に打ち上げられ、数週間かけて電源投入や初期の機械学習テストなどの立ち上げ作業を完了した。地上局との交信時、搭載したオープンモデル「Gemma 4」に宇宙をテーマにした俳句を作るよう指示するプロンプトを送ったところ、衛星がノルウェーのスバールバル諸島上空を通過した際に英語の俳句が地上に届き、データセンター級TPUが軌道上でAI応答を返した初の事例として成功が確認された。Googleはこれを「Hello World」マイルストーンと呼んでいる。今後は軌道上の熱ストレスや放射線被ばく下でのTPUの挙動を評価し、2027年には相互接続した2基の衛星による次段階に進む予定。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/02/2000002779/)
+
+## Anthropic、Claudeの「Max 20x」を「Ultra」に改称 月200ドルプランで5時間ごとの利用上限を撤廃
+
+Anthropicは、Claudeの有料プラン「Max 20x」の名称を「Ultra」に変更し、認証済みアカウント向けに5時間ごとの利用上限を撤廃した。
+
+AI・LLM動向案件。料金自体は変わらず、月額100ドルの「Max 5x」は「Max」に、月額200ドルの「Max 20x」は「Ultra」に呼び名が整理された形で、既存契約者は手続きなしで新プランへ移行する。Ultraでは認証済みアカウントの大半で発表日から5時間ごとの利用上限が撤廃されたが、比較的新しいアカウントは不正利用防止のため認証完了まで一時的な制限が残り、週ごとの利用上限は従来どおり維持される。両プラン共通で、高性能モデル「Fable」を週間上限の50%まで利用できるほか、開発基盤「Claude Platform」で使えるAPIクレジットが毎月付与される(Maxは100ドル分、Ultraは200ドル分)。Maxプランは2025年4月9日の登場時から2段階で提供されていたが、今回の変更で名称が分かりやすく整理された。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/02/2000002777/)
+
+## MySQL 26.10リリース コミュニティ版でもWebAuthn認証に対応
+
+MySQLの最新イノベーション・リリース「MySQL 26.10.0」が、LTS版の「9.7.4」「8.4.13」と同時に公開された。
+
+開発ツール・言語・OSS動向案件。目立つ変更は、これまで商用版限定だったWebAuthn認証がコミュニティ版でも使えるようになった点で、FIDOデバイスによる多要素認証やパスワードレス認証に対応する。他にも、サーバーからディスク・メモリ・CPU・プロセス情報を取得しパフォーマンス・スキーマ経由で参照できる「Health Monitor」(Linux中心の対応、macOSは基本メトリクスのみ、Windows非対応)、従来MySQL Routerの機能だった「MySQL REST Service」がサーバー本体の機能になりHTTPSエンドポイントを直接提供できるようになった点、今後のセキュリティ更新(CSPU)に対応するためバージョン番号表記が最大4桁になった点などが加わった。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/11/ossdb-various-news0135)
+
+## Binance63億ドル窃盗事件、FBIが北朝鮮「TraderTraitor」の犯行と正式に断定 利用者保護のため連携を要請
+
+FBIは、暗号資産取引所Binanceから63億ドル超が盗まれた事件について、北朝鮮のサイバー攻撃グループ「TraderTraitor」の犯行と正式に発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日1件目・続報)。前回ダイジェストで報じた時点ではブロックチェーン分析企業TRM LabsとChainalysisによる「犯行が濃厚」との分析段階だったが、今回は捜査主体のFBI自身が米シークレットサービス・米内国歳入庁犯罪捜査部と連携した上で正式に断定した点が進展。FBIはTHORChainのノード運営者やRPCノード運営者、DeFiサービス、ブロックチェーン分析企業などに対し、洗浄に使われているとみられる多数のEthereumアドレスと1件のSolanaアドレスを公開し、これらとの取引をブロックするよう協力を要請した。FBIは2025年2月のBybitからの約15億ドル相当の窃盗も同じTraderTraitorの犯行と特定している。Binance Japanは、日本の顧客資産はコールドウォレットで管理され影響は確認されていないとし、出庫は48時間以内の再開を見込むとともに被害が確認された利用者には全額補償すると表明している。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/02/2000002778/)
+
+## Alpine Linux、GitLab最大深度脆弱性の攻撃を受けインフラを再構築 侵入有無は特定できず
+
+Alpine Linuxプロジェクトは、前日のダイジェストで報じたGitLabの最大深度(critical)脆弱性(CVE-2026-97229)を突く攻撃を自社のGitLabインフラが受けたことを公表し、インフラを一から再構築したと発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日2件目・続報)。攻撃は10月20〜21日に発生し、GitLabのCI/CDパイプラインで使われる正規表現コンパイラ「Onigmo」の整数オーバーフローを突くもので、GitLabは10月12日に修正版をリリース済みだった。Alpineは修正版への対応が遅れ、パッチ未適用の19.3.4を導入し、その後アップグレードした19.3.6でもRubyパッチを含まない独自コンテナイメージのため脆弱性が残っていた。攻撃期間中、攻撃者は悪意あるCI設定を送り込み8件のワーカークラッシュを引き起こし、一部は部分的に成功したが完全な成功には至らなかったとみられる。AlpineのGitLabコンテナイメージもダウンロードされており、サプライチェーン攻撃の準備だった可能性がある。10月27日までの調査ではリポジトリのコミットやパッケージ、リリースへの改ざんは確認されていないが、ログが欠落しており侵入によるコード実行を完全には否定できないとして、ユーザー情報・パスワードハッシュ・2FAシークレット・CI/CDシークレット・非公開プロジェクトの内容などが流出した可能性があるという。Alpineはこのためインフラを一から再構築し全パスワードをリセットした上で、利用者にもGitLabパスワードの再設定と、Rubyパッチを含む修正済みコンテナイメージ(`alpinelinux/gitlab:19.3.6`、10月27日公開)への更新を呼びかけている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/)
+
+## 今日のTips: NestJSの`@Res()`、標準のレスポンス処理を無効化し`APP_INTERCEPTOR`等も効かなくなる
+
+NestJSのコントローラーでは戻り値をそのままレスポンスにする標準方式がデフォルトだが、ExpressやFastifyのレスポンスオブジェクトを`@Res()`で注入すると、そのルートでは標準方式が自動的に無効化され、インターセプターや`@HttpCode()`・`@Header()`など標準方式に依存する機能が効かなくなる。
+
+```ts
+// 標準方式: インターセプターやAPP_INTERCEPTORが効く
+@Get()
+findAll() {
+  return this.service.findAll();
+}
+
+// @Res()を使うと標準方式が自動的に無効化される
+@Get(':id')
+findOne(@Res() res: Response) {
+  res.status(200).json(this.service.findOne());
+}
+
+// passthrough: true なら標準方式を維持したままネイティブAPIも使える
+@Get('with-cookie')
+findWithCookie(@Res({ passthrough: true }) res: Response) {
+  res.cookie('seen', '1');
+  return this.service.findAll();
+}
+```
+
+<Note>`@Res()`を注入するとレスポンス送信の責任もアプリ側に移るため、`res.send()`等を呼び忘れるとリクエストがハングする。Cookieやヘッダーの操作だけがしたい場合は`passthrough: true`を使えば標準方式とインターセプターを維持できる。</Note>
+
+参考: [Controllers | NestJS - A progressive Node.js framework](https://docs.nestjs.com/controllers)
