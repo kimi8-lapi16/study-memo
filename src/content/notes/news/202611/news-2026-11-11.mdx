@@ -1,0 +1,94 @@
+---
+title: ITニュースダイジェスト 2026-11-11
+listTitle: ITニュースダイジェスト 2026-11-11 — Claudeに共同編集の「Sheets」「Whiteboards」、AnthropicのIPO仮条件決定とGoogle・NVIDIAの出資、.NET 11正式リリースと.NET 8/9サポート終了、iCloud世界規模障害、スキマバイト「シェアフル」最大750万件・日商ネット試験最大98万人分の情報漏えい、Microsoft11月Patch Tuesdayの計7件。
+date: 2026-11-11
+category: NEWS
+tags: [NEWS, IT, AI, 業界動向, 開発ツール, クラウド, セキュリティ]
+summary: Anthropicの「Claude」にチームで共同編集できる「Sheets」「Whiteboards」が追加され、同社のIPO仮条件も1株70〜78ドルに決定(GoogleとNVIDIAが各約100億ドル出資)。Microsoftは.NET 11を正式リリースし.NET 8/9はサポート終了、iCloudでは世界規模の障害が発生。国内ではスキマバイト「シェアフル」最大750万件、日商ネット試験最大98万人分の情報漏えいの可能性が公表され、Microsoftの11月Patch Tuesdayでは過去最多1235件の脆弱性が修正された。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-11</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - 業界動向
+  - 開発ツール
+  - クラウド
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropic、「Claude」にチーム共同編集の「Sheets」「Whiteboards」追加 外部アプリも全画面編集可能に
+
+Anthropicは11月10日(現地時間)、「Claude」にチームで共同編集できるスプレッドシート「Claude Sheets」とホワイトボード「Claude Whiteboards」(いずれもβ版)を追加した。
+
+AI・LLM動向案件。Claude Sheetsはタブ・数式・書式・ドロップダウンを含むシートをClaudeが作成・編集でき、Claudeが変更した箇所はハイライト表示される。作成したシートはチームで共有でき、Excelの全機能が必要な場合は.xlsxやCSVで書き出せる。Claude Whiteboardsは会話で出た計画をタイムライン・担当者・期日付きのボードに整理する機能で、完成後はドキュメントやスライドに変換したり、Lucid・Miro・Vani by Zohoと連携したりできる。データウェアハウスやCRMに接続してダッシュボードを作る「Claude Data」(旧Claude Dashboards)も正式提供になった。あわせて、外部アプリをClaudeの会話内で全画面に近い形で開いて直接編集できる「インタラクティブコネクタ」も拡張され、Adobe・Atlassian(Confluence)・Box・Notion・Canva・Vercelなど対応ツールが広がった。Claudeの操作には従来のコネクタと同様ユーザーの承認が必要。3機能は有料プラン向けにWeb・デスクトップ・モバイルで提供され、Teamプランではデフォルト有効、Enterpriseプランでは管理者設定による。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/11/2000003089/)
+
+## Anthropic、IPOの仮条件を1株70〜78ドルに GoogleとNVIDIAが各約100億ドルを別途出資
+
+Anthropicは新規株式公開(IPO)の仮条件を1株70〜78ドルに決定したと公表した。上限価格の場合、調達総額は約644億ドルに達する。
+
+業界動向案件(続報)。売り出すクラスA普通株式は8億2500万株で、うち8億135万株余りが新株発行。上場先はNasdaq Global Select Market、ティッカーは「ANT」で、主幹事はGoldman SachsとMorgan Stanley。これとは別に、IPOと同時に戦略パートナー7社が議決権のないクラスN株式を計260億ドル分、IPO価格で私募により取得する計画で、仮条件の中央値74ドルで計算すると、GoogleとNVIDIAがそれぞれ約100億ドル、AMDが約25億ドル、Broadcom・Micron Technology・Microsoftが各約10億ドル、TSMC傘下のTSMC Partnersが約5億ドルを出資する見込み。IPOと私募を合わせた手取り額は中央値換算で約846億ドルと見積もられている。公開価格の決定・取引開始の具体的な日程は本稿時点で未公表。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/11/2000003085/)
+
+## マイクロソフト、「.NET 11」正式リリース C#に共用型を導入、.NET 8/9はサポート終了
+
+マイクロソフトは「.NET Conf 2026」で.NET 11を正式リリースした。
+
+開発ツール・言語・OSS動向案件。C# 15では、変数が複数の型のうち1つだけを保持し、コンパイラがSwitch式・文の網羅性を確認できる「共用体型(Union Types)」が導入された。ランタイムでは非同期処理をコンパイラの前処理を介さず直接実行できるようになりオーバーヘッドを削減、JITコンパイラは配列の境界チェックやオーバーフローチェックの冗長な処理を除去し小規模Switch文も分岐なしに展開、AOTコンパイラは複数インターフェース呼び出しを共有ディスパッチでコンパイルしてネイティブバイナリの実行速度向上とサイズ縮小を実現した。コマンドラインツールでは、ツールチェーン一式をまとめてインストール・バージョン管理できる「dotnetup」が加わった。.NET 11は標準サポート(STS)版でサポート期間は2年のため、長期利用には現行LTS版の.NET 10が推奨される。これに合わせて、長期サポート版.NET 8と標準サポート版.NET 9のサポートは終了した。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/net_11cjitaot.html)
+
+## iCloudで世界規模の障害 ログイン・メール・カレンダー・写真などが利用不可に
+
+Appleの「iCloud」で11月11日午前7時49分ごろ(日本時間)から障害が発生し、ログインできないなどの声がSNSで相次いだ。
+
+クラウド・大規模障害案件。Appleのステータスページ(日本版)では、iCloudアカウント・サインイン、iCloudカレンダー、iCloudメール、iCloud連絡先、写真、Game Centerが「機能停止」、「探す」が「問題」と表示された。一方、iCloud Drive・iCloudキーチェーン・iCloudバックアップ・iMessageは利用できていた。北米版・ドイツ版・オーストラリア版のステータスページでも同様の表示が出ており、世界規模の障害とみられる。原因・復旧時期は本稿時点で明らかになっていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/11/2000003090/)
+
+## スキマバイト「シェアフル」に不正アクセス 最大750万アカウント分の情報流出の可能性
+
+スキマバイトアプリ「シェアフル」の運営元は、同社の社内管理システムへの不正アクセスにより、最大約750万件のユーザーアカウントと最大約7500社分の法人情報が流出した可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日1件目)。11月4日午後11時30分ごろに不正アクセスが発生し、11月5日午前9時45分ごろに検知、同日午後2時までに外部からのアクセスを遮断した。流出の可能性がある個人情報は氏名・電話番号・メールアドレス・住所・生年月日・給与振込用の銀行口座情報・顔写真の保存先URL・緊急連絡先・在留資格関連情報など、法人情報は求人掲載企業の会社名・住所・電話番号・担当者情報など。銀行口座の暗証番号やパスワード、クレジットカード情報、本人確認書類の画像などは対象外としている。警察への通報と個人情報保護委員会への報告手続きを進め、対象者には順次メールなどで連絡する方針。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/10/2000003072/)
+
+## 日商の簿記などネット試験に不正アクセス 受験者情報最大98万人分流出の可能性
+
+日本商工会議所は11月10日、簿記など複数のネット試験で使う試験管理システムに不正アクセスがあり、最大約98万人分(約197万件)の受験者情報が流出した可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件(本日2件目)。対象は簿記、リテールマーケティング(販売士)、日商PC、電子会計実務など複数のネット試験で、2022年4月1日から2026年11月4日までの受験者が対象。11月1日に不正なプログラムが設置され、11月4日にシステム管理会社からの報告で確認・即時削除、11月9日の調査で漏えいの可能性が判明した。流出の可能性がある情報は氏名・フリガナ・性別・生年月日・合否結果・試験得点のほか、任意入力のメールアドレス・電話番号・住所で、クレジットカード情報など決済情報は含まれないとしている。脆弱性対策は完了済みで、ネット試験は通常どおり受験できる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/11/2000003084/)
+
+## Microsoftの11月Patch Tuesday、過去最多1235件の脆弱性を修正 Outlookのゼロデイも
+
+Microsoftは11月のセキュリティ更新(Patch Tuesday)で、過去最多となる1235件の脆弱性を修正した。
+
+セキュリティインシデント・脆弱性案件(本日3件目、最大3件枠)。このうちCritical(緊急)は66件で、リモートコード実行(RCE)48件、権限昇格15件、Microsoft EdgeのUse-After-Free3件を含む。種類別では権限昇格536件、RCE296件、情報漏えい157件など。実際の攻撃で悪用されていたOutlookのゼロデイ脆弱性(CVE-2026-124194、なりすまし)は、攻撃者が細工したメッセージファイルを開かせることでOutlookが外部コンテンツの警告なしに攻撃者の管理するネットワーク上の場所へ接続し、NTLMv2ハッシュが漏えいする可能性がある。漏えいしたハッシュはオフラインでクラックされ、企業アカウントへの不正アクセスにつながるおそれがある。悪用にはネットワーク接続とユーザーがファイルを開く操作が前提となる。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/)
+
+## 今日のTips: Node.jsの`unhandledRejection`、v15以降はデフォルトでプロセスがクラッシュする
+
+Node.jsのPromiseが`reject`されてもハンドラが付いていない場合、`--unhandled-rejections`フラグの既定モード`throw`により、未処理のrejectionはuncaught exceptionとして扱われる。v15.0.0より前は既定が`warn`で警告を出すだけだったが、v15.0.0で既定が`throw`に変わったため、`unhandledRejection`を拾わないコードはNode.jsのバージョンを上げただけでプロセスが落ちるようになる。
+
+```js
+// unhandledRejectionハンドラが無いと、このrejectは
+// uncaught exceptionとしてプロセスをクラッシュさせる(v15+の既定)
+Promise.reject(new Error("oops"));
+
+process.on("unhandledRejection", (reason) => {
+  console.error("Unhandled Rejection:", reason); // ここで拾えばクラッシュを防げる
+});
+```
+
+<Tip>`strict`モードにすると、ハンドラの有無に関わらず常にuncaught exceptionとして扱われ、ハンドラ側で処理された場合のみ`unhandledRejection`イベントが発行される(挙動が`throw`と逆)。</Tip>
+
+参考: [`--unhandled-rejections=mode` – Node.js](https://nodejs.org/api/cli.html#--unhandled-rejectionsmode)
