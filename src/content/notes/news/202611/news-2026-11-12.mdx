@@ -1,0 +1,109 @@
+---
+title: ITニュースダイジェスト 2026-11-12
+listTitle: ITニュースダイジェスト 2026-11-12 — DNA変異を予測するAI「AlphaGenome 2」、全コードをAIエージェントが書いたAWS Emulator、AIエージェント向け軽量VM「AWS Nitro Sandboxes」、ユナイテッド航空の外部AIエージェント利用禁止、Playwrightのbunサポート、Maerskのランサムウェア被害主張、MSP狙うScreenConnect攻撃拡大、Cisco BroadWorks脆弱性の実攻撃悪用の計8件。
+date: 2026-11-12
+category: NEWS
+tags: [NEWS, IT, AI, 新技術, 業界動向, クラウド, 開発ツール, セキュリティ]
+summary: Google DeepMindがDNA変異の影響を予測するAI「AlphaGenome 2」を発表、AWSはコードを全てAIエージェントが書いた無償ツール「AWS Emulator」とAIエージェント向け軽量VM「AWS Nitro Sandboxes」を公開した。ユナイテッド航空は外部AIエージェントによる予約・発券利用を禁止し、PlaywrightはBunによるテスト実行を正式サポート。セキュリティでは海運大手Maerskのランサムウェア被害主張、MSP狙うScreenConnect悪用攻撃の拡大、Cisco BroadWorksの脆弱性の実攻撃悪用が確認された。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-12</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - 新技術
+  - 業界動向
+  - クラウド
+  - 開発ツール
+  - SECURITY
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Google DeepMind、「AlphaGenome 2」発表 細胞の種類ごとにDNA変異の影響を予測するAI
+
+Google DeepMindは11月11日(現地時間)、DNA配列やその変異がヒトの特定の細胞の種類にどう影響するかを予測するAIモデル「AlphaGenome 2」を発表した。
+
+AI・LLM動向案件。2025年6月発表の初代AlphaGenomeは組織単位で遺伝子の働きを予測していたが、AlphaGenome 2は予測対象の組織・細胞の種類・細胞の状態を条件として指定できるようにした。ヒトとマウスの68組織、1億を超える細胞のデータで学習し、遺伝子のオン/オフに関わる「DNAメチル化」も予測対象に加えた。研究者が自分の実験で得た数十個程度の細胞データを入力すれば、再学習なしでその状態に合わせた予測ができる点が特徴で、遺伝子の働きを変える変異の検出力は従来最高水準のモデルの約2倍としている。炎症性腸疾患(IBD)に関する既存研究の再現にも成功したという。研究目的は「AlphaGenome API」経由で利用でき、商用の研究向けは限定プレビューで提供される。臨床・診断用途の検証は受けていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/12/2000003132/)
+
+## Amazon、AWSのAPIを手元で再現する「AWS Emulator」を無償公開 コードはすべてAIエージェントが記述
+
+AWSは11月11日(現地時間)、AWSのAPIをローカル環境で再現するツール「AWS Emulator」を無償公開した。
+
+新技術紹介案件。AWSのリソースを用意せずにAWS利用アプリをローカルで構築・テストできるツールで、AWS CLIやSDKの接続先を環境変数で切り替えるだけで使え、AWSアカウントや追加料金は不要。AWSのAPIモデル438件をもとに数百のサービスのインタフェースに対応し、ソースコードはCC0ライセンスでGitHub公開されている。開発したシニアプリンシパルエンジニアのマシュー・ゴールドバーグ氏によると、週末の実験として始まり、AIエージェントにテスト作成・実AWSでの検証・インメモリ実装作成を指示する形で進め、最初の対象Amazon SQSは約15分で完成したという。現在は数百のエージェントが並行して開発し、1日に数千件の不具合を修正しており、人間の開発チームはコードを一切書いていないとAWSは説明している(第三者による検証は記事内で示されていない)。本番環境での利用やセキュリティテストへの使用は想定されていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/12/2000003126/)
+
+## AWS、AIエージェント向けの軽量VM「AWS Nitro Sandboxes」提供開始 コンテナ並みの手軽さとEC2並みの速度
+
+AWSは、Amazon EC2上で動作する軽量な仮想マシン「AWS Nitro Sandboxes」の提供を開始した。
+
+クラウド・大規模障害案件。AWS Nitro Systemのハードウェアレベルの隔離機能により、ホストや他のサンドボックス・コンテナから完全に独立したOSを提供しつつ、EC2にほぼ匹敵するネイティブな実行速度を実現する。サンドボックス内のシステムコールは内部に閉じ、コンテナに近い手軽さで使えるのが特徴。EC2上のサンドボックス、Amazon ECS/EKSのPodとして利用でき、EKSのオートモードで有効にすればコンテナイメージやデプロイパイプラインを変更せずにPodを軽量VMに切り替えられる。想定用途として挙げられているのは、AIエージェントが生成した信頼できないコードの実行で、カーネルを共有する従来のコンテナでは不十分だった分離を強化する狙いがある。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/awsaiec2vmaws_nitro_sandboxes.html)
+
+## ユナイテッド航空、外部AIエージェントによる予約・発券を禁止へ 情報漏えいや規制違反のリスクを懸念
+
+米ユナイテッド航空は11月11日(現地時間)、許可を得ていないサードパーティ製AIエージェント・AIアシスタントによる同社サービスの利用を禁止すると発表した。
+
+業界動向案件。自社サイト・アプリでの直接利用に加え、旅行代理店や予約サイト経由の利用も制限対象で、予約・発券・販売ポリシーも改定する。理由として、アカウント認証情報をAIと共有することによる情報漏えい、AIの誤操作による意図しない購入やマイル使用、米FAA/DOTの規制違反のおそれを挙げ、チェックインでは危険物の持ち込みがないかを人間が確認する必要があるとしている。小売業界ではAmazonが9月からMetaの「Muse」による買い物をブロックし、金融業界でもJPMorgan ChaseやCitigroupなど大手4社が10月に外部AIエージェントのログインを制限するなど、米主要企業で同様の動きが相次いでいる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/12/2000003127/)
+
+## テストフレームワーク「Playwright」、Bunによるテストランナー実行を正式サポート
+
+Webアプリのテストフレームワーク「Playwright」の最新版v1.65.0で、JavaScriptランタイム「Bun」によるテストランナーの実行が正式サポートされた。
+
+開発ツール・言語・OSS動向案件。これまでPlaywrightのテストランナーはNode.jsでのみ動作していたが、Bunも選択肢に加わった。BunはTypeScriptのテストファイルを自前でトランスパイルするため、Playwright側でBabelやコンパイルキャッシュを使う必要がなくなり、仕組みが簡素になるという。2026年8月リリースのBun 1.4でNode.js互換性が向上し動作するようになっていたが、これまでは非公式な利用だった。Node.jsとの非互換点として、Watch Modeが無い、UI Modeがファイル変更時に自動再実行しない、`--only-changed`の挙動に制限がある、`--tsconfig`が効かないことが挙げられており、Bunは代替ではなく選択肢の追加という位置づけ。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/playwrightbun.html)
+
+## 海運大手Maersk、ランサムウェア「WhiteArmor」がデータ侵害を主張 買収先システムから100GB窃取、500万ドルを要求
+
+デンマークの海運大手Maerskは、ランサムウェアグループ「WhiteArmor」によるデータ侵害を確認したと発表した。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日1件目)。WhiteArmorは同社のリークサイトにMaerskを掲載し、2022年に買収したLi & Fung由来の物流プラットフォーム「OCF/LF Logistics」から約100GBを窃取したと主張、ドライバー記録約3万件・平文パスワード・SUPER_ADMINアカウント33件・配送受領書・モバイル端末ログ27,842件などを保有しているとしてビットコインで500万ドル、30日以内の支払いを要求している。Maerskは買収済み企業のシステムが侵害されデータが窃取されたことを確認した一方、現時点の調査では機密データの外部公開は確認されておらず、他のMaerskシステムや顧客・パートナーとのAPI/EDI連携にも影響は無いとしている。窃取されたデータの詳細はWhiteArmor側の主張によるもので、第三者による検証はされていない。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/)
+
+## MSP狙うScreenConnect悪用攻撃が拡大 不正クライアントで6社・47組織に侵入、ConnectWiseが拡張機能を無効化
+
+マネージドサービスプロバイダー(MSP)のリモートアクセス環境「ScreenConnect」を悪用した攻撃がHuntressにより検知され、ConnectWiseが調査している。
+
+セキュリティインシデント・脆弱性案件(本日2件目)。攻撃者はScreenConnectの正規機能「Run Command」を悪用し、顧客端末に不正なScreenConnectクライアントをインストールしてMSPの管理環境外からアクセスを得る手口で、脆弱性ではなく機能の悪用だという。侵入経路は未確定だが、侵害された認証情報やハイジャックされた操作セッションが疑われている。Huntressは侵害されたMSP6社・影響を受けた端末286件以上・47組織を確認したとしており、数字は増え続けているという。ConnectWiseはパートナーアカウントへの不正アクセスと不正なリモートアクセスソフトのインストールを確認し、予防措置として「Labtech Plus」「RMM Plus」など5つのサードパーティ拡張機能を約400のパートナー環境で無効化した。修正パッチは無く、認証ログ・拡張機能のインストール履歴・Run Command履歴の確認や、侵害の疑いがある端末との対話的セッションを避けることが推奨されている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/)
+
+## Cisco BroadWorksの脆弱性が実攻撃で悪用 CISAが警告、欧州通信事業者から秘密鍵窃取の報告も
+
+米CISAは、通信事業者向けクラウド基盤「Cisco BroadWorks」のXXE脆弱性(CVE-2026-20320)が実際の攻撃で悪用されているとして、既知の脆弱性カタログ(KEV)に追加した。
+
+セキュリティインシデント・脆弱性案件(本日3件目、最大3件枠)。この脆弱性はOCI XMLパーサーが既定で外部エンティティ解決を許可していることに起因し、未認証の攻撃者が細工したXMLをOCI-Provisioningサービスへ送ることで機密設定情報を読み取れる。Ciscoは8月に修正済み。脅威インテリジェンス企業Malbear Labsによると、中国語を話す攻撃者がジェイルブレイクしたDeepSeek Flashを使い、欧州の通信事業者とそのデータセンター・クラウド基盤を利用する13組織を攻撃し、システムID秘密鍵・SSL認証情報3組・追加の秘密鍵3件を窃取、認証無しのディレクトリ一覧からプロビジョニングサーバーの全利用者設定情報も露出していたという。CISAは米連邦機関に11月24日までの対応完了を命じており、民間含め全組織に修正の優先対応を呼び掛けている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cisa-flags-cisco-broadworks-flaw-as-actively-exploited-in-attacks/)
+
+## 今日のTips: TypeScriptの`using`宣言、スコープを抜けるとき`Symbol.dispose`を自動で呼んでくれる
+
+TypeScript 5.2で導入された`using`宣言は`const`に似た構文だが、スコープを抜けるとき(正常終了・早期`return`・例外のいずれでも)に値の`[Symbol.dispose]()`を自動で呼び出す。`try`/`finally`を書かずに、DB接続やファイルハンドルなどの後始末を保証できる。
+
+```ts
+class Conn implements Disposable {
+  [Symbol.dispose]() {
+    console.log("close connection");
+  }
+}
+
+function run() {
+  using conn = new Conn();
+  if (Math.random() > 0.5) return; // ここでも dispose が呼ばれる
+  // conn を使う...
+} // スコープ終了時にも dispose が呼ばれる
+```
+
+非同期の後始末には`Symbol.asyncDispose`を実装し`await using`で宣言する。複数の`using`はLIFO順(後入れ先出し)で破棄され、本体と`dispose`の両方で例外が起きた場合は`SuppressedError`にまとめられる。ネイティブ対応ランタイムは無いため、`tsconfig.json`の`lib`に`esnext.disposable`を加え、`Symbol.dispose`のポリフィルが必要。
+
+<Tip>NestJSなどでDB接続やトランザクションのリソース解放に使うには、別途`Symbol.dispose`/`Symbol.asyncDispose`のランタイムポリフィルが必要(TypeScript側のシンボル型定義だけでは実行時に存在しない)。</Tip>
+
+参考: [TypeScript 5.2 Release Notes — Using Declarations and Explicit Resource Management](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html)
