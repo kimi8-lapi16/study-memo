@@ -215,6 +215,17 @@ disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約�
 4. GitHub Pagesへのデプロイは、masterへのpushをトリガーに `deploy.yml` が自動で起動する
    （記事作成側での操作は不要）。
 
+### 補助スクリプト
+
+上記の手順のうち、AIの判断が要らない部分は `scripts/news-digest.mjs` にまとめてある。
+
+- `npm run news:prepare` … JSTの今日の日付を確定し、記事パスと既存有無を1行のJSON
+  （`date` / `yyyymm` / `file` / `exists`）で出力する。`YYYYMM` ディレクトリも作成する。
+  `exists: true` なら今日分は公開済みなので、記事を作らずに終了する。
+- `npm run news:publish` … 記事ファイルの存在確認 → `npm run build` → 記事ファイルのみ
+  commit → `git push origin HEAD:master`（拒否されたら `pull --rebase` して再試行）。
+  ビルド失敗時は commit せず exit 1 で終わる。`-- --no-push` で commit までの動作確認ができる。
+
 ## 失敗時のふるまい
 
 - 対象ジャンルで価値のあるニュースが見つからない日は、記事を作らず・pushもせずに終了して
