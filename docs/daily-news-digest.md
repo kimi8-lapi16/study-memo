@@ -1,15 +1,19 @@
 # 毎日のITニュースダイジェスト自動生成
 
-このドキュメントは、毎朝7:00（JST）に自動実行される「今日のITニュースダイジェスト」記事
+このドキュメントは、毎朝（JST）に自動実行される「今日のITニュースダイジェスト」記事
 生成フローの仕様。`.github/workflows/daily-news-digest.yml`（GitHub Actionsのcron）が
 Claude Code Actionを起動し、この仕様に従って `src/content/notes/news/YYYYMM/news-YYYY-MM-DD.mdx`
 を1本作成する。
 
+GitHub Actionsのschedule実行は遅延・不発が起きるため、cronは 06:47 / 07:29 / 08:13（JST）の
+3回登録している。最初に成功した回が記事をpushすると、後続の回はmaster上に今日分の
+ファイルがあることを確認してスキップする。
+
 以前は「専用ブランチにpush → masterへのPRを自動作成 → オーナーが手動マージ」という
 レビュー運用だったが、この運用は廃止した。現在は**生成した記事をmasterへ直接pushする**
-（人手のレビューは挟まず、そのまま公開される）。GITHUB_TOKENによるpushはpushトリガーの
-ワークフローを起動しないというActionsの仕様があるため、GitHub Pagesへのデプロイは
-ワークフローの後続ステップが `deploy.yml` を workflow_dispatch で明示的に起動する。
+（人手のレビューは挟まず、そのまま公開される）。pushはclaude-code-actionのGitHub App
+トークンで行われるため、`deploy.yml` のpushトリガーがそのまま発火してGitHub Pagesへ
+デプロイされる（GITHUB_TOKENによるpushでワークフローが起動しない制約は当てはまらない）。
 
 この方式は、リポジトリの「masterへの変更にPRを必須とする」ルールセットが無効化されて
 いることが前提。ルールセットが有効なままだとpushが拒否されてワークフローが失敗する。
@@ -208,8 +212,8 @@ disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約�
    （例: `news: YYYY-MM-DD のITニュースダイジェストを追加`）→ `git push origin master`。
    pushがnon-fast-forwardで拒否された場合は `git pull --rebase origin master` してから
    再pushする。
-4. GitHub Pagesへのデプロイは、ワークフローの後続ステップがmaster上に今日分のファイルが
-   存在することを確認したうえで `deploy.yml` を自動起動する（記事作成側での操作は不要）。
+4. GitHub Pagesへのデプロイは、masterへのpushをトリガーに `deploy.yml` が自動で起動する
+   （記事作成側での操作は不要）。
 
 ## 失敗時のふるまい
 
