@@ -1,0 +1,72 @@
+---
+title: ITニュースダイジェスト 2026-11-15
+listTitle: ITニュースダイジェスト 2026-11-15 — AIコードエディタ「Cursor」のサプライチェーン侵害、北朝鮮関与の暗号資産詐取キャンペーン摘発、NVIDIAフアン前CEO復帰署名、llama.cpp 1.0.0の計4件。
+date: 2026-11-15
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, 業界動向, 開発ツール]
+summary: AIコードエディタ「Cursor」で認証情報窃取を起点としたサプライチェーン侵害が発生し改ざん版Claude Code拡張が配布された件、米当局が北朝鮮関与とされる暗号資産詐取キャンペーン「FaceStealer」を摘発した件など、セキュリティ関連の動きが続いた。業界動向ではNVIDIAフアン前CEOの復帰を求める署名活動が拡大、開発ツールでは推論ライブラリ「llama.cpp」が初のメジャーリリースとなる1.0.0に到達した。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-15</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - 業界動向
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## AIコードエディタ「Cursor」にサプライチェーン侵害、改ざん版Claude Code拡張が11時間配布される
+
+AIコードエディタ「Cursor」の開発元は、AI基盤プロバイダ「Fireworks AI」から窃取された認証情報を起点に、拡張機能マーケットプレイスへ改ざん版のClaude Code拡張機能が配置されていたと公式に認めた。
+
+セキュリティインシデント・脆弱性案件(最大3件枠、本日1件目)。攻撃者はFireworks AI上のアクセスキーを入手し、CursorがFireworksとの情報共有に使っていた読み取り専用ストレージバケットからデータを窃取。バケット内にはPrivacy Mode未使用ユーザーのAIコーディングエージェントのトレースが含まれ、一部に残っていた暗号化されていないAPI認証情報からCursorの他システムへ侵入されたとみられる。悪意ある拡張機能(バージョン2.1.312/2.1.313)は10月29日に公開され約11時間利用可能な状態にあり、PCに永続的なSSHバックドアを仕込むJavaScriptが含まれていた。影響を受けたのはコーディングエージェントのトレース流出がユーザーの0.05%未満、API認証情報の侵害が顧客の0.01%未満で、本番インフラや顧客のコードリポジトリ自体は影響を受けていないという。研究者によれば、コーディングミスによりSSHが未有効化の多くのWindows/macOS環境では正常動作しなかったとみられる。CursorはFireworksのアクセスキー無効化、認証情報のローテーション、マーケットプレイスの再構築などを実施した。この件はAI開発者向けプラットフォームを狙う攻撃の波の一部とされ、Railway・OpenCode・Northflank・Lightning AI・Warpなども同種の被害を受けている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/)
+
+## 米当局、北朝鮮関与の暗号資産詐取キャンペーン「FaceStealer」を摘発 被害4億ドル超
+
+米当局は、ディープフェイクやビデオ会議を使った社会的工学攻撃で暗号資産業界関係者やOSS開発者を狙い、約18カ月にわたり被害額4億ドル超に上ったとされる北朝鮮関与の攻撃キャンペーン「FaceStealer」の基盤インフラを押収した。
+
+セキュリティインシデント・脆弱性案件(本日2件目)。攻撃者はTelegram・LinkedIn・Slack・Discordの乗っ取りアカウントでビデオ会議に招待し、知人の過去の被害映像を見せて信用させた上で、偽の技術的トラブルを装い悪意あるスクリプトの実行を誘導。感染先からは暗号資産データやZoom・Google Meet・Teamsの認証情報、Webカメラ映像(900本以上を確認)などを窃取していた。北朝鮮系「BlueNoroff」の犯行とされ、ArcticWolfは58カ国677人の標的(創業者・経営幹部中心)を確認している。FBIによれば人気OSS JavaScriptライブラリの保守者も偽会議に誘われたが検知により被害を免れたという。なお同日報じられた暗号資産取引所バイナンスの63億ドル規模の窃盗事件(資金27億ドル超を凍結)は本件とは別の事案として扱われている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/us-disrupts-north-korean-campaign-behind-400-million-crypto-theft/)
+
+## NVIDIA、フアン前CEOの復帰求める署名が11万人超に 米議会は追及継続
+
+NVIDIA創業者ジェンスン・フアン前CEOの辞任を受け、復帰を求める署名活動への賛同者が11万人を超え、イーロン・マスク氏らも支持を表明していると報じられた。
+
+業界動向案件(続報)。前日の11月14日に報じたフアン氏の辞任・クレスCFOの暫定CEO就任の続報で、米議会側はフアン氏を巡る疑惑の追及を継続する姿勢を示している。経営トップの去就がAI業界の中核企業であるNVIDIAの先行きにどう影響するか、注目が続いている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/15/2000003207/)
+
+## 推論ライブラリ「llama.cpp」が初のメジャーリリースとなる1.0.0に到達、互換性ルールを明文化
+
+LLM推論用C/C++ライブラリ「llama.cpp」とテンソル計算ライブラリ「ggml」が、開発開始から約3年半を経て初のメジャーバージョンとなる1.0.0に到達した。
+
+開発ツール・言語・OSS動向案件。他アプリへの組み込みが広がる中でAPI/ABIの安定性を明確にする狙いから、メジャー(互換性を損なう変更)・マイナー(後方互換の機能追加)・パッチ(不具合修正)の使い分けを明文化した。公開ヘッダーからは35個の非推奨関数などが削除され、移行時の見直しが必要になる。llama-serverには音声合成用の`/v1/audio/speech`エンドポイントが追加され、Web UIにはチャットのグループ化機能とMarkdownプレビュー付きエディターが加わった。開発はGitHub組織「ggml-org」が主導し、主導チームは2026年2月にHugging Faceへ参加済み。創始者のGeorgi Gerganov氏は「ローカルAIの将来に向けた基盤を築いた」とコメントしている。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/11/llama.cpp-v1.0.0)
+
+## 今日のTips: Prismaの`upsert`、同時実行時はユニーク制約エラーが起きる可能性があり「完全にアトミック」ではない
+
+Prisma Clientの`upsert`は、対象レコードの有無を確認してから作成または更新する処理のため、2つ以上の`upsert`が同時に実行され対象レコードがまだ存在しない場合、競合状態(race condition)が発生し得る。公式リファレンスも「If two or more upsert operations happen at the same time and the record doesn't already exist, then a race condition might happen」と明記しており、一方の`upsert`が稀にユニークキー制約エラー(`P2002`)を投げる可能性がある。
+
+```ts
+try {
+  await prisma.user.upsert({
+    where: { email },
+    update: {},
+    create: { email },
+  });
+} catch (e) {
+  if (e.code === 'P2002') {
+    // 競合時は再試行してupdateに倒す
+  }
+}
+```
+
+<Note>データベース側がネイティブな`INSERT ... ON CONFLICT`としてupsertを実行できる場合(PostgreSQL/CockroachDB/SQLiteなど一部条件)はこの種のユニーク制約エラーは発生しないが、Prisma Client側で存在確認→作成/更新の2段階になるケースでは起こり得るため、`P2002`を捕捉して再試行する実装にしておくと安全。</Note>
+
+参考: [Prisma Client Reference — upsert()](https://www.prisma.io/docs/orm/reference/prisma-client-reference#upsert)
