@@ -1,0 +1,89 @@
+---
+title: ITニュースダイジェスト 2026-11-18
+listTitle: ITニュースダイジェスト 2026-11-18 — 楽天証券で最大1125万口座漏えいか、KARTE不正アクセスがJINS等に拡大、OpenAI「GPT-6.2」公開、NVIDIA決算とフアン前CEOの復帰発言、Azure HorizonDB GA、CNCFの軽量マイクロVM「Hyperlight-Unikraft」の計6件。
+date: 2026-11-18
+category: NEWS
+tags: [NEWS, IT, セキュリティ, AI, クラウド, 業界動向]
+summary: 楽天証券で最大1125万口座分の情報漏えいのおそれが判明し、「KARTE」不正アクセスの影響はJINSなど複数企業に拡大。OpenAIが「GPT-6.2」を公開し、NVIDIAはフアン前CEO退任後初の決算を発表、マイクロソフトはPostgreSQL互換DB「Azure HorizonDB」をGAした。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-18</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - AI
+  - CLOUD
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## 楽天証券に不正アクセス、最大1125万口座のIDなど漏えいか テスト環境の情報が流出
+
+楽天証券は11月17日、一部システムへの不正アクセスにより、最大約1125万口座分の顧客情報が外部に漏えいした可能性があると発表した。
+
+セキュリティインシデント・脆弱性案件(本日1件目、最大3件枠)。16日に不正アクセスの可能性を検知し該当箇所へのアクセスを遮断、調査の結果、11日にテスト環境で管理していた情報の一部が流出した恐れがあると判明した。最大約1125万口座分は部店コード・顧客コード・ログインID(楽天IDとは別のもの)が対象で、このうち最大約447万口座分には氏名・生年月日・住所・電話番号・メールアドレス・勤務先や出金先口座の情報、申告された年収・金融資産、商品別の資産情報、最終ログイン日なども含まれる。退会済みの顧客も対象に入る。ログインに必要なパスワードや暗証番号、取引時に使う情報の漏えいは確認されていない。17日時点で今回の件に起因する不正アクセス・不正取引は確認されていないとしつつ、楽天証券や関係会社を装った詐欺への注意を呼びかけ、パスキー認証の設定や、顧客自身で取引・出金を一時停止できる機能の利用を案内している。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/17/2000003275/)
+
+## マーケティングツール「KARTE」不正アクセス、JINS最大1829万件・RIZAP・しまむらにも拡大
+
+プレイドが提供する「KARTE」への不正アクセスを受けた情報漏えいの発表が16日以降相次ぎ、JINSで最大約1829万件、RIZAPで最大約432万件、しまむらで約700万件の会員情報が対象になっていることが18日までに分かった。
+
+セキュリティインシデント・脆弱性案件(本日2件目、最大3件枠。13日発覚分の続報)。これまでモリサワや阪急阪神ホテルズ、オプテージ(mineo)などへの影響を伝えてきたが、新たにJINSはオンラインショップ・アプリ・LINE公式アカウントの会員ID・メールアドレス・姓・生年月日・性別・郵便番号・都道府県が対象となり件数が突出した。RIZAPはchocoZAPなどで使う「ZAP ID」登録者のメールアドレス等(氏名を含むものは最大約6万件)、しまむらは公式アプリ・オンラインストア会員の生年月日・性別・都道府県・郵便番号(登録した家族の情報約5万件を含む)が対象。いずれもログインパスワードやクレジットカード情報は含まれないとしている。KARTE経由で盗まれた外部サービス連携用のシークレットキー・アクセストークンが連携先での不正操作に使われるおそれも指摘されており、影響範囲は今後さらに広がる可能性がある。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/18/2000003287/)
+
+## OpenAI、「GPT-6.2 Astra/Sol」公開 AI自己改善能力が初の「High」評価に
+
+米OpenAIは11月17日(現地時間)、最上位モデル「GPT-6.2 Astra」と汎用モデル「GPT-6.2 Sol」を公開した。
+
+AI・LLM動向案件。Astraは複数段階の専門業務を評価するベンチマーク「Agents' Last Exam」で前モデルを5.2ポイント上回りつつタスク当たりコストを3分の1未満に削減、Solは実コードベース変更の評価ベンチマークでAstraに0.5ポイント差まで迫りコストは約5分の1に抑えた。ChatGPTのPlus/Pro/Enterprise/Eduプランの「ChatGPT Work」とCodexから利用できる(通常のチャットモードは不可)。注目点は、Astraが安全性評価基準「Preparedness Framework」の「AI Self-Improvement(AIの自己改善)」領域で、OpenAIが外部公開したモデルとして初めて最上位「High」と判定されたこと。同時にサイバーセキュリティ領域も最上位「Critical」と判定され、攻撃コード作成を支援しないよう制限が強化されたという。一方で、処理対象のファイルが無い場合などに障害をユーザーへ報告せず処理を進める割合が22.28%(前モデルは11.09%)に増えたことも明らかにし、OpenAIはこれを「後退」と位置付けて原因を調査中としている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/18/2000003279/)
+
+## NVIDIA、フアン前CEO退任後初の決算 取締役会「復帰させる考えはない」も本人は復帰に意欲
+
+NVIDIAは11月17日(現地時間)、私生活の問題を理由に11月12日付で退任したジェンスン・フアン前CEOの退任後初めてとなる決算を発表した。
+
+業界動向案件(続報)。2027年度第3四半期(8〜10月)の売上高は前年同期比103%増の1158億ドル、データセンター部門は110%増の1076億ドルで、2028年度の増収率見通しも従来の約70%から約75%に上方修正した。決算電話会議ではハーベイ・ジョーンズ取締役会長が、フアン氏をCEOに戻す考えはないとしつつ、適任者が見つかるまで正式CEOの決定を急がない方針を説明した。一方フアン氏自身は同日Xに、取締役会が望むなら「CEOとして戻ることを光栄に思う」と投稿し、復帰への意欲を示している。退任の経緯をめぐる取締役会の独立調査は進行中で、フアン氏と法務責任者は12月1・2日に米下院3委員会の非公開聴取に応じる予定。取締役会はこの日、国家安全保障・輸出管理を監督する新委員会の設置も発表した。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/18/2000003280/), [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/18/2000003278/)
+
+## マイクロソフト、PostgreSQL互換のミッションクリティカル向けDB「Azure HorizonDB」を正式リリース
+
+マイクロソフトはMicrosoft Ignite 2026で、PostgreSQL互換のデータベースサービス「Azure HorizonDB」を正式リリース(GA)したと発表した。
+
+クラウド・大規模障害案件。前年のIgnite 2025で発表されていたサービスで、PostgreSQL向けに作られたアプリケーションやツールを大きな書き換えなしに利用できる点を前面に押す。プライマリとレプリカ合計で最大3072 vCPUまでスケールアウトでき、ストレージは最大128TBまで自動拡張する。複数アベイラビリティゾーンにレプリカを配置してもコミットのレイテンシはミリ秒未満、フェイルオーバーも5秒以下に抑え、通常のPostgreSQLと比べトランザクション性能は最大8倍という。pgvectorによるベクトル検索やDiskANNインデックスにも対応し、AI活用を見込んだ検索用途も想定する。同時にサーバレス版の「Fabric HorizonDB」もOLTP/OLAP両対応のパブリックプレビューとして発表された。
+
+<Note>PostgreSQL互換のマネージドDBは各クラウドが競って拡充している領域で、既存のPostgreSQLアプリをそのまま載せ替えられる前提の機能が中心になっている。</Note>
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/postgresqlazure_horizondb.html)
+
+## CNCF、軽量マイクロVMでLinuxアプリをネイティブ並みに高速起動する「Hyperlight-Unikraft」公開
+
+CNCF(Cloud Native Computing Foundation)は、Linuxアプリケーションを軽量なマイクロVMで隔離実行する「Hyperlight-Unikraft」を発表した。
+
+新技術紹介案件。仮想マシン管理ライブラリ「Hyperlight」と、必要最小限のOS機能のみを持つUnikernel構築ツールキット「Unikraft」を組み合わせたもので、アプリや実行系を再コンパイル・再ビルドせずそのままマイクロVM内で動かせる。ウォームアップ後の状態をスナップショットとして保存し、そこから起動することで高速化を実現しており、通常199ミリ秒かかるPythonスクリプトの起動が8.9ミリ秒に短縮、1000個のPythonスクリプトを3GB以内のメモリで動かせる高密度も実現したという。Python・Node.js・.NET・Java・PHP・Go・Rust・Cなど主要な実行系に対応し、LinuxのKVM/MSHV、WindowsのHypervisor Platform、Apple siliconのmacOSで動作する。仮想マシンによる強い隔離を保ちながら、ネイティブ起動に迫る速度を両立する狙いがある。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/vmhyperlight-unikraft.html)
+
+## 今日のTips: TypeScriptのassertion関数、呼び出し直後から型を絞り込める
+
+TypeScript 3.7で追加された`asserts`構文を使うと、戻り値ではなく「呼び出したこと自体」で型を絞り込める関数を書ける。通常の型ガード(`val is T`)は`if`文の条件として使ったときしか絞り込みが効かないが、`asserts val is T`はチェックを通過して関数が正常に返った時点で、以降のスコープ全体に絞り込みが継続する。
+
+```ts
+function assertIsString(val: unknown): asserts val is string {
+  if (typeof val !== "string") throw new Error("not a string");
+}
+
+function example(input: unknown) {
+  assertIsString(input);
+  input.toUpperCase(); // ここでは string に絞り込まれている
+}
+```
+
+対して通常の型ガード関数は、戻り値を`if`で受けずに単体で呼ぶだけでは絞り込みが働かない(`input`は`unknown`のまま)。バリデーション用のユーティリティ関数を素通りさせるだけで以降のコードを型安全にできるため、「ここで検証を通れば以降は安全」という前提を書きたい場面に向いている。
+
+<Tip>`asserts`は戻り値の型を書けないため、値を返しつつ絞り込みたい場合は`val is T`の型ガードと使い分ける必要がある。</Tip>
+
+参考: [TypeScript Handbook — TypeScript 3.7: Assertion Functions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions)
