@@ -1,0 +1,92 @@
+---
+title: ITニュースダイジェスト 2026-11-20
+listTitle: ITニュースダイジェスト 2026-11-20 — SBCメディカルグループで162万人分の個人情報漏えい、PHP緊急脆弱性でウマ娘・グラブル・イープラスが緊急メンテ、Microsoft Agent FrameworkがPyPIで侵害、AnthropicがNasdaq上場、Microsoft「Database Hub」正式リリース、次期WindowsでPowerShell 7標準搭載の計6件。
+date: 2026-11-20
+category: NEWS
+tags: [NEWS, IT, セキュリティ, 業界動向, クラウド, 開発ツール, AI]
+summary: 湘南美容クリニックなどを展開するSBCメディカルグループで最大162万4000人分の個人情報が漏えいし、パスワードは暗号化せず保存していたことが判明。PHPの新たな緊急脆弱性ではウマ娘・グラブル・イープラスなどが緊急メンテに入り、Microsoftの「Agent Framework」はPyPIで侵害され認証情報を盗む不正版が公開された。AnthropicはNasdaqに上場し史上最大のIPOとなり、MicrosoftはデータベースをAIエージェントで監視する「Database Hub」を正式リリース、次期WindowsにはPowerShell 7が標準搭載される。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-20</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - SECURITY
+  - 業界動向
+  - CLOUD
+  - 開発ツール
+  - AI
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## SBCメディカルグループで最大162万人分の個人情報漏えい パスワードは暗号化せず保存
+
+湘南美容クリニックなどを展開するSBCメディカルグループは、不正アクセスにより顧客の個人情報最大162万4000人分が不正に取得されたと発表した。
+
+セキュリティインシデント・脆弱性案件(本日1件目、最大3件枠)。11月16日未明に海外から77万回に及ぶ継続的な攻撃があり、同日早朝に異常を検知してサーバーをネットワークから隔離した。流出したのは2010〜2023年の氏名・住所・電話番号・メールアドレス・パスワード・生年月日・会員IDなどで、ほかにWeb予約情報約25万5000人分、問い合わせ内容約21万7000人分も含まれる。職員のアカウント情報も約2万件流出し、うち459人分は銀行口座や源泉徴収票などの情報も含まれていた。同社は「当時は登録パスワードを暗号化せずに保存していた」と説明しており、ログイン情報が第三者に知られた経路は調査中という。予約サービス「トリビュー」でも同日SBCのアカウントへの不正ログインがあり、湘南美容クリニック55院とリッツ美容外科東京院の予約顧客情報も漏えいした。同一・類似パスワードを他サービスでも使っている場合は変更するよう呼びかけている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/20/2000003355/)
+
+## PHPに新たな緊急脆弱性 ウマ娘・グラブル・イープラスなどが緊急メンテ、財務省サイトも一部停止
+
+PHP開発チームは11月19日23時(JST)ごろ、サポート対象の全バージョンに影響する脆弱性を修正した版を公開した。
+
+セキュリティインシデント・脆弱性案件(本日2件目、最大3件枠)。IPAによれば対象はPHP 8.2.36/8.3.37/8.4.28/8.5.13より前の各系列で、既定とは異なる設定や一般的でない構成下で影響する「Critical」な脆弱性を含むが、個別のCVE番号は各系列ごとの対応状況とともにPHP公式とGitHub Security Advisoriesで確認する必要があるとしている。10月に悪用が確認された「PHP2Shell」(CVE-2026-109618/109619)とは別の脆弱性で、ITmedia NEWSは今回の影響は前回より小さいと報じている。国内では「イープラス」がチケットの電子チケット表示・転送や生配信視聴ができなくなり、「ウマ娘プリティーダービー」「グランブルーファンタジー」「プリンセスコネクト!Re:Dive」などのゲームも19日夜から緊急メンテに入った。財務省も22時30分からウェブサイトの一部(意見募集フォームや個人向け国債の利回りシミュレーターなど)を停止し、再開時期は未定。各サービスは20日朝までにおおむね復旧した。
+
+<Note>10月の「PHP2Shell」では悪用の兆候が事前に観測されていたが、今回は現時点で実際の攻撃は確認されていない。それでも主要サービスが揃って予防的にメンテに入る対応が続いている。</Note>
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/20/2000003357/), [IPA](https://www.ipa.go.jp/security/security-alert/2026/alert20261120.html)
+
+## Microsoftの「Agent Framework」がPyPIで侵害 不正版が認証情報を窃取
+
+AIエージェント開発用オープンソースSDK「Microsoft Agent Framework」のPython版パッケージが侵害され、認証情報を盗む不正なバージョンがPyPIで公開されたことが分かった。
+
+セキュリティインシデント・脆弱性案件(本日3件目、最大3件枠)。不正版「1.26.1」「1.26.2」は11月17日(UTC)に公開され、PyPIにより数十分以内に隔離されたが、攻撃者はその間に別ファイルへ不正コードを移した版を再公開していた。攻撃者がどのように公開権限を得たかは不明だが、同日にメンテナー用の新規アカウントが追加されていたという。不正コードはPython起動時に自動読み込まれる「.pth」ファイルを悪用し、フレームワーク自体は正規の1.26.0のまま動くため気付きにくい。Azure・AWS・GitHub・Docker・Hugging Face・OpenAIなどの認証情報やアクセストークンを狙い、外部サイトへ送信していた。月間ダウンロード数は約20万回で、GitHub Advisory Databaseは該当版をインストールした環境の認証情報をすべて再発行するよう求めている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/19/2000003332/)
+
+## Anthropic、Nasdaqに上場 IPO調達額813億ドルは史上最大、初値は公開価格を34%上回る
+
+Anthropicは11月19日(現地時間)、Nasdaqに「ANT」のティッカーで上場した。
+
+業界動向案件(続報)。公開価格は提示されていた70〜78ドルの範囲を上回る83ドルとなり、売り出し株数も約8億2500万株から約9億8000万株に増加、調達額は約813億ドルと史上最大のIPOになった(これまで最大だったSpaceXの6月上場を上回る)。初値は111.50ドルで公開価格を約34%上回り、完全希薄化後の市場価値は初値ベースで約2兆ドルに達した。上場後は上昇分の一部を失い90ドル台で取引されている。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/20/2000003354/)
+
+## Microsoft、データベースを一元管理する「Database Hub」正式リリース AIエージェントによる監視も
+
+Microsoftは年次イベント「Microsoft Ignite 2026」で、Azure・オンプレミス・他社クラウドのデータベースを一元管理する「Database Hub」を正式リリースした。
+
+クラウド・大規模障害案件。統合データ分析基盤Microsoft Fabric上で動作し、管理者が権限を持つAzure SQL・Azure Database for PostgreSQL・Azure Cosmos DB・SQL Serverなどを横断して一覧表示し、CPU・メモリ・ストレージの状況やMicrosoft Entra認証・監査ログ・顧客管理キーなどのセキュリティ状態をほぼリアルタイムで確認できる。プレビュー機能「Database Agents」は現時点でSQL ServerとPostgreSQLに対応し、Microsoft作成のスキルに基づきデータベースを継続的に監視して問題を検出・説明し、承認を得た修正操作を実行する。障害発生後に対応する運用から、先回りして対処する運用への移行を狙いとしている。VS Code向けにもPostgreSQL拡張機能でエージェント管理ができる新機能が発表された。
+
+出典: [Publickey](https://www.publickey1.jp/blog/26/database_hubai.html)
+
+## 次期WindowsにPowerShell 7を標準搭載 Windows PowerShell 5.1は非推奨に
+
+Microsoftは11月17日、次期Windowsのバージョンから「PowerShell 7」を標準搭載すると発表した。
+
+開発ツール・言語・OSS動向案件。現行のWindows 11 26H2などでは別途インストールが必要だが、対応バージョンは明らかにされていない。これに伴い既存の「Windows PowerShell 5.1」は、新規インストールでは既定で有効なオプション機能(Feature on Demand)に変わる。5.1への新機能追加は行われないが、各Windowsバージョンのサポート期間中はセキュリティ更新が継続され、将来の削除は事前に告知するとしている。既存スクリプトは5.1上でそのまま動作し、`powershell.exe`を呼ぶ処理は引き続き5.1、`pwsh.exe`は7を起動する。PowerShell 7はMSIX形式で配布されるため、SYSTEM権限のタスク・サービスからの起動や一部DISMコマンドレットが現状使えないといった制約があり、Microsoftはバンドル版の提供までに解消するとしている。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/11/powershell-7-in-next-windows)
+
+## Mac版「Gemini」にcomputer use機能 AIが画面を操作してアプリを代行操作(米国先行)
+
+Googleは11月19日(現地時間)、Mac版「Gemini」アプリに、AIがユーザーに代わって画面を操作する「computer use」機能を追加した。まずは米国から提供を始める。
+
+AI・LLM動向案件。チャットで「@Computer use」と付けて指示すると、クリックや文字入力、メニュー操作、フォーム入力などを自動で行い、ファイル操作やデスクトップアプリ、Webをまたぐ作業も任せられる。操作は他のウィンドウから分離したバックグラウンドウィンドウで行われ、チャット内にライブプレビューが表示されるため、ユーザーの画面やカーソルを占有せず並行作業ができる。操作を許可するアプリを選べるほか、手順をリアルタイムで確認でき、いつでも一時停止可能で、重要な操作の前には承認を求める。利用にはApple Silicon搭載MacでmacOS Sequoia(15.0)以降、18歳以上個人向けのGoogle AI Plus/Pro/Ultraいずれかへの加入が必要で、現時点では米国英語版のみ。日本での提供時期は明らかにされていない。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/20/2000003356/)
+
+## 今日のTips: NestJSのシャットダウンフック、`enableShutdownHooks()`を呼ばないと発火しない
+
+NestJSには`onModuleDestroy`・`beforeApplicationShutdown`・`onApplicationShutdown`といったシャットダウン時のライフサイクルフックがあるが、これらはデフォルトでは無効になっている。公式ドキュメントも「シャットダウンフックのリスナーはシステムリソースを消費するため、デフォルトでは無効」と明記しており、使うには明示的に有効化が必要。
+
+```ts
+const app = await NestFactory.create(AppModule);
+app.enableShutdownHooks(); // これを呼ばないとフックは発火しない
+await app.listen(3000);
+```
+
+<Tip>DBコネクションのクリーンアップなどを`onModuleDestroy`に書いても、`enableShutdownHooks()`を呼び忘れていると本番のコンテナ停止時などに実行されず、静かに取りこぼされる。</Tip>
+
+参考: [NestJS Documentation - Lifecycle Events](https://docs.nestjs.com/fundamentals/lifecycle-events)
