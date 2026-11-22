@@ -1,0 +1,82 @@
+---
+title: ITニュースダイジェスト 2026-11-22
+listTitle: ITニュースダイジェスト 2026-11-22 — Anthropicの数学者がClaudeと共同でリーマン予想証明を主張しLeanコミュニティが検証、Rackspace SpotでKubernetes Secret漏えい、Microsoft Entra Connect Healthの脆弱性悪用、FBIの再侵入疑惑、Cloudflareの全CVE個別ページ追加の計6件。
+date: 2026-11-22
+category: NEWS
+tags: [NEWS, IT, AI, セキュリティ, 開発ツール]
+summary: Anthropicの数学者がClaudeと共同で「リーマン予想」の証明を発表し、Leanコミュニティが数日で正当性を確認。Rackspace Spotでは不正アクセスによりKubernetesのSecretが読み取られる被害、Microsoft Entra Connect Healthの脆弱性悪用でテナント情報が流出、FBIは2カ月で2度目となる侵入の疑いが報じられた。Cloudflare Radarは公開済み全CVEに個別ページを追加している。
+kicker: Daily Digest
+heroTitle: 'ITニュースダイジェスト<br><span class="em">2026-11-22</span>'
+sub: 'その日押さえておきたいITニュースを新技術・法改正・訴訟の観点でまとめたダイジェスト。'
+metaTags:
+  - IT NEWS
+  - AI
+  - SECURITY
+  - 開発ツール
+footerNote: '// daily digest · auto-generated'
+disclaimer: '※ 本記事はAIが上記情報源を基に自動収集・要約したニュースダイジェストです。要約には誤りを含む可能性があるため、詳細・正確な内容は各出典元でご確認ください。'
+---
+
+## Anthropicの数学者、Claudeと共同で「リーマン予想」の証明を主張 Leanコミュニティが正当性を確認
+
+Anthropicの数学者レベント・アルポーゲ氏は、AI「Claude」と共同で数学の未解決問題「リーマン予想」の証明を見つけたと発表し、定理証明支援系Leanのコミュニティが数日で検証を行い正しいと認めた。
+
+AI・LLM動向案件。アルポーゲ氏によると、この手法はリーマン予想を拡張した「一般化リーマン予想」も解決するという。証明はLeanによる形式証明として公開され、10月6日以降に鍵となるアイデアが見つかり始め、11月16日に一般化リーマン予想の証明に至ったとされる。21日にはLeanの開発者・利用者コミュニティとMathlib(Leanの数学ライブラリ)コミュニティが、証明は正しいとする共同声明を発表。証明は約1700万行に及び、数十人が独立にコンパイルを再現し、証明された定理がMathlibに収録されたリーマン予想の記述と一致することを2つの独立したツールで確認した。英インペリアルカレッジロンドンのケビン・バザード氏が事前に示した4つの評価基準もすべて満たしたという。ただし数学者が読める形の論文はまだ公開されておらず、形式証明から生成した文書は25万ページを超え、今後は新しい考え方を人間が理解し説明する作業が必要とされる。なお2026年8月にAnthropicはリーマン予想の零点に関する下限値を引き上げたと発表、10月には米OpenAIが関連する弱い命題の証明などを公開しており、今回はこれらに続く進展にあたる。
+
+出典: [ITmedia NEWS](https://www.itmedia.co.jp/news/article/2611/22/2000003388/), [Lean Community(Mathlib共同声明)](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/)
+
+## Rackspace Spotで不正アクセス、KubernetesのSecretが読み取られる被害
+
+クラウドサービス「Rackspace Spot」が不正アクセスを受け、攻撃者が一部の顧客組織でKubernetesクラスタ内のSecretを読み取れる状態になっていたことが分かった。
+
+セキュリティインシデント・脆弱性案件(本日1件目、最大3件枠)。侵入は2026年11月17日に発生し、Rackspaceは顧客からの報告を受けて18日に把握したとしている。攻撃者は流出した認証情報を使ってRackspace Spotの一部にアクセスし、正規ユーザーになりすましてPodの作成、Secretの読み取り、ノードとボリュームの一覧表示が可能だったという。影響を受けたクラスタ内の全Secretが読まれた可能性があり、パスワードやAPIキーなどを使った不正アクセスに悪用される恐れがある。Rackspaceは影響を受けたトークンとセッションの無効化、不正なPodの削除、鍵のローテーションなどを実施し、復旧は11月21日に完了したと発表した。顧客にはAPIトークンの再発行やクラスタSecretのローテーション、11月17日以降のログ点検を求めている。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/)
+
+## Microsoft Entra Connect Healthの脆弱性が悪用され、管理者メールやテナント情報が流出
+
+Microsoftは、オンプレミスID基盤を監視するクラウドサービス「Entra Connect Health」のAPIにあった脆弱性が悪用され、管理者のメールアドレスやテナント構成情報に不正アクセスされたと発表した。
+
+セキュリティインシデント・脆弱性案件(本日2件目、最大3件枠)。脆弱性は2026年7月23日に導入され、Microsoftが発見したのは11月9日。調査により実際に悪用されていたことが判明したが、アクセスは読み取り専用で構成変更は確認されていないという。漏えいした可能性があるのはテクニカルコンタクトや管理者のメールアドレス、テナントID・表示名・初期ドメイン名・国コード、Entraのライセンス種別やディレクトリ同期状態など。一方でパスワードやパスワードハッシュ、認証トークン、暗号鍵、オンプレミスのActive Directory構成情報などは漏えいしていないとしている。Microsoftは11月19日に修正を展開し、20日に調査を完了して影響を受けた組織への通知を開始した。顧客側での追加対応は不要としつつ、漏えいした管理者メールを狙ったフィッシングへの警戒や特権アカウントでのフィッシング耐性のある多要素認証の利用を推奨している。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/)
+
+## FBI、2カ月で2度目の侵入か 全米警察データベース「NCIC」が標的との報道
+
+FBIのシステムが2カ月で2度目となる侵入を受けたと報じられており、今回は指名手配者や盗難車両などの情報を扱う全米データベース「NCIC」が標的だったとされる。
+
+セキュリティインシデント・脆弱性案件(本日3件目、最大3件枠)。CNNが捜査関係者2人の話として報じたもので、FBIは侵入の疑いを調査中としている。侵入は直近数日以内に発見されたとされるが、発生時期や侵入手法は不明。攻撃者が捜査記録にアクセスしたか、情報が盗まれたかも確認されていない。FBIは侵入を公式には認めておらず、報道機関の取材にも応じていない。約2カ月前には恐喝グループShinyHuntersが未修正のOracle PeopleSoftの脆弱性を突き、採用サイト関連のサードパーティ基盤に侵入したと主張していたが、今回のNCIC侵入との関連を示す兆候は現時点でないとされる。報道ベースの未確認情報である点には注意が必要。
+
+出典: [BleepingComputer](https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/)
+
+## Cloudflare Radar「Zero Wire」、公開済み全CVEに個別ページを追加
+
+Cloudflareは、脆弱性情報サイト「Zero Wire」に、公開されている全てのCVEを対象にした個別ページを追加した。
+
+開発ツール・言語・OSS動向案件。Zero Wireは2026年11月3日に公開されたサービスで、当初はインターネットに公開するサービスやその基盤ソフトウェアの重大な脆弱性をCloudflareが選んで解説記事として取り上げていた。11月20日に追加された個別ページでは、解説記事がないCVEも含めてCVE IDや製品名で検索でき、修正版の有無、提供元の説明と対象バージョン、CISAのKnown Exploited Vulnerabilitiesへの掲載状況やランサムウェアでの既知の利用、SSVC・EPSSの推定値、CVSSスコアの詳細、回避策などを一覧できる。新着CVEをRSS/Atom/JSON形式で深刻度別に追えるフィードも備える。記事ではNGINXのHTTP/2脆弱性(CVE-2026-123007、CVSS 4.0で9.2)を例に機能を紹介している。
+
+出典: [gihyo.jp](https://gihyo.jp/article/2026/11/cloudflare-zero-wire-cve-pages)
+
+## Signal、AIエージェントによる画面読み取り対策でモバイル版のスクリーンショット制限を追加
+
+Signalは、モバイル版(iOS・Android)アプリにAIによるスクリーンショット撮影を制限するオプションを追加した。Windows版では2025年5月から同様の制限を導入している。
+
+新技術紹介案件。背景にあるのは、OSに深く組み込まれたAIエージェント(Windowsの「Recall」機能やGoogleのGemini、AppleのSiri AIなど)が画面表示やファイルシステム上のデータにアクセスできるようになり、アプリの暗号化による保護が及ばなくなるおそれがあるという懸念だ。Signalは設定からこの制限を無効化できるが、無効化すると自分や連絡先のSignalの内容がAIエージェントに読み取られる可能性があるとしている。同社はスクリーンショット制限だけでは対策が不完全だとも認めており、「これはSignalにとって存亡の危機」だと表現。開発者がアプリの基本機能を損なわずにAIによるデータアクセスからアプリを除外できる仕組みの提供と、OSベンダーによるAIエージェントのデータアクセスに関する詳細な技術仕様の公開を求めている。
+
+出典: [GIGAZINE](https://gigazine.net/news/20261122-signal-restricts-mobile-screenshots-threat-ai-surveillance/)
+
+## 今日のTips: StrictModeの開発時、useEffectは`setup→cleanup→setup`の順で1回多く実行される
+
+Reactの`<StrictMode>`を使っていると、開発時のみすべての`useEffect`に対して「セットアップ→クリーンアップ→セットアップ」という追加の1サイクルが実行される。コンポーネント自体がアンマウント・再マウントされるわけではなく、Effectのセットアップとクリーンアップが余分に1回ずつ呼ばれる点がポイントだ。
+
+```ts
+useEffect(() => {
+  const connection = createConnection(serverUrl, roomId);
+  connection.connect();
+  return () => connection.disconnect();
+}, [roomId]);
+```
+
+<Tip>クリーンアップ関数が無いと、StrictMode下では接続が2回作られて1回も破棄されずコンソールの接続数が増え続ける。この挙動は実装の不備(クリーンアップ漏れ)を開発時に気づかせるための仕組みで、本番ビルドには影響しない。</Tip>
+
+参考: [`<StrictMode>` – React Docs](https://react.dev/reference/react/StrictMode)
